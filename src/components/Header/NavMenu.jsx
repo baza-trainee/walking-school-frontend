@@ -1,13 +1,14 @@
 import React from "react";
+import style from "./header.module.scss";
 
 const NavMenu = () => {
   return (
     <>
-      <ul>
-        <li>Проєкти</li>
-        <li>Галерея</li>
-        <li>Контакти</li>
-      </ul>
+      <div className={style.list}>
+        <a href="#projects">Проєкти</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contacts">Контакти</a>
+      </div>
       <button>Підтримати</button>
     </>
   );

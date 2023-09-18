@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./header.module.scss";
 import { useMedia } from "../../hooks/useMedia";
 import Burger from "./Burger";
@@ -8,29 +8,49 @@ const Header = () => {
   const { isDesktop } = useMedia();
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <header>
-      <div className={style.main}>
-        <div className={style.main__logo}>
-          <img src="/images/header/logo-sm.svg" alt="" />
-        </div>
-        {isDesktop ? (
-          <nav className={style.main__menu}>
-            <NavMenu />
-          </nav>
-        ) : (
-          <div onClick={() => setIsOpen(!isOpen)}>
-            <img src="/images/header/open.svg" alt={"menu toggle"} />
-          </div>
-        )}
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
-        {isOpen && (
-          <nav className={style.main__dropdown}>
-            <NavMenu />
-          </nav>
-        )}
-      </div>
-    </header>
+  return (
+    <div className={style.wrapper}>
+      <header>
+        <div className={style.main}>
+          <div className={style.main__logo}>
+            <img src="/images/header/logo-sm.svg" alt="" />
+          </div>
+          {isDesktop ? (
+            <nav className={style.main__menu}>
+              <NavMenu />
+            </nav>
+          ) : (
+            <>
+              <div onClick={() => setIsOpen(!isOpen)}>
+                <img
+                  src={
+                    isOpen
+                      ? "/images/header/close.svg"
+                      : "/images/header/open.svg"
+                  }
+                  alt={"menu toggle"}
+                />
+              </div>
+              <nav
+                className={`${style.main__dropdown} ${
+                  isOpen ? style.open : ""
+                }`}
+              >
+                <NavMenu />
+              </nav>
+            </>
+          )}
+        </div>
+      </header>
+    </div>
   );
 };
 
