@@ -8,6 +8,7 @@ button {
   font-weight: 600;
   font-style: normal;
   cursor: pointer;
+  border: inherit;
 
   &.large {
     height: 56px;
@@ -15,6 +16,7 @@ button {
     flex-shrink: 0;
     font-size: 20px;
     line-height: 20px;
+    text-align: center;
 
     &:hover {
       height: 64px;
@@ -59,16 +61,18 @@ button {
     color: #5d5a88;
     font-size: 20px;
     line-height: 20px;
-    border: inherit;
     gap: 8px;
 
     &:hover {
       background: #918fb0;
     }
 
+    &:active {
+      background: #918fb0;
+    }
+
     &:disabled {
       background: inherit;
-      border: inherit;
       color: #94949f;
       pointer-events: none;
     }

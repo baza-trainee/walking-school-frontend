@@ -5,7 +5,7 @@ const Button = ({
   variant = "large",
   className,
   children,
-  disabled,
+  disabled = false,
   ...props
 }) => {
   const variantClass = {
@@ -25,10 +25,14 @@ const Button = ({
       {...props}
     >
       {children}
-      {variant === "tertiary" && disabled ? (
-        <img src="/images/btn_arrow_disabled.svg" alt={"arrow"} />
+      {variant === "tertiary" ? (
+        disabled ? (
+          <img src="/images/btn_arrow_disabled.svg" alt={"arrow"} />
+        ) : (
+          <img src="/images/btn_arrow.svg" alt={"arrow"} />
+        )
       ) : (
-        <img src="/images/btn_arrow.svg" alt={"arrow"} />
+        ""
       )}
     </button>
   );
