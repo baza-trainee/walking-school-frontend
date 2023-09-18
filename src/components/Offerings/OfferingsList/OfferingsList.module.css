@@ -1,0 +1,7 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: "Bahnschrift", sans-serif;
+  margin-bottom: 16px;
+}
