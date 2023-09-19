@@ -1,5 +1,5 @@
 import React from "react";
-import AdventureBlock from "./adventure-block/adventure-block";
+import Adventure from "./Adventure-block/Adventure";
 import Bungee from "../../assets/icons/BungeeJumping.svg";
 import FlySpot from "../../assets/icons/FlySpot.svg";
 import Parachuting from "../../assets/icons/Parachuting.svg";
@@ -12,13 +12,13 @@ import style from "./adventure-blocks.module.css";
  *
  * @returns {React.JSX.Element} a wrapper for a collection of adventure block cards with specified content
  */
-export default function AdventureBlocks() {
+export default function Adventures() {
   return (
     <div className={style.container}>
-      <AdventureBlock imageSrc={FlySpot} text="FlySpot" />
-      <AdventureBlock imageSrc={Bungee} text="Банджі джампінг" />
-      <AdventureBlock imageSrc={Parachuting} text="Стрибки з парашутом" />
-      <AdventureBlock imageSrc={SkyWalk} text="SkyWalk" />
+      <Adventure imageSrc={FlySpot} text="FlySpot" />
+      <Adventure imageSrc={Bungee} text="Банджі джампінг" />
+      <Adventure imageSrc={Parachuting} text="Стрибки з парашутом" />
+      <Adventure imageSrc={SkyWalk} text="SkyWalk" />
     </div>
   );
 }
