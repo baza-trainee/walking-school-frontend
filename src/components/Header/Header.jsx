@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./header.module.scss";
+import style from "./header.module.css";
 import { useMedia } from "../../hooks/useMedia";
 import Burger from "./Burger";
 import NavMenu from "./NavMenu";
