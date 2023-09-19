@@ -1,8 +1,12 @@
 import "./App.module.css";
-import Button from "./components/Button/Button";
+import ProjectSection from "./components/ProjectSection/ProjectSection";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <ProjectSection />
+    </div>
+  );
 }
 
 export default App;
