@@ -6,7 +6,12 @@ import Parachuting from "../../assets/icons/Parachuting.svg"
 import SkyWalk from "../../assets/icons/SkyWalk.svg"
 import style from "./adventure-blocks.module.css"
 
-
+/**
+ * A collection of adventure blocks displaying activities
+ * @component
+ * 
+ * @returns {React.JSX.Element} a wrapper for a collection of adventure block cards with specified content
+ */
 export default function AdventureBlocks() {
     return (
         <div className={style.container}>
