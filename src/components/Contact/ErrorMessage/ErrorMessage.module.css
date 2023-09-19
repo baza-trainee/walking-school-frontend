@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+.error {
+  padding-left: 21px;
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-size: 18px;
+  color: #f00631;
+  margin-top: 3px;
+}

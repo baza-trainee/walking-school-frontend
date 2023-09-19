@@ -4,6 +4,7 @@ import { Scroller } from "./components/Scroller/Scroller";
 import { Offerings } from "./components/Offerings/Offerings";
 import ProjectSection from "./components/ProjectSection/ProjectSection";
 import "./App.module.css";
+import { Contact } from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Offerings />
       <Scroller />
       <ProjectSection />
+      <Contact />
     </div>
   );
 }
