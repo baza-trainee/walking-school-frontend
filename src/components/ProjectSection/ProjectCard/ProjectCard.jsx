@@ -3,7 +3,7 @@ import style from "./card.module.css";
 import Link from "../../Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 
-const ProjectCard = () => {
+const ProjectCard = ({ image, title, dates, age, description }) => {
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <div className={style.card}>
@@ -28,27 +28,21 @@ const ProjectCard = () => {
             )}
           </clipPath>
         </svg>
-        <img
-          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
-          alt=""
-        />
+        <img src={image} alt={title} />
       </div>
       <div className={style.date}>
         <img src="/images/calendar.svg" alt="calendar" />
-        вересень - листопад
+        {dates}
       </div>
       <div className={style.info}>
         <div className={style.data}>
-          <h3>FlySport</h3>
+          <h3>{title}</h3>
           <div className={style.data__age}>
             <img src="/images/age.svg" alt="age" />
-            <p>18-60 років</p>
+            <p>{age} років</p>
           </div>
           <div>
-            <p className={style.data__description}>
-              політ у колбі під потоком вітру який бʼє знизу, з інструктором
-              політ у колбі під потоком вітру який бʼє знизу, з інструктором
-            </p>
+            <p className={style.data__description}>{description}</p>
           </div>
         </div>
         <div className={style.join}>

@@ -39,6 +39,20 @@
   line-height: 150%;
 }
 
+.swiperContainer {
+  overflow-y: visible !important;
+  width: 100% !important;
+}
+
+.myArrow {
+  color: #52ed7e !important;
+  top: 122px !important;
+}
+
+.myArrow:after {
+  font-size: 22px !important;
+}
+
 @media screen and (min-width: 768px) {
   .projects {
     padding: 40px 24px;
@@ -49,6 +63,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
+    width: 720px;
   }
 
   .projects__title h2 {
@@ -69,6 +84,9 @@
     padding: 60px 150px;
   }
 
+  .projects__title {
+    width: 1140px;
+  }
   .projects__title h2 {
     font-size: 48px;
     width: 563px;
