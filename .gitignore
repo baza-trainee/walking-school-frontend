@@ -3,3 +3,5 @@ node_modules
 src/components/Container/Container.jsx
 src/components/Container/Container.module.css
 src/components/Container/index.jsx
+src/components/Container/Container.jsx
+src/components/Container/index.jsx
