@@ -12,7 +12,7 @@ import style from "./adventure-blocks.module.css";
  *
  * @returns {React.JSX.Element} a wrapper for a collection of adventure block cards with specified content
  */
-export default function Adventures() {
+const Adventures = () => {
   return (
     <div className={style.container}>
       <Adventure imageSrc={FlySpot} text="FlySpot" />
@@ -22,3 +22,5 @@ export default function Adventures() {
     </div>
   );
 }
+
+export default Adventures;
