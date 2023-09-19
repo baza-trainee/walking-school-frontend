@@ -1,3 +1,3 @@
-import AdventureBlocks from "./adventure-blocks"
+import AdventureBlocks from "./adventure-blocks";
 
-export default AdventureBlocks
+export default AdventureBlocks;
