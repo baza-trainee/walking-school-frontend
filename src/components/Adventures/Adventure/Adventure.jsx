@@ -14,7 +14,7 @@ import style from "./adventure.module.css";
  * )
  * @returns {React.JSX.Element} react element with specified data
  */
-export default function Adventure(props) {
+const Adventure = props => {
   const { imageSrc, imageAlt, text } = props;
   return (
     <div className={style.card}>
@@ -40,3 +40,5 @@ Adventure.propTypes = {
    */
   text: PropTypes.string.isRequired,
 };
+
+export default Adventure;
