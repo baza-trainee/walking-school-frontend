@@ -1,6 +1,6 @@
 .container {
-    box-sizing: border-box;
-    width: 100%;
-    height: fit-content;
-    background-color: aqua;
+  box-sizing: border-box;
+  width: 100%;
+  height: fit-content;
+  background-color: aqua;
 }
