@@ -1,0 +1,13 @@
+.title {
+  color: #1d1e25;
+  font-size: 36px;
+  line-height: 120%;
+  font-family: "Bahnschrift", sans-serif;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-family: "DM Sans", sans-serif;
+  color: #7e8492;
+}
