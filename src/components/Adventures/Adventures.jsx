@@ -7,6 +7,15 @@ import Parachuting from "../../assets/icons/Parachuting.svg";
 import SkyWalk from "../../assets/icons/SkyWalk.svg";
 import style from "./adventures.module.css";
 
+const cards = [
+  {image: FlySpot, alt: "parachute icon", text: "FlySpot"},
+  {image: Bungee, alt: "a man jumping with a bungee rope", text: "Банджі джампінг"}, 
+  {image: Parachuting, alt: "a man performing parachute jumping", text: "Стрибки з парашутом"}, 
+  {image: SkyWalk, alt: "a man climbing upward", text: "SkyWalk"}]
+
+const cardCollection = cards.map((card) => 
+  <Adventure imageSrc={card.image} imageAlt={card.alt} text={card.text} />
+);
 /**
  * A collection of adventure blocks displaying activities
  * @component
@@ -17,10 +26,7 @@ const Adventures = () => {
   return (
     <Container>
       <div className={style.container}>
-        <Adventure imageSrc={FlySpot} text="FlySpot" />
-        <Adventure imageSrc={Bungee} text="Банджі джампінг" />
-        <Adventure imageSrc={Parachuting} text="Стрибки з парашутом" />
-        <Adventure imageSrc={SkyWalk} text="SkyWalk" />
+        {cardCollection}
     </div>
     </Container>
   );
