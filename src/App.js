@@ -1,4 +1,5 @@
 import "./App.module.css";
+import Button from "./components/Button/Button";
 
 function App() {
   return <div></div>;
