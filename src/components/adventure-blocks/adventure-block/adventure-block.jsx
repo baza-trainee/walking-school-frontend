@@ -12,7 +12,7 @@ import style from "./adventure-block.module.css"
  * return (
  *     <AdventureBlock imageSrc={image} imageAlt={altText} text={text} />
  * )
- * @returns 
+ * @returns {React.JSX.Element} react element with specified data
  */
 export default function AdventureBlock(props) {
     const {imageSrc, imageAlt, text} = props
