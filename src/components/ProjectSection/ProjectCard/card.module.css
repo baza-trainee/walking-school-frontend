@@ -92,5 +92,71 @@
   font-weight: 500;
 }
 
-.join {
+@media screen and (min-width: 767px) {
+  .card {
+    width: 352px;
+  }
+
+  .card__image {
+    height: 255px;
+  }
+
+  .card__image img {
+    width: 352px;
+    height: 255px;
+  }
+
+  .date {
+    left: 131px;
+  }
+
+  .info {
+    padding: 32px 16px 24px 16px;
+  }
+
+  .data h3 {
+    height: 76px;
+    font-size: 24px;
+    line-height: 38px;
+  }
+
+  .data__description {
+    font-size: 18px;
+  }
+
+  .join {
+  }
+
+  .join__link {
+    width: 162px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    width: 367px;
+  }
+
+  .card__image {
+    height: 288px;
+  }
+
+  .card__image img {
+    width: 367px;
+    height: 288px;
+  }
+
+  .date {
+    left: 126px;
+    width: 241px;
+  }
+
+  .info {
+    margin-top: -24px;
+    padding: 48px 16px 24px 16px;
+  }
+
+  .join__link {
+    width: 173px;
+  }
 }

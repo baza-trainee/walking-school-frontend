@@ -1,4 +1,5 @@
 .link {
+  font-family: Bahnschrift;
   background: #5d5a88;
   border-radius: 24px;
   display: flex;
@@ -22,6 +23,7 @@
   font-size: 20px;
   line-height: 20px;
   text-align: center;
+  transition: transform 0.2s ease;
 }
 
 .large:hover {
@@ -43,10 +45,16 @@
   flex-shrink: 0;
   font-size: 18px;
   line-height: 18px;
+  transition: transform 0.2s ease;
 }
 
 .small:hover {
-  height: 56px;
+  transform: scaleY(1.16);
+}
+
+.small:hover a {
+  transform: scaleY(0.8621);
+  transition: transform 0.1s ease;
 }
 
 .small:active {
