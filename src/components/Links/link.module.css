@@ -1,0 +1,91 @@
+.link {
+  font-family: Bahnschrift;
+  background: #5d5a88;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  cursor: pointer;
+  border: inherit;
+}
+
+.link a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.large {
+  height: 56px;
+  padding: 18px 24px;
+  flex-shrink: 0;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.large:hover {
+  height: 64px;
+}
+
+.large:active {
+  background: #433f71;
+}
+
+.large:disabled {
+  background: rgba(153, 153, 153, 0.6);
+  border: inherit;
+  pointer-events: none;
+}
+
+.small {
+  height: 48px;
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.small:hover {
+  transform: scaleY(1.16);
+}
+
+.small:hover a {
+  transform: scaleY(0.8621);
+  transition: transform 0.1s ease;
+}
+
+.small:active {
+  background: #433f71;
+}
+
+.small:disabled {
+  background: #94949f;
+  border: inherit;
+  pointer-events: none;
+}
+
+.tertiary {
+  padding: 14px 18px;
+  background-color: inherit;
+  color: #5d5a88;
+  font-size: 20px;
+  line-height: 20px;
+  gap: 8px;
+}
+
+.tertiary:hover {
+  background: #918fb0;
+}
+
+.tertiary:active {
+  background: #918fb0;
+}
+
+.tertiary:disabled {
+  background: inherit;
+  color: #94949f;
+  pointer-events: none;
+}
