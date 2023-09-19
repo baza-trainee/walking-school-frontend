@@ -4,6 +4,7 @@ import ProjectCard from "./ProjectCard/ProjectCard";
 import { useMedia } from "../../hooks/useMedia";
 import Button from "../Button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
+// eslint-disable-next-line no-unused-vars
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";

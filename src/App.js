@@ -8,10 +8,10 @@ import "./App.module.css";
 function App() {
   return (
     <div>
-      <ProjectSection />
       <Header />
       <Offerings />
       <Scroller />
+      <ProjectSection />
     </div>
   );
 }
