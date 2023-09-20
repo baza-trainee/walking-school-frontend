@@ -1,21 +1,26 @@
-import Header from "./components/Header/Header";
-// import Button from "./components/Button/Button";
-import { Scroller } from "./components/Scroller/Scroller";
-import { Offerings } from "./components/Offerings/Offerings";
-import ProjectSection from "./components/ProjectSection/ProjectSection";
+import Header from "./components/layout/Header/Header";
+import Main from "./components/layout/Main/Main";
+
 import "./App.module.css";
-import { Contact } from "./components/Contact/Contact";
 
 function App() {
   return (
     <div>
       <Header />
-      <Offerings />
-      <Scroller />
-      <ProjectSection />
-      <Contact />
+      <Main />
     </div>
   );
 }
 
 export default App;
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /* <Header></Header>
+<Routes>
+  <Route path="/" element={<Main />} exact />
+  <Route path="/gallery" element={<Gallery />} exact />
+  <Route path="/*" element={<NotFoundPage />} exact />
+</Routes>
+<Footer /> */
+}

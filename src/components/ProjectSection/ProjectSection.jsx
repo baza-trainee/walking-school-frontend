@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import style from "./projects.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { useMedia } from "../../hooks/useMedia";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 // eslint-disable-next-line no-unused-vars
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
