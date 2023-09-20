@@ -43,11 +43,13 @@
 .swiperContainer {
   overflow-y: visible !important;
   width: 100% !important;
+  text-rendering: auto;
 }
 
 .myArrow {
   color: #52ed7e !important;
   top: 122px !important;
+  z-index: 3;
 }
 
 .myArrow:after {
