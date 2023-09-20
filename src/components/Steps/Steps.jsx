@@ -2,13 +2,14 @@ import React from "react";
 import style from "./steps.module.css";
 
 const Steps = ({ steps, labels }) => {
+  const stepArray = Array.from({ length: steps }, (_, i) => i + 1);
   return (
-    <div className={style.steps}>
-      {Array.from({ length: steps }).map((_, index) => (
-        <div className={style["step-container"]}>
-          <div className={style.step}>{index + 1}</div>
-          <span className={style["step-label"]}>{labels[index]}</span>
-          {index < steps - 1 && <div className={style.line}></div>}
+    <div className={style["steps-container"]}>
+      <div className={style["progress-line"]}></div>
+      {stepArray.map((step, index) => (
+        <div key={index} className={style.step}>
+          <div className={style.circle}>0{step}</div>
+          {labels && <h3 className={style.label}>{labels[index]}</h3>}
         </div>
       ))}
     </div>

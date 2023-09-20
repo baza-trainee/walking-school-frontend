@@ -8,7 +8,9 @@ const ParticipateSection = () => {
     <Container>
       <div className={style.participate}>
         <div className={style.participate__title}>
-          <h2>Як взяти участь</h2>
+          <div>
+            <h2>Як взяти участь</h2>
+          </div>
           <p>
             Спробую навчити Вас ходити у незвичних умовах, та всьому що сам
             знаю. Ми вчитемося ходити у Польських Татрах{" "}
