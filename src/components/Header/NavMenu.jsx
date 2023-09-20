@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./header.module.css";
+import Link from "../Links/Link";
 
 const NavMenu = () => {
   return (
@@ -9,7 +10,11 @@ const NavMenu = () => {
         <a href="#gallery">Галерея</a>
         <a href="#contacts">Контакти</a>
       </div>
-      <button>Підтримати</button>
+      <div className={style.btn}>
+        <Link to={"/"} variant={"small"}>
+          Підтримати
+        </Link>
+      </div>
     </>
   );
 };
