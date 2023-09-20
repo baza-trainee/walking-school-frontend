@@ -1,13 +1,11 @@
 import React from "react";
-import style from "./link.module.css";
+import style from "./button.module.css";
 
-const Link = ({
+const Button = ({
   variant = "large",
   className,
   children,
   disabled = false,
-  type = "navLink",
-  to,
   ...props
 }) => {
   const variantClass = {
@@ -18,8 +16,16 @@ const Link = ({
 
   const strokeColor = disabled ? "#94949F" : "#5D5A88";
 
-  const childrenData = (
-    <>
+  return (
+    <button
+      className={
+        `${variantClass[variant]} ${disabled ? " disabled" : ""}` +
+        " " +
+        className
+      }
+      disabled={disabled}
+      {...props}
+    >
       {children}
       {variant === "tertiary" ? (
         <svg
@@ -47,24 +53,8 @@ const Link = ({
       ) : (
         ""
       )}
-    </>
-  );
-
-  return (
-    <div
-      className={
-        `${variantClass[variant]} ${style.link} ${
-          disabled ? " disabled" : ""
-        }` +
-        " " +
-        className
-      }
-    >
-      <a href={to} {...props}>
-        {childrenData}
-      </a>
-    </div>
+    </button>
   );
 };
 
-export default Link;
+export default Button;

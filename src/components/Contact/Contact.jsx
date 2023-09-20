@@ -1,4 +1,4 @@
-import Container from "../Container/Container";
+import Container from "../layout/Container/Container";
 import { TitleTemplate } from "../TitleTemplate/TitleTemplate";
 import styles from "./Contact.module.css";
 import { ContactForm } from "./ContactForm/ContactForm";

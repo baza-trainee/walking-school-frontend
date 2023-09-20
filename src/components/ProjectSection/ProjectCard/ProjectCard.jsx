@@ -2,8 +2,10 @@ import React from "react";
 import style from "./card.module.css";
 import Link from "../../Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
-
+import Age from "../../../assets/img/project/age.svg";
+import Calendar from "../../../assets/img/project/calendar.svg";
 const ProjectCard = ({ image, title, dates, age, description }) => {
+  // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <div className={style.card}>
@@ -31,14 +33,14 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
         <img src={image} alt={title} />
       </div>
       <div className={style.date}>
-        <img src="/images/calendar.svg" alt="calendar" />
+        <img src={Calendar} alt="calendar" />
         {dates}
       </div>
       <div className={style.info}>
         <div className={style.data}>
           <h3>{title}</h3>
           <div className={style.data__age}>
-            <img src="/images/age.svg" alt="age" />
+            <img src={Age} alt="age" />
             <p>{age} років</p>
           </div>
           <div>
@@ -46,7 +48,7 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
           </div>
         </div>
         <div className={style.join}>
-          <Link to={"/dfdfdfdf"} variant={"small"} className={style.join__link}>
+          <Link to={"/"} variant={"small"} className={style.join__link}>
             Взяти участь
           </Link>
         </div>
