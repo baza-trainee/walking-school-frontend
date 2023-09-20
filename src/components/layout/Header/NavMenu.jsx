@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./header.module.css";
-import Link from "../Links/Link";
+import Link from "../../Links/Link";
 
 const NavMenu = () => {
   return (

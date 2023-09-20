@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import style from "./header.module.css";
-import { useMedia } from "../../hooks/useMedia";
 import NavMenu from "./NavMenu";
-import Logo from "../../assets/img/header/logo-sm.svg";
-import CloseIcon from "../../assets/img/header/close.svg";
-import OpenIcon from "../../assets/img/header/open.svg";
+import { useMedia } from "../../../hooks/useMedia";
+import Logo from "../../../assets/img/header/logo-sm.svg";
+import CloseIcon from "../../../assets/img/header/close.svg";
+import OpenIcon from "../../../assets/img/header/open.svg";
 
 const Header = () => {
   const { isDesktop } = useMedia();
