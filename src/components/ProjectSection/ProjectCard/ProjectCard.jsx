@@ -5,6 +5,7 @@ import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/img/project/age.svg";
 import Calendar from "../../../assets/img/project/calendar.svg";
 const ProjectCard = ({ image, title, dates, age, description }) => {
+  // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <div className={style.card}>

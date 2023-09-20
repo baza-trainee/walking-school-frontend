@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import style from "./projects.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { useMedia } from "../../hooks/useMedia";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
