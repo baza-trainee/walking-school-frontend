@@ -23,7 +23,7 @@ const cards = [
 ];
 
 const cardCollection = cards.map((card) => (
-  <Adventure imageSrc={card.image} imageAlt={card.alt} text={card.text} />
+  <Adventure key={card.text} imageSrc={card.image} imageAlt={card.alt} text={card.text} />
 ));
 /**
  * A collection of adventure blocks displaying activities
