@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "../Container";
 import style from "./participate.module.css";
 import Steps from "../Steps/Steps";
+import Container from "../layout/Container";
 
 const ParticipateSection = () => {
   return (
