@@ -32,6 +32,7 @@
 
 .large:active {
   background: #433f71;
+  height: 56px;
 }
 
 .large:disabled {
