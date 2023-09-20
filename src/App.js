@@ -1,9 +1,9 @@
 import Header from "./components/Header/Header";
-// import Button from "./components/Button/Button";
 import { Scroller } from "./components/Scroller/Scroller";
 import { Offerings } from "./components/Offerings/Offerings";
 import ProjectSection from "./components/ProjectSection/ProjectSection";
 import "./App.module.css";
+import ParticipateSection from "./components/ParticipateSection/ParticipateSection";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Offerings />
       <Scroller />
       <ProjectSection />
+      <ParticipateSection />
     </div>
   );
 }
