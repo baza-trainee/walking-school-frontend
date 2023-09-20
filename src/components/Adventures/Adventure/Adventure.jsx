@@ -14,7 +14,7 @@ import style from "./adventure.module.css";
  * )
  * @returns {React.JSX.Element} react element with specified data
  */
-const Adventure = props => {
+const Adventure = (props) => {
   const { imageSrc, imageAlt, text } = props;
   return (
     <div className={style.card}>
@@ -24,7 +24,7 @@ const Adventure = props => {
       </div>
     </div>
   );
-}
+};
 
 Adventure.propTypes = {
   /**
