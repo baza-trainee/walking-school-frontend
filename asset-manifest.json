@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/walking-school-frontend/static/css/main.c3e03b59.css",
+    "main.js": "/walking-school-frontend/static/js/main.98448b8f.js",
+    "static/js/787.7003ee39.chunk.js": "/walking-school-frontend/static/js/787.7003ee39.chunk.js",
+    "static/media/SkyWalk.svg": "/walking-school-frontend/static/media/SkyWalk.32db13bdc57bdad7d32512ae1f54a798.svg",
+    "static/media/BungeeJumping.svg": "/walking-school-frontend/static/media/BungeeJumping.e97d0d88792aef25b2eb6c386464fcd8.svg",
+    "static/media/Parachuting.svg": "/walking-school-frontend/static/media/Parachuting.52318dcd351527dddb3d822a3c3526c3.svg",
+    "static/media/FlySpot.svg": "/walking-school-frontend/static/media/FlySpot.7d4442f028895d1b002323f5dc6d24f4.svg",
+    "static/media/check-circle-2.svg": "/walking-school-frontend/static/media/check-circle-2.dc3d59f2ec2cbbf09dae9965e128aff3.svg",
+    "index.html": "/walking-school-frontend/index.html",
+    "main.c3e03b59.css.map": "/walking-school-frontend/static/css/main.c3e03b59.css.map",
+    "main.98448b8f.js.map": "/walking-school-frontend/static/js/main.98448b8f.js.map",
+    "787.7003ee39.chunk.js.map": "/walking-school-frontend/static/js/787.7003ee39.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3e03b59.css",
+    "static/js/main.98448b8f.js"
+  ]
+}
