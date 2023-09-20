@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/walking-school-frontend/static/css/main.57536223.css",
+    "main.js": "/walking-school-frontend/static/js/main.46341bfe.js",
+    "static/js/787.7003ee39.chunk.js": "/walking-school-frontend/static/js/787.7003ee39.chunk.js",
+    "static/media/SkyWalk.svg": "/walking-school-frontend/static/media/SkyWalk.32db13bdc57bdad7d32512ae1f54a798.svg",
+    "static/media/BungeeJumping.svg": "/walking-school-frontend/static/media/BungeeJumping.e97d0d88792aef25b2eb6c386464fcd8.svg",
+    "static/media/logo-sm.svg": "/walking-school-frontend/static/media/logo-sm.324a29573adc5ac26361a2605096177b.svg",
+    "static/media/Parachuting.svg": "/walking-school-frontend/static/media/Parachuting.52318dcd351527dddb3d822a3c3526c3.svg",
+    "static/media/FlySpot.svg": "/walking-school-frontend/static/media/FlySpot.7d4442f028895d1b002323f5dc6d24f4.svg",
+    "static/media/calendar.svg": "/walking-school-frontend/static/media/calendar.e29c6f3d5df3ce64294d2f7df8778c59.svg",
+    "static/media/age.svg": "/walking-school-frontend/static/media/age.b857a42183512c701e63aba060ffcf65.svg",
+    "static/media/open.svg": "/walking-school-frontend/static/media/open.e5cf6f419d5ac513f19920acc619f9c1.svg",
+    "static/media/check-circle-2.svg": "/walking-school-frontend/static/media/check-circle-2.dc3d59f2ec2cbbf09dae9965e128aff3.svg",
+    "index.html": "/walking-school-frontend/index.html",
+    "static/media/close.svg": "/walking-school-frontend/static/media/close.03fb8d5191976e3e2e5dc9f1606072f7.svg",
+    "main.57536223.css.map": "/walking-school-frontend/static/css/main.57536223.css.map",
+    "main.46341bfe.js.map": "/walking-school-frontend/static/js/main.46341bfe.js.map",
+    "787.7003ee39.chunk.js.map": "/walking-school-frontend/static/js/787.7003ee39.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57536223.css",
+    "static/js/main.46341bfe.js"
+  ]
+}
