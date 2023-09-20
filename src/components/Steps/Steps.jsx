@@ -13,7 +13,7 @@ const Steps = ({ steps, labels }) => {
           style={{ animationDelay: `${0.9 * (index + 1)}s` }}
         >
           <div className={style.circle}>0{step}</div>
-          {labels && <h3 className={style.label}>{labels[index]}</h3>}
+          {labels && <div className={style.label}>{labels[index]}</div>}
         </div>
       ))}
     </div>
