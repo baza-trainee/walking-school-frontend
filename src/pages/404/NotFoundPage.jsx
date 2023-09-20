@@ -19,7 +19,7 @@ const NotFoundPage = () => {
               Ми не змогли знайти сторінку, яку Ви шукаєте. Можливо, сталася помилка
             </span>
           </div>          
-          <Button />
+          <Button className={style.returnButton} type="button">Повернутись на головну</Button>
         </div>
       </section>
     </Container>
