@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "./adventure-block.module.css";
+import style from "./adventure.module.css";
 
 /**
  * Component card for representing some activity included in the project
@@ -10,11 +10,11 @@ import style from "./adventure-block.module.css";
  * const altText = "a man doing bungee jumping"
  * const text = "bungee jumping"
  * return (
- *     <AdventureBlock imageSrc={image} imageAlt={altText} text={text} />
+ *     <Adventure imageSrc={image} imageAlt={altText} text={text} />
  * )
  * @returns {React.JSX.Element} react element with specified data
  */
-export default function AdventureBlock(props) {
+const Adventure = (props) => {
   const { imageSrc, imageAlt, text } = props;
   return (
     <div className={style.card}>
@@ -24,9 +24,9 @@ export default function AdventureBlock(props) {
       </div>
     </div>
   );
-}
+};
 
-AdventureBlock.propTypes = {
+Adventure.propTypes = {
   /**
    * source of the displayed image
    */
@@ -40,3 +40,5 @@ AdventureBlock.propTypes = {
    */
   text: PropTypes.string.isRequired,
 };
+
+export default Adventure;

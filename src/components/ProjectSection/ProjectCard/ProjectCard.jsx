@@ -4,6 +4,7 @@ import Link from "../../Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 
 const ProjectCard = ({ image, title, dates, age, description }) => {
+  // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <div className={style.card}>
