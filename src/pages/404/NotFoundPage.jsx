@@ -4,6 +4,10 @@ import Button from "../../components/UI/Button/Button";
 import Image from "../../assets/images/404.svg";
 import style from "./NotFoundPage.module.css";
 
+/**
+ * A page that is displayed when the page on current address doesn't exist or have been moved
+ * @returns {React.JSX.Element}
+ */
 const NotFoundPage = () => {
   return (
     <Container>
