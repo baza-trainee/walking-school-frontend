@@ -13,14 +13,3 @@ function App() {
 }
 
 export default App;
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <Header></Header>
-<Routes>
-  <Route path="/" element={<Main />} exact />
-  <Route path="/gallery" element={<Gallery />} exact />
-  <Route path="/*" element={<NotFoundPage />} exact />
-</Routes>
-<Footer /> */
-}
