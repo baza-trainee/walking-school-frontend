@@ -14,6 +14,7 @@
 }
 
 .card__image img {
+  display: inline-block;
   width: 288px;
   height: 196px;
   object-fit: cover;

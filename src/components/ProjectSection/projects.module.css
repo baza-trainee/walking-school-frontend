@@ -78,6 +78,10 @@
     font-size: 18px;
     line-height: 27px;
   }
+
+  .carousel {
+    width: 720px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -99,5 +103,9 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+  }
+
+  .carousel {
+    width: 1141px;
   }
 }
