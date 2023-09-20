@@ -38,16 +38,16 @@ const Button = ({
           <path
             d="M4.25 9H14.75"
             stroke={strokeColor}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M9.5 3.75L14.75 9L9.5 14.25"
             stroke={strokeColor}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       ) : (
