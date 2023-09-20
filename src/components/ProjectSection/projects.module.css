@@ -10,6 +10,7 @@
   gap: 32px;
   align-items: center;
   background: #f9f9ff;
+  margin-top: 100px;
 }
 
 .projects__title {
@@ -42,11 +43,13 @@
 .swiperContainer {
   overflow-y: visible !important;
   width: 100% !important;
+  text-rendering: auto;
 }
 
 .myArrow {
   color: #52ed7e !important;
   top: 122px !important;
+  z-index: 3;
 }
 
 .myArrow:after {
@@ -77,6 +80,10 @@
     font-size: 18px;
     line-height: 27px;
   }
+
+  .carousel {
+    width: 720px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -98,5 +105,9 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+  }
+
+  .carousel {
+    width: 1141px;
   }
 }
