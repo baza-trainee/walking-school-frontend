@@ -7,7 +7,11 @@ const Steps = ({ steps, labels }) => {
     <div className={style["steps-container"]}>
       <div className={style["progress-line"]}></div>
       {stepArray.map((step, index) => (
-        <div key={index} className={style.step}>
+        <div
+          key={index}
+          className={style.step}
+          style={{ animationDelay: `${0.9 * (index + 1)}s` }}
+        >
           <div className={style.circle}>0{step}</div>
           {labels && <h3 className={style.label}>{labels[index]}</h3>}
         </div>
