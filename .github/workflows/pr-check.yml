@@ -1,20 +1,30 @@
-name: PR Check
+name: ci-cd
+
 on:
   push:
-    branches: [main, dev]
+    branches: [master, dev]
+  pull_request:
+    branches: [master, dev]
+  workflow_dispatch:
+
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Starting NodeJS ${{matrix.node-version}}
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{matrix.node-version}}
-      - name: Instaling modules
-        run: npm i
-      - name: Build Project
-        run: npm run build
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install dependencies and npm run build
+        run: npm ci
