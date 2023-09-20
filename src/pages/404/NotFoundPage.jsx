@@ -1,9 +1,9 @@
 import React from "react";
-import Container from "../layout/Container/Container";
-import Button from "../UI/Button/Button";
+import Container from "../../components/layout/Container/Container";
+import Button from "../../components/UI/Button/Button";
 import style from "./NotFoundPage.module.css";
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <Container>
       <section className={style.notFound}>
@@ -26,4 +26,4 @@ const NotFound = () => {
   )
 };
 
-export default NotFound;
+export default NotFoundPage;
