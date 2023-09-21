@@ -1,5 +1,25 @@
 .requirements {
   padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.requirements__heading {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.requirements__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.requirements__image {
+  aspect-ratio: 9/8;
+  width: 100%;
 }
 
 .requirements__list {

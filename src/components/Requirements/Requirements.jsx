@@ -22,9 +22,15 @@ const Requirements = () => {
   return (
     <Container>
       <section className={style.requirements}>
-        <h2>Основні вимоги</h2>
-        <img src="https://picsum.photos/200" alt="insert alt" />
-        <div className={style.requirements__list}>{listElements}</div>
+        <h2 className={style.requirements__heading}>Основні вимоги</h2>
+        <div className={style.requirements__content}>
+          <img
+            className={style.requirements__image}
+            src="https://picsum.photos/200"
+            alt="insert alt"
+          />
+          <div className={style.requirements__list}>{listElements}</div>
+        </div>
       </section>
     </Container>
   );
