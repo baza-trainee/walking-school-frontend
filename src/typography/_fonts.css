@@ -1,0 +1,50 @@
+@font-face {
+  font-family: Oswald;
+  src: url("../assets/fonts/Oswald/Oswald-Medium.ttf");
+}
+
+@font-face {
+  font-family: SansRegular;
+  src: url("../assets/fonts/Source_Sans_3/SourceSans3-Regular.ttf");
+}
+
+@font-face {
+  font-family: SansBold;
+  src: url("../assets/fonts/Source_Sans_3/SourceSans3-Bold.ttf");
+}
+
+@font-face {
+  font-family: SansSemiBold;
+  src: url("../assets/fonts/Source_Sans_3/SourceSans3-SemiBold.ttf");
+}
+
+:root {
+  --h1-ff: Oswald;
+  --h1-fw: 500;
+  --h1-lh: 1.2;
+  --h1-fs-wed: 64px;
+  --h1-fs-tab: 56px;
+  --h1-fs-mob: 48px;
+
+  --h2-ff: Oswald;
+  --h2-fw: 500;
+  --h2-lh: 1.2;
+  --h2-fs-wed: 48px;
+  --h2-fs-tab: 40px;
+  --h2-fs-mob: 32px;
+
+  --h3-ff: Oswald;
+  --h3-fw: 500;
+  --h3-lh: 1.2;
+  --h3-fs: 28px;
+
+  --num-ff: Oswald;
+  --num-fw: 500;
+  --num-lh: 1;
+  --num-fs: 24px;
+
+  --h4-ff: SansBold;
+  --h4-fw: 700;
+  --h4-lh: 1.2;
+  --h4-fs: 28px;
+}

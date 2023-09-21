@@ -1,8 +1,18 @@
+import Header from "./components/layout/Header/Header";
+import Main from "./components/layout/Main/Main";
+
 import "./App.module.css";
-import Button from "./components/Button/Button";
+import { Footer } from "./components/layout/Footer/Footer";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+      {/* <NotFoundPage /> */}
+    </div>
+  );
 }
 
 export default App;
