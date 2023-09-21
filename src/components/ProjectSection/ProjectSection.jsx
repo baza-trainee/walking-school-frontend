@@ -89,11 +89,7 @@ const ProjectSection = () => {
                 />
               </Fragment>
             ))}
-            <Button
-              variant={"tertiary"}
-              disabled={true}
-              style={{ width: "100%" }}
-            >
+            <Button variant={"tertiary"} style={{ width: "100%" }}>
               Дивитись більше
             </Button>
           </div>
