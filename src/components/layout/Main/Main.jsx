@@ -5,6 +5,7 @@ import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
 import styles from "./Main.module.css";
 import ParticipateSection from "../../ParticipateSection/ParticipateSection";
+import { FollowUsFacebook } from "../../FollowUsFacebook/FollowUsFacebook";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
@@ -14,6 +15,7 @@ const Main = () => (
     <Scroller />
     <ProjectSection />
     <ParticipateSection />
+    <FollowUsFacebook />
     <Contact />
   </main>
 );
