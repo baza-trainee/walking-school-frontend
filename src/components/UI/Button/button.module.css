@@ -72,19 +72,26 @@ button:hover:before {
 
 .tertiary {
   padding: 14px 18px;
-  background-color: inherit;
-  color: #5d5a88;
+  background: inherit;
+  color: #1d7d74;
   font-size: 20px;
   line-height: 20px;
   gap: 8px;
 }
 
 .tertiary:hover {
-  background: #918fb0;
+  background: #e3f9f7;
+  color: #1d7d74;
+}
+
+.tertiary:hover,
+button:before {
+  background: #e3f9f7;
 }
 
 .tertiary:active {
-  background: #918fb0;
+  background: #e3f9f7;
+  color: #fff;
 }
 
 .tertiary:disabled {

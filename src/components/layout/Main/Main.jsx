@@ -4,6 +4,7 @@ import { Offerings } from "../../Offerings/Offerings";
 import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
 import styles from "./Main.module.css";
+import { Partners } from "../../Partners/Partners";
 import ParticipateSection from "../../ParticipateSection/ParticipateSection";
 
 const Main = () => (
@@ -13,6 +14,7 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <ProjectSection />
+    <Partners />
     <ParticipateSection />
     <Contact />
   </main>
