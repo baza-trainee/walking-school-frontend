@@ -47,6 +47,11 @@
   line-height: 100%;
 }
 
+.date img {
+  width: 24px;
+  height: 24px;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -62,6 +67,11 @@
   flex-direction: column;
   gap: 16px;
   color: #7e8492;
+}
+
+.data img {
+  width: 24px;
+  height: 24px;
 }
 
 .data,
