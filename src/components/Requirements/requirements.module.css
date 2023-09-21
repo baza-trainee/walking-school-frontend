@@ -1,0 +1,9 @@
+.requirements {
+  padding: 0 5%;
+}
+
+.requirements__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
