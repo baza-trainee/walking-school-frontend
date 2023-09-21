@@ -1,5 +1,5 @@
 .link {
-  font-family: Bahnschrift;
+  font-family: "Source Sans 3", sans-serif;
   background: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
   position: relative;
   border-radius: 24px;
@@ -10,6 +10,12 @@
   cursor: pointer;
   border: inherit;
   transition: all 0.6s ease-in-out;
+  text-decoration: none;
+}
+
+.link div {
+  position: relative;
+  color: #fcfcfc;
 }
 
 .link:before {
@@ -29,14 +35,7 @@
   opacity: 1;
 }
 
-.link a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  z-index: 3;
-}
-
-.large {
+.large div {
   height: 56px;
   padding: 18px 24px;
   flex-shrink: 0;
@@ -44,55 +43,57 @@
   line-height: 20px;
   text-align: center;
   transition: transform 0.2s ease;
+  font-weight: 600;
 }
 
-.large:active {
-  background: #433f71;
-  height: 56px;
-}
-
-.large:disabled {
-  background: rgba(153, 153, 153, 0.6);
+.disabled {
+  background: #747474;
   border: inherit;
   pointer-events: none;
 }
 
-.small {
+.small div {
   height: 48px;
+  padding: 14px 18px;
   flex-shrink: 0;
   font-size: 18px;
   line-height: 18px;
+  font-weight: 700;
 }
 
-.small:active {
-  background: #433f71;
+.tertiary div {
+  padding: 14px 18px;
+  display: flex;
+  background-color: inherit;
+  color: #1d7d74;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  gap: 8px;
+  border-radius: 24px;
 }
 
-.small:disabled {
-  background: #94949f;
-  border: inherit;
+.tertiary:hover div {
+  background: #e3f9f7;
+}
+
+.tertiary-disabled {
   pointer-events: none;
 }
 
-.tertiary {
+.tertiary-disabled div {
   padding: 14px 18px;
-  background-color: inherit;
-  color: #5d5a88;
+  display: flex;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
   line-height: 20px;
   gap: 8px;
-}
-
-.tertiary:hover {
-  background: #918fb0;
-}
-
-.tertiary:active {
-  background: #918fb0;
-}
-
-.tertiary:disabled {
+  border-radius: 24px;
   background: inherit;
-  color: #94949f;
+  color: #747474;
   pointer-events: none;
 }
