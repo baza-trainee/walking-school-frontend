@@ -16,7 +16,7 @@ const Link = ({
     tertiary: style.tertiary,
   };
 
-  const strokeColor = disabled ? "#94949F" : "#5D5A88";
+  const strokeColor = disabled ? "#747474" : "#1D7D74";
 
   const childrenData = (
     <>
@@ -51,19 +51,22 @@ const Link = ({
   );
 
   return (
-    <div
+    <a
+      href={to}
+      {...props}
       className={
-        `${variantClass[variant]} ${style.link} ${
-          disabled ? " disabled" : ""
-        }` +
+        (variant === "tertiary"
+          ? disabled
+            ? `${style["tertiary-disabled"]}`
+            : `${variantClass[variant]}`
+          : `${variantClass[variant]} ${style.link}` +
+            (disabled ? ` ${style.disabled}` : "")) +
         " " +
         className
       }
     >
-      <a href={to} {...props}>
-        {childrenData}
-      </a>
-    </div>
+      <div>{childrenData}</div>
+    </a>
   );
 };
 

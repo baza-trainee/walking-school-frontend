@@ -3,12 +3,7 @@ import style from "./projects.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { useMedia } from "../../hooks/useMedia";
 import Button from "../UI/Button/Button";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import SwiperSlider from "./Carousel/SwiperSlider";
 
 const ProjectSection = () => {
   // eslint-disable-next-line no-unused-vars
@@ -17,7 +12,7 @@ const ProjectSection = () => {
     {
       image:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      title: "FlySport",
+      title: "FlySport 1",
       dates: "вересень - жовтень",
       age: "18-60",
       description:
@@ -26,7 +21,7 @@ const ProjectSection = () => {
     {
       image:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      title: "FlySport",
+      title: "FlySport 2",
       dates: "вересень - жовтень",
       age: "18-60",
       description:
@@ -35,7 +30,7 @@ const ProjectSection = () => {
     {
       image:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      title: "FlySport",
+      title: "FlySport 3",
       dates: "вересень - жовтень",
       age: "18-60",
       description:
@@ -44,7 +39,7 @@ const ProjectSection = () => {
     {
       image:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      title: "FlySport",
+      title: "FlySport 4",
       dates: "вересень - жовтень",
       age: "18-60",
       description:
@@ -53,7 +48,7 @@ const ProjectSection = () => {
     {
       image:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      title: "FlySport",
+      title: "FlySport 5",
       dates: "вересень - жовтень",
       age: "18-60",
       description:
@@ -80,7 +75,7 @@ const ProjectSection = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "20px",
+              gap: "24px",
             }}
           >
             {items?.slice(0, 3).map((item, index) => (
@@ -99,31 +94,7 @@ const ProjectSection = () => {
             </Button>
           </div>
         ) : (
-          <Swiper
-            className={style.swiperContainer}
-            loop={true}
-            modules={[Navigation]}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            }}
-            spaceBetween={isTablet ? 16 : 20}
-            slidesPerView={isTablet ? 2 : 3}
-          >
-            {items?.map((item, index) => (
-              <SwiperSlide key={index}>
-                <ProjectCard
-                  image={item.image}
-                  title={item.title}
-                  dates={item.dates}
-                  age={item.age}
-                  description={item.description}
-                />
-              </SwiperSlide>
-            ))}
-            <div className={`${style.myArrow} swiper-button-next`}></div>
-            <div className={`${style.myArrow} swiper-button-prev`}></div>
-          </Swiper>
+          <SwiperSlider items={items} />
         )}
       </div>
     </section>
