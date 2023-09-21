@@ -4,6 +4,7 @@ import { Offerings } from "../../Offerings/Offerings";
 import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
 import styles from "./Main.module.css";
+import { Partners } from "../../Partners/Partners";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
@@ -12,6 +13,7 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <ProjectSection />
+    <Partners />
     <Contact />
   </main>
 );
