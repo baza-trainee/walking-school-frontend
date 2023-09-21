@@ -1,0 +1,63 @@
+.wrapper {
+  padding: 4px 0 28px 0;
+  text-rendering: auto;
+  margin: 0 auto;
+}
+.content {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+.title {
+  font-size: 32px;
+  color: #1d1e25;
+  font-weight: 600;
+  line-height: 38px;
+  font-family: Bahnschrift;
+  margin-bottom: 48px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 80px 24px;
+  }
+  .swiperContainer {
+    padding: 0 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    padding: 100px 150px;
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 38px;
+    margin-bottom: 40px;
+  }
+  .swiperContainer {
+    padding: 0 44px;
+  }
+}
+
+.swiperContainer {
+  text-rendering: auto;
+  padding: 20px 0px;
+}
+
+img {
+  height: 30px;
+  width: 135px;
+}
+
+.myArrow {
+  color: #52ed7e !important;
+  height: 44px !important;
+  width: 44px !important;
+  background-color: #fff !important;
+}
+
+.myArrow:after {
+  font-size: 22px !important;
+}
