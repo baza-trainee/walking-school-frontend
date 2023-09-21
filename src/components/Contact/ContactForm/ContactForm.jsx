@@ -34,6 +34,11 @@ export const ContactForm = () => {
       email: "",
       message: "",
     });
+    setFormErrors({
+      username: "",
+      email: "",
+      message: "",
+    });
   };
 
   const handleInputChange = (event, setAction) => {
@@ -46,24 +51,27 @@ export const ContactForm = () => {
 
   return (
     <form action="" className={styles.form} onSubmit={handleSubmit}>
-      <CustomInput
-        type="text"
-        placeholder="Введіть своє ім’я"
-        text="Ім’я"
-        name="username"
-        onChangeHandler={(event) => handleInputChange(event, setFormData)}
-        value={formData.username}
-        error={formErrors.username}
-      />
-      <CustomInput
-        type="email"
-        placeholder="Введіть електронну пошту"
-        text="Email"
-        name="email"
-        onChangeHandler={(event) => handleInputChange(event, setFormData)}
-        value={formData.email}
-        error={formErrors.email}
-      />
+      <div className={styles.wrapper}>
+        <CustomInput
+          type="text"
+          placeholder="Введіть своє ім’я"
+          text="Ім’я"
+          name="username"
+          onChangeHandler={(event) => handleInputChange(event, setFormData)}
+          value={formData.username}
+          error={formErrors.username}
+        />
+        <CustomInput
+          type="email"
+          placeholder="Введіть електронну пошту"
+          text="Email"
+          name="email"
+          onChangeHandler={(event) => handleInputChange(event, setFormData)}
+          value={formData.email}
+          error={formErrors.email}
+        />
+      </div>
+
       <CustomInput
         type="textarea"
         placeholder="Введіть ваше повідомлення"

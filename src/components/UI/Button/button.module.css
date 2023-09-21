@@ -1,5 +1,7 @@
 button {
-  background: #5d5a88;
+  background: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
+  width: 100%;
+  position: relative;
   color: #fff;
   border-radius: 24px;
   display: flex;
@@ -9,6 +11,26 @@ button {
   font-style: normal;
   cursor: pointer;
   border: inherit;
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(96deg, #444 0%, #2ec4b6 100%);
+  opacity: 0;
+  border-radius: inherit;
+  transition: all 0.8s ease-in-out;
+  z-index: -1;
+}
+
+button:hover:before {
+  opacity: 1;
 }
 
 .large {
@@ -18,10 +40,6 @@ button {
   font-size: 20px;
   line-height: 20px;
   text-align: center;
-}
-
-.large:hover {
-  height: 64px;
 }
 
 .large:active {
@@ -42,10 +60,6 @@ button {
   line-height: 18px;
 }
 
-.small:hover {
-  height: 56px;
-}
-
 .small:active {
   background: #433f71;
 }
@@ -58,19 +72,26 @@ button {
 
 .tertiary {
   padding: 14px 18px;
-  background-color: inherit;
-  color: #5d5a88;
+  background: inherit;
+  color: #1d7d74;
   font-size: 20px;
   line-height: 20px;
   gap: 8px;
 }
 
 .tertiary:hover {
-  background: #918fb0;
+  background: #e3f9f7;
+  color: #1d7d74;
+}
+
+.tertiary:hover,
+button:before {
+  background: #e3f9f7;
 }
 
 .tertiary:active {
-  background: #918fb0;
+  background: #e3f9f7;
+  color: #fff;
 }
 
 .tertiary:disabled {

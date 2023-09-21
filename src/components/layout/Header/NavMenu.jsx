@@ -1,7 +1,10 @@
 import React from "react";
 import style from "./header.module.css";
+import Link from "../../Links/Link";
+import { useMedia } from "../../../hooks/useMedia";
 
 const NavMenu = () => {
+  const { isDesktop } = useMedia();
   return (
     <>
       <div className={style.list}>
@@ -9,7 +12,11 @@ const NavMenu = () => {
         <a href="#gallery">Галерея</a>
         <a href="#contacts">Контакти</a>
       </div>
-      <button>Підтримати</button>
+      <div className={style.btn}>
+        <Link to={"/"} variant={isDesktop ? "large" : "small"}>
+          Підтримати
+        </Link>
+      </div>
     </>
   );
 };
