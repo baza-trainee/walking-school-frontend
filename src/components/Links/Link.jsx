@@ -16,15 +16,34 @@ const Link = ({
     tertiary: style.tertiary,
   };
 
+  const strokeColor = disabled ? "#94949F" : "#5D5A88";
+
   const childrenData = (
     <>
       {children}
       {variant === "tertiary" ? (
-        disabled ? (
-          <img src="/images/btn_arrow_disabled.svg" alt={"arrow"} />
-        ) : (
-          <img src="/images/btn_arrow.svg" alt={"arrow"} />
-        )
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="19"
+          height="18"
+          viewBox="0 0 19 18"
+          fill="none"
+        >
+          <path
+            d="M4.25 9H14.75"
+            stroke={strokeColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9.5 3.75L14.75 9L9.5 14.25"
+            stroke={strokeColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       ) : (
         ""
       )}
