@@ -41,7 +41,8 @@ export const CustomInput = (props) => {
         className={styles.input}
         value={value}
         onChange={onChangeHandler}
-        id={type}
+        id={name}
+        autoComplete="on"
         style={{
           border: error && "1px solid #f00631",
         }}
