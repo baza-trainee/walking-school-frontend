@@ -1,4 +1,4 @@
-button {
+.button {
   background: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
   width: 100%;
   position: relative;
@@ -15,7 +15,7 @@ button {
   z-index: 1;
 }
 
-button:before {
+.button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -29,7 +29,7 @@ button:before {
   z-index: -1;
 }
 
-button:hover:before {
+.button:hover:before {
   opacity: 1;
 }
 
@@ -47,7 +47,7 @@ button:hover:before {
 }
 
 .large:disabled {
-  background: rgba(153, 153, 153, 0.6);
+  background: #747474;
   border: inherit;
   pointer-events: none;
 }
@@ -65,7 +65,7 @@ button:hover:before {
 }
 
 .small:disabled {
-  background: #94949f;
+  background: #747474;
   border: inherit;
   pointer-events: none;
 }
@@ -84,18 +84,25 @@ button:hover:before {
   color: #1d7d74;
 }
 
-.tertiary:hover,
-button:before {
-  background: #e3f9f7;
+.tertiary-disabled {
+  display: inline-flex;
+  padding: 14px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #747474;
+  text-align: center;
+  font-feature-settings:
+    "clig" off,
+    "liga" off;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
 }
 
 .tertiary:active {
   background: #e3f9f7;
   color: #fff;
-}
-
-.tertiary:disabled {
-  background: inherit;
-  color: #94949f;
-  pointer-events: none;
 }
