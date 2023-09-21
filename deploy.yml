@@ -1,27 +1,29 @@
-name: 🚀 Deploy website on push
+name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [main, dev]
+    branches: [master, dev]
+
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 🚚 Get latest code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Starting NodeJS ${{matrix.node-version}}
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: ${{matrix.node-version}}
+          node-version: 18.16.0
+          cache: "npm"
 
-      - name: Instaling modules
-        run: npm ci
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm install
 
-      - name: Build Project
-        run: npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
+      - name: Deploy 🚀🚀🚀🚀
+        env:
+          # GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run deploy

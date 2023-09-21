@@ -34,6 +34,11 @@ export const ContactForm = () => {
       email: "",
       message: "",
     });
+    setFormErrors({
+      username: "",
+      email: "",
+      message: "",
+    });
   };
 
   const handleInputChange = (event, setAction) => {
