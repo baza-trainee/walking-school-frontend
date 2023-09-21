@@ -3,9 +3,10 @@ import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
 import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
-import styles from "./Main.module.css";
+import { Partners } from "../../Partners/Partners";
 import ParticipateSection from "../../ParticipateSection/ParticipateSection";
 import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
+import styles from "./Main.module.css";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
@@ -14,6 +15,7 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <ProjectSection />
+    <Partners />
     <ParticipateSection />
     <FollowUsFacebook />
     <Contact />

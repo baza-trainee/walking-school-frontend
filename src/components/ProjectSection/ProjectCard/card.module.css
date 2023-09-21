@@ -33,8 +33,8 @@
   left: 65px;
   padding: 8px 16px;
   border-radius: 24px;
-  background: #fd9797;
-  color: #1d1e25;
+  background: #ffbf69;
+  color: #131313;
   font-feature-settings:
     "clig" off,
     "liga" off;
@@ -62,19 +62,30 @@
   flex-direction: column;
   gap: 16px;
   color: #7e8492;
-  font-family: DM Sans;
+}
+
+.data,
+.data__age,
+.data__description {
+  font-family:
+    DM Sans,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
   font-style: normal;
-  line-height: 24px;
 }
 
 .data h3 {
+  font-family: DM Sans;
   color: #1d1e25;
   height: 48px;
   font-feature-settings:
     "clig" off,
     "liga" off;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .data__age {
@@ -84,13 +95,11 @@
   font-feature-settings:
     "clig" off,
     "liga" off;
-  font-size: 18px;
-  font-weight: 500;
+  color: #747474;
 }
 
 .data__description {
-  font-size: 16px;
-  font-weight: 500;
+  color: #4d4d4d;
 }
 
 @media screen and (min-width: 767px) {
@@ -119,13 +128,13 @@
     height: 76px;
     font-size: 24px;
     line-height: 38px;
+    font-weight: 700;
   }
 
   .data__description {
     font-size: 18px;
-  }
-
-  .join {
+    font-weight: 500;
+    line-height: 24px;
   }
 
   .join__link {
@@ -150,6 +159,17 @@
   .date {
     left: 126px;
     width: 241px;
+  }
+
+  .data h3 {
+    height: 76px;
+    font-feature-settings:
+      "clig" off,
+      "liga" off;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
   }
 
   .info {
