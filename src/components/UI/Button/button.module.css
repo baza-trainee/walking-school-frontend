@@ -85,6 +85,7 @@ button:hover:before {
 }
 
 .tertiary:hover,
+button:hover:before,
 button:before {
   background: #e3f9f7;
 }
@@ -98,4 +99,8 @@ button:before {
   background: inherit;
   color: #94949f;
   pointer-events: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
 }
