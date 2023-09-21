@@ -5,6 +5,7 @@ import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
 import { Partners } from "../../Partners/Partners";
 import ParticipateSection from "../../ParticipateSection/ParticipateSection";
+import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
 import styles from "./Main.module.css";
 
 const Main = () => (
@@ -16,6 +17,7 @@ const Main = () => (
     <ProjectSection />
     <Partners />
     <ParticipateSection />
+    <FollowUsFacebook />
     <Contact />
   </main>
 );
