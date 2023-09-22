@@ -2,13 +2,108 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 
 .offerings {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .content {
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+}
+
+.image {
+  position: relative;
+  padding-bottom: 91%;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+  }
+
+  .image {
+    padding-bottom: initial;
+    position: initial;
+  }
+
+  .img {
+    height: 100%;
+    width: 100%;
+    position: initial;
+  }
+
+  .customTitle {
+    order: 2;
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 3;
+    max-width: 532px;
+  }
+
+  .image {
+    order: 1;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 7;
+  }
+
+  .listContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    order: 3;
+    grid-column: 2 / span 3;
+    grid-row: 4 / span 4;
+  }
+}
+
+@media (min-width: 1000px) {
+  .customTitle {
+    grid-row: 1 / span 2;
+  }
+
+  .listContainer {
+    grid-row: 2 / span 6;
+  }
+
+  .list {
+    gap: 35px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content {
+    padding: 0 150px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+  }
+
+  .image {
+    grid-column: 1 / span 6;
+    grid-row: 1 / span 9;
+  }
+
+  .customTitle {
+    grid-column: 7 / span 6;
+    grid-row: 1 / span 3;
+  }
+
+  .listContainer {
+    grid-column: 7 / span 6;
+    grid-row: 5 / span 5;
+  }
+
+  .list {
+    gap: 20px;
+  }
 }
