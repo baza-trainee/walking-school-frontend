@@ -1,5 +1,21 @@
 .content {
   padding: 36px 16px;
-  background-color: #f2f1fa;
   border-radius: 24px;
+}
+
+.contactUs {
+  background-color: #f2f1fa;
+}
+
+.customClasses {
+  margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+  .customClasses {
+    max-width: 524px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 28px;
+  }
 }

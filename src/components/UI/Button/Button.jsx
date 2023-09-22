@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./button.module.css";
+import style from "./Button.module.css";
 
 const Button = ({
   variant = "large",
@@ -14,15 +14,25 @@ const Button = ({
     tertiary: style.tertiary,
   };
 
-  const strokeColor = disabled ? "#94949F" : "#1D7D74";
+  const strokeColor = disabled ? "#747474" : "#1D7D74";
 
   return (
     <button
       className={
-        `${variantClass[variant]} ${disabled ? " disabled" : ""}` +
+        (variant === "tertiary"
+          ? disabled
+            ? `${style["tertiary-disabled"]}`
+            : `${variantClass[variant]}`
+          : `${variantClass[variant]} ${style.button}` +
+            (disabled ? ` disabled` : "")) +
         " " +
         className
       }
+      // className={
+      //   `${variantClass[variant]} ${disabled ? "disabled" : ""}` +
+      //   " " +
+      //   className
+      // }
       disabled={disabled}
       {...props}
     >

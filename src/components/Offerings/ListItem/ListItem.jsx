@@ -1,5 +1,5 @@
 import styles from "./ListItem.module.css";
-import checkIcon from "../../../assets/images/check-circle-2.svg";
+import checkIcon from "../../../assets/images/check-circle-green.svg";
 
 export const ListItem = (props) => {
   const { text } = props;
@@ -7,7 +7,7 @@ export const ListItem = (props) => {
   return (
     <li className={styles.listItem}>
       <img src={checkIcon} alt="checkIcon" />
-      <p>{text}</p>
+      <p className={styles.text}>{text}</p>
     </li>
   );
 };
