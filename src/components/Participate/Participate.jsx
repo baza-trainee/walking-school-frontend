@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./participate.module.css";
+import style from "./Participate.module.css";
 import Steps from "../Steps/Steps";
 import Container from "../layout/Container";
 
-const ParticipateSection = () => {
+const Participate = () => {
   return (
     <Container>
       <div className={style.participate}>
@@ -32,4 +32,4 @@ const ParticipateSection = () => {
   );
 };
 
-export default ParticipateSection;
+export default Participate;

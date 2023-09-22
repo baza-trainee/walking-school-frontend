@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./card.module.css";
-import Link from "../../Links/Link";
+import style from "./Card.module.css";
+import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/img/project/age.svg";
 import Calendar from "../../../assets/img/project/calendar.svg";
@@ -8,7 +8,7 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
-    <div className={style.card}>
+    <div data-testid={"project-card"} className={style.card}>
       <div className={style.card__image}>
         <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
           <clipPath id="clip-path">
