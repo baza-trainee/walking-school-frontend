@@ -9,7 +9,11 @@ import style from "./Container.module.css";
 //  */
 export default function Container(props) {
   const { children } = props;
-  return <div className={style.container}>{children}</div>;
+  return (
+    <div className={style.container} {...props}>
+      {children}
+    </div>
+  );
 }
 
 // Container.propTypes = {

@@ -5,6 +5,7 @@ import { useMedia } from "../../../hooks/useMedia";
 import Logo from "../../../assets/img/header/logo-sm.svg";
 import CloseIcon from "../../../assets/img/header/close.svg";
 import OpenIcon from "../../../assets/img/header/open.svg";
+import Container from "../Container";
 
 const Header = () => {
   const { isDesktop } = useMedia();
@@ -21,29 +22,34 @@ const Header = () => {
   return (
     <div className={style.wrapper}>
       <header>
-        <div className={style.main}>
-          <div className={style.main__logo}>
-            <img src={Logo} alt="" />
-          </div>
-          {isDesktop ? (
-            <nav className={style.main__menu}>
-              <NavMenu />
-            </nav>
-          ) : (
-            <>
-              <div onClick={() => setIsOpen(!isOpen)}>
-                <img src={isOpen ? CloseIcon : OpenIcon} alt={"menu toggle"} />
-              </div>
-              <nav
-                className={`${style.main__dropdown} ${
-                  isOpen ? style.open : ""
-                }`}
-              >
+        <Container style={{ width: "100%" }}>
+          <div className={style.main}>
+            <div className={style.main__logo}>
+              <img src={Logo} alt="" />
+            </div>
+            {isDesktop ? (
+              <nav className={style.main__menu}>
                 <NavMenu />
               </nav>
-            </>
-          )}
-        </div>
+            ) : (
+              <>
+                <div onClick={() => setIsOpen(!isOpen)}>
+                  <img
+                    src={isOpen ? CloseIcon : OpenIcon}
+                    alt={"menu toggle"}
+                  />
+                </div>
+                <nav
+                  className={`${style.main__dropdown} ${
+                    isOpen ? style.open : ""
+                  }`}
+                >
+                  <NavMenu setIsOpen={setIsOpen} />
+                </nav>
+              </>
+            )}
+          </div>
+        </Container>
       </header>
     </div>
   );
