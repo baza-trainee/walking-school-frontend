@@ -12,15 +12,21 @@
 }
 
 .requirement__text {
-  display: flex;
+  display: block;
   align-items: center;
   height: 100%;
   position: relative;
-  top: 3.2px;
-}
-
-.requirement__text span {
+  top: 3px;
   line-height: 131.25%;
   font-weight: 500;
   font-size: 16px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .requirement__text {
+    top: 1.4px;
+    font-size: 18px;
+    line-height: 133.33%;
+  }
 }

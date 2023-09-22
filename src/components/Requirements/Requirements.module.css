@@ -27,3 +27,36 @@
   flex-direction: column;
   gap: 16px;
 }
+
+@media (min-width: 768px) {
+  .requirements {
+    flex-direction: row;
+    overflow: visible;
+  }
+
+  .requirements__content {
+    flex-direction: row-reverse;
+  }
+
+  .requirements__text {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 51.9%;
+    flex-shrink: 0;
+  }
+
+  .requirements__list {
+    gap: 12px;
+  }
+
+  .requirements__image {
+    width: 502px;
+    min-width: 74.15%;
+    aspect-ratio: 502/393;
+  }
+
+  .requirements__heading {
+    font-size: 40px;
+  }
+}

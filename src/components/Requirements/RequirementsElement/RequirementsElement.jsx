@@ -8,8 +8,8 @@ const Requirement = (props) => {
   return (
     <div className={style.requirement}>
       <img className={style.requirement__icon} src={Check} alt="" />
-      <div className={style.requirement__text}>
-        <span>{text}</span>
+      <div className={style.textWrapper}>
+        <span className={style.requirement__text}>{text}</span>
       </div>
     </div>
   );
