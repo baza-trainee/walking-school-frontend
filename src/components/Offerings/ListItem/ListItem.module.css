@@ -1,8 +1,11 @@
 .listItem {
-  color: #1d1e25;
-  font-weight: 600;
   position: relative;
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+.text {
+  font-weight: 600;
+  color: #4d4d4d;
 }

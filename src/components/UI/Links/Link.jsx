@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./link.module.css";
+import style from "./Link.module.css";
 
 const Link = ({
   variant = "large",
