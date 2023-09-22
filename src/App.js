@@ -1,10 +1,16 @@
+import Header from "./components/layout/Header/Header";
+import Main from "./components/layout/Main/Main";
+
 import "./App.module.css";
-import { Offerings } from "./components/Offerings/Offerings";
+import { Footer } from "./components/layout/Footer/Footer";
 
 function App() {
   return (
     <div>
-      <Offerings />
+      <Header />
+      <Main />
+      <Footer />
+      {/* <NotFoundPage /> */}
     </div>
   );
 }
