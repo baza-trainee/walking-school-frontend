@@ -8,10 +8,12 @@ import Requirements from "../../Requirements/Requirements";
 import Participate from "../../Participate/Participate";
 import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
 import styles from "./Main.module.css";
+import HeroSection from "../../HeroSection/index";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
   <main className={styles.main}>
+    <HeroSection />
     <Adventures />
     <Offerings />
     <Scroller />
