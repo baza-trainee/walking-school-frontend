@@ -28,11 +28,6 @@ const Button = ({
         " " +
         className
       }
-      // className={
-      //   `${variantClass[variant]} ${disabled ? "disabled" : ""}` +
-      //   " " +
-      //   className
-      // }
       disabled={disabled}
       {...props}
     >
