@@ -1,11 +1,11 @@
 import Adventures from "../../Adventures";
 import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
-import ProjectSection from "../../ProjectSection/ProjectSection";
+import Projects from "../../Projects/Projects";
 import { Contact } from "../../Contact/Contact";
 import Requirements from "../../Requirements/Requirements";
 // import { Partners } from "../../Partners/Partners";
-import ParticipateSection from "../../ParticipateSection/ParticipateSection";
+import Participate from "../../Participate/Participate";
 import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
 import styles from "./Main.module.css";
 import HeroSection from "../../HeroSection/index";
@@ -17,9 +17,9 @@ const Main = () => (
     <Adventures />
     <Offerings />
     <Scroller />
-    <ProjectSection />
+    <Projects />
     {/* <Partners /> */}
-    <ParticipateSection />
+    <Participate />
     <Requirements />
     <FollowUsFacebook />
     <Contact />
