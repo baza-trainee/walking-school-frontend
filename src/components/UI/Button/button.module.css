@@ -77,6 +77,11 @@
   font-size: 20px;
   line-height: 20px;
   gap: 8px;
+  cursor: pointer;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tertiary:hover {
@@ -85,7 +90,7 @@
 }
 
 .tertiary-disabled {
-  display: inline-flex;
+  display: flex;
   padding: 14px 18px;
   justify-content: center;
   align-items: center;
