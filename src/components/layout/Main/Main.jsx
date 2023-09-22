@@ -3,6 +3,7 @@ import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
 import ProjectSection from "../../ProjectSection/ProjectSection";
 import { Contact } from "../../Contact/Contact";
+import Requirements from "../../Requirements/Requirements";
 // import { Partners } from "../../Partners/Partners";
 import ParticipateSection from "../../ParticipateSection/ParticipateSection";
 import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
@@ -17,6 +18,7 @@ const Main = () => (
     <ProjectSection />
     {/* <Partners /> */}
     <ParticipateSection />
+    <Requirements />
     <FollowUsFacebook />
     <Contact />
   </main>
