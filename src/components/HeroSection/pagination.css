@@ -1,0 +1,31 @@
+.swiper-pagination-bullet {
+  width: 15px !important;
+  height: 15px !important;
+  text-align: center;
+  line-height: 20px;
+  opacity: 1;
+  background: transparent !important;
+  border: #fff 1px solid !important;
+  border-radius: 50% !important;
+  margin: 0 20px 40px 20px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-pagination {
+    text-align: start !important;
+    margin-left: 24px !important;
+    margin-bottom: 150px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .swiper-pagination {
+    text-align: start !important;
+    margin-left: 150px !important;
+    margin-bottom: 180px;
+  }
+}

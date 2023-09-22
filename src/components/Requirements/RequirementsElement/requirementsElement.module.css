@@ -1,0 +1,26 @@
+.requirement {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  height: fit-content;
+}
+
+.requirement__icon {
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.requirement__text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  top: 3.2px;
+}
+
+.requirement__text span {
+  line-height: 131.25%;
+  font-weight: 500;
+  font-size: 16px;
+}
