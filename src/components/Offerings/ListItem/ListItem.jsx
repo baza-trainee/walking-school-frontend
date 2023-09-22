@@ -6,7 +6,7 @@ export const ListItem = (props) => {
 
   return (
     <li className={styles.listItem}>
-      <img src={checkIcon} alt="checkIcon" />
+      <img src={checkIcon} alt="checkIcon" className={styles.listImg} />
       <p className={styles.text}>{text}</p>
     </li>
   );
