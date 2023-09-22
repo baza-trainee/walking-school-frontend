@@ -33,18 +33,13 @@
   left: 65px;
   padding: 8px 16px;
   border-radius: 24px;
-  background: #ffbf69;
+  background: var(--projects-date-bg);
   color: #131313;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  font-family:
-    DM Sans,
-    sans-serif;
-  font-size: 16px;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-tab);
   font-style: normal;
-  font-weight: 500;
-  line-height: 100%;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
 }
 
 .date img {
@@ -59,14 +54,13 @@
   margin-top: -16px;
   padding: 32px 8px 16px 8px;
   border-radius: 0 0 24px 24px;
-  background: #fff;
+  background: var(--projects-internal-bg);
 }
 
 .data {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  color: #7e8492;
 }
 
 .data img {
@@ -77,39 +71,31 @@
 .data,
 .data__age,
 .data__description {
-  font-family:
-    DM Sans,
-    sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 21px;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
   font-style: normal;
 }
 
 .data h3 {
-  font-family: DM Sans;
   color: #1d1e25;
   height: 48px;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 24px;
+  font-family: var(--h5-ff);
+  font-size: var(--h5-fs);
+  font-weight: var(--h5-fw);
+  line-height: var(--h5-lh);
 }
 
 .data__age {
   display: flex;
   gap: 8px;
   align-items: center;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  color: #747474;
+  color: var(--age-text-color);
 }
 
 .data__description {
-  color: #4d4d4d;
+  color: var(--body-text-color);
 }
 
 @media screen and (min-width: 767px) {
@@ -136,15 +122,13 @@
 
   .data h3 {
     height: 76px;
-    font-size: 24px;
-    line-height: 38px;
-    font-weight: 700;
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    font-weight: var(--h4-fw);
   }
 
   .data__description {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
+    font-size: var(--body-text-fs-web);
   }
 
   .join__link {
@@ -173,13 +157,6 @@
 
   .data h3 {
     height: 76px;
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 38px;
   }
 
   .info {

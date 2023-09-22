@@ -50,8 +50,12 @@ const SwiperSlider = ({ items }) => {
           />
         </SwiperSlide>
       ))}
-      <div className={`${style.myArrow} swiper-button-next`}></div>
-      <div className={`${style.myArrow} swiper-button-prev`}></div>
+      <div
+        className={`${style.myArrow} ${style.right} swiper-button-next`}
+      ></div>
+      <div
+        className={`${style.myArrow} ${style.left} swiper-button-prev`}
+      ></div>
     </Swiper>
   );
 };
