@@ -5,18 +5,40 @@ import { useMedia } from "../../../hooks/useMedia";
 
 const NavMenu = ({ setIsOpen }) => {
   const { isDesktop } = useMedia();
+
+  const onCLickHandler = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: "smooth",
+      });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className={style.list}>
-        <a onClick={() => setIsOpen(false)} href="#projects">
+        <div
+          className={style.list__link}
+          onClick={() => onCLickHandler("projects")}
+        >
           Проєкти
-        </a>
-        <a onClick={() => setIsOpen(false)} href="#gallery">
+        </div>
+        <div
+          className={style.list__link}
+          onClick={() => onCLickHandler("gallery")}
+        >
           Галерея
-        </a>
-        <a onClick={() => setIsOpen(false)} href="#contacts">
+        </div>
+        <div
+          className={style.list__link}
+          onClick={() => onCLickHandler("contacts")}
+        >
           Контакти
-        </a>
+        </div>
       </div>
       <div className={style.btn}>
         <Link to={"/"} variant={isDesktop ? "large" : "small"}>
