@@ -1,7 +1,7 @@
 import React from "react";
 import Requirement from "./RequirementsElement/RequirementsElement";
 import Container from "../layout/Container/Container";
-import style from "./requirements.module.css";
+import style from "./Requirements.module.css";
 
 const listItems = [
   { text: "Бажання" },

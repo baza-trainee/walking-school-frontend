@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Check from "../../../assets/icons/checkCircle.svg";
-import style from "./requirementsElement.module.css";
+import style from "./RequirementsElement.module.css";
 
 const Requirement = (props) => {
   const { text } = props;
