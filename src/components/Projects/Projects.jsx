@@ -58,7 +58,7 @@ const Projects = () => {
   const cardsToRender = cards;
 
   return (
-    <section className={style.projects}>
+    <section className={style.projects} id="projects">
       <div className={style.projects__title}>
         <div>
           <h2>Проєкти</h2>
