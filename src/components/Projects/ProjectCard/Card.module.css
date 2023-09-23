@@ -6,6 +6,7 @@
   padding-bottom: 16px;
   position: relative;
   width: 288px;
+  height: 488px;
   background-color: inherit;
 }
 
@@ -95,7 +96,34 @@
 }
 
 .data__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: var(--body-text-color);
+}
+.data__description,
+.data__desc-show {
+}
+.data__desc-show {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--projects-internal-bg);
+  overflow: auto;
+  z-index: 1;
+  transform: translateY(-1%);
+  opacity: 1;
+  font-size: 20px;
+  padding: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.data__desc-show.active {
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 767px) {

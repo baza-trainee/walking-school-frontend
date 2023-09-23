@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./Card.module.css";
 import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
@@ -7,6 +7,12 @@ import Calendar from "../../../assets/img/project/calendar.svg";
 const ProjectCard = ({ image, title, dates, age, description }) => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
+  const [showMore, setShowMore] = useState(false);
+
+  const showMoreHandler = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <div data-testid={"project-card"} className={style.card}>
       <div className={style.card__image}>
@@ -44,7 +50,14 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
             <p>{age} років</p>
           </div>
           <div>
-            <p className={style.data__description}>{description}</p>
+            <p
+              onClick={showMoreHandler}
+              className={`${style.data__description} ${
+                showMore ? style["data__desc-show"] + " active" : ""
+              }`}
+            >
+              {description}
+            </p>
           </div>
         </div>
         <div className={style.join}>
