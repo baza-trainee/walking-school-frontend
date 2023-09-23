@@ -4,6 +4,7 @@ import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/img/project/age.svg";
 import Calendar from "../../../assets/img/project/calendar.svg";
+
 const ProjectCard = ({ image, title, dates, age, description }) => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
@@ -12,6 +13,8 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
   const showMoreHandler = () => {
     setShowMore(!showMore);
   };
+
+  const truncated = description.slice(0, 136);
 
   return (
     <div data-testid={"project-card"} className={style.card}>
@@ -42,7 +45,9 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
         <img src={Calendar} alt="calendar" />
         {dates}
       </div>
-      <div className={style.info}>
+      <div
+        className={showMore ? `${style.hover} ${style.info}` : `${style.info}`}
+      >
         <div className={style.data}>
           <h3>{title}</h3>
           <div className={style.data__age}>
@@ -50,13 +55,22 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
             <p>{age} років</p>
           </div>
           <div>
-            <p
-              onClick={showMoreHandler}
-              className={`${style.data__description} ${
-                showMore ? style["data__desc-show"] + " active" : ""
-              }`}
-            >
-              {description}
+            <p className={style.data__description}>
+              {showMore ? (
+                description
+              ) : (
+                <>
+                  {truncated}
+                  {description.length > 136 && (
+                    <span
+                      onClick={showMoreHandler}
+                      style={{ cursor: "pointer" }}
+                    >
+                      ... Детальніше
+                    </span>
+                  )}
+                </>
+              )}
             </p>
           </div>
         </div>
