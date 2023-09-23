@@ -1,18 +1,20 @@
 .button {
-  background: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
+  background: var(--bt-default-bg);
   width: 100%;
   position: relative;
-  color: #fff;
+  color: var(--bt-primary-text-color);
   border-radius: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
   font-style: normal;
   cursor: pointer;
   border: inherit;
   transition: all 0.6s ease-in-out;
   z-index: 1;
+  font-family: var(--bt-text-large-ff);
+  font-weight: var(--bt-text-large-fw);
+  line-height: var(--bt-text-large-lh);
 }
 
 .button:before {
@@ -22,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(96deg, #444 0%, #2ec4b6 100%);
+  background: var(--bt-hover-bg);
   opacity: 0;
   border-radius: inherit;
   transition: all 0.8s ease-in-out;
@@ -37,17 +39,16 @@
   height: 56px;
   padding: 18px 24px;
   flex-shrink: 0;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: var(--bt-text-large-fs);
   text-align: center;
 }
 
 .large:active {
-  background: #433f71;
+  background: var(--bt-hover-bg);
 }
 
 .large:disabled {
-  background: #747474;
+  background: var(--bt-disabled-bg);
   border: inherit;
   pointer-events: none;
 }
@@ -56,16 +57,11 @@
   height: 48px;
   padding: 14px 18px;
   flex-shrink: 0;
-  font-size: 18px;
-  line-height: 18px;
-}
-
-.small:active {
-  background: #433f71;
+  font-size: var(--bt-text-small-fs);
 }
 
 .small:disabled {
-  background: #747474;
+  background: var(--bt-disabled-bg);
   border: inherit;
   pointer-events: none;
 }
@@ -73,9 +69,9 @@
 .tertiary {
   padding: 14px 18px;
   background: inherit;
-  color: #1d7d74;
-  font-size: 20px;
-  line-height: 20px;
+  color: var(--bt-second-text-color);
+  font-size: var(--bt-text-large-fs);
+  font-weight: var(--bt-text-large-fw);
   gap: 8px;
   cursor: pointer;
   border-radius: 24px;
@@ -85,8 +81,7 @@
 }
 
 .tertiary:hover {
-  background: #e3f9f7;
-  color: #1d7d74;
+  background: var(--bt-tertiary-hover-bg);
 }
 
 .tertiary-disabled {
@@ -97,17 +92,6 @@
   gap: 8px;
   color: #747474;
   text-align: center;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
-}
-
-.tertiary:active {
-  background: #e3f9f7;
-  color: #fff;
+  font-size: var(--bt-text-large-fs);
+  font-weight: var(--bt-text-large-fw);
 }
