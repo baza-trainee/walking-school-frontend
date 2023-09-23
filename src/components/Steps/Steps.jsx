@@ -24,10 +24,11 @@ const Steps = ({ steps, labels }) => {
   }, []);
 
   return (
-    <div id={"steps"} className={style["steps-container"]}>
+    <div data-testid={"steps-container"} id={"steps"} className={style["steps-container"]}>
       <div className={style["progress-line"]}></div>
       {stepArray.map((step, index) => (
         <div
+          data-testid="step"
           key={index}
           className={`${style.step} ${animate ? style.animate : ""}`}
           style={{ animationDelay: `${0.9 * (index + 1)}s` }}
