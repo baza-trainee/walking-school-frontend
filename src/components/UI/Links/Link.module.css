@@ -1,12 +1,10 @@
 .link {
-  font-family: "Source Sans 3", sans-serif;
-  background: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
+  background: var(--bt-default-bg);
   position: relative;
   border-radius: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-style: normal;
   cursor: pointer;
   border: inherit;
   transition: all 0.6s ease-in-out;
@@ -15,7 +13,10 @@
 
 .link div {
   position: relative;
-  color: #fcfcfc;
+  color: var(--bt-primary-text-color);
+  font-family: var(--bt-text-large-ff);
+  font-weight: var(--bt-text-large-fw);
+  line-height: var(--bt-text-large-lh);
 }
 
 .link:before {
@@ -25,7 +26,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(96deg, #444 0%, #2ec4b6 100%);
+  background: var(--bt-hover-bg);
   opacity: 0;
   border-radius: inherit;
   transition: all 0.8s ease-in-out;
@@ -39,15 +40,12 @@
   height: 56px;
   padding: 18px 24px;
   flex-shrink: 0;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: center;
+  font-size: var(--bt-text-large-fs);
   transition: transform 0.2s ease;
-  font-weight: 600;
 }
 
 .disabled {
-  background: #747474;
+  background: var(--bt-disabled-bg);
   border: inherit;
   pointer-events: none;
 }
@@ -56,42 +54,49 @@
   height: 48px;
   padding: 14px 18px;
   flex-shrink: 0;
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 700;
+  font-size: var(--bt-text-small-fs);
+}
+
+.tertiary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tertiary div {
-  padding: 14px 18px;
   display: flex;
+  gap: 8px;
+  padding: 14px 18px;
+  border-radius: 24px;
   background-color: inherit;
   color: #1d7d74;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 20px;
+  font-family: var(--bt-text-small-ff);
+  font-size: var(--bt-text-small-fs);
   font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
-  gap: 8px;
-  border-radius: 24px;
+  font-weight: var(--bt-text-small-fw);
+  line-height: var(--bt-text-small-lh);
 }
 
 .tertiary:hover div {
-  background: #e3f9f7;
+  background: var(--bt-tertiary-hover-bg);
 }
 
 .tertiary-disabled {
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tertiary-disabled div {
-  padding: 14px 18px;
   display: flex;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
   gap: 8px;
+  padding: 14px 18px;
+  font-family: var(--bt-text-small-ff);
+  font-size: var(--bt-text-large-fs);
+  font-style: normal;
+  font-weight: var(--bt-text-small-fw);
+  line-height: var(--bt-text-small-lh);
   border-radius: 24px;
   background: inherit;
   color: #747474;
