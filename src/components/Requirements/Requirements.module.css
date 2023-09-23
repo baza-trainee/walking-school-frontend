@@ -55,8 +55,7 @@
   }
 
   .requirements__image {
-    min-width: 72.64%;
-    max-width: 72.64%;
+    width: 72.64%;
     aspect-ratio: 502/393;
   }
 
@@ -81,9 +80,7 @@
   }
 
   .requirements__image {
-    min-width:50.4%;
-    width: 50.4%;
-    max-width: 50.4%;
+    width: 49.39%;
     aspect-ratio: 280/219;
     flex-grow: 1;
   }
