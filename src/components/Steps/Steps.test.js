@@ -25,7 +25,6 @@ describe("Steps component", () => {
     const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
     render(<Steps steps={labels.length} labels={labels} />);
 
-    const stepsContainer = screen.getByTestId("steps-container");
     const stepElements = screen.getAllByTestId("step");
     expect(stepElements.length).toBe(4);
 
