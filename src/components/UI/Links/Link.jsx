@@ -58,7 +58,7 @@ const Link = ({
         (variant === "tertiary"
           ? disabled
             ? `${style["tertiary-disabled"]}`
-            : `${variantClass[variant]}`
+            : `${variantClass[variant]} ${style.tertiary}`
           : `${variantClass[variant]} ${style.link}` +
             (disabled ? ` ${style.disabled}` : "")) +
         " " +

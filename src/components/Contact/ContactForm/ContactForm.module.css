@@ -21,10 +21,6 @@
   max-width: 350px;
 }
 
-.button:hover {
-  height: 56px;
-}
-
 @media (min-width: 768px) {
   .button {
     max-width: 173px;
