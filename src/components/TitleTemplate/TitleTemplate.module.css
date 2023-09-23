@@ -1,19 +1,24 @@
+@import "../../typography/_fonts.css";
+@import "../../typography/_colors.css";
+
 .titleWrapper {
   margin-bottom: 18px;
 }
 
 .title {
   color: #1d1e25;
-  font-size: 32px;
-  line-height: 120%;
-  font-family: "Bahnschrift", sans-serif;
+  font-size: var(--h2-fs-mob);
   font-weight: 700;
+  line-height: var(--h2-lh);
   margin-bottom: 16px;
 }
 
 .description {
-  font-family: "DM Sans", sans-serif;
-  color: #7e8492;
+  font-family: var(--body-text-ff);
+  line-height: var(--body-text-lh);
+  font-weight: var(--body-text-fw);
+  font-size: var(--body-text-fs-mob);
+  color: var(--body-text-color);
 }
 
 @media (min-width: 768px) {
@@ -25,11 +30,11 @@
   }
 
   .title {
-    font-size: 40px;
+    font-size: var(--h2-fs-tab);
   }
 
   .description {
-    font-size: 18px;
+    font-size: var(--body-text-fs-tab);
   }
 }
 
@@ -42,10 +47,10 @@
   }
 
   .title {
-    font-size: 40px;
+    font-size: var(--h2-fs-web);
   }
 
   .description {
-    font-size: 18px;
+    font-size: var(--body-text-fs-web);
   }
 }

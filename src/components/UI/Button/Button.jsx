@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./button.module.css";
+import style from "./Button.module.css";
 
 const Button = ({
   variant = "large",
@@ -28,11 +28,6 @@ const Button = ({
         " " +
         className
       }
-      // className={
-      //   `${variantClass[variant]} ${disabled ? "disabled" : ""}` +
-      //   " " +
-      //   className
-      // }
       disabled={disabled}
       {...props}
     >
@@ -44,6 +39,7 @@ const Button = ({
           height="18"
           viewBox="0 0 19 18"
           fill="none"
+          data-testid="tertiary-icon"
         >
           <path
             d="M4.25 9H14.75"

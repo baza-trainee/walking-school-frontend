@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./link.module.css";
+import style from "./Link.module.css";
 
 const Link = ({
   variant = "large",
@@ -58,7 +58,7 @@ const Link = ({
         (variant === "tertiary"
           ? disabled
             ? `${style["tertiary-disabled"]}`
-            : `${variantClass[variant]}`
+            : `${variantClass[variant]} ${style.tertiary}`
           : `${variantClass[variant]} ${style.link}` +
             (disabled ? ` ${style.disabled}` : "")) +
         " " +

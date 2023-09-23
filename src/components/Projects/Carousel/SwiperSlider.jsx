@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import style from "../projects.module.css";
+import style from "../Projects.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
@@ -50,8 +50,12 @@ const SwiperSlider = ({ items }) => {
           />
         </SwiperSlide>
       ))}
-      <div className={`${style.myArrow} swiper-button-next`}></div>
-      <div className={`${style.myArrow} swiper-button-prev`}></div>
+      <div
+        className={`${style.myArrow} ${style.right} swiper-button-next`}
+      ></div>
+      <div
+        className={`${style.myArrow} ${style.left} swiper-button-prev`}
+      ></div>
     </Swiper>
   );
 };
