@@ -1,3 +1,7 @@
+.requirementsWrapper {
+  overflow: hidden;
+}
+
 .requirements {
   padding: 0 5%;
   display: flex;
@@ -51,12 +55,35 @@
   }
 
   .requirements__image {
-    width: 502px;
-    min-width: 74.15%;
+    min-width: 502px;
+    max-width: 502px;
     aspect-ratio: 502/393;
   }
 
   .requirements__heading {
     font-size: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .requirements {
+    padding: 0 10.63%;
+    overflow: auto;
+  }
+
+  .requirements__heading {
+    font-size: 48px;
+  }
+
+  .requirements__text {
+    flex-shrink: 1;
+    justify-content: center;
+  }
+
+  .requirements__image {
+    min-width:50.4%;
+    width: 50.4%;
+    aspect-ratio: 280/219;
+    flex-grow: 1;
   }
 }
