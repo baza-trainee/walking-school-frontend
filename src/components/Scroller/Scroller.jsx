@@ -18,20 +18,16 @@ export const Scroller = () => {
   return (
     <div className={styled.scroller}>
       <Marquee data-testid="marquee">
-        <div>
-          <div>
-            {wordsToTrack.map((word) => (
-              <span
-                data-testid="word"
-                className={styled.word}
-                key={uuidv4()}
-                data-key={uuidv4()}
-              >
-                {word}
-              </span>
-            ))}
-          </div>
-        </div>
+        {wordsToTrack.map((word) => (
+          <span
+            data-testid="word"
+            className={styled.word}
+            key={uuidv4()}
+            data-key={uuidv4()}
+          >
+            {word}
+          </span>
+        ))}
       </Marquee>
     </div>
   );
