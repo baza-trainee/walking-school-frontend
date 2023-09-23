@@ -32,7 +32,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .requirement__text {
     line-height: 135%;
     font-weight: 400;
