@@ -16,21 +16,23 @@ export const Scroller = () => {
   const wordsToTrack = Array(4).fill(wordsToTrackBase).flat();
 
   return (
-    <Marquee data-testid="marquee">
-      <div className={styled.scroller}>
+    <div className={styled.scroller}>
+      <Marquee data-testid="marquee">
         <div>
-          {wordsToTrack.map((word) => (
-            <span
-              data-testid="word"
-              className={styled.word}
-              key={uuidv4()}
-              data-key={uuidv4()}
-            >
-              {word}
-            </span>
-          ))}
+          <div>
+            {wordsToTrack.map((word) => (
+              <span
+                data-testid="word"
+                className={styled.word}
+                key={uuidv4()}
+                data-key={uuidv4()}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    </Marquee>
+      </Marquee>
+    </div>
   );
 };
