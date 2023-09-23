@@ -7,7 +7,7 @@ export const CustomInput = (props) => {
 
   if (type === "textarea") {
     return (
-      <div>
+      <div className={styles.areaWrapper}>
         <textarea
           placeholder={placeholder}
           name={name}
@@ -15,16 +15,16 @@ export const CustomInput = (props) => {
           onChange={onChangeHandler}
           className={styles.textarea}
           style={{
-            borderColor: error && "#f00631",
+            border: error && "1px solid #f00631",
           }}
         ></textarea>
-        <ErrorMessage message={error} />
+        {error && <ErrorMessage message={error} />}
       </div>
     );
   }
 
   return (
-    <div>
+    <div className={styles.inputWrapper}>
       <label
         htmlFor={name}
         className={styles.label}
@@ -41,12 +41,13 @@ export const CustomInput = (props) => {
         className={styles.input}
         value={value}
         onChange={onChangeHandler}
-        id={type}
+        id={name}
+        autoComplete="on"
         style={{
           border: error && "1px solid #f00631",
         }}
       />
-      <ErrorMessage message={error} />
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };
