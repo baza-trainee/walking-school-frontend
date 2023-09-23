@@ -43,7 +43,12 @@ export const Offerings = () => {
             className={styles.customTitle}
           />
           <div className={styles.image}>
-            <img src={imageSrc} alt="Offerings" className={styles.img} />
+            <img
+              data-testid="offerings-image"
+              src={imageSrc}
+              alt="Offerings"
+              className={styles.img}
+            />
           </div>
           <div className={styles.listContainer}>
             <OfferingsList
