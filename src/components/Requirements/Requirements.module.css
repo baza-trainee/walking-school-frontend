@@ -81,7 +81,7 @@
   }
 
   .requirements__image {
-    min-width:50.4%;
+    min-width: 50.4%;
     width: 50.4%;
     aspect-ratio: 280/219;
     flex-grow: 1;
