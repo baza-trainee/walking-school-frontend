@@ -107,7 +107,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .notFound {
     gap: 58px;
     justify-content: center;
@@ -115,13 +115,16 @@
 
   .notFound__main {
     flex-grow: 0;
+    width: 33.31%;
+    aspect-ratio: 463/422;
   }
 
   .button {
-    width: 48.82%;
+    width: 58.33%;
   }
 
   .notFound__image {
-    width: 30.12%;
+    width: 30.57%;
+    aspect-ratio: 425/417;
   }
 }
