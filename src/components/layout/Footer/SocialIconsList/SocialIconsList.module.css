@@ -1,0 +1,11 @@
+.credentials {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 47px;
+}
+
+@media (min-width: 768px) {
+  .credentials {
+    margin-bottom: 0;
+  }
+}
