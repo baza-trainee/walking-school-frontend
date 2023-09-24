@@ -1,4 +1,4 @@
-import Adventures from "../../Adventures";
+import Adventures from "../../Adventures/Adventures";
 import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
 import Projects from "../../Projects/Projects";
