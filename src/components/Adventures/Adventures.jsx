@@ -8,18 +8,22 @@ import SkyWalk from "../../assets/icons/SkyWalk.svg";
 import style from "./adventures.module.css";
 
 const cards = [
-  { image: FlySpot, alt: "parachute icon", text: "FlySpot" },
+  { image: FlySpot, alt: "іконка парашуту", text: "Тунельний політ" },
   {
     image: Bungee,
-    alt: "a man jumping with a bungee rope",
+    alt: "іконка чоловічка, що стрибає з банджі",
     text: "Банджі джампінг",
   },
   {
     image: Parachuting,
-    alt: "a man performing parachute jumping",
+    alt: "іконка чоловічка, що стрибає з парашутом",
     text: "Стрибки з парашутом",
   },
-  { image: SkyWalk, alt: "a man climbing upward", text: "SkyWalk" },
+  {
+    image: SkyWalk,
+    alt: "іконка чоловічка, що підіймається угору з мотузкою",
+    text: "Стежка у хмарах",
+  },
 ];
 
 const cardCollection = cards.map((card) => (

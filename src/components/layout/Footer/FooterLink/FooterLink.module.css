@@ -1,6 +1,9 @@
+@import "../../../../typography/_colors.css";
+@import "../../../../typography/_fonts.css";
+
 .link {
-  color: #1a1a1a;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  color: black;
+  font-family: var(--menu-item-ff);
+  font-size: var(--menu-item-fs-mob);
+  font-weight: var(--menu-item-fw);
 }

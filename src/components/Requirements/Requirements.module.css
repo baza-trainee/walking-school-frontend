@@ -55,8 +55,7 @@
   }
 
   .requirements__image {
-    min-width: 502px;
-    max-width: 502px;
+    width: 72.64%;
     aspect-ratio: 502/393;
   }
 
@@ -65,7 +64,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .requirements {
     padding: 0 10.63%;
     overflow: auto;
@@ -81,8 +80,7 @@
   }
 
   .requirements__image {
-    min-width: 50.4%;
-    width: 50.4%;
+    width: 49.39%;
     aspect-ratio: 280/219;
     flex-grow: 1;
   }
