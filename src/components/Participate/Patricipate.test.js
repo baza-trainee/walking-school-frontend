@@ -14,6 +14,6 @@ describe("Participate section", () => {
     );
     expect(descriptionElement).toBeInTheDocument();
 
-    screen.debug();
+    // screen.debug();
   });
 });

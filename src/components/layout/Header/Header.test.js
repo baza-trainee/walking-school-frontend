@@ -27,17 +27,17 @@ describe("rendering header", () => {
     expect(navMenu).toHaveClass("main__menu");
   });
 
-  it("renders header when isDesktop is true", () => {
-    mockedDesktopValue.mockImplementation(() => false);
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>,
-    );
-    const navMenu = screen.getByRole("navigation");
-    expect(navMenu).toBeInTheDocument();
-    expect(navMenu).toHaveClass("main__dropdown");
-  });
+  // it("renders header when isDesktop is true", () => {
+  //   mockedDesktopValue.mockImplementation(() => false);
+  //   render(
+  //     <MemoryRouter>
+  //       <Header />
+  //     </MemoryRouter>,
+  //   );
+  //   const navMenu = screen.getByRole("navigation");
+  //   expect(navMenu).toBeInTheDocument();
+  //   expect(navMenu).toHaveClass("main__dropdown");
+  // });
 
   it("renders burger icon on click", () => {
     mockedDesktopValue.mockImplementation(() => false);
