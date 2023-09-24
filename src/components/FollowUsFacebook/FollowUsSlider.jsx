@@ -28,7 +28,7 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
         >
           {data.map((slide) => (
             <SwiperSlide className={styles.slide} key={slide.img}>
-              <img src={slide.img} className={styles.image} />
+              <img src={slide.img} className={styles.image} alt="facebookImg" />
             </SwiperSlide>
           ))}
         </Swiper>

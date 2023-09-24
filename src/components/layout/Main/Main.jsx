@@ -5,7 +5,7 @@ import Projects from "../../Projects/Projects";
 import { Contact } from "../../Contact/Contact";
 import Requirements from "../../Requirements/Requirements";
 import Participate from "../../Participate/Participate";
-// import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
+import FollowUsFacebook from "../../FollowUsFacebook/index.jsx";
 import HeroSection from "../../HeroSection/index";
 import styles from "./Main.module.css";
 
@@ -20,7 +20,7 @@ const Main = () => (
     {/* <Partners /> */}
     <Participate />
     <Requirements />
-    {/* <FollowUsFacebook /> */}
+    <FollowUsFacebook />
     <Contact />
   </main>
 );
