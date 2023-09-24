@@ -59,7 +59,12 @@ export const ContactForm = () => {
   };
 
   return (
-    <form action="" className={styles.form} onSubmit={handleSubmit}>
+    <form
+      data-testid="form"
+      action=""
+      className={styles.form}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.wrapper}>
         <CustomInput
           type="text"
