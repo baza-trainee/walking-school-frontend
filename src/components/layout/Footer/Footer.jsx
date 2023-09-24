@@ -49,7 +49,7 @@ export const Footer = () => {
               </a>
             </div>
             <div className={styles.rights}>
-              <p className={styles.rightsItem}>
+              <p data-testid="rightText" className={styles.rightsItem}>
                 Розробка Baza Trainee Ukraine 2023 {isMobile && <br></br>}© Всі
                 права захищені.
               </p>
