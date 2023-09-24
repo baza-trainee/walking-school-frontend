@@ -64,13 +64,13 @@
   .notFound {
     flex-direction: row-reverse;
     gap: 40px;
-    padding: 60px 25px;
+    padding: 60px 24px;
     justify-content: space-between;
   }
 
   .notFound__image {
     aspect-ratio: 262/257;
-    width: 37.3%;
+    width: 36.38%;
     flex-shrink: 0;
   }
 
@@ -104,7 +104,7 @@
   }
 
   .button {
-    width: 57.45%;
+    width: 56.99%;
   }
 }
 
