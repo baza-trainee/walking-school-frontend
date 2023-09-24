@@ -1,13 +1,13 @@
-import Adventures from "../../Adventures";
+import Adventures from "../../Adventures/Adventures";
 import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
 import Projects from "../../Projects/Projects";
 import { Contact } from "../../Contact/Contact";
 import Requirements from "../../Requirements/Requirements";
 import Participate from "../../Participate/Participate";
-import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
-import styles from "./Main.module.css";
+// import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
 import HeroSection from "../../HeroSection/index";
+import styles from "./Main.module.css";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
@@ -20,7 +20,7 @@ const Main = () => (
     {/* <Partners /> */}
     <Participate />
     <Requirements />
-    <FollowUsFacebook />
+    {/* <FollowUsFacebook /> */}
     <Contact />
   </main>
 );

@@ -24,7 +24,11 @@ const Steps = ({ steps, labels }) => {
   }, []);
 
   return (
-    <div data-testid={"steps-container"} id={"steps"} className={style["steps-container"]}>
+    <div
+      data-testid={"steps-container"}
+      id={"steps"}
+      className={style["steps-container"]}
+    >
       <div className={style["progress-line"]}></div>
       {stepArray.map((step, index) => (
         <div
