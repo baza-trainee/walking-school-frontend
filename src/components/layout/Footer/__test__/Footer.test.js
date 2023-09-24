@@ -34,9 +34,7 @@ test("renders additional information", () => {
   render(<Footer />);
   const privacyPolicyLink = screen.getByText("Політика конфіденційності");
   const termsOfServiceLink = screen.getByText("Правила користування сайтом");
-  const rightsText = screen.getByText(
-    /Розробка Baza Trainee Ukraine 2023© Всі права захищені./,
-  );
+  const rightsText = screen.getByTestId("rightText");
 
   expect(privacyPolicyLink).toBeInTheDocument();
   expect(termsOfServiceLink).toBeInTheDocument();

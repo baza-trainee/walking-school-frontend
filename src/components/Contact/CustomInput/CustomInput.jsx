@@ -2,8 +2,16 @@ import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import styles from "./CustomInput.module.css";
 
 export const CustomInput = (props) => {
-  const { type, text, placeholder, name, onChangeHandler, value, error } =
-    props;
+  const {
+    type,
+    text,
+    placeholder,
+    name,
+    onChangeHandler,
+    value,
+    error,
+    required,
+  } = props;
 
   if (type === "textarea") {
     return (
@@ -27,12 +35,13 @@ export const CustomInput = (props) => {
     <div className={styles.inputWrapper}>
       <label
         htmlFor={name}
-        className={styles.label}
+        className={`${styles.label}`}
         style={{
           color: error && "#f00631",
         }}
       >
         {text}
+        {required && <span>*</span>}
       </label>
       <input
         placeholder={placeholder}

@@ -4,15 +4,20 @@ import { CustomInput } from "../CustomInput/CustomInput";
 import styles from "./ContactForm.module.css";
 
 export const ContactForm = () => {
+  // TODO: create a custom hook and move the form logic there
   const [formData, setFormData] = useState({
     username: "",
+    surname: "",
     email: "",
+    phoneNumber: "",
     message: "",
   });
   const [formErrors, setFormErrors] = useState({
     username: null,
+    surname: null,
     email: null,
-    message: null,
+    phoneNumber: "",
+    message: "",
   });
 
   const handleSubmit = (event) => {
@@ -20,23 +25,27 @@ export const ContactForm = () => {
 
     const errors = {
       username: !formData.username ? "Введіть своє ім’я" : null,
+      surname: !formData.surname ? "Введіть своє прізвище" : null,
       email: !formData.email ? "Введіть електронну пошту" : null,
-      message: !formData.message ? "Введіть ваше повідомлення" : null,
     };
 
-    if (errors.username || errors.email || errors.message) {
+    if (errors.username || errors.email || errors.surname) {
       setFormErrors(errors);
       return;
     }
 
     setFormData({
       username: "",
+      surname: "",
       email: "",
+      phoneNumber: "",
       message: "",
     });
     setFormErrors({
       username: "",
+      surname: "",
       email: "",
+      phoneNumber: "",
       message: "",
     });
   };
@@ -50,7 +59,12 @@ export const ContactForm = () => {
   };
 
   return (
-    <form action="" className={styles.form} onSubmit={handleSubmit}>
+    <form
+      data-testid="form"
+      action=""
+      className={styles.form}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.wrapper}>
         <CustomInput
           type="text"
@@ -60,6 +74,17 @@ export const ContactForm = () => {
           onChangeHandler={(event) => handleInputChange(event, setFormData)}
           value={formData.username}
           error={formErrors.username}
+          required
+        />
+        <CustomInput
+          type="text"
+          placeholder="Введіть своє прізвище"
+          text="Прізвище"
+          name="surname"
+          onChangeHandler={(event) => handleInputChange(event, setFormData)}
+          value={formData.surname}
+          error={formErrors.surname}
+          required
         />
         <CustomInput
           type="email"
@@ -69,6 +94,17 @@ export const ContactForm = () => {
           onChangeHandler={(event) => handleInputChange(event, setFormData)}
           value={formData.email}
           error={formErrors.email}
+          required
+        />
+
+        <CustomInput
+          type="tel"
+          placeholder="+XXX -"
+          text="Телефон"
+          name="phoneNumber"
+          onChangeHandler={(event) => handleInputChange(event, setFormData)}
+          value={formData.phoneNumber}
+          error={formErrors.phoneNumber}
         />
       </div>
 
