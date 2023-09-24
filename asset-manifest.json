@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/walking-school-frontend/static/css/main.853037bb.css",
-    "main.js": "/walking-school-frontend/static/js/main.c098b30a.js",
+    "main.css": "/walking-school-frontend/static/css/main.02dd1f4c.css",
+    "main.js": "/walking-school-frontend/static/js/main.ef609f52.js",
     "static/js/787.7003ee39.chunk.js": "/walking-school-frontend/static/js/787.7003ee39.chunk.js",
     "static/media/offeringsBannerMobile.png": "/walking-school-frontend/static/media/offeringsBannerMobile.e85378b84026b3e3153b.png",
     "static/media/offeringsBannerDesktop.png": "/walking-school-frontend/static/media/offeringsBannerDesktop.aa30b6be16623108ca2b.png",
@@ -10,25 +10,21 @@
     "static/media/SourceSans3-Bold.ttf": "/walking-school-frontend/static/media/SourceSans3-Bold.17e068739e42bdb30d1c.ttf",
     "static/media/offeringsBanner.png": "/walking-school-frontend/static/media/offeringsBanner.5e961b83e47984e6fdcf.png",
     "static/media/Oswald-Medium.ttf": "/walking-school-frontend/static/media/Oswald-Medium.79e266089ef37332d7ae.ttf",
-    "static/media/requirementsBig.webp": "/walking-school-frontend/static/media/requirementsBig.21c0389ad8af913a6072.webp",
-    "static/media/requirementsMedium.webp": "/walking-school-frontend/static/media/requirementsMedium.0b011ab4937200d544c5.webp",
-    "static/media/requirementsSmall.webp": "/walking-school-frontend/static/media/requirementsSmall.af5be2dbbaa0a1dc9c9c.webp",
     "static/media/logoDesktop.svg": "/walking-school-frontend/static/media/logoDesktop.85cf7828e1547f30613cda57ded02558.svg",
     "static/media/logoMobile.svg": "/walking-school-frontend/static/media/logoMobile.d34c450f9077cea3e99f094807ef6e17.svg",
     "static/media/logoTablet.svg": "/walking-school-frontend/static/media/logoTablet.17021460f3d06123dae5fec08f868a3a.svg",
     "static/media/phone.svg": "/walking-school-frontend/static/media/phone.60b89be4c45cd982c7ef1e1cf0bb62dd.svg",
     "static/media/linkedin.svg": "/walking-school-frontend/static/media/linkedin.7e0682597990f1c0a93a85c40dc06897.svg",
     "static/media/mail.svg": "/walking-school-frontend/static/media/mail.565fc48e7b3ae7a8d4248974c86c5f03.svg",
-    "static/media/checkCircle.svg": "/walking-school-frontend/static/media/checkCircle.294c642d4dee200d2a949022e46acff8.svg",
     "static/media/facebook.svg": "/walking-school-frontend/static/media/facebook.605c4eada440c523e807ab44edfb1a9f.svg",
     "static/media/check-circle-green.svg": "/walking-school-frontend/static/media/check-circle-green.d003f7534c565a78deaa282261ed4765.svg",
     "index.html": "/walking-school-frontend/index.html",
-    "main.853037bb.css.map": "/walking-school-frontend/static/css/main.853037bb.css.map",
-    "main.c098b30a.js.map": "/walking-school-frontend/static/js/main.c098b30a.js.map",
+    "main.02dd1f4c.css.map": "/walking-school-frontend/static/css/main.02dd1f4c.css.map",
+    "main.ef609f52.js.map": "/walking-school-frontend/static/js/main.ef609f52.js.map",
     "787.7003ee39.chunk.js.map": "/walking-school-frontend/static/js/787.7003ee39.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.853037bb.css",
-    "static/js/main.c098b30a.js"
+    "static/css/main.02dd1f4c.css",
+    "static/js/main.ef609f52.js"
   ]
 }
