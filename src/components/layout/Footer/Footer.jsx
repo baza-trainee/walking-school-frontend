@@ -17,8 +17,8 @@ export const Footer = () => {
   ];
 
   const socialIcons = [
-    { href: "#linkedin", src: linkedin, alt: "linkedin logo" },
     { href: "#facebook", src: facebook, alt: "facebook logo" },
+    { href: "#linkedin", src: linkedin, alt: "linkedin logo" },
   ];
 
   return (

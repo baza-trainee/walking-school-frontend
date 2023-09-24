@@ -7,6 +7,7 @@
 
 header {
   padding: 16px;
+  color: var(--header-text-color);
 }
 
 .main {
@@ -31,11 +32,6 @@ header {
   display: flex;
   width: 100%;
   align-items: center;
-}
-
-button {
-  height: 56px;
-  width: 173px;
 }
 
 .main__dropdown {
@@ -69,7 +65,7 @@ button {
   width: 100%;
 }
 
-.main__dropdown .list a {
+.list__link {
   display: flex;
   width: 100%;
   height: 48px;
@@ -77,19 +73,16 @@ button {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  border-bottom: 1px solid #999;
-  font-family: DM Sans;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 18px;
-  text-decoration: none;
-  color: #9795b5;
-  text-align: center;
+  border-bottom: 1px solid #7e8492;
+  font-family: var(--menu-item-ff);
+  font-size: var(--menu-item-fs-mob);
+  font-weight: var(--menu-item-fw);
+  line-height: var(--menu-item-lh);
   cursor: pointer;
 }
 
-.main__dropdown .list a:hover {
-  background: #dfdef2;
+.list__link:hover {
+  background: var(--menu-item-hover-bg);
 }
 
 .btn {
@@ -145,22 +138,10 @@ button {
     gap: 33px;
   }
 
-  .main__menu .list a {
-    padding: 19px 4px;
-    justify-content: flex-end;
-    align-items: center;
-    color: #9795b5;
-    text-align: center;
-    font-family: DM Sans;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    text-decoration: none;
-  }
-
-  .main__menu .list a:hover {
-    background: #dfdef2;
+  .list__link {
+    border: none;
+    max-width: 100px;
+    font-size: var(--menu-item-fs-web);
   }
 
   .main__dropdown .list {
