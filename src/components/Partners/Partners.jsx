@@ -1,12 +1,20 @@
 import React from "react";
-import styles from "./partners.module.css";
+import styles from "./Partners.module.css";
+import "./arrows.css";
 import { data } from "./data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useMedia } from "../../hooks/useMedia";
 import "swiper/css/navigation";
+import Container from "../layout/Container";
 
-export const Partners = () => {
+import Facebook from "../../assets/partners/Facebook.svg";
+import Google from "../../assets/partners/Google.svg";
+import Pinterest from "../../assets/partners/pinterest.svg";
+import Twitch from "../../assets/partners/twich.svg";
+import YouTube from "../../assets/partners/YouTube.svg";
+
+const Partners = () => {
   const { isMobile, isTablet } = useMedia();
   let slidesQuantity;
   if (isMobile) {
@@ -17,13 +25,13 @@ export const Partners = () => {
     slidesQuantity = 5;
   }
   return (
-    <section className={styles.wrapper}>
+    <Container>
       <div className={styles.content}>
         <h2 className={styles.title}>Партнери</h2>
 
         <Swiper
           className={styles.swiperContainer}
-          slidesPerView={slidesQuantity}
+          speed={700}
           loop
           modules={[Navigation]}
           navigation={{
@@ -31,17 +39,18 @@ export const Partners = () => {
             prevEl: ".swiper-button-prev",
           }}
         >
-          {data.map((slide) => (
-            <SwiperSlide className={styles.slide} key={slide.img}>
-              <a href="#" target="_blank">
-                <img src={slide.img} className={styles.image} />
-              </a>
-            </SwiperSlide>
-          ))}
-          <div className={`${styles.myArrow} swiper-button-next`}></div>
-          <div className={`${styles.myArrow} swiper-button-prev`}></div>
+          <SwiperSlide>
+            <img src={Facebook} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={Facebook} />
+          </SwiperSlide>
         </Swiper>
+        <div className={`${styles.myArrow} swiper-button-next`}></div>
+        <div className={`${styles.myArrow} swiper-button-prev`}></div>
       </div>
-    </section>
+    </Container>
   );
 };
+
+export default Partners;

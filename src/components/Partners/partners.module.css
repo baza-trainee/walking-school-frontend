@@ -1,13 +1,3 @@
-.wrapper {
-  padding: 4px 0 28px 0;
-  text-rendering: auto;
-  margin: 0 auto;
-}
-.content {
-  margin: 0 auto;
-  width: 1140px;
-}
-
 .title {
   font-size: 32px;
   color: #1d1e25;
@@ -17,20 +7,32 @@
   margin-bottom: 48px;
 }
 
+.swiperContainer {
+  max-width: 994px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1140px;
+  text-rendering: auto;
+  position: relative;
+  padding-top: 100px;
+}
+
+/* .slide {
+  max-width: 130px;
+} */
+/* 
 @media screen and (min-width: 768px) {
-  .wrapper {
-    padding: 80px 24px;
-  }
   .swiperContainer {
     padding: 0 44px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .wrapper {
-    padding: 100px 150px;
-  }
-
   .title {
     font-size: 48px;
     line-height: 38px;
@@ -39,23 +41,16 @@
   .swiperContainer {
     padding: 0 44px;
   }
-}
-
-.swiperContainer {
-  text-rendering: auto;
-  padding: 20px 0px;
-}
-
-img {
-  height: 30px;
-  width: 135px;
-}
+} */
 
 .myArrow {
-  color: #52ed7e !important;
-  height: 44px !important;
+  color: var(--arrow-color) !important;
+  top: 200px !important;
+  z-index: 10;
   width: 44px !important;
-  background-color: #fff !important;
+  height: 44px !important;
+  background-color: #eaeaea;
+  border-radius: 12px;
 }
 
 .myArrow:after {

@@ -8,6 +8,7 @@ import Participate from "../../Participate/Participate";
 import { FollowUsFacebook } from "../../FollowUsFacebook/index.jsx";
 import styles from "./Main.module.css";
 import HeroSection from "../../HeroSection/index";
+import Partners from "../../Partners/Partners";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
@@ -17,7 +18,7 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <Projects />
-    {/* <Partners /> */}
+    <Partners />
     <Participate />
     <Requirements />
     <FollowUsFacebook />
