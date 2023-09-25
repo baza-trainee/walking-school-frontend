@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.partners {
+  padding: 0 16px 60px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  color: var(--header-text-color);
+  font-family: var(--h2-ff);
+  font-size: var(--h2-fs-mob);
+  font-style: normal;
+  font-weight: var(--h2-fw);
+  line-height: var(--h2-lh);
+}
+
+.link-wrapper {
+  display: flex;
+  max-width: 200px;
+  max-height: 70px;
+  justify-content: space-around;
+}
+
+.image {
+  max-width: 200px;
+  max-height: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .partners {
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .content {
+    justify-content: space-between;
+    gap: 40px;
+    width: 720px;
+  }
+
+  .title {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 352px;
+    font-size: var(--h2-fs-tab);
+  }
+
+  .carousel {
+    width: 720px;
+  }
+
+  .swiperContainer {
+    overflow-y: visible !important;
+    width: 100% !important;
+    text-rendering: auto;
+  }
+
+  .myArrow {
+    color: var(--arrow-color) !important;
+    top: 50% !important;
+    z-index: 10;
+    width: 44px !important;
+    height: 44px !important;
+    background-color: #eaeaea;
+    border-radius: 12px;
+  }
+
+  .right {
+    right: 0 !important;
+  }
+
+  .left {
+    left: 0 !important;
+  }
+
+  .myArrow:after {
+    font-size: 23px !important;
+    font-weight: 600 !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .partners {
+    padding: 100px 150px 60px 150px;
+  }
+
+  .content {
+    width: 1140px;
+  }
+  .title {
+    font-size: var(--h2-fs-wed);
+    width: 563px;
+    color: #1d1e25;
+  }
+
+  .carousel {
+    width: 1141px;
+  }
+
+  .myArrow {
+    top: 50% !important;
+    z-index: 10;
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #e3f9f7;
+  }
+
+  .right {
+    right: -0.5px !important;
+  }
+
+  .left {
+    left: -0.5px !important;
+  }
+
+  .myArrow:after {
+    font-size: 26px !important;
+    font-weight: 600 !important;
+  }
+}
