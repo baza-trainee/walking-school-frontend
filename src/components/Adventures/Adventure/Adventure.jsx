@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "./adventure.module.css";
+import style from "./Adventure.module.css";
 
 /**
  * Component card for representing some activity included in the project
