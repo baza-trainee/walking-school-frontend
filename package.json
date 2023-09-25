@@ -30,12 +30,6 @@
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "swiper/react": "swiper/react/swiper-react.js",
-      "swiper/css": "swiper/swiper.min.css"
-    }
-  },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
@@ -66,5 +60,12 @@
     "lint-staged": "^14.0.1",
     "prettier": "3.0.3",
     "resize-observer-polyfill": "^1.5.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "swiper/react": "swiper/swiper.js",
+      "swiper/css": "swiper/swiper.min.css",
+      "swiper/modules": "swiper/modules/pagination.mjs"
+    }
   }
 }
