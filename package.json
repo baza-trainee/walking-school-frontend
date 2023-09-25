@@ -32,8 +32,9 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "swiper/react": "swiper/react/swiper-react.js",
-      "swiper/css": "swiper/swiper.min.css"
+      "swiper/react": "swiper/swiper.js",
+      "swiper/css": "swiper/swiper.min.css",
+      "swiper/modules": "swiper/modules/pagination.mjs"
     }
   },
   "lint-staged": {
