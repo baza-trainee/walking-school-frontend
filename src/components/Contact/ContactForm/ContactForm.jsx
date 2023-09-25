@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../UI/Button/Button";
 import { CustomInput } from "../CustomInput/CustomInput";
 import styles from "./ContactForm.module.css";
+import { Modal } from "../../Modal/Modal";
 
 export const ContactForm = () => {
   // TODO: create a custom hook and move the form logic there
@@ -19,6 +20,7 @@ export const ContactForm = () => {
     phoneNumber: "",
     message: "",
   });
+  const [isActive, setIsActive] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,6 +50,7 @@ export const ContactForm = () => {
       phoneNumber: "",
       message: "",
     });
+    setIsActive(true);
   };
 
   const handleInputChange = (event, setAction) => {
@@ -119,6 +122,7 @@ export const ContactForm = () => {
       <Button className={styles.button} variant="large" type="submit">
         Надіслати
       </Button>
+      {isActive && <Modal setIsActive={setIsActive} />}
     </form>
   );
 };
