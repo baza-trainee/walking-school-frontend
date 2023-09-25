@@ -43,7 +43,7 @@ const cardCollection = cards.map((card) => (
 const Adventures = () => {
   return (
     <Container>
-      <div className={style.container}>{cardCollection}</div>
+      <div data-testid="adventures" className={style.container}>{cardCollection}</div>
     </Container>
   );
 };
