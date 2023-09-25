@@ -54,7 +54,7 @@ const items = [
 const Projects = () => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile } = useMedia();
-  const [cards, setCards] = useState(items);
+  const [cards, _] = useState(items);
   const cardsToRender = cards;
 
   return (
