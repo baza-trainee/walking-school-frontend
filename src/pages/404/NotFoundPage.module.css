@@ -1,6 +1,6 @@
 .notFound {
   width: 100%;
-  padding: 36px 0 40px 0;
+  padding: 36px 16px 40px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
 
 .notFound__image {
   aspect-ratio: 1/1;
-  width: 39.55%;
+  width: 43.06%;
 }
 
 .notFound__main {
@@ -56,20 +56,21 @@
 }
 
 .button {
-  width: 92.2%;
+  width: 100%;
+  padding: 14px 18px;
 }
 
 @media (min-width: 768px) {
   .notFound {
     flex-direction: row-reverse;
     gap: 40px;
-    padding: 60px 25px;
+    padding: 60px 24px;
     justify-content: space-between;
   }
 
   .notFound__image {
     aspect-ratio: 262/257;
-    width: 37.3%;
+    width: 36.38%;
     flex-shrink: 0;
   }
 
@@ -103,11 +104,11 @@
   }
 
   .button {
-    width: 57.45%;
+    width: 56.99%;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .notFound {
     gap: 58px;
     justify-content: center;
@@ -115,13 +116,17 @@
 
   .notFound__main {
     flex-grow: 0;
+    width: 33.31%;
+    aspect-ratio: 463/422;
   }
 
   .button {
-    width: 48.82%;
+    width: 58.33%;
+    padding: 18px 24px;
   }
 
   .notFound__image {
-    width: 30.12%;
+    width: 30.57%;
+    aspect-ratio: 425/417;
   }
 }

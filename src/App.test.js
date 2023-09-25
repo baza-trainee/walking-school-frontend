@@ -1,8 +1,14 @@
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+jest.mock("Swiper", () => class Mocked {});
+
+jest.mock("./Components/Projects/Carousel/SwiperSlider", () => () => (
+  <div>SwiperSlider</div>
+));
+
+it("renders without crashing", () => {
+  const div = document.createElement("header");
+  ReactDOM.render(<App />, div);
+});

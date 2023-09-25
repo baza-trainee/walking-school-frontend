@@ -4,10 +4,10 @@ import linkedin from "../../../assets/images/linkedin.svg";
 import facebook from "../../../assets/images/facebook.svg";
 import styles from "./Footer.module.css";
 import { useMedia } from "../../../hooks/useMedia";
-import { FooterContacts } from "./Contacts/FooterContacts";
 import { FooterLinksList } from "./FooterLinksList/FooterLinksList";
 import { SocialIconsList } from "./SocialIconsList/SocialIconsList";
 import { FooterLogo } from "./FooterLogo";
+import { FooterContacts } from "./FooterContacts/FooterContacts";
 
 export const Footer = () => {
   const { isDesktop, isMobile, isTablet } = useMedia();
@@ -49,7 +49,7 @@ export const Footer = () => {
               </a>
             </div>
             <div className={styles.rights}>
-              <p className={styles.rightsItem}>
+              <p data-testid="rightText" className={styles.rightsItem}>
                 Розробка Baza Trainee Ukraine 2023 {isMobile && <br></br>}© Всі
                 права захищені.
               </p>
