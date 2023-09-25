@@ -48,7 +48,7 @@ describe("Projects component", () => {
     useState.mockReturnValueOnce([mockCardsLess, jest.fn()]);
     mockedUseMedia.mockReturnValue({ isMobile: true });
     render(<Projects />);
-    expect(screen.getByRole("button")).toBeNull();
+    expect(screen.queryByRole("button")).toEqual(null);
   });
 
   it("renders button when more than 3 cards", async () => {
