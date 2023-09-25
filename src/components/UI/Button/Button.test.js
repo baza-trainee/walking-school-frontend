@@ -8,8 +8,6 @@ describe("Button component", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("large");
-
-    screen.debug();
   });
 
   it("renders a button with 'small' variant", () => {
@@ -24,7 +22,6 @@ describe("Button component", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("small");
-    screen.debug();
   });
 
   it("renders a button with 'tertiary' variant", () => {
@@ -54,7 +51,6 @@ describe("Button component", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("disabled");
-    screen.debug();
   });
 
   it("onClick handler when button is clicked", () => {
