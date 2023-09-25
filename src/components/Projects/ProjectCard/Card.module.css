@@ -149,6 +149,14 @@
   height: 88px;
 }
 
+.data__description span {
+  color: var(--body-text-color);
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
 @media screen and (min-width: 767px) {
   .card {
     width: 352px;
@@ -200,6 +208,10 @@
   .data__description {
     font-size: var(--body-text-fs-web);
     height: 96px;
+  }
+
+  .data__description span {
+    font-size: var(--body-text-fs-web);
   }
 
   .join__link {
