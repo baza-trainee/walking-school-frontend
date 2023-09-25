@@ -15,6 +15,7 @@ export const SmallScreen = () => {
             src={element.img}
             key={element.img}
             className={styles.imageSmall}
+            alt="facebookImg"
           />
         ))}
       </div>
