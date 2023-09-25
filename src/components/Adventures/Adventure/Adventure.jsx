@@ -17,9 +17,14 @@ import style from "./adventure.module.css";
 const Adventure = (props) => {
   const { imageSrc, imageAlt, text } = props;
   return (
-    <div className={style.card}>
+    <div data-testid="card" className={style.card}>
       <div className={style.cardContent}>
-        <img src={imageSrc} alt={imageAlt} className={style.cardImage} />
+        <img
+          data-testid="card-icon"
+          src={imageSrc}
+          alt={imageAlt}
+          className={style.cardImage}
+        />
         <div className={style.cardName}>{text}</div>
       </div>
     </div>
