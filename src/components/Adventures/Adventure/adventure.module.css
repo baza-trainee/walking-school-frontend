@@ -1,8 +1,8 @@
 .card {
   background-color: #fff;
-  border: 1px solid #d4d2e3;
+  border: 1px solid #ffbf69;
   aspect-ratio: 68/73;
-  border-radius: 5%;
+  border-radius: 24px;
   width: 100%;
   box-sizing: border-box;
   flex-basis: calc(95% / 2);
@@ -33,4 +33,18 @@
   font-weight: 700;
   min-height: 2.5em;
   line-height: 133.33%;
+}
+
+@media (min-width: 768px) {
+  .card {
+    aspect-ratio: 28/23;
+    flex-basis: 23.62%;   
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    aspect-ratio: 15/16;
+    flex-basis: 23.85%;   
+  }  
 }
