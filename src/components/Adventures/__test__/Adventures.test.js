@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import Adventures from "../Adventures";
 import Adventure from "../Adventure/Adventure";
 
-jest.mock("../../../assets/icons/BungeeJumping.svg", () => "testIcon");
+afterEach(cleanup);
 
 describe("Adventure card", () => {
   it("renders", () => {
@@ -45,5 +45,34 @@ describe("Adventure card", () => {
     );
     const textContainer = screen.getByText("test text");
     expect(textContainer).toBeInTheDocument();
+  });
+});
+
+describe("Adventures component", () => {
+  it("renders", () => {
+    render(<Adventures />);
+    const adventures = screen.getByTestId("adventures");
+    expect(adventures).toBeInTheDocument();
+  });
+
+  it("is visible", () => {
+    render(<Adventures />);
+    const adventures = screen.getByTestId("adventures");
+    expect(adventures).toBeVisible();
+  });
+
+  it("isn't empty", () => {
+    render(<Adventures />);
+    const adventures = screen.getByTestId("adventures");
+    expect(adventures).not.toBeEmptyDOMElement();
+  });
+
+  it("contains cards", () => {
+    render(<Adventures />);
+    const adventures = screen.getByTestId("adventures");
+    const cards = screen.getAllByTestId("card");
+    for (let i = 0; i < cards.length; i += 1) {
+      expect(adventures).toContainElement(cards[i]);
+    }
   });
 });
