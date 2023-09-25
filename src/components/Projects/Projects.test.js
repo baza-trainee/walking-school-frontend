@@ -42,29 +42,25 @@ describe("Projects component", () => {
     render(<Projects />);
     expect(screen.getByTestId("mobile-slider")).toBeInTheDocument();
     expect(screen.getAllByTestId("project-card").length).toBeLessThanOrEqual(3);
-    screen.debug();
   });
 
   it("does not render button when less than 3 cards", async () => {
     useState.mockReturnValueOnce([mockCardsLess, jest.fn()]);
     mockedUseMedia.mockReturnValue({ isMobile: true });
     render(<Projects />);
-    expect(screen.queryByRole("button")).toBeNull();
-    screen.debug();
+    expect(screen.queryByRole("button")).toEqual(null);
   });
 
   it("renders button when more than 3 cards", async () => {
     useState.mockReturnValueOnce([mockCardsMore, jest.fn()]);
     mockedUseMedia.mockReturnValue({ isMobile: true });
     render(<Projects />);
-    expect(screen.queryByRole("button")).toBeInTheDocument();
-    screen.debug();
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   it("renders project cards when isMobile false", () => {
     useState.mockReturnValueOnce([mockCardsLess, jest.fn()]);
     render(<Projects />);
     expect(screen.getByText("SwiperSlider")).toBeInTheDocument();
-    screen.debug();
   });
 });
