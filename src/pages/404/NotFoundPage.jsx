@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "../../components/layout/Container/Container";
 import Button from "../../components/UI/Button/Button";
 import Image from "../../assets/images/404.svg";
@@ -9,6 +10,11 @@ import style from "./NotFoundPage.module.css";
  * @returns {React.JSX.Element}
  */
 const NotFoundPage = () => {
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `walking-school-frontend`;
+    navigate(path);
+  };
   return (
     <Container>
       <section data-testid="page" className={style.notFound}>
@@ -26,7 +32,7 @@ const NotFoundPage = () => {
               </span>
             </div>
           </div>
-          <Button className={style.button} type="button">
+          <Button onClick={routeChange} className={style.button} type="button">
             Повернутись на головну
           </Button>
         </div>
