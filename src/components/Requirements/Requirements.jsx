@@ -26,7 +26,7 @@ const Requirements = () => {
   const { isDesktop, isMobile } = useMedia();
   const notMobileImage = isDesktop ? bigImage : mediumImage;
   return (
-    <section className={style.requirementsWrapper}>
+    <section data-testid="requirements" className={style.requirementsWrapper}>
       <Container>
         <div className={style.requirements}>
           {isMobile ? (
