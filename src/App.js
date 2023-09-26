@@ -18,7 +18,7 @@ const router = createBrowserRouter(
       <Route index path="walking-school-frontend" element={<Main />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>,
-  )
+  ),
 );
 
 function App() {
