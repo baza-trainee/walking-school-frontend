@@ -1,46 +1,42 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useMedia } from "../../../hooks/useMedia";
+import { register } from "swiper/element/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import style from "../Partner.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-import { Navigation } from "swiper/modules";
+
+register();
 
 const PartnersSlider = ({ partners }) => {
-  const [slidersArr, setSlidersArr] = useState([]);
+  const { isMobile, isTablet } = useMedia();
 
-  useEffect(() => {
-    if (partners.length < 5) {
-      setSlidersArr([...partners, ...partners]);
-    } else {
-      setSlidersArr(partners);
-    }
-  }, [partners]);
+  let slidesQuantity;
 
+  if (isMobile) {
+    slidesQuantity = 1;
+  } else if (isTablet) {
+    slidesQuantity = 3;
+  } else {
+    slidesQuantity = 5;
+  }
   return (
     <Swiper
       className={style.swiperContainer}
       loop={true}
       speed={1000}
+      slidesPerView={slidesQuantity}
       modules={[Navigation]}
       navigation={{
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       }}
-      breakpoints={{
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 16,
-        },
-        1440: {
-          slidesPerView: 5,
-          spaceBetween: 20,
-        },
-      }}
     >
-      {slidersArr?.map((partner, index) => (
-        <SwiperSlide key={index}>
+      {partners.map((partner, index) => (
+        <SwiperSlide key={index} style={{ alignSelf: "center" }}>
           <div className={style["link-wrapper"]}>
             <a href="#" target="_blank" className={style.image}>
               <img src={partner.img} alt="logotype" className={style.image} />

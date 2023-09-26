@@ -1,18 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-// eslint-disable-next-line no-unused-vars
-import React, { useState, Fragment } from "react";
-import { useMedia } from "../../hooks/useMedia";
+import React from "react";
 import { data } from "./data";
-// import PartnerItem from "./PartnerItem/PartnerItem";
 import PartnersSlider from "./PartnersSlider/PartnersSlider";
 import style from "./Partner.module.css";
 
 export const Partners = () => {
-  // eslint-disable-next-line no-unused-vars
-  const { isMobile, isTablet } = useMedia();
-  // eslint-disable-next-line no-unused-vars
-  const [partners, setPartners] = useState(data);
-
   return (
     <section className={style.partners} id="projects">
       <div className={style.content}>
@@ -21,7 +12,7 @@ export const Partners = () => {
         </div>
       </div>
       <div className={style.carousel}>
-        <PartnersSlider partners={partners} />
+        <PartnersSlider partners={data} />
       </div>
     </section>
   );

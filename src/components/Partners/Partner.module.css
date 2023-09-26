@@ -1,9 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .partners {
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 0 16px 60px 16px;
   display: flex;
   flex-direction: column;
@@ -32,10 +29,10 @@
   max-height: 70px;
   justify-content: space-around;
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 .image {
+  vertical-align: middle;
   max-width: 200px;
   max-height: 70px;
   display: inline-block;
@@ -68,6 +65,10 @@
     overflow-y: visible !important;
     width: 100% !important;
     text-rendering: auto;
+  }
+
+  .swiperContainer div.swiper-wraper {
+    align-items: center !important;
   }
 
   .myArrow {
@@ -121,11 +122,11 @@
   }
 
   .right {
-    right: -0.5px !important;
+    right: 0 !important;
   }
 
   .left {
-    left: -0.5px !important;
+    left: 0 !important;
   }
 
   .myArrow:after {
