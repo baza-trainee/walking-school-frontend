@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/walking-school-frontend/static/css/main.1b2bf66b.css",
-    "main.js": "/walking-school-frontend/static/js/main.d2f25d76.js",
+    "main.css": "/walking-school-frontend/static/css/main.5df3dc32.css",
+    "main.js": "/walking-school-frontend/static/js/main.430a1d59.js",
     "static/js/787.7003ee39.chunk.js": "/walking-school-frontend/static/js/787.7003ee39.chunk.js",
     "static/media/hero2mob.svg": "/walking-school-frontend/static/media/hero2mob.17d1b25dc5acf77f2130ac2b64915e36.svg",
     "static/media/facebook4.png": "/walking-school-frontend/static/media/facebook4.4f58339c43d86bc2df48.png",
@@ -34,6 +34,7 @@
     "static/media/logoTablet.svg": "/walking-school-frontend/static/media/logoTablet.2b137e8c1f088f166177af210977cbb2.svg",
     "static/media/Parachuting.svg": "/walking-school-frontend/static/media/Parachuting.95c038a9effd81f97a56ae520219518c.svg",
     "static/media/FlySpot.svg": "/walking-school-frontend/static/media/FlySpot.78aae5a60e4a4772ab13c7a4a30a203f.svg",
+    "static/media/modalCheck.svg": "/walking-school-frontend/static/media/modalCheck.4e64f76e7949613f5510140fe200b6df.svg",
     "static/media/phone.svg": "/walking-school-frontend/static/media/phone.63888224f215f9e18111efb8f00217f1.svg",
     "static/media/linkedin.svg": "/walking-school-frontend/static/media/linkedin.3affde5c8ffb1b9e7c96dbba22e93962.svg",
     "static/media/calendar.svg": "/walking-school-frontend/static/media/calendar.8b62cfb636c236a4efe2ec03df164581.svg",
@@ -44,13 +45,13 @@
     "static/media/open.svg": "/walking-school-frontend/static/media/open.e224133a94d27524b1fdaf6dfec06545.svg",
     "static/media/check-circle-green.svg": "/walking-school-frontend/static/media/check-circle-green.df144800b45cea7e73af4665b0bb915d.svg",
     "index.html": "/walking-school-frontend/index.html",
-    "static/media/close.svg": "/walking-school-frontend/static/media/close.48ae765bfb0632f0c4bbef75d3efea26.svg",
-    "main.1b2bf66b.css.map": "/walking-school-frontend/static/css/main.1b2bf66b.css.map",
-    "main.d2f25d76.js.map": "/walking-school-frontend/static/js/main.d2f25d76.js.map",
+    "static/media/close.svg": "/walking-school-frontend/static/media/close.c90707c846879fef87a6bd5194747ecd.svg",
+    "main.5df3dc32.css.map": "/walking-school-frontend/static/css/main.5df3dc32.css.map",
+    "main.430a1d59.js.map": "/walking-school-frontend/static/js/main.430a1d59.js.map",
     "787.7003ee39.chunk.js.map": "/walking-school-frontend/static/js/787.7003ee39.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b2bf66b.css",
-    "static/js/main.d2f25d76.js"
+    "static/css/main.5df3dc32.css",
+    "static/js/main.430a1d59.js"
   ]
 }
