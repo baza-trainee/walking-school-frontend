@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import PartnerItem from "../PartnerItem/PartnerItem";
 import style from "../Partner.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -30,18 +30,22 @@ const PartnersSlider = ({ partners }) => {
       }}
       breakpoints={{
         768: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 16,
         },
         1440: {
-          slidesPerView: 3,
+          slidesPerView: 5,
           spaceBetween: 20,
         },
       }}
     >
       {slidersArr?.map((partner, index) => (
         <SwiperSlide key={index}>
-          <PartnerItem image={partner.img} />
+          <div className={style["link-wrapper"]}>
+            <a href="#" target="_blank" className={style.image}>
+              <img src={partner.img} alt="logotype" className={style.image} />
+            </a>
+          </div>
         </SwiperSlide>
       ))}
       <div

@@ -7,7 +7,7 @@ import Participate from "../../Participate/Participate";
 import FollowUsFacebook from "../../FollowUsFacebook/index.jsx";
 import HeroSection from "../../HeroSection/index";
 import Adventures from "../../Adventures/Adventures";
-// import { Partners } from "../../Partners/Partners";
+import { Partners } from "../../Partners/Partners";
 import styles from "./Main.module.css";
 
 const Main = () => (
@@ -18,7 +18,7 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <Projects />
-    {/* <Partners /> */}
+    <Partners />
     <Participate />
     <Requirements />
     <FollowUsFacebook />

@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, Fragment } from "react";
 import { useMedia } from "../../hooks/useMedia";
 import { data } from "./data";
-import PartnerItem from "./PartnerItem/PartnerItem";
+// import PartnerItem from "./PartnerItem/PartnerItem";
 import PartnersSlider from "./PartnersSlider/PartnersSlider";
 import style from "./Partner.module.css";
 
@@ -19,30 +20,44 @@ export const Partners = () => {
           <h2>Проєкти</h2>
         </div>
       </div>
-
       <div className={style.carousel}>
-        {isMobile ? (
-          <div
-            data-testid={"mobile-slider"}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "24px",
-            }}
-          >
-            {partners.map((partner, index) => (
-              <Fragment key={index}>
-                <PartnerItem partner={partner} />
-              </Fragment>
-            ))}
-          </div>
-        ) : (
-          <PartnersSlider partners={partners} />
-        )}
+        <PartnersSlider partners={partners} />
       </div>
     </section>
   );
+
+  // return (
+  //   <section className={style.partners} id="projects">
+  //     <div className={style.content}>
+  //       <div>
+  //         <h2>Проєкти</h2>
+  //       </div>
+  //     </div>
+
+  //     <div className={style.carousel}>
+  //       {isMobile ? (
+  //         <div
+  //           data-testid={"mobile-slider"}
+  //           style={{
+  //             display: "flex",
+  //             flexDirection: "column",
+  //             alignItems: "center",
+  //             gap: "24px",
+  //           }}
+  //         >
+  //           {partners.map((partner, index) => (
+  //             <Fragment key={index}>
+  //               <PartnerItem partner={partner} />
+  //             </Fragment>
+  //           ))}
+  //         </div>
+  //       ) : (
+  //         <PartnersSlider partners={partners} />
+  //       )}
+  //     </div>
+  //   </section>
+
+  ///////////////////////////////////////////////////
 
   // let slidesQuantity;
   // if (isMobile) {
