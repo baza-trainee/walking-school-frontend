@@ -1,6 +1,4 @@
-import Header from "./components/layout/Header/Header";
 import Main from "./components/layout/Main/Main";
-import { Footer } from "./components/layout/Footer/Footer";
 import NotFoundPage from "./pages/404/NotFoundPage";
 import {
   createBrowserRouter,
