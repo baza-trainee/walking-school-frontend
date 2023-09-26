@@ -6,10 +6,13 @@
   bottom: 13px;
   padding: 0;
   opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
 }
 
 .scrollButton_visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .icon {
