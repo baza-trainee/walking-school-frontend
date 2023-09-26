@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../UI/Button/Button";
-import Icon from "../../assets/icons/scrollup.svg";
-import style from "./Scrollup.module.css";
+import Icon from "../../assets/icons/scrollUp.svg";
+import style from "./ScrollUp.module.css";
 
 const scroll = () => window.scrollTo(0, 0);
 
