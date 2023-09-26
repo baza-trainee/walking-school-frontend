@@ -11,7 +11,7 @@ import style from "./NotFoundPage.module.css";
 const NotFoundPage = () => {
   return (
     <Container>
-      <section className={style.notFound}>
+      <section data-testid="page" className={style.notFound}>
         <img src={Image} alt="not found" className={style.notFound__image} />
         <div className={style.notFound__main}>
           <div className={style.notFound__text}>

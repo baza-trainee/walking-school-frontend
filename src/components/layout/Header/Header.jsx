@@ -25,7 +25,7 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} id="header-wrapper">
       <header>
         <Container>
           <div className={style.main}>
