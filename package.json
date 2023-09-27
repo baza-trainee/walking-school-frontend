@@ -30,6 +30,9 @@
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
+  "tags": [
+    "swiper"
+  ],
   "jest": {
     "moduleNameMapper": {
       "swiper/react": "swiper/swiper.js",

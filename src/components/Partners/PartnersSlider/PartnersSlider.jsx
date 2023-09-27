@@ -1,47 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useMedia } from "../../../hooks/useMedia";
+import { register } from "swiper/element/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
-import PartnerItem from "../PartnerItem/PartnerItem";
+import { Navigation } from "swiper/modules";
 import style from "../Partner.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-import { Navigation } from "swiper/modules";
+
+register();
 
 const PartnersSlider = ({ partners }) => {
-  const [slidersArr, setSlidersArr] = useState([]);
+  const { isMobile, isTablet } = useMedia();
 
-  useEffect(() => {
-    if (partners.length < 5) {
-      setSlidersArr([...partners, ...partners]);
-    } else {
-      setSlidersArr(partners);
-    }
-  }, [partners]);
+  let slidesQuantity;
+  let stylesSwiperSlide;
 
+  if (isMobile) {
+    slidesQuantity = 1;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+    };
+  } else if (isTablet) {
+    slidesQuantity = 3;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+      maxWidth: "240px",
+      width: "100%",
+    };
+  } else {
+    slidesQuantity = 5;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+      maxWidth: "240px",
+      width: "100%",
+    };
+  }
   return (
     <Swiper
       className={style.swiperContainer}
       loop={true}
       speed={1000}
+      slidesPerView={slidesQuantity}
       modules={[Navigation]}
       navigation={{
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       }}
-      breakpoints={{
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 16,
-        },
-        1440: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-      }}
     >
-      {slidersArr?.map((partner, index) => (
-        <SwiperSlide key={index}>
-          <PartnerItem image={partner.img} />
+      {partners.map((partner, index) => (
+        <SwiperSlide key={index} style={stylesSwiperSlide}>
+          <div className={style["link-wrapper"]}>
+            <img src={partner.img} alt="logotype" className={style.image} />
+          </div>
         </SwiperSlide>
       ))}
       <div
