@@ -1,0 +1,94 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 50px;
+  font-family: var(--input-text-ff);
+  width: 100%;
+}
+
+.wrapper label {
+  color: #131313;
+  font-family: var(--input-text-ff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  padding-left: 4px;
+}
+
+.field {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.field input {
+  display: inline-flex;
+  color: #131313;
+  align-items: flex-start;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  font-family: var(--input-text-ff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  outline: none;
+}
+
+.login {
+  background: #fbfafa;
+  border: 1px solid #7e8492;
+  padding: 12px 48px 12px 8px;
+}
+
+.login:focus {
+  background: #fff;
+}
+
+.admin {
+  border: 1px solid #7e8492;
+  background: #fff;
+  padding: 13px 40px 13px 8px;
+}
+
+.field input::placeholder {
+  color: #7e8492;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+.field__icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.field__icon div {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.error {
+  color: #f00631;
+  font-size: 14px;
+  line-height: 120%;
+  padding-left: 4px;
+}
+
+.field.disabled input {
+  border: 1px solid #7e8492;
+  background: #eaeaea;
+  pointer-events: none;
+}
+
+.field.disabled svg path {
+  stroke: #747474;
+}
