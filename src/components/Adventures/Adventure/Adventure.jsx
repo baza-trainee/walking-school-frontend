@@ -25,7 +25,7 @@ const Adventure = (props) => {
           alt={imageAlt}
           className={style.cardImage}
         />
-        <div className={style.cardName}>{text}</div>
+        <h4 className={style.cardName}>{text}</h4>
       </div>
     </div>
   );
