@@ -5,7 +5,6 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
-  Routes,
 } from "react-router-dom";
 
 import "./App.module.css";
