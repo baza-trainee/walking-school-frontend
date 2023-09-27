@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Container from "../../components/layout/Container/Container";
 import Button from "../../components/UI/Button/Button";
 import Image from "../../assets/images/404.svg";
