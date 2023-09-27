@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useMedia } from "../../../hooks/useMedia";
 import { register } from "swiper/element/bundle";
@@ -15,13 +14,27 @@ const PartnersSlider = ({ partners }) => {
   const { isMobile, isTablet } = useMedia();
 
   let slidesQuantity;
+  let stylesSwiperSlide;
 
   if (isMobile) {
     slidesQuantity = 1;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+    };
   } else if (isTablet) {
     slidesQuantity = 3;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+      maxWidth: "240px",
+      width: "100%",
+    };
   } else {
     slidesQuantity = 5;
+    stylesSwiperSlide = {
+      alignSelf: "center",
+      maxWidth: "240px",
+      width: "100%",
+    };
   }
   return (
     <Swiper
@@ -36,11 +49,9 @@ const PartnersSlider = ({ partners }) => {
       }}
     >
       {partners.map((partner, index) => (
-        <SwiperSlide key={index} style={{ alignSelf: "center" }}>
+        <SwiperSlide key={index} style={stylesSwiperSlide}>
           <div className={style["link-wrapper"]}>
-            <a href="#" target="_blank" className={style.image}>
-              <img src={partner.img} alt="logotype" className={style.image} />
-            </a>
+            <img src={partner.img} alt="logotype" className={style.image} />
           </div>
         </SwiperSlide>
       ))}
