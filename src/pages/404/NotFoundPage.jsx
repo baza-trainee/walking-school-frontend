@@ -1,20 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Container from "../../components/layout/Container/Container";
 import Button from "../../components/UI/Button/Button";
 import Image from "../../assets/images/404.svg";
 import style from "./NotFoundPage.module.css";
+import useRedirect from "../../hooks/useRedirect"
 
 /**
  * A page that is displayed when the page on current address doesn't exist or have been moved
  * @returns {React.JSX.Element}
  */
 const NotFoundPage = () => {
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `walking-school-frontend`;
-    navigate(path);
-  };
+  const redirect = useRedirect("walking-school-frontend")
   return (
     <Container>
       <section data-testid="page" className={style.notFound}>
@@ -32,7 +28,7 @@ const NotFoundPage = () => {
               </span>
             </div>
           </div>
-          <Button onClick={routeChange} className={style.button} type="button">
+          <Button onClick={redirect} className={style.button} type="button">
             Повернутись на головну
           </Button>
         </div>
