@@ -3,6 +3,11 @@
   height: 1024px;
 }
 
+.outlet {
+  flex-grow: 1;
+  background: #fbfafa;
+}
+
 .sidebar {
   width: 277px;
   background: #1d7d74;

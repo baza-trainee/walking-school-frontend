@@ -7,6 +7,7 @@ import { ReactComponent as Partners } from "../../../assets/admin/partners.svg";
 import { ReactComponent as Facebook } from "../../../assets/admin/gallery.svg";
 import { ReactComponent as Contacts } from "../../../assets/admin/contact.svg";
 import { ReactComponent as Users } from "../../../assets/admin/users.svg";
+import { Outlet } from "react-router-dom";
 
 const MainAdmin = () => {
   return (
@@ -72,7 +73,7 @@ const MainAdmin = () => {
             <NavLinkAdmin
               to={"#"}
               icon={<Hero />}
-              dropdownItems={[{ to: "/add", label: "Додати слайд" }]}
+              dropdownItems={[{ to: "hero/add", label: "Додати слайд" }]}
             >
               Hero
             </NavLinkAdmin>
@@ -80,8 +81,8 @@ const MainAdmin = () => {
               to={"/projects"}
               icon={<Projects />}
               dropdownItems={[
-                { to: "/sub-route-1", label: "Редагувати опис" },
-                { to: "/sub-route-2", label: "Додати проєкт" },
+                { to: "/projects/edit", label: "Редагувати опис" },
+                { to: "/projects/add", label: "Додати проєкт" },
               ]}
             >
               Проєкти
@@ -101,6 +102,9 @@ const MainAdmin = () => {
           </div>
           <button className={styles["sidebar__menu-button"]}>Вийти</button>
         </div>
+      </div>
+      <div className={styles.outlet}>
+        <Outlet />
       </div>
     </div>
   );

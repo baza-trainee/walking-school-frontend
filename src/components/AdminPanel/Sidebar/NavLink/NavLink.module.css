@@ -47,15 +47,21 @@
 }
 
 .dropdown li {
+  width: 100%;
+}
+
+.dropdown a {
   padding-left: 44px;
+  width: 100%;
   color: #fcfcfc;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px; /* 200% */
+  line-height: 32px;
+  border-radius: 4px;
 }
 
-.dropdown li:hover {
+.dropdown a:hover {
   border-radius: 4px;
   background: #e3f9f7;
   color: #4d4d4d;

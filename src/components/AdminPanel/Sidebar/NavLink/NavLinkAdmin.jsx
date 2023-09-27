@@ -16,7 +16,7 @@ const NavLinkAdmin = ({ children, icon, to, dropdownItems }) => {
     <div>
       <NavLink
         to={to}
-        className={({ isActive, isPending }) =>
+        className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.active}` : `${styles.link}  `
         }
       >
@@ -38,7 +38,17 @@ const NavLinkAdmin = ({ children, icon, to, dropdownItems }) => {
         <ul className={styles.dropdown}>
           {dropdownItems.map((item, index) => (
             <li key={index}>
-              <NavLink to={item.to}>{item.label}</NavLink>
+              <NavLink
+                to={item.to}
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "#4d4d4d" : "",
+                    background: isActive ? "#e3f9f7" : "",
+                  };
+                }}
+              >
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </ul>
