@@ -4,11 +4,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  Router,
   RouterProvider,
 } from "react-router-dom";
 
 import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
+import AdminLayout from "./components/layout/AdminLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
