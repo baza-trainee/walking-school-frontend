@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 @import url("/src/typography/_normalize.css");
-@import url("/src/typography/clientTypography/_colors.css");
-@import url("/src/typography/clientTypography/_fonts.css");
+@import url("/src/typography/_colors.css");
+@import url("/src/typography/_fonts.css");
 
 body {
   margin: 0;
