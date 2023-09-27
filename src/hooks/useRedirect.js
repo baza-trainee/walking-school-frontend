@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
  * @example
  * const redirect = userRedirect("your path")
  *
- * <Button onCLick={redirect}>
+ * <AdminButton onCLick={redirect}>
  *   Redirect button
- * </Button>
+ * </AdminButton>
  */
 export default function useRedirect(path) {
   const navigate = useNavigate();
