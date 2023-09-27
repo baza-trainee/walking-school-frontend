@@ -9,13 +9,17 @@ import {
 
 import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
+import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index path="walking-school-frontend" element={<Main />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Route>,
+    <>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Main />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      <Route path="/admin" element={<MainAdmin />} />
+    </>,
   ),
 );
 
