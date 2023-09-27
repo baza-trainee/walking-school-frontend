@@ -12,9 +12,9 @@ import { useNavigate } from "react-router-dom";
  */
 export default function useRedirect(path) {
   const navigate = useNavigate();
-  
+
   return () => {
-    window.scrollTo({left:0, top:0, behavior: "instant"});
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
     navigate(path);
   };
 }
