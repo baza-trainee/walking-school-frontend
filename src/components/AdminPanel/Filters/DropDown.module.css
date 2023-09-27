@@ -1,0 +1,38 @@
+.dropdown {
+  width: 305px;
+  position: relative;
+}
+
+.item {
+  padding: 12px 8px;
+  border: 1px solid black;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrowIcon {
+  height: 20px;
+  width: auto;
+}
+
+.optionLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 305px;
+  padding: 12px 8px;
+  border: 1px solid black;
+}
+
+.itemContainer {
+  background-color: #33333371;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
