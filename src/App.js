@@ -10,14 +10,12 @@ import {
 import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
-import AdminInput from "./components/AdminPanel/Input/AdminInput";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
-        <Route path="/input" element={<AdminInput />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/admin" element={<MainAdmin />} />

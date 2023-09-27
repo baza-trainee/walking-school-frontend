@@ -1,5 +1,6 @@
 import React, { cloneElement } from "react";
 import styles from "./Input.module.css";
+import { ReactComponent as Eye } from "../../../assets/admin/eye.svg";
 
 /**
  * @description input for login page and add/edit items
@@ -9,18 +10,20 @@ import styles from "./Input.module.css";
 
 const AdminInput = ({
   disabled = false,
-  label = "логін",
+  label,
   placeholder = "Введіть логін",
   id,
   error,
   onClick,
-  variant = "login",
-  icon,
+  variant = "textarea",
+  icon = <Eye />,
+  type = "text",
   ...props
 }) => {
   const inputClass = {
     login: styles.login,
     admin: styles.admin,
+    textarea: styles.textarea,
   };
 
   return (
@@ -32,16 +35,32 @@ const AdminInput = ({
         }
         style={{ background: error ? "#FFF" : "" }}
       >
-        <input
-          type="text"
-          placeholder={placeholder}
-          id={id}
-          {...props}
-          className={inputClass[variant]}
-        />
+        {variant === "textarea" ? (
+          <textarea
+            id={id}
+            placeholder={placeholder}
+            className={inputClass[variant]}
+            {...props}
+          />
+        ) : (
+          <input
+            type={type}
+            placeholder={placeholder}
+            id={id}
+            {...props}
+            className={inputClass[variant]}
+          />
+        )}
         {icon ? (
-          <div className={styles.field__icon}>
-            <div onClick={onClick}>{cloneElement(icon)}</div>
+          <div
+            className={
+              variant === "textarea"
+                ? `${styles["field__icon-textarea"]}`
+                : `${styles["field__icon-input"]}`
+            }
+            onClick={onClick}
+          >
+            {cloneElement(icon)}
           </div>
         ) : null}
       </div>
