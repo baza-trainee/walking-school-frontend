@@ -1,7 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   padding: 4px 0 28px 0;
   text-rendering: auto;
   margin: 0 auto;
+  align-items: center;
 }
 .content {
   margin: 0 auto;
@@ -46,9 +52,7 @@
   padding: 20px 0px;
 }
 
-img {
-  height: 30px;
-  width: 135px;
+.image {
 }
 
 .myArrow {

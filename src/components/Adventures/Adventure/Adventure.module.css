@@ -1,6 +1,8 @@
+@import "../../../typography/_colors.css";
+
 .card {
-  background-color: #fff;
-  border: 1px solid #ffbf69;
+  background-color: var(--adventure-internal-bg);
+  border: var(--adventure-border);
   aspect-ratio: 68/73;
   border-radius: 24px;
   width: 100%;
@@ -29,22 +31,33 @@
 
 .cardName {
   text-align: center;
-  font-size: 18px;
-  font-weight: 700;
   min-height: 2.5em;
-  line-height: 133.33%;
+  color: var(--adventure-text-color);
+  font-family: var(--h4-ff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: var(--h4-fw);
+  line-height: var(--h4-lh);
 }
 
 @media (min-width: 768px) {
   .card {
     aspect-ratio: 28/23;
-    flex-basis: 23.62%;   
+    flex-basis: 23.62%;
   }
 }
 
 @media (min-width: 1280px) {
   .card {
     aspect-ratio: 15/16;
-    flex-basis: 23.85%;   
-  }  
+    flex-basis: 23.85%;
+  }
+
+  .cardName {
+    font-family: var(--h4-ff);
+    font-size: var(--h4-fs);
+    font-style: normal;
+    font-weight: var(--h4-fw);
+    line-height: var(--h4-lh);
+  }
 }

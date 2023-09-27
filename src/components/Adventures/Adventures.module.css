@@ -4,22 +4,23 @@
   flex-wrap: wrap;
   gap: 16px 5%;
   padding: 40px 5% 0 5%;
-  color: #1D7D74;
 }
 
 @media (min-width: 768px) {
   .container {
     padding: 0 3.125%;
     gap: 0;
-    justify-content: space-between;
     position: relative;
+    justify-content: space-between;
     transform: translateY(-50%);
     z-index: 2;
+    margin-bottom: -92px;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
     padding: 0 10.41%;
+    margin-bottom: -146px;
   }
 }

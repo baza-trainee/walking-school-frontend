@@ -1,0 +1,78 @@
+@import "./../../typography/_colors.css";
+@import "./../../typography/_fonts.css";
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(77, 77, 77, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.modalContent {
+  background: #fff;
+  position: relative;
+  padding: 64px 24px;
+  border-radius: 24px;
+  border: var(--thank-you-form-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: var(--h2-ff);
+  font-weight: var(--h2-fw);
+  line-height: var(--h2-lh);
+  font-size: var(--h2-fs-tab);
+  margin-bottom: 20px;
+}
+
+.message {
+  text-align: center;
+  font-family: var(--body-text-ff);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+  font-size: var(--body-text-fs-mob);
+  max-width: 288px;
+  margin-bottom: 33px;
+}
+
+.img {
+  width: 120px;
+  height: 120px;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 463px;
+  }
+  .message {
+    text-align: center;
+    font-size: var(--body-text-fs-web);
+    max-width: initial;
+    margin-bottom: 33px;
+  }
+  .img {
+    width: 156px;
+    height: 156px;
+  }
+}

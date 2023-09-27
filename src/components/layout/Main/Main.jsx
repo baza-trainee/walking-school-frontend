@@ -1,4 +1,3 @@
-import Adventures from "../../Adventures/Adventures";
 import { Scroller } from "../../Scroller/Scroller";
 import { Offerings } from "../../Offerings/Offerings";
 import Projects from "../../Projects/Projects";
@@ -7,6 +6,9 @@ import Requirements from "../../Requirements/Requirements";
 import Participate from "../../Participate/Participate";
 import FollowUsFacebook from "../../FollowUsFacebook/index.jsx";
 import HeroSection from "../../HeroSection/index";
+import Adventures from "../../Adventures/Adventures";
+import ScrollUp from "../../ScrollUp/ScrollUp";
+// import { Partners } from "../../Partners/Partners";
 import styles from "./Main.module.css";
 
 const Main = () => (
@@ -22,6 +24,7 @@ const Main = () => (
     <Requirements />
     <FollowUsFacebook />
     <Contact />
+    <ScrollUp />
   </main>
 );
 

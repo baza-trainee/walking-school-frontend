@@ -5,7 +5,7 @@ import Bungee from "../../assets/icons/BungeeJumping.svg";
 import FlySpot from "../../assets/icons/FlySpot.svg";
 import Parachuting from "../../assets/icons/Parachuting.svg";
 import SkyWalk from "../../assets/icons/SkyWalk.svg";
-import style from "./adventures.module.css";
+import style from "./Adventures.module.css";
 
 const cards = [
   { image: FlySpot, alt: "іконка парашуту", text: "Тунельний політ" },
@@ -43,7 +43,9 @@ const cardCollection = cards.map((card) => (
 const Adventures = () => {
   return (
     <Container>
-      <div className={style.container}>{cardCollection}</div>
+      <div data-testid="adventures" className={style.container}>
+        {cardCollection}
+      </div>
     </Container>
   );
 };
