@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   gap: 16px 5%;
   padding: 40px 5% 0 5%;
-  color: #1d7d74;
 }
 
 @media (min-width: 768px) {
