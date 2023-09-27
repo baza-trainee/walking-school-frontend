@@ -60,5 +60,12 @@
     "prettier": "3.0.3",
     "resize-observer-polyfill": "^1.5.1",
     "swiper": "^10.3.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "swiper/react": "swiper/swiper.js",
+      "swiper/css": "swiper/swiper.min.css",
+      "swiper/modules": "swiper/modules/pagination.mjs"
+    }
   }
 }
