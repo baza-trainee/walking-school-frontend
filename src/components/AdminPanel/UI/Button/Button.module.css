@@ -7,18 +7,17 @@
   gap: 8px;
   flex-shrink: 0;
   border-radius: 4px;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 20px;
+  font-family: var(--bt-text-large-ff);
+  font-size: var(--bt-text-large-fs);
   font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
+  font-weight: var(--bt-text-large-fw);
+  line-height: var(--bt-text-large-lh);
   cursor: pointer;
-  margin-left: 20px;
 }
 
 .primary {
   background: #121212;
-  color: #fcfcfc;
+  color: var(--bt-primary-text-color);
 }
 
 .primary:hover {
