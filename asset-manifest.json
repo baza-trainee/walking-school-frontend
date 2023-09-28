@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/walking-school-frontend/static/css/main.df5a9544.css",
-    "main.js": "/walking-school-frontend/static/js/main.c9ce30b1.js",
+    "main.js": "/walking-school-frontend/static/js/main.e36a2b69.js",
     "static/js/787.7003ee39.chunk.js": "/walking-school-frontend/static/js/787.7003ee39.chunk.js",
     "static/media/hero2mob.svg": "/walking-school-frontend/static/media/hero2mob.17d1b25dc5acf77f2130ac2b64915e36.svg",
     "static/media/facebook4.png": "/walking-school-frontend/static/media/facebook4.4f58339c43d86bc2df48.png",
@@ -62,11 +62,11 @@
     "static/media/arrow_up.svg": "/walking-school-frontend/static/media/arrow_up.66f671c3973b1a798363dc159c96b98d.svg",
     "static/media/arrow_down.svg": "/walking-school-frontend/static/media/arrow_down.366a1946738fd19d7c7f5fc53568e29a.svg",
     "main.df5a9544.css.map": "/walking-school-frontend/static/css/main.df5a9544.css.map",
-    "main.c9ce30b1.js.map": "/walking-school-frontend/static/js/main.c9ce30b1.js.map",
+    "main.e36a2b69.js.map": "/walking-school-frontend/static/js/main.e36a2b69.js.map",
     "787.7003ee39.chunk.js.map": "/walking-school-frontend/static/js/787.7003ee39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df5a9544.css",
-    "static/js/main.c9ce30b1.js"
+    "static/js/main.e36a2b69.js"
   ]
 }
