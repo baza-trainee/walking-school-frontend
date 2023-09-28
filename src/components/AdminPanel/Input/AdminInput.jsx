@@ -13,6 +13,7 @@ const AdminInput = ({
   placeholder = "Введіть логін",
   id,
   error,
+  onMouseDown,
   onClick,
   variant = "textarea",
   icon,
@@ -57,6 +58,7 @@ const AdminInput = ({
                 ? `${styles["field__icon-textarea"]}`
                 : `${styles["field__icon-input"]}`
             }
+            onMouseDown={onMouseDown}
             onClick={onClick}
           >
             {cloneElement(icon)}
