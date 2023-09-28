@@ -25,7 +25,6 @@ const AdminInput = ({
     admin: styles.admin,
     textarea: styles.textarea,
   };
-
   return (
     <div className={styles.wrapper}>
       {label && <label htmlFor={id}>{label}</label>}

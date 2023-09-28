@@ -7,6 +7,7 @@ const AdminButton = ({
   children,
   variant = "tertiary",
   disabled = false,
+  icon,
   ...props
 }) => {
   const buttonClass = {
@@ -24,9 +25,11 @@ const AdminButton = ({
       {variant === "secondary" && (
         <>
           {" "}
-          <span>
-            <Logout />
-          </span>{" "}
+          {icon ? (
+            <span>
+              <Logout />
+            </span>
+          ) : null}{" "}
           {children}{" "}
         </>
       )}

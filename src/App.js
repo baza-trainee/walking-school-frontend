@@ -10,7 +10,8 @@ import {
 import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
-import Login from "./pages/AdminPanel/Login/Login";
+import Login from "./pages/AdminPanel/Auth/Login/Login";
+import ForgotPass from "./pages/AdminPanel/Auth/Forgot/ForgotPass";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/admin" element={<MainAdmin />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/forgot" element={<ForgotPass />} />
     </>,
   ),
 );
