@@ -15,7 +15,7 @@ import Login from "./pages/AdminPanel/Login/Login";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}>
+      <Route path="/walking-school-frontend" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
