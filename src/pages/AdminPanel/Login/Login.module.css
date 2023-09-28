@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #eaeaea;
+}
+
+.wrapper {
+  width: 460px;
+  padding: 24px;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.wrapper h1 {
+  color: #3d4756;
+  text-align: center;
+  font-family: var(--admin-header-ff);
+  font-size: var(--admin-header-fs);
+  font-style: normal;
+  font-weight: var(--admin-header-fw);
+  line-height: var(--admin-header-lh);
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+.forgot {
+  color: #131313;
+  font-family: var(--body-text-ff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  text-decoration-line: underline;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

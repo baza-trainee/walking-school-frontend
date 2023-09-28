@@ -1,6 +1,5 @@
 import React, { cloneElement } from "react";
 import styles from "./Input.module.css";
-import { ReactComponent as Eye } from "../../../assets/admin/eye.svg";
 
 /**
  * @description input for login page and add/edit items
@@ -16,7 +15,7 @@ const AdminInput = ({
   error,
   onClick,
   variant = "textarea",
-  icon = <Eye />,
+  icon,
   type = "text",
   ...props
 }) => {

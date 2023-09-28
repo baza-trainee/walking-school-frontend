@@ -6,7 +6,7 @@ import { ReactComponent as DownLoad } from "../../../../assets/admin/download.sv
 const AdminButton = ({
   children,
   variant = "tertiary",
-  disabled = true,
+  disabled = false,
   ...props
 }) => {
   const buttonClass = {

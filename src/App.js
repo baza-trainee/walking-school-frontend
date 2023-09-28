@@ -10,6 +10,7 @@ import {
 import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
+import Login from "./pages/AdminPanel/Login/Login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/admin" element={<MainAdmin />} />
+      <Route path="/login" element={<Login />} />
     </>,
   ),
 );
