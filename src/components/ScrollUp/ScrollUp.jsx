@@ -26,7 +26,7 @@ const ScrollUp = () => {
   });
 
   return (
-    <Button data-testId="scroll" onClick={scroll} className={buttonStyle}>
+    <Button data-testid="scroll" onClick={scroll} className={buttonStyle}>
       <img src={Icon} alt="" className={style.icon} />
     </Button>
   );

@@ -1,6 +1,4 @@
-import React from "react";
-import { useMedia } from "../../../hooks/useMedia";
-import { register } from "swiper/element/bundle";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import style from "../Partner.module.css";
@@ -8,48 +6,48 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
-register();
-
 const PartnersSlider = ({ partners }) => {
-  const { isMobile, isTablet } = useMedia();
+  const [slidersArr, setSlidersArr] = useState([]);
 
-  let slidesQuantity;
-  let stylesSwiperSlide;
+  useEffect(() => {
+    if (partners.length < 10) {
+      setSlidersArr([...partners, ...partners]);
+    } else {
+      setSlidersArr(partners);
+    }
+  }, [partners]);
 
-  if (isMobile) {
-    slidesQuantity = 1;
-    stylesSwiperSlide = {
-      alignSelf: "center",
-    };
-  } else if (isTablet) {
-    slidesQuantity = 3;
-    stylesSwiperSlide = {
-      alignSelf: "center",
-      maxWidth: "240px",
-      width: "100%",
-    };
-  } else {
-    slidesQuantity = 5;
-    stylesSwiperSlide = {
-      alignSelf: "center",
-      maxWidth: "240px",
-      width: "100%",
-    };
-  }
   return (
     <Swiper
       className={style.swiperContainer}
       loop={true}
       speed={1000}
-      slidesPerView={slidesQuantity}
+      centeredSlides={true}
       modules={[Navigation]}
       navigation={{
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       }}
+      breakpoints={{
+        320: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 48,
+        },
+        1440: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
+      zoom={{
+        maxRatio: 2,
+        minRatio: 1,
+      }}
     >
-      {partners.map((partner, index) => (
-        <SwiperSlide key={index} style={stylesSwiperSlide}>
+      {slidersArr.map((partner, index) => (
+        <SwiperSlide key={index}>
           <div className={style["link-wrapper"]}>
             <img src={partner.img} alt="logotype" className={style.image} />
           </div>
