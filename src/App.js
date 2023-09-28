@@ -16,9 +16,9 @@ const router = createBrowserRouter(
     <>
       <Route path="/walking-school-frontend" element={<Layout />}>
         <Route index element={<Main />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Route>
-      <Route path="/admin" element={<MainAdmin />} />
+      <Route path="/walking-school-frontend/admin" element={<MainAdmin />} />
     </>,
   ),
 );
