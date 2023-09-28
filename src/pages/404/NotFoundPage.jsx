@@ -3,14 +3,14 @@ import Container from "../../components/layout/Container/Container";
 import Button from "../../components/UI/Button/Button";
 import Image from "../../assets/images/404.svg";
 import style from "./NotFoundPage.module.css";
-import useRedirect from "../../hooks/useRedirect"
+import useRedirect from "../../hooks/useRedirect";
 
 /**
  * A page that is displayed when the page on current address doesn't exist or have been moved
  * @returns {React.JSX.Element}
  */
 const NotFoundPage = () => {
-  const redirect = useRedirect("walking-school-frontend")
+  const redirect = useRedirect("walking-school-frontend");
   return (
     <Container>
       <section data-testid="page" className={style.notFound}>

@@ -19,6 +19,16 @@
 }
 
 :root {
+  --admin-header-ff: SansBold;
+  --admin-header-fw: 700;
+  --admin-header-lh: 1;
+  --admin-header-fs: 40px;
+
+  --admin-caption-ff: SansRegular;
+  --admin-caption-fw: 400;
+  --admin-caption-lh: 1.35;
+  --admin-caption-fs: 14px;
+
   --h1-ff: Oswald;
   --h1-fw: 500;
   --h1-lh: 1.2;

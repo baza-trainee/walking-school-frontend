@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom";
  * @example
  * const redirect = userRedirect("your path")
  *
- * <Button onCLick={redirect}>
+ * <AdminButton onCLick={redirect}>
  *   Redirect button
- * </Button>
+ * </AdminButton>
  */
 export default function useRedirect(path) {
   const navigate = useNavigate();
-  
+
   return () => {
-    window.scrollTo({left:0, top:0, behavior: "instant"});
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
     navigate(path);
   };
 }

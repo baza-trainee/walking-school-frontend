@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Button from "./Button";
 
-describe("Button component", () => {
+describe("AdminButton component", () => {
   it("renders button with default 'large' variant", () => {
     render(<Button>Click me</Button>);
     const buttonElement = screen.getByRole("button");
