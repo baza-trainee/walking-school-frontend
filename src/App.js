@@ -14,7 +14,7 @@ import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}>
+      <Route path="/walking-school-frontend" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
