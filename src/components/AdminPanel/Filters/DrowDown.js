@@ -1,37 +1,77 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./DropDown.module.css";
 import arrowUp from "../../../assets/images/arrowUp.svg";
 import arrowDown from "../../../assets/images/arrowDown.svg";
 
-export const DropDown = () => {
-  const [isActive, setIsActive] = useState(false);
-  const options = [
-    "Тунельний політ",
-    "Банджі джампінг",
-    "Стрибки з парашутом",
-    "Стежка y хмарах",
-  ];
+export const DropDown = ({
+  placeholder = "Категорія",
+  selectPrompt = "Оберіть категорію",
+  options,
+  error,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleOpen = () => {
-    setIsActive((prev) => !prev);
+  const handleToggle = () => setIsExpanded((prev) => !prev);
+  const handleSelect = (option) => {
+    setSelectedOption(option);
+    setIsExpanded(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest("#dropdown")) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className={styles.dropdown}>
-      <div className={styles.content} onClick={handleOpen}>
-        <div className={styles.optionLabel}>
-          <div>{options[0]}</div>
+    <div
+      className={styles.dropdown}
+      id="dropdown"
+      style={{
+        borderRadius: isExpanded ? "4px 4px 0 0" : "4px",
+        borderColor: error ? "red" : "black",
+      }}
+    >
+      <div className={styles.content} onClick={handleToggle}>
+        <div
+          className={styles.optionLabel}
+          style={{
+            color: error
+              ? "red"
+              : isExpanded || selectedOption
+              ? "black"
+              : "#747474",
+          }}
+        >
+          <div>{isExpanded ? selectPrompt : selectedOption || placeholder}</div>
           <img
-            src={isActive ? arrowUp : arrowDown}
+            src={isExpanded ? arrowUp : arrowDown}
             alt="arrow"
             className={styles.arrowIcon}
           />
         </div>
       </div>
-      {isActive && (
-        <div className={styles.itemContainer}>
-          {options.slice(1).map((item, index) => (
-            <div key={index} className={styles.item}>
+      {options && (
+        <div
+          className={`${styles.itemContainer} ${
+            isExpanded ? styles.active : ""
+          }`}
+          style={{
+            border: error ? "1px solid red" : "1px solid black",
+          }}
+        >
+          {options.map((item, index) => (
+            <div
+              key={index}
+              className={styles.item}
+              onClick={() => handleSelect(item)}
+            >
               {item}
             </div>
           ))}
