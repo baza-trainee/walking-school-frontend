@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       <Route path="/admin" element={<MainAdmin />} />
     </>,
   ),
-);
+{basename: "/walking-school-frontend"});
 
 function App() {
   return <RouterProvider router={router} />;
