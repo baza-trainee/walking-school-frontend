@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Login.module.css";
+import styles from "../Login.module.css";
 import { Form, Formik } from "formik";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import * as Yup from "yup";
@@ -8,24 +8,18 @@ import { ReactComponent as EyeOff } from "../../../../assets/admin/eye_off.svg";
 import { ReactComponent as Error } from "../../../../assets/admin/error.svg";
 import { NavLink } from "react-router-dom";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
+import {
+  emailValidationSchema,
+  passwordValidationSchema,
+} from "../../../../validationSchemas/validationSchema";
 
-const LoginFrom = ({ className = "", ...props }) => {
+const LoginForm = ({ className = "", ...props }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const validationSchema = Yup.object({
-    email: Yup.string()
-      .test("domain", "Корабель там 🖕", (value) => {
-        return !value?.endsWith(".ru") && !value?.endsWith(".by");
-      })
-      .matches(
-        /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        "Введіть дійсний email",
-      )
-      .required("Введіть дійсний email"),
-    password: Yup.string()
-      .min(8, "Пароль повинен мати не менше 8 символів")
-      .required("Поле є обов'язковим"),
+    email: emailValidationSchema,
+    password: passwordValidationSchema,
   });
 
   return (
@@ -114,4 +108,4 @@ const LoginFrom = ({ className = "", ...props }) => {
   );
 };
 
-export default LoginFrom;
+export default LoginForm;

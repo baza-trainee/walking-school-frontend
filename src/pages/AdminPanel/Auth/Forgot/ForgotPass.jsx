@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Forgot.module.css";
+import styles from "../Login.module.css";
 import ForgotForm from "./ForgotForm";
 
 const ForgotPass = () => {

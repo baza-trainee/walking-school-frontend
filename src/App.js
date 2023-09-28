@@ -12,6 +12,7 @@ import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 import Login from "./pages/AdminPanel/Auth/Login/Login";
 import ForgotPass from "./pages/AdminPanel/Auth/Forgot/ForgotPass";
+import ResetPass from "./pages/AdminPanel/Auth/Reset/ResetPass";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="/admin" element={<MainAdmin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
+      <Route path="/reset" element={<ResetPass />} />
     </>,
   ),
 );

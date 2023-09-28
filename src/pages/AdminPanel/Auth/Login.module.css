@@ -1,22 +1,27 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 330px 490px 409px 490px;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #eaeaea;
+  padding-top: 50px;
 }
-
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 33px;
+  width: 460px;
+}
 .wrapper {
-  min-width: 460px;
+  width: 460px;
   padding: 24px;
   background: #fefefe;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 8px;
-  gap: 32px;
   position: relative;
+  gap: 32px;
 }
 
 .wrapper h1 {
@@ -40,32 +45,52 @@
 }
 
 .login__form {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  width: 100%;
 }
 
 .login__form-input {
   height: 92px;
 }
 
+.forgot {
+  color: #131313;
+  font-family: var(--body-text-ff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  text-decoration-line: underline;
+}
+
 .submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit__forgot {
   display: flex;
   justify-content: space-between;
 }
 
-.submit button {
+.submit__forgot button {
   width: 182px;
 }
 
+.submit button {
+  width: 124px;
+  cursor: pointer;
+}
+
 .message {
-  position: absolute;
-  bottom: -238px;
+  position: relative;
   height: 202px;
+  min-width: 460px;
   left: 0;
   display: flex;
-  min-width: 446px;
   padding: 0 75px;
   justify-content: center;
   align-items: center;
@@ -93,4 +118,32 @@
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
+}
+
+.error {
+  display: flex;
+  width: 463px;
+  padding: 20px 24px;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 4px;
+  border: 1px solid #f00631;
+  background: #fff0f0;
+  color: #f00631;
+  position: absolute;
+  top: -130px;
+}
+
+.error p {
+  font-family: var(--menu-item-ff);
+  font-size: var(--body-text-fs-web);
+  font-style: normal;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    align-items: center;
+  }
 }

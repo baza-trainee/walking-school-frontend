@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "../Login.module.css";
-import LoginForm from "./LoginForm";
+import ResetForm from "./ResetForm";
 
-const Login = () => {
+const ResetPass = () => {
   return (
     <div className={styles.container}>
-      <LoginForm />
+      <ResetForm />
     </div>
   );
 };
 
-export default Login;
+export default ResetPass;
