@@ -41,9 +41,13 @@ const PartnersSlider = ({ partners }) => {
           spaceBetween: 20,
         },
       }}
+      zoom={{
+        maxRatio: 2,
+        minRatio: 1,
+      }}
     >
       {slidersArr.map((partner, index) => (
-        <SwiperSlide key={index} className={style.swiper__slider}>
+        <SwiperSlide key={index}>
           <div className={style["link-wrapper"]}>
             <img src={partner.img} alt="logotype" className={style.image} />
           </div>
