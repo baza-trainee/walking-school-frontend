@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import styles from "./DropDown.module.css";
-import arrowUp from "../../../assets/images/arrowUp.svg";
-import arrowDown from "../../../assets/images/arrowDown.svg";
+import { useRef, useState } from "react";
+import styles from "./CustomSelect.module.css";
+import arrowUp from "../../../../assets/images/arrowUp.svg";
+import arrowDown from "../../../../assets/images/arrowDown.svg";
+import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 
-export const DropDown = ({
+export const CustomSelect = ({
   placeholder = "Категорія",
   selectPrompt = "Оберіть категорію",
   options,
@@ -11,6 +12,7 @@ export const DropDown = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const dropDownRef = useRef(null);
 
   const handleToggle = () => setIsExpanded((prev) => !prev);
   const handleSelect = (option) => {
@@ -18,21 +20,12 @@ export const DropDown = ({
     setIsExpanded(false);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest("#dropdown")) {
-        setIsExpanded(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  useOutsideClick(dropDownRef, () => setIsExpanded(false));
 
   return (
     <div
       className={styles.dropdown}
-      id="dropdown"
+      ref={dropDownRef}
       style={{
         borderRadius: isExpanded ? "4px 4px 0 0" : "4px",
         borderColor: error ? "red" : "black",
