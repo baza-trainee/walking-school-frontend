@@ -15,6 +15,7 @@ export const passwordValidationSchema = Yup.string()
   .required("Поле є обов'язковим");
 
 export const phoneValidationSchema = Yup.string()
+  .max(13, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
   .matches(
     /^\+380 \d{2} \d{3} \d{4}$/,
     "Невірний формат телефону. Правильний формат: +380 ## ### ####",

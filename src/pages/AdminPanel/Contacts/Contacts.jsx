@@ -16,16 +16,6 @@ const Contacts = () => {
     return Object.values(touched).some((field) => field === true);
   };
 
-  const formatPhoneNumber = (value) => {
-    const cleaned = ("" + value).replace(/\D/g, "");
-    const match = cleaned.match(/^(\d{2})(\d{0,2})(\d{0,3})(\d{0,4})$/);
-    if (match) {
-      const intlCode = match[1] ? "+38" : "";
-      return [intlCode, match[2], match[3], match[4]].filter(Boolean).join(" ");
-    }
-    return value;
-  };
-
   const validationSchema = Yup.object({
     phone: phoneValidationSchema,
     contactEmail: emailValidationSchema,
@@ -34,6 +24,24 @@ const Contacts = () => {
     linkedin: urlsValidationSchema,
     telegram: telegramValidationSchema,
   });
+  const formatPhoneNumber = (value) => {
+    if (!value) return value;
+
+    // Remove all non-digit characters
+    const cleaned = ("" + value).replace(/\D/g, "");
+
+    // Match groups of digits
+    const match = cleaned.match(/^(\d{1,3})(\d{0,2})(\d{0,3})(\d{0,4})$/);
+
+    if (match) {
+      const intlCode = match[1].length >= 3 ? "+" : "";
+      return [intlCode + match[1], match[2], match[3], match[4]]
+        .filter(Boolean)
+        .join(" ");
+    }
+
+    return value;
+  };
 
   return (
     <div>
@@ -43,7 +51,7 @@ const Contacts = () => {
       <div className={styles.container}>
         <Formik
           initialValues={{
-            phone: "",
+            phone: "+380",
             contactEmail: "",
             feedbackEmail: "",
             facebook: "",
@@ -58,9 +66,10 @@ const Contacts = () => {
           validateOnBlur={true}
         >
           {({ values, handleBlur, handleChange, errors, touched, isValid }) => {
+            console.log(values);
             const handleChangePhone = (e) => {
               const formatted = formatPhoneNumber(e.target.value);
-              handleChange({ target: { name: "phone", value: formatted } }); // Custom handler using Formik's handleChange
+              handleChange("phone")(formatted);
             };
             return (
               <Form className={styles.form}>
