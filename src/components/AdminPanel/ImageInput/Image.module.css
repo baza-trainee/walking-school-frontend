@@ -24,10 +24,21 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 20px;
-  top: 20px;
   border-radius: 4px;
   background: #fff;
+}
+
+.absolute-20 {
+  right: 20px;
+  top: 20px;
+}
+.absolute-12 {
+  right: 12px;
+  top: 12px;
+}
+.absolute-4 {
+  right: 4px;
+  top: 4px;
 }
 
 .slide {
@@ -35,9 +46,13 @@ body {
   height: 378px;
   gap: 10px;
 }
+
 .slide img {
-  max-width: 1062px;
+  width: 1062px;
+  height: 378px;
+  object-fit: contain;
 }
+
 .project,
 .partner {
   width: 305px;
@@ -47,10 +62,12 @@ body {
 
 .project img {
   max-width: 305px;
+  height: 216px;
 }
 
 .partner img {
   max-width: 214px;
+  height: 69px;
 }
 
 .facebook {
@@ -60,7 +77,8 @@ body {
 }
 
 .facebook img {
-  max-width: 322px;
+  width: 322px;
+  height: 360px;
 }
 
 .format {

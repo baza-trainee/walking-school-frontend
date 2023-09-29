@@ -3,13 +3,7 @@ import getCroppedImg from "./getCroppedImg";
 import Cropper, { Area, Point } from "react-easy-crop";
 import Button from "../../UI/Button/Button";
 
-export const ImageCropper = ({
-  src,
-  onClose = (url) => {
-    console.log(url);
-  },
-  aspect,
-}) => {
+export const ImageCropper = ({ src, onClose, aspect }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation] = useState(0);
   const [zoom, setZoom] = useState(1);
@@ -62,7 +56,7 @@ export const ImageCropper = ({
           right: 16,
           bottom: 16,
           zIndex: 10000,
-          minWidth: "48px",
+          width: "148px",
           minHeight: "48px",
         }}
         onClick={async () => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ImageCropper from "./ImageCropper";
 import FileDrop from "./FileDrop";
-import styles from "./Image.module.css";
 
 /**
  * @description component goal is uploading the image
@@ -45,7 +44,7 @@ const ImageInput = ({ variant = "project", onChange, src }) => {
           />
         ) : (
           <ImageCropper
-            aspect={380 / 150}
+            aspect={aspect[variant]}
             src={src}
             onClose={(url) => {
               setPreview(url);
@@ -55,6 +54,7 @@ const ImageInput = ({ variant = "project", onChange, src }) => {
         ))}
       <FileDrop
         preview={preview}
+        setPreview={setPreview}
         setFile={setFile}
         setIsCropImg={setIsCropImg}
         variant={variant}

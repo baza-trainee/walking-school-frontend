@@ -13,20 +13,12 @@ const From = () => {
         validateOnChange={false}
         validateOnBlur={true}
       >
-        {({
-          values,
-          setFieldValue,
-          handleBlur,
-          handleChange,
-          errors,
-          touched,
-          isValid,
-        }) => (
+        {({ values, setFieldValue }) => (
           <Form>
             <ImageInput
               id="image"
               name={"image"}
-              variant={"partner"}
+              variant={"project"}
               value={values.image}
               onChange={(img) => setFieldValue("image", img)}
             />

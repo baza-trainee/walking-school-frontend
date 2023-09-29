@@ -5,7 +5,14 @@ import { ReactComponent as Image } from "../../../assets/admin/image.svg";
 import { ReactComponent as DownLoad } from "../../../assets/admin/download.svg";
 import { ReactComponent as Close } from "../../../assets/admin/close.svg";
 
-const FileDrop = ({ preview, setFile, setIsCropImg, variant, ...props }) => {
+const FileDrop = ({
+  preview,
+  setPreview,
+  setFile,
+  setIsCropImg,
+  variant,
+  ...props
+}) => {
   const [error, setError] = useState("");
 
   const variantClass = {
@@ -14,7 +21,6 @@ const FileDrop = ({ preview, setFile, setIsCropImg, variant, ...props }) => {
     slide: styles.slide,
     partner: styles.partner,
   };
-
   const { acceptedFiles, getRootProps, getInputProps, fileRejections } =
     useDropzone({
       accept: {
@@ -22,7 +28,7 @@ const FileDrop = ({ preview, setFile, setIsCropImg, variant, ...props }) => {
         "image/jpg": [".jpg"],
         "image/png": [".png"],
       },
-      maxSize: 400000, // 400 KB
+      maxSize: 800000, // 400 KB
     });
 
   useEffect(() => {
@@ -38,13 +44,30 @@ const FileDrop = ({ preview, setFile, setIsCropImg, variant, ...props }) => {
     <div
       {...getRootProps()}
       className={`${styles.container} ${variantClass[variant]}`}
-      style={{ gap: preview ? "0" : "" }}
+      style={{
+        gap: preview ? "0" : "",
+        padding: preview ? "0" : "",
+      }}
     >
       <input {...getInputProps()} type="file" {...props} />
       {preview ? (
         <>
           <img src={preview} alt="Preview" />
-          <div className={styles["close-img"]}>
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setPreview("");
+            }}
+            className={` ${styles["close-img"]}   ${
+              variant === "slide"
+                ? styles["absolute-20"]
+                : variant === "facebook"
+                ? styles["absolute-12"]
+                : styles["absolute-4"]
+            } 
+  `}
+          >
             <Close />
           </div>
         </>
