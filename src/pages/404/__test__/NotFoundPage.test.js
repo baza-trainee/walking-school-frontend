@@ -4,6 +4,12 @@ import NotFoundPage from "../NotFoundPage";
 
 afterEach(cleanup);
 
+const mockUsedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockUsedNavigate,
+}));
+
 describe("404 page", () => {
   it("renders", () => {
     render(<NotFoundPage />);
