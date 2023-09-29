@@ -3,12 +3,13 @@ import ImageCropper from "./ImageCropper";
 import FileDrop from "./FileDrop";
 
 /**
- * @description component goal is uploading the image
+ * @description component goal is uploading the image, it returns an image in blob format
  * @params variant = project, partner, facebook, slide
- * @params
+ * @params src = image from backend (use when edit project, partner, facebook, slide)
+ * @params error = error from form validation
  * */
 
-const ImageInput = ({ variant = "project", onChange, src }) => {
+const ImageInput = ({ variant = "project", onChange, src, error }) => {
   const [isCropImg, setIsCropImg] = useState(false);
   const [preview, setPreview] = useState("");
   const [file, setFile] = useState(null);
@@ -32,32 +33,23 @@ const ImageInput = ({ variant = "project", onChange, src }) => {
 
   return (
     <>
-      {isCropImg &&
-        (file ? (
-          <ImageCropper
-            aspect={aspect[variant]}
-            src={URL.createObjectURL(file)}
-            onClose={(url) => {
-              setPreview(url);
-              setIsCropImg(false);
-            }}
-          />
-        ) : (
-          <ImageCropper
-            aspect={aspect[variant]}
-            src={src}
-            onClose={(url) => {
-              setPreview(url);
-              setIsCropImg(false);
-            }}
-          />
-        ))}
+      {isCropImg && (
+        <ImageCropper
+          aspect={aspect[variant]}
+          src={file ? URL.createObjectURL(file) : src}
+          onClose={(url) => {
+            setPreview(url);
+            setIsCropImg(false);
+          }}
+        />
+      )}
       <FileDrop
         preview={preview}
         setPreview={setPreview}
         setFile={setFile}
         setIsCropImg={setIsCropImg}
         variant={variant}
+        error={error}
       />
     </>
   );

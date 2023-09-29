@@ -115,3 +115,15 @@ body {
   font-weight: var(--bt-text-large-fw);
   line-height: var(--bt-text-large-lh);
 }
+
+.file-error {
+  display: flex;
+  width: 233px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #fff0f0;
+  text-align: center;
+  color: #f00631;
+}
