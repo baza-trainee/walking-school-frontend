@@ -1,0 +1,72 @@
+body {
+  background-color: #7e8492;
+}
+
+.container {
+  background: #ffffff;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px dashed #7e8492;
+  cursor: pointer;
+  color: #7e8492;
+}
+
+.container img {
+  max-width: 110%;
+  object-fit: contain;
+}
+
+.slide {
+  width: 1062px;
+  height: 378px;
+  gap: 10px;
+}
+
+.project {
+  width: 305px;
+  height: 216px;
+  gap: 8px;
+}
+.format {
+  width: 215px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+[class*="font-"] p {
+  font-family: var(--body-text-ff);
+  font-style: normal;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+.font-large p {
+  font-size: var(--body-text-fs-mob);
+}
+.font-small p {
+  font-size: 14px;
+}
+
+.facebook {
+  width: 322px;
+  height: 360px;
+  gap: 8px;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1d7d74;
+  text-align: center;
+  font-family: var(--bt-text-large-ff);
+  font-size: var(--bt-text-large-fs);
+  font-style: normal;
+  font-weight: var(--bt-text-large-fw);
+  line-height: var(--bt-text-large-lh);
+}

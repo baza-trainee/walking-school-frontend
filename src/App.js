@@ -13,6 +13,8 @@ import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 import Login from "./pages/AdminPanel/Auth/Login/Login";
 import ForgotPass from "./pages/AdminPanel/Auth/Forgot/ForgotPass";
 import ResetPass from "./pages/AdminPanel/Auth/Reset/ResetPass";
+import ImageInput from "./components/AdminPanel/ImageInput/ImageInput";
+import From from "./components/AdminPanel/ImageInput/From";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
       <Route path="/reset" element={<ResetPass />} />
+      <Route path="/drop" element={<From />} />
     </>,
   ),
 );
