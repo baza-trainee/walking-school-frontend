@@ -27,7 +27,6 @@ const router = createBrowserRouter(
       <Route path="/reset" element={<ResetPass />} />
     </>,
   ),
-  // { basename: "/walking-school-frontend.vercel.app" },
 );
 
 function App() {
