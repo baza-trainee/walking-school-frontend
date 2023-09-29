@@ -1,14 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .partners {
-  padding: 0 16px 60px 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 0 60px 0;
   display: flex;
   flex-direction: column;
   gap: 28px;
   align-items: center;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 425px;
 }
 
 .content {
@@ -17,7 +19,7 @@
   gap: 16px;
 }
 
-.title {
+.partners-title h2 {
   color: var(--header-text-color);
   font-family: var(--h2-ff);
   font-size: var(--h2-fs-mob);
@@ -28,14 +30,49 @@
 
 .link-wrapper {
   display: flex;
-  max-width: 200px;
-  max-height: 70px;
   justify-content: space-around;
+  align-items: center;
 }
 
 .image {
-  max-width: 200px;
-  max-height: 70px;
+  width: 135px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.swiperContainer {
+  overflow-y: visible !important;
+  width: 100% !important;
+  text-rendering: auto;
+}
+
+.myArrow {
+  color: var(--arrow-color) !important;
+  top: 50% !important;
+  z-index: 10;
+  width: 44px !important;
+  height: 44px !important;
+  background-color: rgba(234, 234, 234, 0.5);
+  border-radius: 12px;
+}
+:global(.swiper-slide) {
+  transition: transform 0.4s ease-in-out;
+}
+:global(.swiper-slide-active) {
+  transform: scale(1.59);
+}
+
+.right {
+  right: 0 !important;
+}
+
+.left {
+  left: 0 !important;
+}
+
+.myArrow:after {
+  font-size: 23px !important;
+  font-weight: 600 !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -48,9 +85,11 @@
     justify-content: space-between;
     gap: 40px;
     width: 720px;
+    width: 100%;
+    max-width: 720px;
   }
 
-  .title {
+  .partners-title h2 {
     box-sizing: border-box;
     flex-shrink: 0;
     width: 352px;
@@ -58,23 +97,18 @@
   }
 
   .carousel {
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
   }
 
   .swiperContainer {
     overflow-y: visible !important;
-    width: 100% !important;
     text-rendering: auto;
+    padding: 0 20px 0 64px;
   }
 
-  .myArrow {
-    color: var(--arrow-color) !important;
-    top: 50% !important;
-    z-index: 10;
-    width: 44px !important;
-    height: 44px !important;
-    background-color: #eaeaea;
-    border-radius: 12px;
+  .link-wrapper {
+    width: 135px;
   }
 
   .right {
@@ -85,9 +119,9 @@
     left: 0 !important;
   }
 
-  .myArrow:after {
-    font-size: 23px !important;
-    font-weight: 600 !important;
+  :global(.swiper-slide-active) {
+    padding-left: 5px;
+    transform: scale(1.59);
   }
 }
 
@@ -96,37 +130,30 @@
     padding: 100px 150px 60px 150px;
   }
 
-  .content {
-    width: 1140px;
+  .content,
+  .carousel {
+    width: 100%;
+    max-width: 1140px;
   }
-  .title {
-    font-size: var(--h2-fs-wed);
+
+  .partners-title h2 {
+    font-size: var(--h2-fs-web);
     width: 563px;
     color: #1d1e25;
   }
 
-  .carousel {
-    width: 1141px;
-  }
-
   .myArrow {
+    color: var(--arrow-color) !important;
     top: 50% !important;
     z-index: 10;
-    width: 48px !important;
-    height: 48px !important;
-    background-color: #e3f9f7;
-  }
-
-  .right {
-    right: -0.5px !important;
-  }
-
-  .left {
-    left: -0.5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background-color: rgba(234, 234, 234, 0.5);
+    border-radius: 12px;
   }
 
   .myArrow:after {
-    font-size: 26px !important;
+    font-size: 23px !important;
     font-weight: 600 !important;
   }
 }
