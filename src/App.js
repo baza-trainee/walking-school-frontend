@@ -14,14 +14,14 @@ import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/walking-school-frontend" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/admin" element={<MainAdmin />} />
     </>,
   ),
-);
+{basename: "/walking-school-frontend"});
 
 function App() {
   return <RouterProvider router={router} />;
