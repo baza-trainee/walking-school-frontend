@@ -13,7 +13,7 @@ const Close = ({ isSecondary = false, isDisabled = false, ...props }) => {
   if (isDisabled) classes.push(style.close_disabled);
   const className = classes.join(" ");
   return (
-    <button className={className} {...props}>
+    <button disabled={isDisabled} className={className} {...props}>
       <Icon />
     </button>
   );
