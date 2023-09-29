@@ -1,6 +1,5 @@
 import React, { cloneElement } from "react";
 import styles from "./Input.module.css";
-import { ReactComponent as Eye } from "../../../assets/admin/eye.svg";
 
 /**
  * @description input for login page and add/edit items
@@ -14,9 +13,10 @@ const AdminInput = ({
   placeholder = "Введіть логін",
   id,
   error,
+  onMouseDown,
   onClick,
   variant = "textarea",
-  icon = <Eye />,
+  icon,
   type = "text",
   ...props
 }) => {
@@ -25,7 +25,6 @@ const AdminInput = ({
     admin: styles.admin,
     textarea: styles.textarea,
   };
-
   return (
     <div className={styles.wrapper}>
       {label && <label htmlFor={id}>{label}</label>}
@@ -58,6 +57,7 @@ const AdminInput = ({
                 ? `${styles["field__icon-textarea"]}`
                 : `${styles["field__icon-input"]}`
             }
+            onMouseDown={onMouseDown}
             onClick={onClick}
           >
             {cloneElement(icon)}
