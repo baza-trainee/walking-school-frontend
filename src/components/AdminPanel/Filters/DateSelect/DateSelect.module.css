@@ -6,11 +6,19 @@
   position: relative;
   height: fit-content;
   border-radius: 4px;
+  height: 48px;
   outline: none;
 }
 
 .content {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.content:hover {
+  cursor: pointer;
 }
 
 .dateIcon {
@@ -22,18 +30,14 @@
 }
 
 .label {
-  padding: 12px;
-}
-
-.label:hover {
-  cursor: pointer;
+  padding: 12px 8px;
 }
 
 .dropDownContent {
+  height: 100%;
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
   border: 2px solid #7e8492;
   border-radius: 4px;
   min-height: 248px;
@@ -63,7 +67,7 @@
 
 .input {
   padding: 9px 8px;
-  border: 2px solid #7e8492;
+  border: 1px solid #7e8492;
   border-radius: 4px;
   outline: none;
   position: absolute;
@@ -107,12 +111,14 @@
 
 .dateContainer {
   position: absolute;
-  top: 100%;
-  width: 100%;
-  left: 0;
+  top: 60px;
+  width: 305px;
+  left: -1px;
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease;
+  z-index: 1111;
+  background-color: #fff;
 }
 
 .buttonsContainer {

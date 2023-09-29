@@ -1,0 +1,23 @@
+.wrapper {
+  padding: 35px 80px 35px 20px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.leftBlock {
+  flex: 1 1 75%;
+}
+
+.rightBlock {
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.inputMargin {
+  margin-bottom: 36px;
+}
