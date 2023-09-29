@@ -26,7 +26,7 @@ const From = () => {
             <ImageInput
               id="image"
               name={"image"}
-              variant={"slide"}
+              variant={"partner"}
               value={values.image}
               onChange={(img) => setFieldValue("image", img)}
             />

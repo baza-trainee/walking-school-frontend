@@ -13,11 +13,21 @@ body {
   border: 1px dashed #7e8492;
   cursor: pointer;
   color: #7e8492;
+  position: relative;
 }
 
-.container img {
-  max-width: 110%;
-  object-fit: contain;
+.close-img {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 4px;
+  background: #fff;
 }
 
 .slide {
@@ -25,12 +35,34 @@ body {
   height: 378px;
   gap: 10px;
 }
-
-.project {
+.slide img {
+  max-width: 1062px;
+}
+.project,
+.partner {
   width: 305px;
   height: 216px;
   gap: 8px;
 }
+
+.project img {
+  max-width: 305px;
+}
+
+.partner img {
+  max-width: 214px;
+}
+
+.facebook {
+  width: 322px;
+  height: 360px;
+  gap: 8px;
+}
+
+.facebook img {
+  max-width: 322px;
+}
+
 .format {
   width: 215px;
   text-align: center;
@@ -48,14 +80,9 @@ body {
 .font-large p {
   font-size: var(--body-text-fs-mob);
 }
+
 .font-small p {
   font-size: 14px;
-}
-
-.facebook {
-  width: 322px;
-  height: 360px;
-  gap: 8px;
 }
 
 .download {
