@@ -19,9 +19,9 @@ const Main = () => (
     <Offerings />
     <Scroller />
     <Projects />
-    <Partners />
     <Participate />
     <Requirements />
+    <Partners />
     <FollowUsFacebook />
     <Contact />
     <ScrollUp />

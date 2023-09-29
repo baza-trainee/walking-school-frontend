@@ -6,7 +6,8 @@ import { ReactComponent as DownLoad } from "../../../../assets/admin/download.sv
 const AdminButton = ({
   children,
   variant = "tertiary",
-  disabled = true,
+  disabled = false,
+  icon,
   ...props
 }) => {
   const buttonClass = {
@@ -24,9 +25,11 @@ const AdminButton = ({
       {variant === "secondary" && (
         <>
           {" "}
-          <span>
-            <Logout />
-          </span>{" "}
+          {icon ? (
+            <span>
+              <Logout />
+            </span>
+          ) : null}{" "}
           {children}{" "}
         </>
       )}
