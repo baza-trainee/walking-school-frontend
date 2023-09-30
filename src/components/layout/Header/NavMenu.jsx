@@ -15,7 +15,9 @@ const NavMenu = ({ setIsOpen }) => {
         behavior: "smooth",
       });
     }
-    setIsOpen(false);
+    if (setIsOpen) {
+      setIsOpen(false);
+    }
   };
 
   return (
