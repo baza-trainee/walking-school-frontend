@@ -28,8 +28,9 @@ const Search = ({
   const buttonClassNames = buttonClasses.join(" ");
 
   return (
-    <form onSubmit={searchFunc} className={style.form} {...props}>
+    <form onSubmit={searchFunc} role="search" className={style.form} {...props}>
       <input
+        data-testid="input"
         disabled={isDisabled}
         type="text"
         className={inputClassNames}
