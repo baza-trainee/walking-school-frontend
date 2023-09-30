@@ -13,7 +13,6 @@ const Search = ({
 
   const handleChange = (event) => {
     setSearchWord(event.target.value);
-    console.log(searchWord);
   };
 
   const inputClasses = [style.input];
@@ -36,6 +35,7 @@ const Search = ({
         className={inputClassNames}
         placeholder="Введіть ключове слово для пошуку"
         onChange={handleChange}
+        value={searchWord}
       />
       <button className={buttonClassNames} disabled={isDisabled} type="submit">
         <Icon />
