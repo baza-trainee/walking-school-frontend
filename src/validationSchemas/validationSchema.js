@@ -15,12 +15,12 @@ export const passwordValidationSchema = Yup.string()
   .required("Поле є обов'язковим");
 
 export const phoneValidationSchema = Yup.string()
-  .max(13, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
+  .max(16, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
   .matches(
     /^\+380 \d{2} \d{3} \d{4}$/,
-    "Невірний формат телефону. Правильний формат: +380 ## ### ####",
+    "Невірний формат номеру. Приклад: +380 97 924 5565",
   )
-  .required("Поле є обов'язковим");
+  .required("Поле обов'язкове");
 
 export const urlsValidationSchema = Yup.string()
   .min(2, "Поля повинні мати більше 2 символів")

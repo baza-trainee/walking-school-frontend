@@ -10,6 +10,7 @@ import {
   telegramValidationSchema,
   urlsValidationSchema,
 } from "../../../validationSchemas/validationSchema";
+import { formatPhoneNumber } from "../../../heplers/formatPhoneNumber";
 
 const Contacts = () => {
   const anyFieldTouched = (touched) => {
@@ -24,24 +25,6 @@ const Contacts = () => {
     linkedin: urlsValidationSchema,
     telegram: telegramValidationSchema,
   });
-  const formatPhoneNumber = (value) => {
-    if (!value) return value;
-
-    // Remove all non-digit characters
-    const cleaned = ("" + value).replace(/\D/g, "");
-
-    // Match groups of digits
-    const match = cleaned.match(/^(\d{1,3})(\d{0,2})(\d{0,3})(\d{0,4})$/);
-
-    if (match) {
-      const intlCode = match[1].length >= 3 ? "+" : "";
-      return [intlCode + match[1], match[2], match[3], match[4]]
-        .filter(Boolean)
-        .join(" ");
-    }
-
-    return value;
-  };
 
   return (
     <div>
@@ -66,7 +49,6 @@ const Contacts = () => {
           validateOnBlur={true}
         >
           {({ values, handleBlur, handleChange, errors, touched, isValid }) => {
-            console.log(values);
             const handleChangePhone = (e) => {
               const formatted = formatPhoneNumber(e.target.value);
               handleChange("phone")(formatted);
