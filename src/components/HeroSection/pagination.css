@@ -9,6 +9,7 @@
   border-style: solid !important;
   border-radius: 50% !important;
   margin: 0px 0px 0px 20px !important;
+  opacity: 1 !important;
 }
 
 .swiper-pagination-bullet-active {
