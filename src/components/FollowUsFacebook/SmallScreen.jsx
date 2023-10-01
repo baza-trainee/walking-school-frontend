@@ -5,7 +5,10 @@ import Button from "../UI/Button/Button";
 
 export const SmallScreen = () => {
   return (
-    <section className={styles.sectionWrapperSmallScreen}>
+    <section
+      className={styles.sectionWrapperSmallScreen}
+      data-testid="small-section"
+    >
       <h2 className={styles.title}>
         Стежте за новинами у<br /> Facebook
       </h2>
@@ -15,6 +18,7 @@ export const SmallScreen = () => {
             src={element.img}
             key={element.img}
             className={styles.imageSmall}
+            alt="facebookImg"
           />
         ))}
       </div>

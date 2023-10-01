@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { data } from "./data";
 import Button from "../UI/Button/Button";
-
 import styles from "./followUs.module.css";
 
 export function FollowUsSlider({ slidesQuantity, Navigation }) {
@@ -28,7 +27,7 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
         >
           {data.map((slide) => (
             <SwiperSlide className={styles.slide} key={slide.img}>
-              <img src={slide.img} className={styles.image} />
+              <img src={slide.img} className={styles.image} alt="facebookImg" />
             </SwiperSlide>
           ))}
         </Swiper>

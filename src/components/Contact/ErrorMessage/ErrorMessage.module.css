@@ -1,10 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import "../../../typography/_colors.css";
+@import "../../../typography/_fonts.css";
 
 .error {
   padding-left: 21px;
-  font-family: "DM Sans";
-  font-weight: 500;
-  font-size: 18px;
-  color: #f00631;
+  font-family: var(--help-text-ff);
+  font-weight: var(--help-text-fw);
+  line-height: var(--help-text-lh);
+  font-style: var(--help-text-fs);
+  color: var(--error-text-color);
   margin-top: 3px;
 }
