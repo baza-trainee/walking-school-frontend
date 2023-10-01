@@ -21,12 +21,13 @@ import AdminButton from "../UI/Button/AdminButton";
 const AdminHeader = (props) => {
   const { withSearch, withButton, withClose, heading } = props;
   return (
-    <header className={style.header}>
+    <header data-testid="header" className={style.header}>
       <h4 className={style.header__heading}>{heading}</h4>
       <div className={style.header__content}>
         {withSearch ? <Search /> : null}
         {withButton ? (
           <AdminButton
+            data-testid = "header-button"
             variant="primary"
             tabIndex="0"
             className={style.header__button}
@@ -34,7 +35,7 @@ const AdminHeader = (props) => {
             Додати
           </AdminButton>
         ) : null}
-        {withClose ? <Close tabIndex="0" /> : null}
+        {withClose ? <Close data-testid = "header-close" tabIndex="0" /> : null}
       </div>
     </header>
   );
