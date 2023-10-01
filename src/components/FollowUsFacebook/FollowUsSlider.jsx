@@ -2,8 +2,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { data } from "./data";
 import Button from "../UI/Button/Button";
 import styles from "./followUs.module.css";
+import { useEffect, useState } from "react";
 
 export function FollowUsSlider({ slidesQuantity, Navigation }) {
+  const [slides, setSlides] = useState(data);
+
+  useEffect(() => {
+    if (data.length < 8) {
+      setSlides([...data, ...data]);
+    }
+  }, [slides]);
   return (
     <>
       <section id="gallery" className={styles.sectionWrapper}>
@@ -25,7 +33,7 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
             prevEl: ".swiper-button-prev",
           }}
         >
-          {data.map((slide) => (
+          {slides.map((slide) => (
             <SwiperSlide className={styles.slide} key={slide.img}>
               <img src={slide.img} className={styles.image} alt="facebookImg" />
             </SwiperSlide>

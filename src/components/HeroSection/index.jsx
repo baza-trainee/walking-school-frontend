@@ -17,6 +17,7 @@ const HeroSection = () => {
   } else {
     data = dataMob;
   }
+
   return (
     <section data-testid="hero-slider">
       <Swiper
