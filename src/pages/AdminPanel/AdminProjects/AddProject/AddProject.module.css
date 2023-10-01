@@ -9,6 +9,9 @@
 
 .leftBlock {
   flex: 1 1 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
 .rightBlock {
@@ -18,6 +21,12 @@
   gap: 36px;
 }
 
-.inputMargin {
-  margin-bottom: 36px;
+.tooltipContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
 }
