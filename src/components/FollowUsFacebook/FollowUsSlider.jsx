@@ -6,7 +6,7 @@ import styles from "./followUs.module.css";
 export function FollowUsSlider({ slidesQuantity, Navigation }) {
   return (
     <>
-      <section className={styles.sectionWrapper}>
+      <section id="gallery" className={styles.sectionWrapper}>
         <div className={styles.sliderTop}>
           <h2 className={styles.title}>
             Стежте за останніми <br /> новинами у Facebook
