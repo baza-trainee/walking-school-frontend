@@ -17,7 +17,7 @@ export const Scroller = () => {
 
   return (
     <div className={styled.scroller}>
-      <Marquee data-testid="marquee">
+      <Marquee data-testid="marquee" pauseOnHover={true}>
         {wordsToTrack.map((word) => (
           <span
             data-testid="word"
