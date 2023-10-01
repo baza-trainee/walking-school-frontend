@@ -10,6 +10,7 @@ export const CustomInput = (props) => {
     onChangeHandler,
     value,
     error,
+    onBlur,
     required,
   } = props;
 
@@ -51,6 +52,7 @@ export const CustomInput = (props) => {
         value={value}
         onChange={onChangeHandler}
         id={name}
+        onBlur={onBlur}
         autoComplete="on"
         style={{
           border: error && "1px solid #f00631",
