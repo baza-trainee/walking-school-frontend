@@ -1,10 +1,17 @@
+:root {
+  --common-width: 305px;
+  --common-border: 1px solid black;
+  --common-padding: 12px 8px;
+  --common-height: 48px;
+}
+
 .dropdown {
-  width: 305px;
+  width: var(--common-width);
   position: relative;
   height: fit-content;
-  border: 1px solid black;
+  border: var(--common-border);
   border-radius: 4px;
-  height: 48px;
+  height: var(--common-height);
 }
 
 .content {
@@ -24,16 +31,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 305px;
-  padding: 12px 8px;
+  width: var(--common-width);
+  padding: var(--common-padding);
 }
 
 .itemContainer {
   position: absolute;
   top: 100%;
   left: -1px;
-  width: 305px;
-  border: 1px solid black;
+  width: var(--common-width);
+  border: var(--common-border);
   border-top: none;
   opacity: 0;
   visibility: hidden;
@@ -43,8 +50,8 @@
 }
 
 .item {
-  padding: 12px 8px;
-  height: 48px;
+  padding: var(--common-padding);
+  height: var(--common-height);
 }
 
 .item:hover {

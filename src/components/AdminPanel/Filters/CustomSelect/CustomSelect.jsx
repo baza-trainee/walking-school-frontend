@@ -21,25 +21,28 @@ export const CustomSelect = ({
   };
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));
+  const borderColor = error ? "red" : "black";
+  const borderRadius = isExpanded ? "4px 4px 0 0" : "4px";
+  const optionColor = error
+    ? "red"
+    : isExpanded || selectedOption
+    ? "black"
+    : "#747474";
 
   return (
     <div
       className={styles.dropdown}
       ref={dropDownRef}
       style={{
-        borderRadius: isExpanded ? "4px 4px 0 0" : "4px",
-        borderColor: error ? "red" : "black",
+        borderRadius,
+        borderColor,
       }}
     >
       <div className={styles.content} onClick={handleToggle}>
         <div
           className={styles.optionLabel}
           style={{
-            color: error
-              ? "red"
-              : isExpanded || selectedOption
-              ? "black"
-              : "#747474",
+            color: optionColor,
           }}
         >
           <div>{isExpanded ? selectPrompt : selectedOption || placeholder}</div>

@@ -8,6 +8,7 @@ export const SmallScreen = () => {
     <section
       className={styles.sectionWrapperSmallScreen}
       data-testid="small-section"
+      id="gallery"
     >
       <h2 className={styles.title}>
         Стежте за новинами у<br /> Facebook

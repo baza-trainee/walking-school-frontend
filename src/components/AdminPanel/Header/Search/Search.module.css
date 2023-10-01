@@ -1,0 +1,70 @@
+@import "../../../../typography/_fonts.css";
+@import "../../../../typography/_colors.css";
+
+.form {
+  width: 35.51%;
+  position: relative;
+}
+
+.form svg {
+  transition: all 0.2s ease-in-out;
+}
+
+.form:hover svg {
+  transform: scale(1.33);
+}
+
+.input {
+  height: 48px;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  border-radius: 4px;
+  border: var(--input-stroke-border);
+  background-color: var(--input-bg);
+}
+
+.input::placeholder {
+  font-family: "SansRegular";
+  font-size: 18px;
+  color: #747474;
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  flex-shrink: 0;
+  position: absolute;
+  transform: translateX(-100%);
+  border-radius: 4px;
+  background-color: #131313;
+}
+
+.form:focus-within .input::placeholder {
+  color: #131313;
+}
+
+.input:disabled {
+  background-color: var(--input-disable-bg);
+  pointer-events: none;
+}
+
+.button:disabled {
+  background-color: #747474;
+}
+
+.form:hover .button:disabled svg {
+  transform: none;
+}
+
+.input_error {
+  border: var(--input-error-border);
+}
+
+.input_error::placeholder {
+  color: #f00631;
+}
+
+.button_error {
+  background-color: #747474;
+}

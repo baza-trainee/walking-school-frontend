@@ -2,22 +2,22 @@ import React from "react";
 import Container from "../layout/Container/Container";
 import Adventure from "./Adventure/Adventure";
 import Bungee from "../../assets/icons/BungeeJumping.svg";
-import FlySpot from "../../assets/icons/FlySpot.svg";
-import Parachuting from "../../assets/icons/Parachuting.svg";
+import Parachuting from "../../assets/icons/FlySpot.svg";
+import FlySpot from "../../assets/icons/Parachuting.svg";
 import SkyWalk from "../../assets/icons/SkyWalk.svg";
 import style from "./Adventures.module.css";
 
 const cards = [
-  { image: FlySpot, alt: "іконка парашуту", text: "Тунельний політ" },
+  { image: Parachuting, alt: "іконка парашуту", text: "Стрибки з парашутом" },
   {
     image: Bungee,
     alt: "іконка чоловічка, що стрибає з банджі",
     text: "Банджі джампінг",
   },
   {
-    image: Parachuting,
-    alt: "іконка чоловічка, що стрибає з парашутом",
-    text: "Стрибки з парашутом",
+    image: FlySpot,
+    alt: "іконка чоловічка, що летить",
+    text: "Тунельний політ",
   },
   {
     image: SkyWalk,
