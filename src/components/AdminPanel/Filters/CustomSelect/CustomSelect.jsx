@@ -60,6 +60,7 @@ export const CustomSelect = ({
           }`}
           style={{
             border: error ? "1px solid red" : "1px solid black",
+            borderRadius: "0 0 4px 4px",
           }}
         >
           {options.map((item, index) => (
