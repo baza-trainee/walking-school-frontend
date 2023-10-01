@@ -5,8 +5,8 @@ import NotFoundPage from "../NotFoundPage";
 afterEach(cleanup);
 
 const mockUsedNavigate = jest.fn();
-jest.mock('react-router-dom', () => ({
-   ...jest.requireActual('react-router-dom'),
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockUsedNavigate,
 }));
 

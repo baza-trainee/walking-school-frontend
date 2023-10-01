@@ -1,9 +1,17 @@
+:root {
+  --common-width: 305px;
+  --common-border: 1px solid black;
+  --common-padding: 12px 8px;
+  --common-height: 48px;
+}
+
 .dropdown {
-  width: 305px;
+  width: var(--common-width);
   position: relative;
   height: fit-content;
-  border: 1px solid black;
+  border: var(--common-border);
   border-radius: 4px;
+  height: var(--common-height);
 }
 
 .content {
@@ -11,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  background-color: #fff;
 }
 
 .arrowIcon {
@@ -21,27 +30,28 @@
 .optionLabel {
   display: flex;
   justify-content: space-between;
-  width: 305px;
-  padding: 12px 8px;
+  align-items: center;
+  width: var(--common-width);
+  padding: var(--common-padding);
 }
 
 .itemContainer {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  border: 1px solid black;
+  left: -1px;
+  width: var(--common-width);
+  border: var(--common-border);
   border-top: none;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease 0s;
+  background-color: #fff;
+  z-index: 1000;
 }
 
 .item {
-  padding: 12px 8px;
+  padding: var(--common-padding);
+  height: var(--common-height);
 }
 
 .item:hover {
@@ -52,4 +62,5 @@
 .active {
   visibility: visible;
   opacity: 1;
+  z-index: 1000;
 }
