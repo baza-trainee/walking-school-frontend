@@ -5,55 +5,6 @@
   flex-direction: column;
 }
 
-.tableHeader {
-  display: flex;
-  align-items: center;
-  background-color: #e3f9f7;
-  padding: 20px 16px 20px 70px;
-}
-
-.name {
-  font-family: var(--menu-item-ff);
-  font-weight: var(--menu-item-fw);
-  line-height: var(--menu-item-lh);
-  font-style: var(--menu-item-fs-web);
-  width: 398px;
-}
-
-.status {
-  width: 450px;
-  font-family: var(--menu-item-ff);
-  font-weight: var(--menu-item-fw);
-  line-height: var(--menu-item-lh);
-  font-style: var(--menu-item-fs-web);
-}
-
-.date {
-  position: relative;
-  font-family: var(--menu-item-ff);
-  font-weight: var(--menu-item-fw);
-  line-height: var(--menu-item-lh);
-  font-style: var(--menu-item-fs-web);
-  width: 200px;
-}
-
-.dummy {
-  margin-left: auto;
-  width: 96px;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.date::after {
-  content: url("../../../../assets/images/dateArrows.svg");
-  top: 50%;
-  right: 25%;
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  transform: translateY(-50%);
-}
-
 .customSelect {
   appearance: none;
   background-image: url("../../../../assets/images/filterIcon.svg");

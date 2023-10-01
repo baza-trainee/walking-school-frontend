@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { AdminHeader } from "../../../../components/AdminPanel/AdminHeader/AdminHeader";
 import { CustomSelect } from "../../../../components/AdminPanel/Filters/CustomSelect/CustomSelect";
 import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect/DateSelect";
@@ -17,31 +18,103 @@ const MockedOptions = [
 const MockedOptions2 = ["0-18", "18-60"];
 
 export const AddProject = () => {
-  const handleImageChange = (blob) => {
-    // TODO: write some logic to send blob data on server
+  const [formData, setFormData] = useState({
+    title: "",
+    link: "",
+    description: "",
+    publishDate: null,
+    eventDate: null,
+    ageLimit: null,
+    category: null,
+    image: null,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
+
+  const handleImageChange = (blob) => {
+    setFormData({ ...formData, image: blob });
+  };
+
+  const handleDateChange = (field, date) => {
+    if (!date) {
+      return;
+    }
+    setFormData({ ...formData, [field]: date });
+  };
+
+  const handleSelectChange = (fieldName) => (selectedOption) => {
+    setFormData({ ...formData, [fieldName]: selectedOption });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const date = new Date();
+    const currentDate = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+
+    const finalFormData = {
+      ...formData,
+      publishDate: formData.publishDate ? formData.publishDate : currentDate,
+    };
+
+    console.log("Sending data:", finalFormData);
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <form onSubmit={handleSubmit} className={styles.wrapper}>
       <AdminHeader isAdd={false} title="Додати проєкт" />
       <div className={styles.content}>
         <div className={styles.leftBlock}>
-          <AdminInput variant="admin" placeholder="Заголовок" />
-          <AdminInput variant="admin" placeholder="Додайте посилання" />
-          <AdminInput variant="textarea" placeholder="Опис" />
+          <AdminInput
+            name="title"
+            variant="admin"
+            placeholder="Заголовок"
+            onChange={handleInputChange}
+          />
+          <AdminInput
+            name="link"
+            variant="admin"
+            placeholder="Додайте посилання"
+            onChange={handleInputChange}
+          />
+          <AdminInput
+            name="description"
+            variant="textarea"
+            placeholder="Опис"
+            onChange={handleInputChange}
+          />
           <div className={styles.tooltipContainer}>
-            <DateSelect placeholder={"Дата публікації"} />
+            <DateSelect
+              placeholder={"Дата публікації"}
+              onChange={(date) => handleDateChange("publishDate", date)}
+            />
             <Tooltip />
           </div>
           <div className={styles.buttonWrapper}>
             <AdminButton variant="secondary" children={"Скасувати"} />
-            <AdminButton variant="primary" children={"Зберегти"} />
+            <AdminButton
+              type="submit"
+              variant="primary"
+              children={"Зберегти"}
+            />
           </div>
         </div>
         <div className={styles.rightBlock}>
-          <DateSelect placeholder={"Період"} />
-          <CustomSelect options={MockedOptions} />
+          <DateSelect
+            placeholder={"Період"}
+            onChange={(date) => handleDateChange("eventDate", date)}
+          />
+          <CustomSelect
+            options={MockedOptions}
+            onChange={handleSelectChange("category")}
+          />
           <CustomSelect
             options={MockedOptions2}
+            onChange={handleSelectChange("ageLimit")}
             placeholder="Вікові обмеження"
             selectPrompt="Оберіть вік"
           />
@@ -53,6 +126,6 @@ export const AddProject = () => {
           />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
