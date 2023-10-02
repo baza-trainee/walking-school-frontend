@@ -1,15 +1,15 @@
 import { useParams } from "react-router";
-import { AdminHeader } from "../../../../components/AdminPanel/AdminHeader/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 import styles from "./EditProject.module.css";
+import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 
 export const EditProject = () => {
   const { id } = useParams();
   // TODO: use this id param to change a project description and send it via endpoint to the server
   return (
     <div className={styles.wrapper}>
-      <AdminHeader title={"Редагувати опис"} />
+      <AdminHeader heading={"Редагувати опис"} withClose={true} />
       <AdminInput
         disabled
         variant="admin"
