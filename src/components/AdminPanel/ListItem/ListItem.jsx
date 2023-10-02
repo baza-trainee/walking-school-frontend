@@ -13,7 +13,7 @@ const ListItem = ({
   deleteFunc,
 }) => {
   return (
-    <div className={style.listItem}>
+    <div data-testid="listItem" className={style.listItem}>
       <div className={style.listItem__heading}>{heading}</div>
       <div className={style.listItem__content}>
         {withStateColumn ? (
@@ -22,10 +22,20 @@ const ListItem = ({
         <div className={style.listItem__date}>{date}</div>
       </div>
       <div className={style.listItem__buttons}>
-        <div className={style.button} onClick={navigateToEdit} role="button">
+        <div
+          data-testid="editButton"
+          className={style.button}
+          onClick={navigateToEdit}
+          role="button"
+        >
           <EditIcon />
         </div>
-        <div className={style.button} onClick={deleteFunc} role="button">
+        <div
+          data-testid="deleteButton"
+          className={style.button}
+          onClick={deleteFunc}
+          role="button"
+        >
           <DeleteIcon />
         </div>
       </div>
