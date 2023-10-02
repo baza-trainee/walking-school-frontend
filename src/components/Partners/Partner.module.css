@@ -119,7 +119,7 @@
     left: 0 !important;
   }
 
-  :global(.swiper-slide-active) {
+  .swiperContainer :global(.swiper-slide-active) {
     padding-left: 5px;
     transform: scale(1.59);
   }
