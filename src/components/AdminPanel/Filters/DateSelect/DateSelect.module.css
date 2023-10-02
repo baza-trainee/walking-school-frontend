@@ -24,6 +24,7 @@
   align-items: center;
   height: var(--common-height);
   padding: 12px 8px;
+  cursor: pointer;
 }
 
 .dateIcon {

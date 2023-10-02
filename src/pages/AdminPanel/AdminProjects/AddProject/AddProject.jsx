@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AdminHeader } from "../../../../components/AdminPanel/AdminHeader/AdminHeader";
 import { CustomSelect } from "../../../../components/AdminPanel/Filters/CustomSelect/CustomSelect";
 import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect/DateSelect";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
@@ -7,6 +6,7 @@ import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./AddProject.module.css";
+import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 
 const MockedOptions = [
   "Тунельний політ",
@@ -18,6 +18,8 @@ const MockedOptions = [
 const MockedOptions2 = ["0-18", "18-60"];
 
 export const AddProject = () => {
+  // TODO: use custom hook and move the logic there
+  // TODO: use Formik (probably)
   const [formData, setFormData] = useState({
     title: "",
     link: "",
@@ -66,7 +68,7 @@ export const AddProject = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
-      <AdminHeader isAdd={false} title="Додати проєкт" />
+      <AdminHeader heading={"Додати проэкт"} withClose={true} />
       <div className={styles.content}>
         <div className={styles.leftBlock}>
           <AdminInput

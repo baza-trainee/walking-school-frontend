@@ -7,12 +7,17 @@ const Search = ({
   isDisabled = false,
   error = false,
   searchFunc = () => {},
+  onChange,
   ...props
 }) => {
   const [searchWord, setSearchWord] = useState("");
 
   const handleChange = (event) => {
     setSearchWord(event.target.value);
+
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   const inputClasses = [style.input];

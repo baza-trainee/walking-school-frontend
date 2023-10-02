@@ -19,18 +19,24 @@ import AdminButton from "../UI/Button/AdminButton";
  * @returns {React.JSX.Element} header component with specified parameters
  */
 const AdminHeader = (props) => {
-  const { withSearch, withButton, withClose, heading } = props;
+  const { withSearch, withButton, withClose, heading, setSearchTerm } = props;
+
+  const handleSearch = (e) => {
+    if (setSearchTerm) {
+      setSearchTerm(e.target.value);
+    }
+  };
+
   return (
     <header data-testid="header" className={style.header}>
       <h4 className={style.header__heading}>{heading}</h4>
       <div className={style.header__content}>
-        {withSearch ? <Search /> : null}
+        {withSearch ? <Search onChange={handleSearch} /> : null}
         {withButton ? (
           <AdminButton
             data-testid="header-button"
             variant="primary"
             tabIndex="0"
-            className={style.header__button}
           >
             Додати
           </AdminButton>
