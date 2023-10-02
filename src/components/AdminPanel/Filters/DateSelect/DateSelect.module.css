@@ -1,12 +1,20 @@
 @import "../../../../typography/_colors.css";
 @import "../../../../typography/_fonts.css";
 
+:root {
+  --common-height: 48px;
+  --common-border-color: #7e8492;
+  --common-radius: 4px;
+  --common-transition: all 0.3s ease 0s;
+  --width-305: 305px;
+}
+
 .dropdown {
-  width: 305px;
+  width: var(--width-305);
   position: relative;
   height: fit-content;
-  border-radius: 4px;
-  height: 48px;
+  border-radius: var(--common-radius);
+  height: var(--common-height);
   outline: none;
 }
 
@@ -14,7 +22,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 48px;
+  height: var(--common-height);
+  padding: 12px 8px;
 }
 
 .dateIcon {
@@ -23,10 +32,6 @@
   right: 12px;
   transform: translateY(-50%);
   cursor: pointer;
-}
-
-.label {
-  padding: 12px 8px;
 }
 
 .label:hover {
@@ -38,8 +43,8 @@
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #7e8492;
-  border-radius: 4px;
+  border: 2px solid var(--common-border-color);
+  border-radius: var(--common-radius);
   min-height: 248px;
   outline: none;
 }
@@ -67,14 +72,14 @@
 
 .input {
   padding: 9px 8px;
-  border: 1px solid #7e8492;
-  border-radius: 4px;
+  border: 1px solid var(--common-border-color);
+  border-radius: var(--common-radius);
   outline: none;
   position: absolute;
   width: 100%;
   line-height: 40px;
   background: transparent;
-  transition: all 0.3s ease 0s;
+  transition: var(--common-transition);
   z-index: 1111;
 }
 
@@ -82,7 +87,7 @@
   position: absolute;
   font-size: 12px;
   color: black;
-  transition: all 0.3s ease 0s;
+  transition: var(--common-transition);
   padding: 0 8px;
   margin: 0 8px;
   background-color: #fff;
@@ -112,11 +117,11 @@
 .dateContainer {
   position: absolute;
   top: 60px;
-  width: 305px;
+  width: var(--width-305);
   left: -1px;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: var(--common-transition);
   z-index: 1111;
   background-color: #fff;
 }
