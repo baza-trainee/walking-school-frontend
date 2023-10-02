@@ -11,7 +11,7 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
     if (data.length < 8) {
       setSlides([...data, ...data]);
     }
-  }, [slides]);
+  }, []);
   return (
     <>
       <section id="gallery" className={styles.sectionWrapper}>
@@ -33,8 +33,8 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
             prevEl: ".swiper-button-prev",
           }}
         >
-          {slides.map((slide) => (
-            <SwiperSlide className={styles.slide} key={slide.img}>
+          {slides.map((slide, index) => (
+            <SwiperSlide className={styles.slide} key={index}>
               <img src={slide.img} className={styles.image} alt="facebookImg" />
             </SwiperSlide>
           ))}
