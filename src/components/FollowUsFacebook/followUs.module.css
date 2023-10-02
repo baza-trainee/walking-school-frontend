@@ -59,16 +59,17 @@
   border-radius: 12px;
   position: static !important;
 }
-
 .myArrow:after {
   font-size: 22px !important;
 }
+
 .arrowButtons {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .sectionWrapper {
     padding: 0px 26px 40px 26px;
