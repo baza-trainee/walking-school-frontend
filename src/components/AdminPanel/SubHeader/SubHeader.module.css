@@ -16,11 +16,15 @@
   line-height: 100%;
 }
 
+.subHeader__heading {
+  width: 41.30%;
+}
+
 .subHeader__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 274px;
+  flex-grow: 1;
 }
 
 .subHeader__button {
