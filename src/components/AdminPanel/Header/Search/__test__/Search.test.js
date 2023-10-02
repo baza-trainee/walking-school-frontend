@@ -1,11 +1,16 @@
 import { screen, render, cleanup, fireEvent } from "@testing-library/react";
 import Search from "../Search";
 import { click } from "@testing-library/user-event/dist/click";
+import React, { useState } from "react";
 
 afterEach(cleanup);
 
 const testFunc = jest.fn();
 const submit = testFunc;
+
+const setStateMock = jest.fn();
+const useStateMock = (useState) => [useState, setStateMock];
+jest.spyOn(React, "useState").mockImplementation(useStateMock);
 
 describe("header search field", () => {
   it("renders", () => {
@@ -55,20 +60,18 @@ describe("header search field", () => {
   });
 
   it("correctly handles submit function", () => {
-    render(<Search searchFunc={submit} />);
+    render(<Search />);
     const button = screen.getByRole("button");
+    const input = screen.getByTestId("input");
     fireEvent.click(button);
-    expect(submit).toBeCalled();
-    expect(submit).toBeCalledTimes(1);
-    fireEvent.click(button);
-    expect(submit).toBeCalledTimes(2);
+    expect(input.focus).toBeTruthy();
   });
 
   it("updates the field value when new value is inputted", () => {
-    render(<Search searchFunc={submit} />);
+    render(<Search searchWord={""} setSearchWord={setStateMock} />);
     const input = screen.getByTestId("input");
     const expected = "hello there";
     fireEvent.change(input, { target: { value: expected } });
-    expect(input).toHaveValue(expected);
+    expect(setStateMock).toHaveBeenCalledWith(expected);
   });
 });
