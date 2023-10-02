@@ -91,6 +91,7 @@ export const AddProject = () => {
             <DateSelect
               placeholder={"Дата публікації"}
               onChange={(date) => handleDateChange("publishDate", date)}
+              id={"publishDate"}
             />
             <Tooltip />
           </div>
@@ -107,6 +108,7 @@ export const AddProject = () => {
           <DateSelect
             placeholder={"Період"}
             onChange={(date) => handleDateChange("eventDate", date)}
+            id={"eventDate"}
           />
           <CustomSelect
             options={MockedOptions}
