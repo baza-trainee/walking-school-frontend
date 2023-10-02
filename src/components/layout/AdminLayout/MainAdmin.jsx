@@ -28,11 +28,11 @@ const MainAdmin = () => {
               Hero
             </NavLinkAdmin>
             <NavLinkAdmin
-              to={"/projects"}
+              to={"/admin/projects"}
               icon={<Projects />}
               dropdownItems={[
-                { to: "/projects/edit", label: "Редагувати опис" },
-                { to: "/projects/add", label: "Додати проєкт" },
+                { to: "/admin/projects/edit", label: "Редагувати опис" },
+                { to: "/admin/projects/add", label: "Додати проєкт" },
               ]}
             >
               Проєкти

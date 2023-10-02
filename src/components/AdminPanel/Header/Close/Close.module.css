@@ -12,16 +12,16 @@
 }
 
 .close:hover {
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
 }
 
 .close_disabled {
-  background-color: #7E8492;
+  background-color: #7e8492;
   pointer-events: none;
 }
 
 .close_secondary {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .close_secondary svg path {
@@ -29,8 +29,10 @@
 }
 
 .close_secondary:hover {
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+  background-color: #ffffff;
+  box-shadow:
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08);
 }
 
 .close_secondary:active {
@@ -39,9 +41,9 @@
 }
 
 .close_secondary:active svg path {
-  stroke: #FCFCFC;
+  stroke: #fcfcfc;
 }
 
 .close_disabled.close_secondary svg path {
-  stroke: #7E8492;
+  stroke: #7e8492;
 }

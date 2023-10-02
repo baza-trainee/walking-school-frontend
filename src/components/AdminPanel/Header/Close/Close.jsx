@@ -14,7 +14,7 @@ const Close = ({ isSecondary = false, isDisabled = false, ...props }) => {
   const className = classes.join(" ");
   return (
     <button disabled={isDisabled} className={className} {...props}>
-      <Icon data-testid="icon"/>
+      <Icon data-testid="icon" />
     </button>
   );
 };
