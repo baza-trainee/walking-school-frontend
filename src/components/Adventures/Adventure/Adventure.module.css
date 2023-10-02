@@ -1,7 +1,6 @@
 @import "../../../typography/_colors.css";
 @import "../../../typography/_fonts.css";
 
-
 .card {
   background-color: var(--adventure-internal-bg);
   border: var(--adventure-border);

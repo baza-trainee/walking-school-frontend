@@ -8,6 +8,7 @@ import styles from "./Input.module.css";
  * */
 
 const AdminInput = ({
+  className,
   disabled = false,
   label,
   placeholder = "Введіть логін",
@@ -26,7 +27,7 @@ const AdminInput = ({
     textarea: styles.textarea,
   };
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${className}`}>
       {label && <label htmlFor={id}>{label}</label>}
       <div
         className={
