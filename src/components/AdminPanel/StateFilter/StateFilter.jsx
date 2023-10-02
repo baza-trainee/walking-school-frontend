@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "./StateFilter.module.css";
 
-const StateFilter = ({ filter = "all", setFilter }) => {
+const StateFilter = ({ setFilter }) => {
   return (
     <div className={style.filter}>
       <select

@@ -1,0 +1,33 @@
+.filter__select {
+  appearance: none;
+  width: 197px;
+  height: 48px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border: 1px solid #7E8492;
+  background-image: url("../../../assets/images/filterIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  cursor: pointer;
+}
+
+.filter__select:focus-visible {
+  outline: none;
+}
+
+.filter__select:focus:hover {
+  background-image: url("../../../assets/images/filterIcon.svg");
+}
+
+.filter__select option {
+  appearance: none;
+  margin: 12px;
+  background-color: none;
+}
+
+.filter__select option:hover {
+  background-color: #FBFAFA;
+}
