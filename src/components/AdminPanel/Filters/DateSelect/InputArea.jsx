@@ -7,7 +7,6 @@ export const InputArea = ({ value, onChange, label }) => (
       value={value}
       onChange={(e) => onChange(e.target.value)}
       className={styles.input}
-      required
     />
     <div className={styles.labelLine}>{label}</div>
   </div>

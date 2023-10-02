@@ -5,7 +5,12 @@ import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
-export const DateSelect = ({ error = false, placeholder, className = "" }) => {
+export const DateSelect = ({
+  error = false,
+  placeholder,
+  className = "",
+  onChange,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -20,7 +25,12 @@ export const DateSelect = ({ error = false, placeholder, className = "" }) => {
     setEndDate("");
   };
   const applyChanges = () => {
-    if (startDate && endDate) setLabelContent(`${startDate} - ${endDate}`);
+    if (startDate && endDate) {
+      setLabelContent(`${startDate} - ${endDate}`);
+      if (onChange) {
+        onChange({ startDate, endDate });
+      }
+    }
     setIsExpanded(false);
   };
 

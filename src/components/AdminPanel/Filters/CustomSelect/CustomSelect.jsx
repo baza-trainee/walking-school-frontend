@@ -9,6 +9,7 @@ export const CustomSelect = ({
   selectPrompt = "Оберіть категорію",
   options,
   error,
+  onChange,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -18,6 +19,9 @@ export const CustomSelect = ({
   const handleSelect = (option) => {
     setSelectedOption(option);
     setIsExpanded(false);
+    if (onChange) {
+      onChange(option);
+    }
   };
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));
@@ -60,6 +64,7 @@ export const CustomSelect = ({
           }`}
           style={{
             border: error ? "1px solid red" : "1px solid black",
+            borderRadius: "0 0 4px 4px",
           }}
         >
           {options.map((item, index) => (
