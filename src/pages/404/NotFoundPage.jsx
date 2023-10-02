@@ -10,7 +10,7 @@ import useRedirect from "../../hooks/useRedirect";
  * @returns {React.JSX.Element}
  */
 const NotFoundPage = () => {
-  const redirect = useRedirect("walking-school-frontend");
+  const redirect = useRedirect("/");
   return (
     <Container>
       <section data-testid="page" className={style.notFound}>
