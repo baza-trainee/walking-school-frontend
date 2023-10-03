@@ -60,8 +60,8 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
   const selectedClass = style.pagination__number_selected;
 
   return (
-    <div className={style.pagination}>
-      <div className={style.pagination__numbers}>
+    <div className={style.pagination} data-testid="pagination">
+      <div className={style.pagination__numbers} data-testid="numbers">
         {items.map(({ page, type, selected, ...item }, index) => {
           let children = null;
 
@@ -89,13 +89,14 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
         })}
       </div>
 
-      <div className={style.pagination__controls}>
+      <div className={style.pagination__controls} data-testid="controls">
         <PaginationControl
           left
           onClick={() => handlePageClick(currentPage - 1)}
           disabled={currentPage === 1}
         />
         <PaginationControl
+          data-testid="buttonNext"
           onClick={() => handlePageClick(currentPage + 1)}
           disabled={currentPage === totalPages}
         />
