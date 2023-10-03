@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { ReactComponent as Icon } from "../../../../assets/admin/search.svg";
 
 import style from "./Search.module.css";
@@ -6,15 +6,10 @@ import style from "./Search.module.css";
 const Search = ({
   isDisabled = false,
   error = false,
-  searchFunc = () => {},
+  searchWord,
+  setSearchWord,
   ...props
 }) => {
-  const [searchWord, setSearchWord] = useState("");
-
-  const handleChange = (event) => {
-    setSearchWord(event.target.value);
-  };
-
   const inputClasses = [style.input];
   const buttonClasses = [style.button];
 
@@ -26,16 +21,28 @@ const Search = ({
   const inputClassNames = inputClasses.join(" ");
   const buttonClassNames = buttonClasses.join(" ");
 
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  const submitFunc = (event) => {
+    event.preventDefault()
+    focusInput()
+  }
+
   return (
-    <form onSubmit={searchFunc} role="search" className={style.form} {...props}>
+    <form onSubmit={submitFunc} role="search" className={style.form} {...props}>
       <input
         data-testid="input"
         disabled={isDisabled}
         type="text"
         className={inputClassNames}
         placeholder="Введіть ключове слово для пошуку"
-        onChange={handleChange}
+        onChange={(e) => setSearchWord(e.target.value)}
         value={searchWord}
+        ref={inputRef}
       />
       <button className={buttonClassNames} disabled={isDisabled} type="submit">
         <Icon />

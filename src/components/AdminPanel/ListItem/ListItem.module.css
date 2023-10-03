@@ -1,0 +1,45 @@
+@import "../../../typography/_fonts.css";
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  color: #313131;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-web);
+  font-weight: var(--body-text-fw);
+  line-height: 100%;
+  padding: 8px 8px 8px 16px;
+  border-radius: 4px;
+}
+
+.listItem__heading {
+  width: 439px;
+}
+
+.listItem__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.listItem__date {
+  width: 37.60%;
+}
+
+.listItem__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px
+}
+
+.button {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

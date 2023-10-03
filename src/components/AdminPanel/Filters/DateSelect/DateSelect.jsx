@@ -10,6 +10,7 @@ export const DateSelect = ({
   placeholder,
   className = "",
   onChange,
+  id,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");
@@ -54,8 +55,14 @@ export const DateSelect = ({
               value={startDate}
               onChange={setStartDate}
               label="Початок"
+              id={"startdate-" + id}
             />
-            <InputArea value={endDate} onChange={setEndDate} label="Кінець" />
+            <InputArea
+              value={endDate}
+              onChange={setEndDate}
+              label="Кінець"
+              id={"endDate-" + id}
+            />
           </div>
           <ButtonContainer onCancel={cancelChanges} onOk={applyChanges} />
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AdminHeader } from "../../../components/AdminPanel/AdminHeader/AdminHeader";
 import styles from "./AdminProjects.module.css";
 import { ProjectsList } from "./ProjectsList/ProjectsList";
+import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 
 // dummy data for testing purposes
 const data = [
@@ -51,6 +51,9 @@ const data = [
 
 export const AdminProjects = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  // TODO: use useEffect or useQuery with endpoints to get the projects from the server
+  // TODO: use state to put the data into it.
+  // TODO: replace dummy data with the state
 
   const filteredProjects = data.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -58,10 +61,10 @@ export const AdminProjects = () => {
   return (
     <div className={styles.projects}>
       <AdminHeader
-        isAdd={true}
-        title="Проєкти"
+        heading={"Проєкти"}
+        withButton={true}
+        withSearch={true}
         setSearchTerm={setSearchTerm}
-        searchTerm={searchTerm}
       />
       <ProjectsList projects={filteredProjects} />
     </div>
