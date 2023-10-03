@@ -2,6 +2,7 @@ import React from "react";
 import usePagination from "@mui/material/usePagination";
 import style from "./Pagination.module.css";
 import PaginationControl from "./PaginationControls/PaginationControls";
+import PaginationNumber from "./PaginationNumbers/PaginationNumbers";
 
 /**
  * Pagination component
@@ -47,6 +48,7 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
     },
     page: currentPage,
     siblingCount: 1,
+    classes: style.pagination__number
   });
 
   const handlePageClick = (newPage) => {
@@ -54,6 +56,8 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
       onPageChange(newPage);
     }
   };
+  const mainButtonClass = style.pagination__number
+  const selectedClass = style.pagination__number_selected;
 
   return (
     <div className={style.pagination}>
@@ -62,15 +66,23 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
           let children = null;
 
           if (type === "start-ellipsis" || type === "end-ellipsis") {
-            children = "…";
+            <PaginationNumber
+              key={index}
+              className={mainButtonClass}
+              {...item}
+            >
+              ...
+            </PaginationNumber>;
           } else if (type === "page") {
-            children = (
-              <button
-                type="button"
+            return (
+              <PaginationNumber
+                key={index}
+                className={index === currentPage ? `${mainButtonClass} ${selectedClass}` : mainButtonClass}
                 {...item}
+                classes = {style.pagination__number}
               >
                 {page}
-              </button>
+              </PaginationNumber>
             );
           } else return null;
           return <div key={index}>{children}</div>;
