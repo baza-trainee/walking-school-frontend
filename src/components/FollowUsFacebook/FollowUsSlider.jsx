@@ -19,10 +19,6 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
           <h2 className={styles.title}>
             Стежте за останніми <br /> новинами у Facebook
           </h2>
-          <div className={styles.arrowButtons}>
-            <div className={`${styles.myArrow} swiper-button-prev`}></div>
-            <div className={`${styles.myArrow} swiper-button-next`}></div>
-          </div>
         </div>
         <Swiper
           slidesPerView={slidesQuantity}
@@ -38,6 +34,14 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
               <img src={slide.img} className={styles.image} alt="facebookImg" />
             </SwiperSlide>
           ))}
+          <div className={styles.arrowButtons}>
+            <div
+              className={`${styles.myArrow} ${styles.left} swiper-button-prev`}
+            ></div>
+            <div
+              className={`${styles.myArrow} ${styles.right} swiper-button-next`}
+            ></div>
+          </div>
         </Swiper>
         <div className={styles.buttonWrapper}>
           <Button className={styles.follow}>Стежити</Button>
