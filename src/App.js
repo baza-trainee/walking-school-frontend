@@ -19,6 +19,7 @@ import { AddProject } from "./pages/AdminPanel/AdminProjects/AddProject/AddProje
 import { EditProject } from "./pages/AdminPanel/AdminProjects/EditProject/EditProject";
 import AdminPartners from "./pages/AdminPanel/AdminPartners/AdminPartners";
 import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
+import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
         <Route path="projects/edit/:id" element={<EditProject />} />
         <Route path="partners" element={<AdminPartners />} />
         <Route path="partners/add" element={<AddPartner />} />
+        <Route path="partners/edit/:id" element={<EditPartner />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
