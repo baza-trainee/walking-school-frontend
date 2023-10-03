@@ -6,6 +6,7 @@ const StateFilter = ({ setFilter }) => {
   return (
     <div className={style.filter}>
       <select
+        data-testid = "filter"
         name="stateFilter"
         onChange={(e) => setFilter(e.target.value)}
         className={style.filter__select}
