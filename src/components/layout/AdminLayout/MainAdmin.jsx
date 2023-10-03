@@ -37,7 +37,13 @@ const MainAdmin = () => {
             >
               Проєкти
             </NavLinkAdmin>
-            <NavLinkAdmin to={"partners"} icon={<Partners />}>
+            <NavLinkAdmin
+              to={"partners"}
+              icon={<Partners />}
+              dropdownItems={[
+                { to: "/admin/partners/add", label: "Додати партнера" },
+              ]}
+            >
               Партнери
             </NavLinkAdmin>
             <NavLinkAdmin to={"facebook"} icon={<Facebook />}>
