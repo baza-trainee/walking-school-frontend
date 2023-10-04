@@ -1,0 +1,50 @@
+@import "../../../typography/_fonts.css";
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.pagination__numbers {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.pagination__number {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-family: var(--num-ff);
+  font-weight: var(--num-fw);
+  font-size: var(--num-fs);
+  line-height: var(--num-lh);
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination__number:hover {
+  color: #131313;
+  background-color: #E3F9F7;
+}
+
+.pagination__number:active {
+  color: #FCFCFC;
+  background-color: #151515;
+}
+
+.pagination__number_selected {
+  color: #FCFCFC;
+  background-color: #151515;
+}
+
+.pagination__controls {
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+}
