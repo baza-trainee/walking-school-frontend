@@ -5,11 +5,17 @@ import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
-export const DateSelect = ({ error = false }) => {
+export const DateSelect = ({
+  error = false,
+  placeholder,
+  className = "",
+  onChange,
+  id,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [labelContent, setLabelContent] = useState("Період");
+  const [labelContent, setLabelContent] = useState(placeholder);
   const dropDownRef = useRef(null);
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));
@@ -20,15 +26,20 @@ export const DateSelect = ({ error = false }) => {
     setEndDate("");
   };
   const applyChanges = () => {
-    if (startDate && endDate) setLabelContent(`${startDate} - ${endDate}`);
+    if (startDate && endDate) {
+      setLabelContent(`${startDate} - ${endDate}`);
+      if (onChange) {
+        onChange({ startDate, endDate });
+      }
+    }
     setIsExpanded(false);
   };
 
   return (
     <div
-      className={styles.dropdown}
+      className={`${styles.dropdown} ${className}`}
       ref={dropDownRef}
-      style={{ border: error ? "2px solid red" : "2px solid #7e8492" }}
+      style={{ border: error ? "1px solid red" : "1px solid #7e8492" }}
     >
       <div className={styles.content} onClick={toggleDropDown}>
         <div className={styles.label}>{labelContent}</div>
@@ -44,8 +55,14 @@ export const DateSelect = ({ error = false }) => {
               value={startDate}
               onChange={setStartDate}
               label="Початок"
+              id={"startdate-" + id}
             />
-            <InputArea value={endDate} onChange={setEndDate} label="Кінець" />
+            <InputArea
+              value={endDate}
+              onChange={setEndDate}
+              label="Кінець"
+              id={"endDate-" + id}
+            />
           </div>
           <ButtonContainer onCancel={cancelChanges} onOk={applyChanges} />
         </div>
