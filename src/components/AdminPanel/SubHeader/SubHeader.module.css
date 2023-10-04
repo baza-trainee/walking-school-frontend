@@ -2,7 +2,7 @@
 
 .subHeader {
   width: 100%;
-  background-color: #E3F9F7;
+  background-color: #e3f9f7;
   height: 56px;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,7 @@
 }
 
 .subHeader__heading {
-  width: 41.30%;
+  width: 439px;
 }
 
 .subHeader__content {

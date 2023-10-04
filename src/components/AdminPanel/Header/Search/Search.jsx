@@ -28,9 +28,9 @@ const Search = ({
   };
 
   const submitFunc = (event) => {
-    event.preventDefault()
-    focusInput()
-  }
+    event.preventDefault();
+    focusInput();
+  };
 
   return (
     <form onSubmit={submitFunc} role="search" className={style.form} {...props}>
