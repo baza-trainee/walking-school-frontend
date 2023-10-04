@@ -17,13 +17,11 @@ const AddPartner = () => {
   const [inputValue, setInputValue] = useState("");
   const inputChange = (event) => {
     setInputValue(event.target.value);
-    console.log(inputValue);
   };
 
   const [imageValue, setImageValue] = useState("");
   const imageChange = (newPreview) => {
     setImageValue(newPreview);
-    console.log(imageValue);
   };
 
   const submitFunc = (event) => {
