@@ -25,8 +25,6 @@ const AdminFacebook = () => {
     });
   };
 
-  console.log(values);
-
   const submitFunc = (event) => {
     event.preventDefault();
     console.log(values);
