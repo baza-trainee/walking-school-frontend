@@ -1,0 +1,34 @@
+.container {
+  width: 737px;
+  padding-top: 48px;
+  padding-left: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form__fields-input {
+  height: 68px;
+}
+
+.form__fields-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  width: 412px;
+}
+
+.form__fields-actions button {
+  width: 196px;
+  height: 52px;
+}

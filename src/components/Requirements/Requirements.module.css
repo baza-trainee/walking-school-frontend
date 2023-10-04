@@ -10,9 +10,10 @@
 }
 
 .requirements__heading {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 120%;
+  font-size: var(--h2-fs-mob);
+  font-family: var(--h2-ff);
+  font-weight: var(--h2-fw);
+  line-height: var(--h2-lh);
 }
 
 .requirements__content {
@@ -60,7 +61,7 @@
   }
 
   .requirements__heading {
-    font-size: 40px;
+    font-size: var(--h2-fs-tab);
   }
 }
 
@@ -71,7 +72,7 @@
   }
 
   .requirements__heading {
-    font-size: 48px;
+    font-size: var(--h2-fs-web);
   }
 
   .requirements__text {

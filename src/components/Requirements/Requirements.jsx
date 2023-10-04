@@ -12,7 +12,7 @@ const listItems = [
   { text: "Біометричний закордонний паспорт" },
   { text: "Оформлена група інвалідності (для виїзду закордон)" },
   { text: "У тебе вже має бути протез" },
-  { text: "Твоя вага має бути меншою за 95кг" },
+  { text: "Твоя вага має бути не меншою за 95 кг" },
   {
     text: "Відсутність протипоказань щодо вказаних вище екстримальних заходів",
   },
@@ -26,7 +26,7 @@ const Requirements = () => {
   const { isDesktop, isMobile } = useMedia();
   const notMobileImage = isDesktop ? bigImage : mediumImage;
   return (
-    <section className={style.requirementsWrapper}>
+    <section data-testid="requirements" className={style.requirementsWrapper}>
       <Container>
         <div className={style.requirements}>
           {isMobile ? (

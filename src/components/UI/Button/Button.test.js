@@ -2,14 +2,12 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Button from "./Button";
 
-describe("Button component", () => {
+describe("AdminButton component", () => {
   it("renders button with default 'large' variant", () => {
     render(<Button>Click me</Button>);
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("large");
-
-    screen.debug();
   });
 
   it("renders a button with 'small' variant", () => {
@@ -24,7 +22,6 @@ describe("Button component", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("small");
-    screen.debug();
   });
 
   it("renders a button with 'tertiary' variant", () => {
@@ -54,7 +51,6 @@ describe("Button component", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveClass("disabled");
-    screen.debug();
   });
 
   it("onClick handler when button is clicked", () => {

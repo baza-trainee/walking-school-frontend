@@ -1,0 +1,66 @@
+:root {
+  --common-width: 305px;
+  --common-border: 1px solid black;
+  --common-padding: 12px 8px;
+  --common-height: 48px;
+}
+
+.dropdown {
+  width: var(--common-width);
+  position: relative;
+  height: fit-content;
+  border: var(--common-border);
+  border-radius: 4px;
+  height: var(--common-height);
+  background-color: #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrowIcon {
+  height: 20px;
+  width: auto;
+}
+
+.optionLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--common-width);
+  padding: var(--common-padding);
+}
+
+.itemContainer {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  width: var(--common-width);
+  border: var(--common-border);
+  border-top: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.item {
+  padding: var(--common-padding);
+  height: var(--common-height);
+}
+
+.item:hover {
+  cursor: pointer;
+  background-color: #e3f9f7;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
+}

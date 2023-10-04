@@ -23,6 +23,7 @@ const SwiperSlider = ({ items }) => {
       className={style.swiperContainer}
       loop={true}
       speed={1000}
+      rewind={true}
       modules={[Navigation]}
       navigation={{
         nextEl: ".swiper-button-next",

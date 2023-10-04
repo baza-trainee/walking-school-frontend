@@ -1,4 +1,7 @@
 :root {
+  --admin-error-bg: #fff0f0;
+  --admin-success-color: #2d982b;
+
   --header-text-color: #131313;
   --header-text-color-on-dark: #ffffff;
   --body-text-color: #4d4d4d;

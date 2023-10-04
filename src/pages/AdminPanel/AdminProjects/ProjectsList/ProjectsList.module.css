@@ -1,0 +1,28 @@
+@import "../../../../typography/_fonts.css";
+
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.customSelect {
+  appearance: none;
+  background-image: url("../../../../assets/images/filterIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  width: 197px;
+  height: 48px;
+  outline: none;
+  border: 2px solid #7e8492;
+  margin-bottom: 24px;
+  align-self: flex-end;
+  padding: 0 8px;
+}
+
+.customSelect:hover {
+  cursor: pointer;
+}
+
+.customSelect::-ms-expand {
+  display: none;
+}

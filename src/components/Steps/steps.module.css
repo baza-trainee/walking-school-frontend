@@ -54,11 +54,11 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  font-family: Bahnschrift;
-  font-size: 24px;
+  font-family: var(--num-ff);
+  font-size: var(--num-fs);
   font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 100% */
+  font-weight: var(--num-fw);
+  line-height: var(--num-lh);
   text-transform: uppercase;
   z-index: 3;
   color: #fff;
@@ -66,11 +66,11 @@
 
 .label {
   color: #131313;
-  font-family: Inter, sans-serif;
-  font-size: 18px;
+  font-family: var(--h5-ff);
+  font-size: var(--h5-fs);
   font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 133.333% */
+  font-weight: var(--h5-fw);
+  line-height: var(--h5-lh);
   white-space: nowrap;
 }
 
