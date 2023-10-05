@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./AdminHero.module.css";
 import imgFrame from "../../../assets/admin/image-frame.svg";
 
@@ -11,7 +11,7 @@ export const AddImage = ({ activeInput, onFileChange, selectedFile }) => {
 
   return !activeInput ? (
     <div className={styles.imgFrame}>
-      <img src={imgFrame} alt="add image" />
+      <img src={imgFrame} alt="frame" />
       <p className={styles.message}>
         У вас поки немає
         <br /> зображень
@@ -19,7 +19,7 @@ export const AddImage = ({ activeInput, onFileChange, selectedFile }) => {
     </div>
   ) : (
     <div className={styles.imgFrame}>
-      <img src={imgFrame} alt="add image" />
+      <img src={imgFrame} alt="frame" />
       <p>Перетягніть свій файл сюди </p>
       <label className={styles.label} htmlFor="fileInput">
         або натисніть, щоб завантажити

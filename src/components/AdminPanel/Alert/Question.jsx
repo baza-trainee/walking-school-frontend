@@ -15,7 +15,10 @@ const Question = ({ title, message, closeModal, successFnc }) => {
           </AdminButton>
           <AdminButton
             variant="secondary"
-            onClick={() => (closeModal(), successFnc())}
+            onClick={() => {
+              closeModal();
+              successFnc();
+            }}
           >
             Підтвердити
           </AdminButton>

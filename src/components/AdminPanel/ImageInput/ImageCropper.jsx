@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import getCroppedImg from "./getCroppedImg";
-import Cropper, { Area, Point } from "react-easy-crop";
+import Cropper from "react-easy-crop";
 import Button from "../../UI/Button/Button";
 
 export const ImageCropper = ({ src, onClose, aspect }) => {
