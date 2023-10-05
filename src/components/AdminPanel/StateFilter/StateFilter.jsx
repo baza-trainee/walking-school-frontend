@@ -19,6 +19,34 @@ const customStyles = {
   }),
 };
 
+/**
+ * StateFilter component
+ * @example
+ * const Component = () => {
+ *  const [filter, setFilter] = useState({ value: "all", label: "Всі" });
+ * 
+ *  const filteredData = data.filter((project) => {
+    if (filter.value === "all") return true;
+    return data.status === filter.value;
+    });
+
+    const handleChange = (newFilter) => {
+    console.log(filter);
+    return setFilter(newFilter);
+    };
+
+    return (
+      <>
+        <StateFilter
+          currentOption={filter.value}
+          placeholder={filter.label}
+          handleChange={handleChange}
+        />
+        {someList}
+      </>
+    )
+ * }
+ */
 const StateFilter = ({ currentOption, handleChange, placeholder }) => {
   return (
     <Select
