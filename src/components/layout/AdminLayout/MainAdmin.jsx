@@ -21,9 +21,9 @@ const MainAdmin = () => {
         <div className={styles.sidebar__menu}>
           <div className={styles["sidebar__menu-navigation"]}>
             <NavLinkAdmin
-              to={"#"}
+              to={"hero"}
               icon={<Hero />}
-              dropdownItems={[{ to: "hero/add", label: "Додати слайд" }]}
+              dropdownItems={[{ to: "/admin/hero/add", label: "Додати слайд" }]}
             >
               Hero
             </NavLinkAdmin>
