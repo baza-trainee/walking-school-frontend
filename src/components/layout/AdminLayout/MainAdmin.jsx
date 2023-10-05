@@ -6,7 +6,6 @@ import { ReactComponent as Projects } from "../../../assets/admin/projects.svg";
 import { ReactComponent as Partners } from "../../../assets/admin/partners.svg";
 import { ReactComponent as Facebook } from "../../../assets/admin/gallery.svg";
 import { ReactComponent as Contacts } from "../../../assets/admin/contact.svg";
-import { ReactComponent as Users } from "../../../assets/admin/users.svg";
 import { ReactComponent as Logo } from "../../../assets/admin/logo.svg";
 import { Outlet } from "react-router-dom";
 
@@ -37,7 +36,13 @@ const MainAdmin = () => {
             >
               Проєкти
             </NavLinkAdmin>
-            <NavLinkAdmin to={"partners"} icon={<Partners />}>
+            <NavLinkAdmin
+              to={"partners"}
+              icon={<Partners />}
+              dropdownItems={[
+                { to: "/admin/partners/add", label: "Додати партнера" },
+              ]}
+            >
               Партнери
             </NavLinkAdmin>
             <NavLinkAdmin to={"facebook"} icon={<Facebook />}>
@@ -45,9 +50,6 @@ const MainAdmin = () => {
             </NavLinkAdmin>
             <NavLinkAdmin to={"contacts"} icon={<Contacts />}>
               Контакти
-            </NavLinkAdmin>
-            <NavLinkAdmin to={"users"} icon={<Users />}>
-              Користувачі
             </NavLinkAdmin>
           </div>
           <button className={styles["sidebar__menu-button"]}>Вийти</button>

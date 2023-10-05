@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./AdminProjects.module.css";
 import { ProjectsList } from "./ProjectsList/ProjectsList";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
+import { useNavigate } from "react-router-dom";
 
 // dummy data for testing purposes
 const data = [
@@ -51,22 +52,37 @@ const data = [
 
 export const AdminProjects = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  // TODO: use useEffect or useQuery with endpoints to get the projects from the server
-  // TODO: use state to put the data into it.
-  // TODO: replace dummy data with the state
+  const navigate = useNavigate();
 
   const filteredProjects = data.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const navigateToEdit = (projectId) => {
+    navigate(`/admin/projects/edit/${projectId}`);
+  };
+
+  const deleteFunc = (projectId) => {
+    // TODO: implement logic for deleting a project using projectId and backend endpoint
+  };
+
+  // TODO: use useEffect or useQuery with endpoints to get the projects from the server
+  // TODO: use state to put the data into it.
+  // TODO: replace dummy data with the state
   return (
     <div className={styles.projects}>
       <AdminHeader
         heading={"Проєкти"}
         withButton={true}
         withSearch={true}
-        setSearchTerm={setSearchTerm}
+        searchWord={searchTerm}
+        setSearchWord={setSearchTerm}
       />
-      <ProjectsList projects={filteredProjects} />
+      <ProjectsList
+        projects={filteredProjects}
+        navigateToEdit={navigateToEdit}
+        deleteFunc={deleteFunc}
+      />
     </div>
   );
 };

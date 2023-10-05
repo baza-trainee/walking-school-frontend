@@ -12,6 +12,7 @@
   line-height: 100%;
   padding: 8px 8px 8px 16px;
   border-radius: 4px;
+  background-color: #FCFCFC;
 }
 
 .listItem__heading {
@@ -26,7 +27,7 @@
 }
 
 .listItem__date {
-  width: 37.60%;
+  width: 37.6%;
 }
 
 .listItem__buttons {
@@ -34,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  gap: 16px
+  gap: 16px;
 }
 
 .button {
@@ -42,4 +43,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
 }
