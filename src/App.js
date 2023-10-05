@@ -20,6 +20,7 @@ import { EditProject } from "./pages/AdminPanel/AdminProjects/EditProject/EditPr
 import AdminPartners from "./pages/AdminPanel/AdminPartners/AdminPartners";
 import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
 import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
+import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route path="partners" element={<AdminPartners />} />
         <Route path="partners/add" element={<AddPartner />} />
         <Route path="partners/edit/:id" element={<EditPartner />} />
+        <Route path="facebook" element={<AdminFacebook />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
