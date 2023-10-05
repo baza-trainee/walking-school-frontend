@@ -36,8 +36,9 @@ const router = createBrowserRouter(
         <Route path="hero/add" element={<AdminHero />} />
         <Route path="hero/edit" element={<EditSlideForm />} />
         <Route path="contacts" element={<Contacts />} />
-        <Route index path="projects" element={<AdminProjects />} />
+        <Route path="projects" element={<AdminProjects />} />
         <Route path="projects/add" element={<AddProject />} />
+        <Route path="projects/edit" element={<EditProject />} />
         <Route path="projects/edit/:id" element={<EditProject />} />
         <Route path="partners" element={<AdminPartners />} />
         <Route path="partners/add" element={<AddPartner />} />
