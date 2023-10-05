@@ -34,6 +34,8 @@ export const ImageCropper = ({ src, onClose, aspect }) => {
     <div
       style={{
         zIndex: 1000000,
+        position: "absolute",
+        inset: "0 0 0 0",
       }}
     >
       <Cropper
