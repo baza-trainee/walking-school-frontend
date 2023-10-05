@@ -22,6 +22,7 @@ export const CustomInput = (props) => {
           name={name}
           value={value}
           onChange={onChangeHandler}
+          onBlur={onBlur}
           className={styles.textarea}
           style={{
             border: error && "1px solid #f00631",

@@ -1,23 +1,10 @@
 import { useState } from "react";
-import * as Yup from "yup";
 import { useFormik } from "formik";
 import Button from "../../UI/Button/Button";
 import { CustomInput } from "../CustomInput/CustomInput";
 import styles from "./ContactForm.module.css";
 import { Modal } from "../../Modal/Modal";
-
-const validationSchema = Yup.object({
-  username: Yup.string()
-    .min(2, "Ім’я повинно бути не менше 2 знаків")
-    .max(50, "Ім’я повинно бути не більше 50 знаків")
-    .required("Введіть ім’я"),
-  surname: Yup.string().required("Введіть своє прізвище"),
-  email: Yup.string()
-    .email("Невірна електронна пошта")
-    .required("Введіть електронну пошту"),
-  phoneNumber: Yup.string(),
-  message: Yup.string(),
-});
+import { validationSchema } from "../../../validationSchemas/contactSchema";
 
 export const ContactForm = () => {
   const [isActive, setIsActive] = useState(false);
