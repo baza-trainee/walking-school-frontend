@@ -10,7 +10,7 @@ const Success = ({ title, message, closeModal }) => {
         onClick={() => closeModal()}
         data-testid="Close"
       >
-        <img src={close} />
+        <img src={close} alt="close" />
       </div>
       <div className={styles.content}>
         <h5 className={styles.successTitle}>{title}</h5>
