@@ -16,7 +16,7 @@ const ImageInput = ({ variant = "project", onChange, src, error }) => {
 
   useEffect(() => {
     onChange(preview);
-  }, [preview, onChange]);
+  }, [preview]);
 
   useEffect(() => {
     if (!preview) {

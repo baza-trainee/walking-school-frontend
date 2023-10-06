@@ -34,7 +34,7 @@ const FormHero = ({ title, subtitle, image, id }) => {
         image: image || "",
       }}
       validationSchema={validationSchema}
-      onSubmit={async (values, { setSubmitting }) => {}}
+      onSubmit={(values, { setSubmitting }) => {}}
       validateOnChange={true}
       validateOnBlur={true}
       enableReinitialize={true}
