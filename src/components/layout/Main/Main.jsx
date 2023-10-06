@@ -10,7 +10,6 @@ import Adventures from "../../Adventures/Adventures";
 import { Partners } from "../../Partners/Partners";
 import ScrollUp from "../../ScrollUp/ScrollUp";
 import styles from "./Main.module.css";
-import ParticipateSection from "../../ParticipateSection/ParticipateSection";
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
