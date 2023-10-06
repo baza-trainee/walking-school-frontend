@@ -2,8 +2,17 @@ import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import styles from "./CustomInput.module.css";
 
 export const CustomInput = (props) => {
-  const { type, text, placeholder, name, onChangeHandler, value, error } =
-    props;
+  const {
+    type,
+    text,
+    placeholder,
+    name,
+    onChangeHandler,
+    value,
+    error,
+    onBlur,
+    required,
+  } = props;
 
   if (type === "textarea") {
     return (
@@ -13,6 +22,7 @@ export const CustomInput = (props) => {
           name={name}
           value={value}
           onChange={onChangeHandler}
+          onBlur={onBlur}
           className={styles.textarea}
           style={{
             border: error && "1px solid #f00631",
@@ -27,12 +37,13 @@ export const CustomInput = (props) => {
     <div className={styles.inputWrapper}>
       <label
         htmlFor={name}
-        className={styles.label}
+        className={`${styles.label}`}
         style={{
           color: error && "#f00631",
         }}
       >
         {text}
+        {required && <span>*</span>}
       </label>
       <input
         placeholder={placeholder}
@@ -42,6 +53,7 @@ export const CustomInput = (props) => {
         value={value}
         onChange={onChangeHandler}
         id={name}
+        onBlur={onBlur}
         autoComplete="on"
         style={{
           border: error && "1px solid #f00631",

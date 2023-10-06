@@ -1,0 +1,23 @@
+.page {
+  width: 100%;
+}
+
+.page__content {
+  background-color: #FBFAFA;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 48px 80px 0 20px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}

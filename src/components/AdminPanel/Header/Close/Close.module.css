@@ -1,0 +1,49 @@
+.close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #131313;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease-in-out;
+}
+
+.close:hover {
+  background-color: #4d4d4d;
+}
+
+.close_disabled {
+  background-color: #7e8492;
+  pointer-events: none;
+}
+
+.close_secondary {
+  background-color: #ffffff;
+}
+
+.close_secondary svg path {
+  stroke: #131313;
+}
+
+.close_secondary:hover {
+  background-color: #ffffff;
+  box-shadow:
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+}
+
+.close_secondary:active {
+  background-color: #131313;
+  box-shadow: none;
+}
+
+.close_secondary:active svg path {
+  stroke: #fcfcfc;
+}
+
+.close_disabled.close_secondary svg path {
+  stroke: #7e8492;
+}

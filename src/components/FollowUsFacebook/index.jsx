@@ -4,12 +4,13 @@ import { Navigation } from "swiper/modules";
 import { useMedia } from "../../hooks/useMedia";
 import { SmallScreen } from "./SmallScreen";
 import { FollowUsSlider } from "./FollowUsSlider";
+import Container from "../layout/Container";
 
-export const FollowUsFacebook = () => {
+const FollowUsFacebook = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
   let slidesQuantity;
   if (isTablet) {
-    slidesQuantity = 3.5;
+    slidesQuantity = 3;
   } else if (isDesktop) {
     slidesQuantity = 4;
   }
@@ -19,5 +20,6 @@ export const FollowUsFacebook = () => {
     <FollowUsSlider slidesQuantity={slidesQuantity} Navigation={Navigation} />
   );
 
-  return content;
+  return <Container> {content}</Container>;
 };
+export default FollowUsFacebook;

@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import { dataMob, dataDesc, dataTab } from "./data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMedia } from "../../hooks/useMedia";
@@ -9,7 +8,6 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const HeroSection = () => {
-  const swiperRef = useRef(null);
   const { isTablet, isDesktop } = useMedia();
   let data = [];
   if (isDesktop) {
@@ -19,10 +17,10 @@ const HeroSection = () => {
   } else {
     data = dataMob;
   }
+
   return (
-    <section>
+    <section data-testid="hero-slider">
       <Swiper
-        ref={swiperRef}
         slidesPerView={1}
         autoplay={{
           delay: 7000,
@@ -34,7 +32,7 @@ const HeroSection = () => {
         modules={[Pagination, Autoplay]}
       >
         {data.map((element) => (
-          <SwiperSlide key={element.img}>
+          <SwiperSlide key={element.img} role="slide" className="swiper-slide">
             <Slide
               img={element.img}
               title={element.title}
