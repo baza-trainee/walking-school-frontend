@@ -24,7 +24,7 @@ describe("state filter", () => {
     render(<StateFilter setFilter={filterItems} />);
     const filter = screen.getByTestId("filter");
     fireEvent.change(filter, { target: { value: "Всі" } });
-    expect(filterItems).toBeCalled()
-    expect(filterItems).toBeCalledTimes(1)
+    expect(filterItems).toBeCalled();
+    expect(filterItems).toBeCalledTimes(1);
   });
 });
