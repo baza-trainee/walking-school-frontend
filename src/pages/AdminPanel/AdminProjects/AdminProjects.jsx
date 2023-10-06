@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./AdminProjects.module.css";
 import { ProjectsList } from "./ProjectsList/ProjectsList";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
@@ -70,7 +69,7 @@ export const AdminProjects = () => {
   // TODO: use state to put the data into it.
   // TODO: replace dummy data with the state
   return (
-    <div className={styles.projects}>
+    <>
       <AdminHeader
         heading={"Проєкти"}
         withButton={true}
@@ -83,6 +82,6 @@ export const AdminProjects = () => {
         navigateToEdit={navigateToEdit}
         deleteFunc={deleteFunc}
       />
-    </div>
+    </>
   );
 };

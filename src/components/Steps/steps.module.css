@@ -26,7 +26,6 @@
 
 .step {
   display: flex;
-  width: 48px;
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
@@ -83,7 +82,7 @@
   }
 
   .progress-line {
-    width: 89%;
+    width: 83%;
     flex-direction: row;
     align-items: center;
     left: 45px;
@@ -94,21 +93,19 @@
   .step {
     flex-direction: column;
     gap: 22px;
-    width: 92px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .steps-container {
     width: 1046px;
-    padding: 16px 24px;
   }
 
   .progress-line {
     width: 90%;
     flex-direction: row;
     align-items: center;
-    left: 50px;
+    left: 45px;
     top: 40px;
     transform: rotate(-180deg);
   }

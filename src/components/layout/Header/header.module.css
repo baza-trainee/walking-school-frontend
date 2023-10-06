@@ -100,7 +100,7 @@ header {
 
   .main__logo img {
     width: 95px;
-    height: 58px;
+    height: 48px;
   }
 
   .main__dropdown {
@@ -121,9 +121,8 @@ header {
   }
 
   .main__logo img {
-    width: 123px;
-    height: 60px;
-    object-fit: cover;
+    width: 127px;
+    height: 64px;
   }
 
   .main__menu {

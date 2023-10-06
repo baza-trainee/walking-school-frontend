@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Alert.module.css";
 import AdminButton from "../UI/Button/AdminButton";
 
-const Question = ({ title, message, closeModal }) => {
+const Question = ({ title, message, closeModal, successFnc }) => {
   return (
     <div className={styles.wrapper + " " + styles.question}>
       <div className={styles.content}>
@@ -13,7 +13,13 @@ const Question = ({ title, message, closeModal }) => {
           <AdminButton variant="primary" onClick={() => closeModal()}>
             Скасувати
           </AdminButton>
-          <AdminButton variant="secondary" onClick={() => closeModal()}>
+          <AdminButton
+            variant="secondary"
+            onClick={() => {
+              closeModal();
+              successFnc();
+            }}
+          >
             Підтвердити
           </AdminButton>
         </div>
