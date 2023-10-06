@@ -1,0 +1,18 @@
+.input {
+  width: 737px;
+  margin-bottom: 36px;
+}
+
+.textArea {
+  width: 737px;
+  margin-bottom: 56px;
+}
+
+.wrapper {
+  padding: 35px 80px 35px 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+}

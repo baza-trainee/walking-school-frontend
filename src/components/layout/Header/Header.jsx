@@ -5,10 +5,16 @@ import { useMedia } from "../../../hooks/useMedia";
 import Logo from "../../../assets/img/header/logo-sm.svg";
 import CloseIcon from "../../../assets/img/header/close.svg";
 import OpenIcon from "../../../assets/img/header/open.svg";
+import Container from "../Container";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { isDesktop } = useMedia();
   const [isOpen, setIsOpen] = useState(false);
+
+  const goTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -19,31 +25,38 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} id="header-wrapper">
       <header>
-        <div className={style.main}>
-          <div className={style.main__logo}>
-            <img src={Logo} alt="" />
-          </div>
-          {isDesktop ? (
-            <nav className={style.main__menu}>
-              <NavMenu />
-            </nav>
-          ) : (
-            <>
-              <div onClick={() => setIsOpen(!isOpen)}>
-                <img src={isOpen ? CloseIcon : OpenIcon} alt={"menu toggle"} />
-              </div>
-              <nav
-                className={`${style.main__dropdown} ${
-                  isOpen ? style.open : ""
-                }`}
-              >
+        <Container>
+          <div className={style.main}>
+            <div className={style.main__logo}>
+              <NavLink to={"/"} onClick={goTop}>
+                <img src={Logo} alt="Школа ходи" />
+              </NavLink>
+            </div>
+            {isDesktop ? (
+              <nav className={style.main__menu}>
                 <NavMenu />
               </nav>
-            </>
-          )}
-        </div>
+            ) : (
+              <>
+                <div onClick={() => setIsOpen(!isOpen)}>
+                  <img
+                    src={isOpen ? CloseIcon : OpenIcon}
+                    alt={"menu toggle"}
+                  />
+                </div>
+                <nav
+                  className={`${style.main__dropdown} ${
+                    isOpen ? style.open : ""
+                  }`}
+                >
+                  <NavMenu setIsOpen={setIsOpen} />
+                </nav>
+              </>
+            )}
+          </div>
+        </Container>
       </header>
     </div>
   );

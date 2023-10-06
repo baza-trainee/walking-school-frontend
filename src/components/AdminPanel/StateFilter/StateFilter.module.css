@@ -1,0 +1,111 @@
+@import "../../../typography/_fonts.css";
+@import "../../../typography/_colors.css";
+
+.filter {
+  width: 197px;
+  height: 48px;
+}
+
+.filter * {
+  color: #131313 !important;
+  font-family: var(--menu-item-ff);
+  font-weight: var(--menu-item-fw);
+  line-height: var(--menu-item-lh);
+  font-size: var(--menu-item-fs-web);
+}
+
+.filter__select {
+  appearance: none;
+  width: 197px;
+  height: 48px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #7e8492;
+  border-color: #7e8492;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.filter__select:hover {
+  background-color: #fbfafa;
+  border-color: #7e8492;
+}
+
+.filter__select_focused {
+  border-color: #7e8492;
+}
+
+.filter__select_focused {
+  border-radius: 4px 4px 0 0;
+}
+
+.filter__menu {
+  background-color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 197px;
+  border-radius: 0px 0px 4px 4px;
+  border-right: 1px solid #7e8492;
+  border-bottom: 1px solid #7e8492;
+  border-left: 1px solid #7e8492;
+  box-shadow: none;
+}
+
+.filter__select option {
+  appearance: none;
+  margin: 12px;
+  background-color: none;
+}
+
+.filter__select option:hover {
+  background-color: #fbfafa;
+}
+
+.filter__menuList {
+  padding: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter__option {
+  padding: 0 0 0 10px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.filter__option:hover {
+  background-color: #fbfafa;
+}
+
+.filter__option:active {
+  background-color: #e3f9f7;
+}
+
+.filter__valueContainer {
+  padding: 0;
+}
+
+.iconWrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+}
+
+.filter__input {
+  opacity: 0;
+}
+
+.filter__dropdownIcon {
+  display: auto;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../assets/images/filterIcon.svg");
+}
+
+.filter__select_focused .filter__dropdownIcon {
+  background-image: url("../../../assets/admin/arrow_up.svg");
+}

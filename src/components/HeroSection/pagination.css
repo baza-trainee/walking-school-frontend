@@ -1,0 +1,33 @@
+.swiper-pagination-bullet {
+  width: 15px !important;
+  height: 15px !important;
+  text-align: center !important;
+  line-height: 20px !important;
+  background: transparent !important;
+  border-color: #fff !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-radius: 50% !important;
+  margin: 0px 0px 0px 20px !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-pagination {
+    text-align: start !important;
+    margin-left: 24px !important;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .swiper-pagination {
+    text-align: center !important;
+    left: -560px !important;
+    bottom: 20% !important;
+  }
+}

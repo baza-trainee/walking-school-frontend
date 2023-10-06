@@ -1,0 +1,9 @@
+@import "../../../../typography/_colors.css";
+@import "../../../../typography/_fonts.css";
+
+.link {
+  color: black;
+  font-family: var(--menu-item-ff);
+  font-size: var(--menu-item-fs-mob);
+  font-weight: var(--menu-item-fw);
+}

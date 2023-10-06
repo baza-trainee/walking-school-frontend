@@ -1,0 +1,11 @@
+.partners {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.partners__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

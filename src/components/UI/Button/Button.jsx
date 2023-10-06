@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./button.module.css";
+import style from "./Button.module.css";
 
 const Button = ({
   variant = "large",
@@ -14,12 +14,17 @@ const Button = ({
     tertiary: style.tertiary,
   };
 
-  const strokeColor = disabled ? "#94949F" : "#5D5A88";
+  const strokeColor = disabled ? "#747474" : "#1D7D74";
 
   return (
     <button
       className={
-        `${variantClass[variant]} ${disabled ? " disabled" : ""}` +
+        (variant === "tertiary"
+          ? disabled
+            ? `${style["tertiary-disabled"]}`
+            : `${variantClass[variant]}`
+          : `${variantClass[variant]} ${style.button}` +
+            (disabled ? ` disabled` : "")) +
         " " +
         className
       }
@@ -34,6 +39,7 @@ const Button = ({
           height="18"
           viewBox="0 0 19 18"
           fill="none"
+          data-testid="tertiary-icon"
         >
           <path
             d="M4.25 9H14.75"

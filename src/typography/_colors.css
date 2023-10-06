@@ -1,0 +1,56 @@
+:root {
+  --admin-error-bg: #fff0f0;
+  --admin-success-color: #2d982b;
+
+  --header-text-color: #131313;
+  --header-text-color-on-dark: #ffffff;
+  --body-text-color: #4d4d4d;
+  --body-text-color-on-dark: #fcfcfc;
+  --age-text-color: #747474;
+  --error-text-color: #f00631;
+  --input-placeholder-text-color: #7e8492;
+  --all-rights-reserved-text-color: #7e8492;
+  --adventure-text-color: #1d7d74;
+  --bt-primary-text-color: #fcfcfc;
+  --bt-second-text-color: #1d7d74;
+
+  --body-bg: #fcfcfc;
+
+  --menu-item-hover-bg: #e3f9f7;
+
+  --dot-default-color: #fcfcfc;
+  --dot-hover-color: #e3f9f7;
+
+  --adventure-border: 1px solid #ffbf69;
+  --adventure-internal-bg: #ffffff;
+
+  --projects-date-bg: #ffbf69;
+  --projects-external-bg: #fff8ee;
+  --projects-internal-bg: #ffffff;
+
+  --contact-us-bg: #fff8ee;
+
+  --404-bg: #fff8ee;
+
+  --thank-you-form-border: 1px solid #ffbf69;
+
+  --social-hover-bg: #e3f9f7;
+
+  --arrow-color: #131313;
+  --arrow-disabled-color: #747474;
+  --arrow-default-color: #eaeaea;
+  --arrow-partners-color: #2ec4b6;
+
+  --bt-default-bg: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
+  --bt-hover-bg: linear-gradient(96deg, #444 0%, #2ec4b6 100%);
+  --bt-disabled-bg: #747474;
+  --bt-tertiary-hover-bg: #e3f9f7;
+
+  --moving-banner-bg: linear-gradient(286deg, #444 0%, #2ec4b6 100%);
+
+  --input-error-border: 1px solid #f00631;
+  --input-stroke-border: 1px solid #7e8492;
+  --input-bg: #ffffff;
+
+  --input-disable-bg: #eaeaea;
+}

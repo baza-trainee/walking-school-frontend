@@ -1,5 +1,7 @@
 import Marquee from "react-fast-marquee";
 import styled from "./Scroller.module.css";
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const wordsToTrackBase = [
   "#вперед",
@@ -14,16 +16,19 @@ export const Scroller = () => {
   const wordsToTrack = Array(4).fill(wordsToTrackBase).flat();
 
   return (
-    <Marquee>
-      <div className={styled.scroller}>
-        <div>
-          {wordsToTrack.map((word, idx) => (
-            <span className={styled.word} key={`${word}-${idx}`}>
-              {word}
-            </span>
-          ))}
-        </div>
-      </div>
-    </Marquee>
+    <div className={styled.scroller}>
+      <Marquee data-testid="marquee" pauseOnHover={true}>
+        {wordsToTrack.map((word) => (
+          <span
+            data-testid="word"
+            className={styled.word}
+            key={uuidv4()}
+            data-key={uuidv4()}
+          >
+            {word}
+          </span>
+        ))}
+      </Marquee>
+    </div>
   );
 };

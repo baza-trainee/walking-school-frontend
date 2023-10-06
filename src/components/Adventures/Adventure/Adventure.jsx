@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "./adventure.module.css";
+import style from "./Adventure.module.css";
 
 /**
  * Component card for representing some activity included in the project
@@ -17,10 +17,15 @@ import style from "./adventure.module.css";
 const Adventure = (props) => {
   const { imageSrc, imageAlt, text } = props;
   return (
-    <div className={style.card}>
+    <div data-testid="card" className={style.card}>
       <div className={style.cardContent}>
-        <img src={imageSrc} alt={imageAlt} className={style.cardImage} />
-        <div className={style.cardName}>{text}</div>
+        <img
+          data-testid="card-icon"
+          src={imageSrc}
+          alt={imageAlt}
+          className={style.cardImage}
+        />
+        <h4 className={style.cardName}>{text}</h4>
       </div>
     </div>
   );
