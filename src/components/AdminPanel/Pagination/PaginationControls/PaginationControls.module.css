@@ -1,5 +1,5 @@
 .button {
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,13 +10,13 @@
 }
 
 .button:hover {
-  background-color: #E3F9F7;
+  background-color: #e3f9f7;
 }
 
 .button:disabled {
   pointer-events: none;
 }
 
-.button:disabled svg path{
-  stroke: #7E8492;
+.button:disabled svg path {
+  stroke: #7e8492;
 }

@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             {isDesktop ? (
               <nav className={style.main__menu}>
-                <NavMenu />
+                <NavMenu screenLarge={true} />
               </nav>
             ) : (
               <>
@@ -51,7 +51,7 @@ const Header = () => {
                     isOpen ? style.open : ""
                   }`}
                 >
-                  <NavMenu setIsOpen={setIsOpen} />
+                  <NavMenu screenLarge={false} setIsOpen={setIsOpen} />
                 </nav>
               </>
             )}

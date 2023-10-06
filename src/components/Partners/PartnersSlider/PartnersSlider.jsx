@@ -32,11 +32,11 @@ const PartnersSlider = ({ partners }) => {
         320: {
           slidesPerView: 1,
         },
-        768: {
+        600: {
           slidesPerView: 3,
-          spaceBetween: 48,
+          spaceBetween: 38,
         },
-        1440: {
+        1000: {
           slidesPerView: 5,
           spaceBetween: 20,
         },
