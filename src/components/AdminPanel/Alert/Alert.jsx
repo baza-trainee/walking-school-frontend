@@ -3,7 +3,14 @@ import styles from "./Alert.module.css";
 import Success from "./Success";
 import Question from "./Question";
 
-const Alert = ({ type, message, title, active, setActive, successFnc }) => {
+const Alert = ({
+  type = "",
+  message,
+  title,
+  active,
+  setActive,
+  successFnc,
+}) => {
   const closeModal = () => {
     setActive(false);
   };

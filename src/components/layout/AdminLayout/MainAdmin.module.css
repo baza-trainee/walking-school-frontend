@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: 1024px;
+  min-height: 1024px;
 }
 
 .outlet {
