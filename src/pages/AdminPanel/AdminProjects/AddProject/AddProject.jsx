@@ -67,69 +67,71 @@ export const AddProject = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.wrapper}>
+    <>
       <AdminHeader heading={"Додати проэкт"} withClose={true} />
-      <div className={styles.content}>
-        <div className={styles.leftBlock}>
-          <AdminInput
-            name="title"
-            variant="admin"
-            placeholder="Заголовок"
-            onChange={handleInputChange}
-          />
-          <AdminInput
-            name="link"
-            variant="admin"
-            placeholder="Додайте посилання"
-            onChange={handleInputChange}
-          />
-          <AdminInput
-            name="description"
-            variant="textarea"
-            placeholder="Опис"
-            onChange={handleInputChange}
-          />
-          <div className={styles.tooltipContainer}>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.content}>
+          <div className={styles.leftBlock}>
+            <AdminInput
+              name="title"
+              variant="admin"
+              placeholder="Заголовок"
+              onChange={handleInputChange}
+            />
+            <AdminInput
+              name="link"
+              variant="admin"
+              placeholder="Додайте посилання"
+              onChange={handleInputChange}
+            />
+            <AdminInput
+              name="description"
+              variant="textarea"
+              placeholder="Опис"
+              onChange={handleInputChange}
+            />
+            <div className={styles.tooltipContainer}>
+              <DateSelect
+                placeholder={"Дата публікації"}
+                onChange={(date) => handleDateChange("publishDate", date)}
+                id={"publishDate"}
+              />
+              <Tooltip />
+            </div>
+            <div className={styles.buttonWrapper}>
+              <AdminButton variant="secondary" children={"Скасувати"} />
+              <AdminButton
+                type="submit"
+                variant="primary"
+                children={"Зберегти"}
+              />
+            </div>
+          </div>
+          <div className={styles.rightBlock}>
             <DateSelect
-              placeholder={"Дата публікації"}
-              onChange={(date) => handleDateChange("publishDate", date)}
-              id={"publishDate"}
+              placeholder={"Період"}
+              onChange={(date) => handleDateChange("eventDate", date)}
+              id={"eventDate"}
             />
-            <Tooltip />
-          </div>
-          <div className={styles.buttonWrapper}>
-            <AdminButton variant="secondary" children={"Скасувати"} />
-            <AdminButton
-              type="submit"
-              variant="primary"
-              children={"Зберегти"}
+            <CustomSelect
+              options={MockedOptions}
+              onChange={handleSelectChange("category")}
+            />
+            <CustomSelect
+              options={MockedOptions2}
+              onChange={handleSelectChange("ageLimit")}
+              placeholder="Вікові обмеження"
+              selectPrompt="Оберіть вік"
+            />
+            <ImageInput
+              variant="project"
+              onChange={handleImageChange}
+              src={null}
+              error={null}
             />
           </div>
         </div>
-        <div className={styles.rightBlock}>
-          <DateSelect
-            placeholder={"Період"}
-            onChange={(date) => handleDateChange("eventDate", date)}
-            id={"eventDate"}
-          />
-          <CustomSelect
-            options={MockedOptions}
-            onChange={handleSelectChange("category")}
-          />
-          <CustomSelect
-            options={MockedOptions2}
-            onChange={handleSelectChange("ageLimit")}
-            placeholder="Вікові обмеження"
-            selectPrompt="Оберіть вік"
-          />
-          <ImageInput
-            variant="project"
-            onChange={handleImageChange}
-            src={null}
-            error={null}
-          />
-        </div>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
