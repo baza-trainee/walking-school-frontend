@@ -16,13 +16,14 @@ const ImageInput = ({ variant = "project", onChange, src, error }) => {
 
   useEffect(() => {
     onChange(preview);
-  }, [preview, onChange]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preview]);
 
   useEffect(() => {
     if (!preview) {
       setPreview(src);
     }
-  }, [src]);
+  }, [src, preview]);
 
   const aspect = {
     project: 305 / 216,
