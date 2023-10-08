@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomSelect } from "../../../../components/AdminPanel/Filters/CustomSelect/CustomSelect";
 import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect/DateSelect";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
@@ -7,6 +7,7 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./AddProject.module.css";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
+// import { useParams } from "react-router-dom";
 
 const MockedOptions = [
   "Тунельний політ",
@@ -20,6 +21,7 @@ const MockedOptions2 = ["0-18", "18-60"];
 export const AddProject = () => {
   // TODO: use custom hook and move the logic there
   // TODO: use Formik (probably)
+  // const { id } = useParams();
   const [formData, setFormData] = useState({
     title: "",
     link: "",
@@ -65,6 +67,10 @@ export const AddProject = () => {
 
     console.log("Sending data:", finalFormData);
   };
+
+  useEffect(() => {
+    // TODO: use the id param to fetch needed project and set form fields accordingly
+  }, []);
 
   return (
     <>
