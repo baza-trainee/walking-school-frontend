@@ -23,6 +23,8 @@ import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
 import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
 import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
 import "./App.module.css";
+import MainHero from "./pages/AdminPanel/HeroAdmin/MainHero";
+import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,9 +34,9 @@ const router = createBrowserRouter(
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/admin" element={<MainAdmin />}>
-        <Route path="hero" element={<AdminHero />} />
-        <Route path="hero/add" element={<AdminHero />} />
-        <Route path="hero/edit" element={<EditSlideForm />} />
+        <Route path="hero" element={<MainHero />} />
+        <Route path="hero/add" element={<HeroActions />} />
+        <Route path="hero/edit/:id" element={<HeroActions />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="projects" element={<AdminProjects />} />
         <Route path="projects/add" element={<AddProject />} />

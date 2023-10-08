@@ -50,7 +50,7 @@ const FileDrop = ({
       setFile(acceptedFiles[0]);
       setIsCropImg(!!acceptedFiles[0]);
     }
-  }, [acceptedFiles, fileRejections]);
+  }, [acceptedFiles, fileRejections, setFile, setIsCropImg]);
 
   return (
     <div

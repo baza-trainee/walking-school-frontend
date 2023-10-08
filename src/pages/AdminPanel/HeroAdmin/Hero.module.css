@@ -1,0 +1,12 @@
+.container {
+  padding-top: 34px;
+  padding-left: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.actions {
+  padding-left: 21px;
+  padding-top: 44px;
+}

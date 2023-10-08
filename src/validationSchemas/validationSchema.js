@@ -37,3 +37,15 @@ export const telegramValidationSchema = Yup.string()
     "Невірний URL Telegram",
   )
   .required("Поле обов'язкове до заповнення. Введіть посилання");
+
+export const titleValidation = Yup.string()
+  .min(8, "Пароль повинен мати не менше 8 символів")
+  .required("Поле обов'язкове до заповнення");
+
+export const subtitleValidation = Yup.string()
+  .min(8, "Пароль повинен мати не менше 8 символів")
+  .required("Поле обов'язкове до заповнення");
+
+export const imageValidation = Yup.mixed().required(
+  "Поле обов'язкове до заповнення",
+);
