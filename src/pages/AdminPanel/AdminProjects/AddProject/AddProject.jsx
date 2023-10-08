@@ -74,7 +74,7 @@ export const AddProject = () => {
 
   return (
     <>
-      <AdminHeader heading={"Додати проэкт"} withClose={true} />
+      <AdminHeader heading={"Додати проєкт"} withClose={true} />
       <form onSubmit={handleSubmit}>
         <div className={styles.content}>
           <div className={styles.leftBlock}>
