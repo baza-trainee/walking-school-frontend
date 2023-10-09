@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HeroBlock.module.css";
-import { ReactComponent as Delete } from "../../../../assets/admin/hero/delete.svg";
-import { ReactComponent as Edit } from "../../../../assets/admin/hero/edit.svg";
+import { ReactComponent as Delete } from "../../../../assets/admin/common/delete.svg";
+import { ReactComponent as Edit } from "../../../../assets/admin/common/edit.svg";
 
 const HeroBlock = ({ image, title, subtitle, removeHandler, editHandler }) => {
   return (
