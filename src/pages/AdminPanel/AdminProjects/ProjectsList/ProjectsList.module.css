@@ -8,7 +8,7 @@
 
 .customSelect {
   appearance: none;
-  background-image: url("../../../../assets/images/filterIcon.svg");
+  background-image: url("../../../../assets/admin/customSelect/filterIcon.svg");
   background-repeat: no-repeat;
   background-position: 95% center;
   width: 197px;
