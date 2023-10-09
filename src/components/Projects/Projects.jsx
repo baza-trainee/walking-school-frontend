@@ -60,7 +60,7 @@ const Projects = () => {
   const cardsToRender = cards;
 
   return (
-    <section id="projects">
+    <section id="projects" className={style.projectsWrapper}>
       <Container>
         <div className={style.projects}>
           <div className={style.projects__title}>

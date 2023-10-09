@@ -8,12 +8,15 @@ import Container from "../layout/Container";
 
 const FollowUsFacebook = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
+
   let slidesQuantity;
+
   if (isTablet) {
     slidesQuantity = 3;
   } else if (isDesktop) {
     slidesQuantity = 4;
   }
+
   const content = isMobile ? (
     <SmallScreen />
   ) : (
@@ -22,4 +25,5 @@ const FollowUsFacebook = () => {
 
   return <Container>{content}</Container>;
 };
+
 export default FollowUsFacebook;
