@@ -1,5 +1,5 @@
 import styles from "./ListItem.module.css";
-import checkIcon from "../../../assets/images/check-circle-green.svg";
+import checkIcon from "../../../assets/main/offerings/check-circle-green.svg";
 
 export const ListItem = (props) => {
   const { text } = props;
