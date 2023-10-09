@@ -2,9 +2,9 @@ import React from "react";
 import Requirement from "./RequirementsElement/RequirementsElement";
 import Container from "../layout/Container/Container";
 import { useMedia } from "../../hooks/useMedia";
-import smallImage from "../../assets/images/requirementsSmall.webp";
-import mediumImage from "../../assets/images/requirementsMedium.webp";
-import bigImage from "../../assets/images/requirementsBig.webp";
+import smallImage from "../../assets/main/requirements/requirementsSmall.webp";
+import mediumImage from "../../assets/main/requirements/requirementsMedium.webp";
+import bigImage from "../../assets/main/requirements/requirementsBig.webp";
 import style from "./Requirements.module.css";
 
 const listItems = [
