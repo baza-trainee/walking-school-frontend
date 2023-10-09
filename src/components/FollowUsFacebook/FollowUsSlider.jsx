@@ -53,7 +53,6 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
           <Button className={styles.follow}>Стежити</Button>
         </div>
       </section>
-      ;
     </>
   );
 }
