@@ -31,8 +31,8 @@ const HeroSection = () => {
         }}
         modules={[Pagination, Autoplay]}
       >
-        {data.map((element) => (
-          <SwiperSlide key={element.img} role="slide" className="swiper-slide">
+        {data.map((element, index) => (
+          <SwiperSlide key={index} role="slide" className="swiper-slide">
             <Slide
               img={element.img}
               title={element.title}

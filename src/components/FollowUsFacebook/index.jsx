@@ -20,6 +20,6 @@ const FollowUsFacebook = () => {
     <FollowUsSlider slidesQuantity={slidesQuantity} Navigation={Navigation} />
   );
 
-  return <Container> {content}</Container>;
+  return <Container>{content}</Container>;
 };
 export default FollowUsFacebook;
