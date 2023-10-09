@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Alert.module.css";
-import close from "../../../assets/admin/close.svg";
+import close from "../../../assets/admin/common/close.svg";
 
 const Success = ({ title, message, closeModal }) => {
   return (
