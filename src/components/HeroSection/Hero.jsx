@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
-const HeroSection = () => {
+const Hero = () => {
   const { isTablet, isDesktop } = useMedia();
   let data = [];
   if (isDesktop) {
@@ -45,4 +45,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Hero;

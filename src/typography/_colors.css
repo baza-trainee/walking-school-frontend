@@ -19,7 +19,7 @@
   --menu-item-hover-bg: #e3f9f7;
 
   --dot-default-color: #fcfcfc;
-  --dot-hover-color: #e3f9f7;
+  --dot-hover-color: rgba(226, 249, 247, 0.5);
 
   --adventure-border: 1px solid #ffbf69;
   --adventure-internal-bg: #ffffff;
