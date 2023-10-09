@@ -6,7 +6,6 @@
 }
 
 header {
-  padding: 16px;
   color: var(--header-text-color);
 }
 
@@ -14,6 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 16px;
 }
 
 .main img {
@@ -90,12 +90,9 @@ header {
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    padding: 16px 24px;
-  }
-
   .main {
     position: relative;
+    padding: 16px 24px;
   }
 
   .main__logo img {
@@ -116,7 +113,7 @@ header {
 }
 
 @media screen and (min-width: 1440px) {
-  header {
+  .main {
     padding: 28px 150px;
   }
 
