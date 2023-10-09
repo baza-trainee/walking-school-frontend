@@ -19,8 +19,8 @@ const ResetForm = ({ className, ...props }) => {
   const validationSchema = Yup.object().shape({
     password: passwordValidationSchema,
     confirmPass: Yup.string()
-      .min(8, "Пароль повинен мати не менше 8 символів")
-      .oneOf([Yup.ref("password"), null], "Паролі повинні співпадати")
+      .min(8, "Пароль має містити мінімум 8 символів")
+      .oneOf([Yup.ref("password"), null], "Новий пароль не співпадає")
       .required("Підтвердіть пароль"),
   });
 

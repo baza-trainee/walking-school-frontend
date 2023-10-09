@@ -48,7 +48,7 @@ const customStyles = {
  */
 const StateFilter = ({ currentOption, handleChange, placeholder }) => {
   return (
-    <div className={style.wrapper} >
+    <div className={style.wrapper}>
       <Select
         openMenuOnClick={true}
         closeMenuOnSelect={true}
