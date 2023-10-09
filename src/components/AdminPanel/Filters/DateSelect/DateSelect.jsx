@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import styles from "./DateSelect.module.css";
-import datePicker from "../../../../assets/images/datePicker.svg";
+import datePicker from "../../../../assets/admin/dateSelect/datePicker.svg";
 import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
