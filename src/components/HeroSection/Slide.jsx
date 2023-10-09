@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./HeroSection.module.css";
+import styles from "./heroSection.module.css";
 
 export const Slide = ({ img, title, description }) => {
   const slideStyle = {
