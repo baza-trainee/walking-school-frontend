@@ -11,7 +11,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-image: url("../../assets/hero/dot.svg") !important;
+  background-image: url("../../assets/main/hero/dot.svg") !important;
   width: 48px !important;
   height: 48px !important;
   border: none !important;
