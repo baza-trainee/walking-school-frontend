@@ -14,13 +14,15 @@ export const SmallScreen = () => {
         Стежте за новинами у<br /> Facebook
       </h2>
       <div>
-        {data.map((element) => (
-          <img
-            src={element.img}
-            key={element.img}
-            className={styles.imageSmall}
-            alt="facebookImg"
-          />
+        {data.map((element, index) => (
+          <div key={index} className={styles.imgWrapper}>
+            <img
+              src={element.img}
+              key={index}
+              className={styles.imageSmall}
+              alt="facebookImg"
+            />
+          </div>
         ))}
       </div>
       <div className={styles.buttonWrapper}>
