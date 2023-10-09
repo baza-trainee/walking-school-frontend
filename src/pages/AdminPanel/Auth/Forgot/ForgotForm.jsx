@@ -5,7 +5,7 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import styles from "../Login.module.css";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Close } from "../../../../assets/admin/close.svg";
+import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 import { emailValidationSchema } from "../../../../validationSchemas/validationSchema";
 
 const ForgotForm = ({ className, ...props }) => {
