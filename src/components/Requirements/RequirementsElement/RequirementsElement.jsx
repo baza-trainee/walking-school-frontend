@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Check from "../../../assets/icons/checkCircle.svg";
+import Check from "../../../assets/main/requirements/checkCircle.svg";
 import style from "./RequirementsElement.module.css";
 
 const Requirement = (props) => {
