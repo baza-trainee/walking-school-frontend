@@ -29,7 +29,7 @@ export const DateSelect = ({
     if (startDate && endDate) {
       setLabelContent(`${startDate} - ${endDate}`);
       if (onChange) {
-        onChange({ startDate, endDate });
+        onChange(`${startDate} - ${endDate}`);
       }
     }
     setIsExpanded(false);
@@ -42,7 +42,11 @@ export const DateSelect = ({
       style={{ border: error ? "1px solid red" : "1px solid #7e8492" }}
     >
       <div className={styles.content} onClick={toggleDropDown}>
-        <div className={styles.label}>{labelContent}</div>
+        {error ? (
+          <div className={styles.label}>{error}</div>
+        ) : (
+          <div className={styles.label}>{labelContent}</div>
+        )}
         <img src={datePicker} alt="dateIcon" className={styles.dateIcon} />
       </div>
       <div
