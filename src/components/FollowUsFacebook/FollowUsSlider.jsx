@@ -12,6 +12,7 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
       setSlides([...data, ...data]);
     }
   }, []);
+
   return (
     <>
       <section id="gallery" className={styles.sectionWrapper}>
@@ -21,7 +22,8 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
           </h2>
         </div>
         <Swiper
-          slidesPerView={slidesQuantity}
+          slidesPerView={slidesQuantity - 0.5}
+          spaceBetween={0}
           loop
           modules={[Navigation]}
           navigation={{
@@ -30,8 +32,12 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
           }}
         >
           {slides.map((slide, index) => (
-            <SwiperSlide className={styles.slide} key={index}>
-              <img src={slide.img} className={styles.image} alt="facebookImg" />
+            <SwiperSlide className={styles.imgWrapper} key={index}>
+              <img
+                src={slide.img}
+                className={styles.imageSmall}
+                alt="facebookImg"
+              />
             </SwiperSlide>
           ))}
           <div className={styles.arrowButtons}>
@@ -44,10 +50,15 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
           </div>
         </Swiper>
         <div className={styles.buttonWrapper}>
-          <Button className={styles.follow}>Стежити</Button>
+          <a
+            href="https://www.facebook.com/oleksandr.shvetsov"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Button className={styles.follow}>Стежити</Button>
+          </a>
         </div>
       </section>
-      ;
     </>
   );
 }

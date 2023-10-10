@@ -1,5 +1,5 @@
-import mail from "../../../../assets/images/mail.svg";
-import phone from "../../../../assets/images/phone.svg";
+import mail from "../../../../assets/main/footer/mail.svg";
+import phone from "../../../../assets/main/footer/phone.svg";
 import styles from "./FooterContacts.module.css";
 
 export const FooterContacts = ({ email, phoneNumber }) => {

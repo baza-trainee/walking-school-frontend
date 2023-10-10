@@ -4,30 +4,83 @@
   text-align: center !important;
   line-height: 20px !important;
   background: transparent !important;
-  border-color: #fff !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  border: 1px solid #fff !important;
   border-radius: 50% !important;
-  margin: 0px 0px 0px 20px !important;
+  margin: 0 16px !important;
   opacity: 1 !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: #fff !important;
+  background-image: url("../../assets/main/hero/dot.svg") !important;
+  width: 48px !important;
+  height: 48px !important;
+  border: none !important;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 40px !important;
+  max-height: 48px !important;
 }
 
 @media screen and (min-width: 768px) {
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    justify-content: flex-start !important;
+    margin: 0 auto 180px !important;
+    max-width: 1140px !important;
+    top: 70% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+    margin-bottom: 0 !important;
+  }
+
   .swiper-pagination {
     text-align: start !important;
-    margin-left: 24px !important;
     margin-bottom: 100px;
   }
 }
 
+@media screen and (min-width: 1160px) {
+  .swiper-pagination-bullet {
+    margin: 0 8px !important;
+  }
+}
+
 @media screen and (min-width: 1440px) {
+  .swiper-pagination-bullet {
+    margin: 0 8px !important;
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    justify-content: flex-start !important;
+    margin: 0 auto 256px !important;
+    max-width: 1140px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+  }
+
   .swiper-pagination {
-    text-align: center !important;
-    left: -560px !important;
+    text-align: start !important;
     bottom: 20% !important;
   }
 }

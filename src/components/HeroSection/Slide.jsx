@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./heroSection.module.css";
-import Container from "../layout/Container";
 
 export const Slide = ({ img, title, description }) => {
   const slideStyle = {
@@ -10,12 +9,10 @@ export const Slide = ({ img, title, description }) => {
   };
   return (
     <div className={styles.heroWrapper} style={slideStyle}>
-      <Container>
-        <div className={styles.textWrapper}>
-          <h2 className={styles.title}>{title}</h2>
-          <p className={styles.description}>{description}</p>
-        </div>
-      </Container>
+      <div className={styles.textWrapper}>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.description}>{description}</p>
+      </div>
     </div>
   );
 };

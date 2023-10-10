@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import style from "./Card.module.css";
 import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
-import Age from "../../../assets/img/project/age.svg";
-import Calendar from "../../../assets/img/project/calendar.svg";
+import Age from "../../../assets/main/projects/age.svg";
+import Calendar from "../../../assets/main/projects/calendar.svg";
 
 const ProjectCard = ({ image, title, dates, age, description }) => {
   // eslint-disable-next-line no-unused-vars

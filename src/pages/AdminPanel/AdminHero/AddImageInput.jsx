@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AdminHero.module.css";
-import imgFrame from "../../../assets/admin/image-frame.svg";
+import imgFrame from "../../../assets/admin/imageInput/image-frame.svg";
 
 export const AddImage = ({ activeInput, onFileChange, selectedFile }) => {
   const handleFileChange = (e) => {

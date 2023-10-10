@@ -1,7 +1,7 @@
 import React from "react";
-import bannerMobile from "../../assets/images/offeringsBannerMobile.png";
-import bannerTablet from "../../assets/images/offeringsBanner.png";
-import bannerDesktop from "../../assets/images/offeringsBannerDesktop.png";
+import bannerMobile from "../../assets/main/offerings/offeringsBannerMobile.png";
+import bannerTablet from "../../assets/main/offerings/offeringsBanner.png";
+import bannerDesktop from "../../assets/main/offerings/offeringsBannerDesktop.png";
 import styles from "./Offerings.module.css";
 import { TitleTemplate } from "../TitleTemplate/TitleTemplate";
 import { OfferingsList } from "./OfferingsList/OfferingsList";

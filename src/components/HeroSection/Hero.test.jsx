@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import HeroSection from "./index.jsx";
+import Hero from "./Hero";
 
 jest.mock("swiper/react", () => ({
   Swiper: ({ children }) => children,
@@ -37,9 +37,9 @@ jest.mock("./data", () => ({
   ],
 }));
 
-describe("HeroSection", () => {
+describe("Hero", () => {
   it("If component is rendering", () => {
-    render(<HeroSection />);
+    render(<Hero />);
     const swiper = screen.getByTestId("hero-slider");
     expect(swiper).toBeInTheDocument();
   });

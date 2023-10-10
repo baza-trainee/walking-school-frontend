@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Image.module.css";
 import { useDropzone } from "react-dropzone";
-import { ReactComponent as Image } from "../../../assets/admin/image.svg";
-import { ReactComponent as DownLoad } from "../../../assets/admin/download.svg";
-import { ReactComponent as Close } from "../../../assets/admin/close.svg";
+import { ReactComponent as Image } from "../../../assets/admin/common/image.svg";
+import { ReactComponent as DownLoad } from "../../../assets/admin/common/download.svg";
+import { ReactComponent as Close } from "../../../assets/admin/common/close.svg";
 import FileError from "./FileError";
 
 /**
@@ -36,8 +36,10 @@ const FileDrop = ({
         "image/jpeg": [".jpeg"],
         "image/jpg": [".jpg"],
         "image/png": [".png"],
+        "image/webp": [".webp"],
+        "image/svg": [".svg"],
       },
-      maxSize: 400000, // 400 KB
+      maxSize: 2000000, // 2 MB
     });
 
   useEffect(() => {
@@ -109,8 +111,8 @@ const FileDrop = ({
               variant === "slide" ? styles["font-large"] : styles["font-small"]
             }`}
           >
-            <p>Формат зображення: JPG, PNG</p>
-            <p>Максимальний розмір: 400 KB</p>
+            <p>Формат зображення: JPG, PNG, SVG, WEBP</p>
+            <p>Максимальний розмір: 2 МБ</p>
           </div>
         </>
       )}

@@ -1,8 +1,8 @@
 import React, { cloneElement, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavLink.module.css";
-import { ReactComponent as ArrowDown } from "../../../../assets/admin/arrow_down.svg";
-import { ReactComponent as ArrowUp } from "../../../../assets/admin/arrow_up.svg";
+import { ReactComponent as ArrowDown } from "../../../../assets/admin/navLink/arrow_down.svg";
+import { ReactComponent as ArrowUp } from "../../../../assets/admin/navLink/arrow_up.svg";
 
 const NavLinkAdmin = ({ children, icon, to, dropdownItems }) => {
   const [isOpen, setIsOpen] = useState(false);

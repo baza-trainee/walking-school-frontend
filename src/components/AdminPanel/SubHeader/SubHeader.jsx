@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Icon } from "../../../assets/admin/upDownIcon.svg";
+import { ReactComponent as Icon } from "../../../assets/admin/subheader/upDownIcon.svg";
 
 import style from "./SubHeader.module.css";
 
