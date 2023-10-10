@@ -9,6 +9,10 @@
   gap: 20px;
 }
 
+.customTitle {
+  padding-left: 16px;
+}
+
 .image {
   position: relative;
   padding-bottom: 91%;
@@ -60,6 +64,7 @@
     grid-column: 2 / span 3;
     grid-row: 1 / span 2;
     max-width: 532px;
+    padding-left: 0;
   }
 
   .image {
