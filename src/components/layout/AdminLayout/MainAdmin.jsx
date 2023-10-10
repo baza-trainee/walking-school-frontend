@@ -7,7 +7,9 @@ import { ReactComponent as Partners } from "../../../assets/admin/partners.svg";
 import { ReactComponent as Facebook } from "../../../assets/admin/gallery.svg";
 import { ReactComponent as Contacts } from "../../../assets/admin/contact.svg";
 import { ReactComponent as Logo } from "../../../assets/admin/logo.svg";
+import { ReactComponent as Logout } from "../../../assets/admin/logout.svg";
 import { Outlet } from "react-router-dom";
+import AdminButton from "../../AdminPanel/UI/Button/AdminButton";
 
 const MainAdmin = () => {
   return (
@@ -52,7 +54,9 @@ const MainAdmin = () => {
               Контакти
             </NavLinkAdmin>
           </div>
-          <button className={styles["sidebar__menu-button"]}>Вийти</button>
+          <AdminButton variant={"secondary"} icon={<Logout />}>
+            Вийти
+          </AdminButton>
         </div>
       </div>
       <div className={styles.outlet}>

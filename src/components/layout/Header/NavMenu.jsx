@@ -3,7 +3,7 @@ import style from "./header.module.css";
 import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 
-const NavMenu = ({ setIsOpen }) => {
+const NavMenu = ({ setIsOpen, screenLarge }) => {
   const { isDesktop } = useMedia();
 
   const onCLickHandler = (targetId) => {
@@ -25,18 +25,21 @@ const NavMenu = ({ setIsOpen }) => {
       <div className={style.list}>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("projects")}
         >
           Проєкти
         </div>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("gallery")}
         >
           Галерея
         </div>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("contacts")}
         >
           Контакти

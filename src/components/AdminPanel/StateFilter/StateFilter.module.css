@@ -21,9 +21,9 @@
   padding: 10px 8px;
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
-  border: 1px solid #7E8492;
-  border-color: #7E8492;
+  background-color: #ffffff;
+  border: 1px solid #7e8492;
+  border-color: #7e8492;
   cursor: pointer;
   box-shadow: none;
   outline: none;
@@ -31,12 +31,12 @@
 }
 
 .filter__select:hover {
-  background-color: #FBFAFA;
-  border-color: #7E8492;
+  background-color: #fbfafa;
+  border-color: #7e8492;
 }
 
 .filter__select_focused {
-  border-color: #7E8492;
+  border-color: #7e8492;
 }
 
 .filter__select_focused {
@@ -44,14 +44,14 @@
 }
 
 .filter__menu {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-top: 0;
   margin-bottom: 0;
   width: 197px;
   border-radius: 0px 0px 4px 4px;
-  border-right: 1px solid #7E8492;
-  border-bottom: 1px solid #7E8492;
-  border-left: 1px solid #7E8492;
+  border-right: 1px solid #7e8492;
+  border-bottom: 1px solid #7e8492;
+  border-left: 1px solid #7e8492;
   box-shadow: none;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .filter__select option:hover {
-  background-color: #FBFAFA;
+  background-color: #fbfafa;
 }
 
 .filter__menuList {
@@ -78,11 +78,11 @@
 }
 
 .filter__option:hover {
-  background-color: #FBFAFA;
+  background-color: #fbfafa;
 }
 
 .filter__option:active {
-  background-color: #E3F9F7;
+  background-color: #e3f9f7;
 }
 
 .filter__valueContainer {

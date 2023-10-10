@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttons {
+  width: 412px;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.buttons button {
+  width: 196px;
+  height: 52px;
+}

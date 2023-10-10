@@ -36,8 +36,10 @@ const FileDrop = ({
         "image/jpeg": [".jpeg"],
         "image/jpg": [".jpg"],
         "image/png": [".png"],
+        "image/webp": [".webp"],
+        "image/svg": [".svg"],
       },
-      maxSize: 400000, // 400 KB
+      maxSize: 2000000, // 2 MB
     });
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const FileDrop = ({
       setFile(acceptedFiles[0]);
       setIsCropImg(!!acceptedFiles[0]);
     }
-  }, [acceptedFiles, fileRejections]);
+  }, [acceptedFiles, fileRejections, setFile, setIsCropImg]);
 
   return (
     <div
@@ -109,8 +111,8 @@ const FileDrop = ({
               variant === "slide" ? styles["font-large"] : styles["font-small"]
             }`}
           >
-            <p>Формат зображення: JPG, PNG</p>
-            <p>Максимальний розмір: 400 KB</p>
+            <p>Формат зображення: JPG, PNG, SVG, WEBP</p>
+            <p>Максимальний розмір: 2 МБ</p>
           </div>
         </>
       )}
