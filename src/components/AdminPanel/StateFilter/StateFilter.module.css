@@ -103,9 +103,9 @@
   display: auto;
   width: 24px;
   height: 24px;
-  background-image: url("../../../assets/images/filterIcon.svg");
+  background-image: url("../../../assets/admin/customSelect/filterIcon.svg");
 }
 
 .filter__select_focused .filter__dropdownIcon {
-  background-image: url("../../../assets/admin/arrow_up.svg");
+  background-image: url("../../../assets/admin/customSelect/arrowUp.svg");
 }
