@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ReactComponent as Icon } from "../../../../assets/admin/search.svg";
+import { ReactComponent as Icon } from "../../../../assets/admin/header/search.svg";
 
 import style from "./Search.module.css";
 

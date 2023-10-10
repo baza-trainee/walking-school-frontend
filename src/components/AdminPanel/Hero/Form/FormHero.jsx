@@ -9,7 +9,7 @@ import {
   subtitleValidation,
   titleValidation,
 } from "../../../../validationSchemas/validationSchema";
-import { ReactComponent as Close } from "../../../../assets/admin/close.svg";
+import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 import AdminButton from "../../UI/Button/AdminButton";
 import Alert from "../../Alert/Alert";
 import { useNavigate } from "react-router-dom";

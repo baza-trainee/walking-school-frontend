@@ -1,6 +1,6 @@
-import logoMobile from "../../../assets/images/logoMobile.svg";
-import logoTablet from "../../../assets/images/logoTablet.svg";
-import logoDesktop from "../../../assets/images/logoDesktop.svg";
+import logoMobile from "../../../assets/main/footer/logoMobile.svg";
+import logoTablet from "../../../assets/main/footer/logoTablet.svg";
+import logoDesktop from "../../../assets/main/footer/logoDesktop.svg";
 import styles from "./Footer.module.css";
 
 const MIN_WIDTH_TABLET = 768;

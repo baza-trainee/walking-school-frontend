@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as EditIcon } from "../../../assets/admin/pencil.svg";
-import { ReactComponent as DeleteIcon } from "../../../assets/admin/trashbin.svg";
+import { ReactComponent as EditIcon } from "../../../assets/admin/common/edit.svg";
+import { ReactComponent as DeleteIcon } from "../../../assets/admin/common/delete.svg";
 
 import style from "./ListItem.module.css";
 

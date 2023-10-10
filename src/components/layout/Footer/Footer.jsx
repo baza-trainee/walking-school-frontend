@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../Container/Container";
-import linkedin from "../../../assets/images/linkedin.svg";
-import facebook from "../../../assets/images/facebook.svg";
+import linkedin from "../../../assets/main/footer/linkedin.svg";
+import facebook from "../../../assets/main/footer/facebook.svg";
 import styles from "./Footer.module.css";
 import { useMedia } from "../../../hooks/useMedia";
 import { FooterLinksList } from "./FooterLinksList/FooterLinksList";

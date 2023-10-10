@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
-import { ReactComponent as Logout } from "../../../../assets/admin/logout.svg";
-import { ReactComponent as DownLoad } from "../../../../assets/admin/download.svg";
+import { ReactComponent as Logout } from "../../../../assets/admin/common/logout.svg";
+import { ReactComponent as DownLoad } from "../../../../assets/admin/common/download.svg";
 
 const AdminButton = ({
   children,

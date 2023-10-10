@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./CustomSelect.module.css";
-import arrowUp from "../../../../assets/images/arrowUp.svg";
-import arrowDown from "../../../../assets/images/arrowDown.svg";
+import arrowUp from "../../../../assets/admin/customSelect/arrowUp.svg";
+import arrowDown from "../../../../assets/admin/customSelect/arrowDown.svg";
 import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 
 export const CustomSelect = ({

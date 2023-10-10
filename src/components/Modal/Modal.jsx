@@ -1,5 +1,5 @@
-import modalCheck from "../../assets/images/modalCheck.svg";
-import cross from "../../assets/images/close.svg";
+import modalCheck from "../../assets/main/modal/modalCheck.svg";
+import cross from "../../assets/main/modal/close.svg";
 import styles from "./Modal.module.css";
 import { useEffect } from "react";
 
