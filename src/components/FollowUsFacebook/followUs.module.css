@@ -2,7 +2,9 @@
   text-rendering: auto;
   position: relative;
   padding-top: 50px;
+  user-select: none;
 }
+
 .sectionWrapperSmallScreen {
   padding: 60px 0px 54px;
   display: flex;
@@ -29,6 +31,7 @@
   align-items: center;
   margin-top: 40px;
 }
+
 .follow {
   width: 288px;
 }
@@ -68,6 +71,7 @@
 .left {
   left: 0 !important;
 }
+
 .myArrow:after {
   font-size: 22px !important;
 }

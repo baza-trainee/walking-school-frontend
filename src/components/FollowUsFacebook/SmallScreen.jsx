@@ -26,7 +26,13 @@ export const SmallScreen = () => {
         ))}
       </div>
       <div className={styles.buttonWrapper}>
-        <Button className={styles.follow}>Стежити</Button>
+        <a
+          href="https://www.facebook.com/oleksandr.shvetsov"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Button className={styles.follow}>Стежити</Button>
+        </a>
       </div>
     </section>
   );
