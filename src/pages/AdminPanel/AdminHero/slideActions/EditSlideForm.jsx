@@ -3,7 +3,7 @@ import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import styles from ".././AdminHero.module.css";
 import { AddImage } from "../AddImageInput";
-import { ReactComponent as Clean } from "../../../../assets/admin/input-clean.svg";
+import { ReactComponent as Clean } from "../../../../assets/admin/hero/input-clean.svg";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 import { SelectedImageField } from "../SelectedImageField";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
