@@ -4,13 +4,12 @@
   padding: 60px 0;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 48px;
   align-items: center;
 }
 
 .carousel {
   width: 100%;
-  /* max-width: 425px; */
   padding: 0 16px;
 }
 
@@ -78,28 +77,24 @@
 
 @media screen and (min-width: 768px) {
   .partners {
-    padding: 40px 24px;
+    padding: 80px 24px;
     gap: 40px;
   }
 
   .content {
     justify-content: space-between;
     gap: 40px;
-    /* width: 720px; */
     width: 100%;
-    /* max-width: 720px; */
   }
 
   .carousel {
     width: 100%;
     padding: 0;
-    /* max-width: 720px; */
   }
 
   .partners-title h2 {
     box-sizing: border-box;
     flex-shrink: 0;
-    /* width: 352px; */
     font-size: var(--h2-fs-tab);
   }
 
@@ -168,7 +163,6 @@
   .partners-title h2 {
     font-size: var(--h2-fs-web);
     width: 563px;
-    color: #1d1e25;
   }
 
   .myArrow {
