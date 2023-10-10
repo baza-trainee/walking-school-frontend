@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../../../../assets/admin/image.svg";
+import Image from "../../../../assets/admin/common/image.svg";
 import styles from "./NoHero.module.css";
 
 const NoHero = () => {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Image.module.css";
 import { useDropzone } from "react-dropzone";
-import { ReactComponent as Image } from "../../../assets/admin/image.svg";
-import { ReactComponent as DownLoad } from "../../../assets/admin/download.svg";
+import { ReactComponent as Image } from "../../../assets/admin/common/image.svg";
+import { ReactComponent as DownLoad } from "../../../assets/admin/common/download.svg";
 import { ReactComponent as Close } from "../../../assets/admin/common/close.svg";
 import FileError from "./FileError";
 
