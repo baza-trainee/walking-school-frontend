@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Icon } from "../../../../assets/admin/closeWhite.svg";
+import { ReactComponent as Icon } from "../../../../assets/admin/header/closeWhite.svg";
 import style from "./Close.module.css";
 
 /**

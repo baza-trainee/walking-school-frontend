@@ -1,12 +1,12 @@
-import slide1Mob from "../../assets/hero/hero1mob.svg";
-import slide2Mob from "../../assets/hero/hero2mob.svg";
-import slide3Mob from "../../assets/hero/hero3mob.svg";
-import slide1tab from "../../assets/hero/hero1tab.svg";
-import slide2tab from "../../assets/hero/hero2tab.svg";
-import slide3tab from "../../assets/hero/hero3tab.svg";
-import slide1 from "../../assets/hero/hero1.svg";
-import slide2 from "../../assets/hero/hero2.svg";
-import slide3 from "../../assets/hero/hero3.svg";
+import slide1Mob from "../../assets/main/hero/hero1mob.svg";
+import slide2Mob from "../../assets/main/hero/hero2mob.svg";
+import slide3Mob from "../../assets/main/hero/hero3mob.svg";
+import slide1tab from "../../assets/main/hero/hero1tab.svg";
+import slide2tab from "../../assets/main/hero/hero2tab.svg";
+import slide3tab from "../../assets/main/hero/hero3tab.svg";
+import slide1 from "../../assets/main/hero/hero1.svg";
+import slide2 from "../../assets/main/hero/hero2.svg";
+import slide3 from "../../assets/main/hero/hero3.svg";
 
 export const dataMob = [
   {

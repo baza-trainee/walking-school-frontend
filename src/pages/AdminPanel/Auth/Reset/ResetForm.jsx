@@ -6,9 +6,9 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import * as Yup from "yup";
 import { passwordValidationSchema } from "../../../../validationSchemas/validationSchema";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Close } from "../../../../assets/admin/close.svg";
-import { ReactComponent as Eye } from "../../../../assets/admin/eye.svg";
-import { ReactComponent as EyeOff } from "../../../../assets/admin/eye_off.svg";
+import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
+import { ReactComponent as Eye } from "../../../../assets/admin/auth/eye.svg";
+import { ReactComponent as EyeOff } from "../../../../assets/admin/auth/eye_off.svg";
 
 const ResetForm = ({ className, ...props }) => {
   const navigate = useNavigate();
@@ -19,8 +19,8 @@ const ResetForm = ({ className, ...props }) => {
   const validationSchema = Yup.object().shape({
     password: passwordValidationSchema,
     confirmPass: Yup.string()
-      .min(8, "Пароль повинен мати не менше 8 символів")
-      .oneOf([Yup.ref("password"), null], "Паролі повинні співпадати")
+      .min(8, "Пароль має містити мінімум 8 символів")
+      .oneOf([Yup.ref("password"), null], "Новий пароль не співпадає")
       .required("Підтвердіть пароль"),
   });
 

@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "../layout/Container/Container";
 import Adventure from "./Adventure/Adventure";
-import Bungee from "../../assets/icons/BungeeJumping.svg";
-import Parachuting from "../../assets/icons/FlySpot.svg";
-import FlySpot from "../../assets/icons/Parachuting.svg";
-import SkyWalk from "../../assets/icons/SkyWalk.svg";
+import Bungee from "../../assets/main/adventures/BungeeJumping.svg";
+import Parachuting from "../../assets/main/adventures/FlySpot.svg";
+import FlySpot from "../../assets/main/adventures/Parachuting.svg";
+import SkyWalk from "../../assets/main/adventures/SkyWalk.svg";
 import style from "./Adventures.module.css";
 
 const cards = [

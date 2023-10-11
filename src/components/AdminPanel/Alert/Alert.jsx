@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./Alert.module.css";
 import Success from "./Success";
 import Question from "./Question";
 
-const Alert = ({ type, message, title, active = true }) => {
-  const [isOpen, setIsOpen] = useState(active);
-
+const Alert = ({
+  type = "",
+  message,
+  title,
+  active,
+  setActive,
+  successFnc,
+}) => {
   const closeModal = () => {
-    setIsOpen(false);
+    setActive(false);
   };
 
   useEffect(() => {
-    isOpen
+    active
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflowY = "auto");
-  }, [isOpen]);
+  }, [active]);
 
   let content;
   if (type === "success") {
@@ -23,13 +28,18 @@ const Alert = ({ type, message, title, active = true }) => {
     );
   } else {
     content = (
-      <Question closeModal={closeModal} title={title} message={message} />
+      <Question
+        closeModal={closeModal}
+        title={title}
+        message={message}
+        successFnc={successFnc}
+      />
     );
   }
 
   return (
     <>
-      {isOpen && (
+      {active && (
         <>
           <div
             className={styles.backdropStyle}

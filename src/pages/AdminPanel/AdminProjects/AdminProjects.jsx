@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./AdminProjects.module.css";
 import { ProjectsList } from "./ProjectsList/ProjectsList";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
@@ -52,14 +51,31 @@ const data = [
 
 export const AdminProjects = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [projectsData, setProjectsData] = useState(data);
+  const [sortDirection, setSortDirection] = useState("asc");
   const navigate = useNavigate();
 
-  const filteredProjects = data.filter((project) =>
+  const filteredProjects = projectsData.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   const navigateToEdit = (projectId) => {
     navigate(`/admin/projects/edit/${projectId}`);
+  };
+
+  const handleSortByDate = () => {
+    const getComparableDate = (date) => date.split(".").reverse().join("");
+
+    setProjectsData((prev) =>
+      [...prev].sort((a, b) => {
+        const difference =
+          getComparableDate(a.creation_date) -
+          getComparableDate(b.creation_date);
+        return sortDirection === "asc" ? difference : -difference;
+      }),
+    );
+
+    setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
   const deleteFunc = (projectId) => {
@@ -70,11 +86,11 @@ export const AdminProjects = () => {
   // TODO: use state to put the data into it.
   // TODO: replace dummy data with the state
   return (
-    <div className={styles.projects}>
+    <>
       <AdminHeader
         heading={"Проєкти"}
-        withButton={true}
-        withSearch={true}
+        withButton
+        withSearch
         searchWord={searchTerm}
         setSearchWord={setSearchTerm}
       />
@@ -82,7 +98,8 @@ export const AdminProjects = () => {
         projects={filteredProjects}
         navigateToEdit={navigateToEdit}
         deleteFunc={deleteFunc}
+        handleSortByDate={handleSortByDate}
       />
-    </div>
+    </>
   );
 };

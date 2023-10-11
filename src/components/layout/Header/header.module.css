@@ -6,7 +6,6 @@
 }
 
 header {
-  padding: 16px;
   color: var(--header-text-color);
 }
 
@@ -14,6 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 16px;
 }
 
 .main img {
@@ -90,17 +90,14 @@ header {
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    padding: 16px 24px;
-  }
-
   .main {
     position: relative;
+    padding: 16px 24px;
   }
 
   .main__logo img {
     width: 95px;
-    height: 58px;
+    height: 48px;
   }
 
   .main__dropdown {
@@ -116,14 +113,13 @@ header {
 }
 
 @media screen and (min-width: 1440px) {
-  header {
+  .main {
     padding: 28px 150px;
   }
 
   .main__logo img {
-    width: 123px;
-    height: 60px;
-    object-fit: cover;
+    width: 127px;
+    height: 64px;
   }
 
   .main__menu {

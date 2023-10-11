@@ -48,7 +48,7 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
     },
     page: currentPage,
     siblingCount: 1,
-    classes: style.pagination__number
+    classes: style.pagination__number,
   });
 
   const handlePageClick = (newPage) => {
@@ -56,7 +56,7 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
       onPageChange(newPage);
     }
   };
-  const mainButtonClass = style.pagination__number
+  const mainButtonClass = style.pagination__number;
   const selectedClass = style.pagination__number_selected;
 
   return (
@@ -66,20 +66,20 @@ const Pagination = ({ data, currentPage, onPageChange, itemCount }) => {
           let children = null;
 
           if (type === "start-ellipsis" || type === "end-ellipsis") {
-            <PaginationNumber
-              key={index}
-              className={mainButtonClass}
-              {...item}
-            >
+            <PaginationNumber key={index} className={mainButtonClass} {...item}>
               ...
             </PaginationNumber>;
           } else if (type === "page") {
             return (
               <PaginationNumber
                 key={index}
-                className={index === currentPage ? `${mainButtonClass} ${selectedClass}` : mainButtonClass}
+                className={
+                  index === currentPage
+                    ? `${mainButtonClass} ${selectedClass}`
+                    : mainButtonClass
+                }
                 {...item}
-                classes = {style.pagination__number}
+                classes={style.pagination__number}
               >
                 {page}
               </PaginationNumber>

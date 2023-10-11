@@ -1,8 +1,8 @@
-import Facebook from "../../assets/partners/Facebook.svg";
-import Google from "../../assets/partners/Google.svg";
-import Pinterest from "../../assets/partners/pinterest.svg";
-import Twitch from "../../assets/partners/twich.svg";
-import YouTube from "../../assets/partners/YouTube.svg";
+import Facebook from "../../assets/main/partners/Facebook.svg";
+import Google from "../../assets/main/partners/Google.svg";
+import Pinterest from "../../assets/main/partners/pinterest.svg";
+import Twitch from "../../assets/main/partners/twich.svg";
+import YouTube from "../../assets/main/partners/YouTube.svg";
 
 export const data = [
   {
