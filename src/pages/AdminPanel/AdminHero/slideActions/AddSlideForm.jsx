@@ -8,6 +8,8 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import { SelectedImageField } from "../SelectedImageField";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import { redirect, useNavigate } from "react-router-dom";
+import { QueryClient, useMutation } from "@tanstack/react-query";
+import { postHero } from "../../../../API/hero";
 
 const AddSlideForm = ({ setHeros }) => {
   const [title, setTitle] = useState("");
@@ -20,10 +22,12 @@ const AddSlideForm = ({ setHeros }) => {
   const navigate = useNavigate();
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+    console.log(title);
   };
 
   const handleSubtitleChange = (e) => {
     setSubtitle(e.target.value);
+    console.log(subtitle);
   };
 
   const slide = {
@@ -32,14 +36,21 @@ const AddSlideForm = ({ setHeros }) => {
     selectedFile: selectedFile,
   };
 
+  const mutation = useMutation(postHero, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries("hero");
+      navigate("/admin/hero");
+    },
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (checkObj(slide)) {
-      setHeros(slide);
-      cleanState();
-      navigate("/admin/hero");
-    }
+    console.log("Submit");
+    // mutation.mutate({
+    //   title: title,
+    //   description: subtitle,
+    //   image: selectedFile,
+    // });
   };
   const cleanState = () => {
     setTitle("");
@@ -48,7 +59,7 @@ const AddSlideForm = ({ setHeros }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={() => handleSubmit}>
       <AdminHeader heading={"Додати слайд"} withClose={true} />
       <div className={styles.container}>
         <AdminInput
@@ -70,7 +81,10 @@ const AddSlideForm = ({ setHeros }) => {
           <AddImage
             activeInput={true}
             selectedFile={selectedFile}
-            onFileChange={(file) => setSelectedFile(file)}
+            onFileChange={(file) => {
+              console.log(file);
+              setSelectedFile(file);
+            }}
           />
         ) : (
           <SelectedImageField
@@ -89,11 +103,11 @@ const AddSlideForm = ({ setHeros }) => {
           <AdminButton
             variant="primary"
             type="submit"
-            onClick={() => {
-              if (checkObj(slide)) {
-                setIsSuccesAlert(true);
-              }
-            }}
+            // onClick={() => {
+            //   if (checkObj(slide)) {
+            //     setIsSuccesAlert(true);
+            //   }
+            // }}
           >
             Додати
           </AdminButton>
@@ -125,6 +139,7 @@ const AddSlideForm = ({ setHeros }) => {
 export default AddSlideForm;
 
 function checkObj(obj) {
+  console.log(obj);
   let res;
   if (obj.title === "" || obj.subtitle === "" || obj.selectedFile === null) {
     res = false;
