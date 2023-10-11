@@ -1,29 +1,11 @@
-import { useState } from "react";
-import { useFormik } from "formik";
 import Button from "../../UI/Button/Button";
 import { CustomInput } from "../CustomInput/CustomInput";
 import styles from "./ContactForm.module.css";
 import { Modal } from "../../Modal/Modal";
-import { validationSchema } from "../../../validationSchemas/contactSchema";
+import { useContactForm } from "../../../hooks/useContactForm";
 
 export const ContactForm = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      surname: "",
-      email: "",
-      phoneNumber: "",
-      message: "",
-    },
-    validationSchema,
-    validateOnBlur: true,
-    onSubmit: (values, { resetForm }) => {
-      setIsActive(true);
-      resetForm();
-    },
-  });
+  const { formik, isActive, setIsActive } = useContactForm();
 
   return (
     <form
