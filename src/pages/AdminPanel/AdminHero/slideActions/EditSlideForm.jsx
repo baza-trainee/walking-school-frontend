@@ -8,6 +8,8 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import { SelectedImageField } from "../SelectedImageField";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import { redirect, useNavigate } from "react-router-dom";
+import { useMutation, QueryClient } from "@tanstack/react-query";
+import { putHero } from "../../../../API/hero";
 
 const EditSlideForm = ({ slide }) => {
   const [title, setTitle] = useState(slide.title);
@@ -35,17 +37,28 @@ const EditSlideForm = ({ slide }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (checkObj(editedSlide)) {
-      // setHeros(editedSlide);
-      cleanState();
-      navigate("/admin/hero");
-    }
+    // mutation.mutate({
+    //   title: title,
+    //   description: subtitle,
+    //   image: selectedFile,
+    // });
+
+    // if (checkObj(editedSlide)) {
+    //   setHeros(editedSlide);
+    //   cleanState();
+    //   navigate("/admin/hero");
+    // }
   };
   const cleanState = () => {
     setTitle("");
     setSubtitle("");
     setSelectedFile(null);
   };
+
+  const mutation = useMutation(putHero, {onSuccess: () => {
+    QueryClient.invalidateQueries("hero");
+    navigate("/admin/hero");
+  }})
 
   return (
     <form onSubmit={handleSubmit}>
