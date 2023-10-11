@@ -65,6 +65,7 @@ const Projects = () => {
     getAllCards(),
   );
 
+
   return (
     <section id="projects" className={style.projectsWrapper}>
       <Container>
