@@ -5,6 +5,8 @@ import { useMedia } from "../../hooks/useMedia";
 import Button from "../UI/Button/Button";
 import SwiperSlider from "./Carousel/SwiperSlider";
 import Container from "../layout/Container";
+import { useQuery } from "@tanstack/react-query";
+import { getAllCards } from "../../API/ProjectsAPI";
 const items = [
   {
     image:
@@ -59,6 +61,10 @@ const Projects = () => {
   const [cards, setCards] = useState(items);
   const cardsToRender = cards;
 
+  const { isLoading, error, data } = useQuery(["projects"], () =>
+    getAllCards(),
+  );
+
   return (
     <section id="projects" className={style.projectsWrapper}>
       <Container>
@@ -92,6 +98,7 @@ const Projects = () => {
                       dates={item.dates}
                       age={item.age}
                       description={item.description}
+                      isLoading={isLoading}
                     />
                   </Fragment>
                 ))}
@@ -102,7 +109,7 @@ const Projects = () => {
                 )}
               </div>
             ) : (
-              <SwiperSlider items={cardsToRender} />
+              <SwiperSlider items={cardsToRender} isLoading={isLoading} />
             )}
           </div>
         </div>
