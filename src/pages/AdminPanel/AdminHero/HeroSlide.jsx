@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AdminHero.module.css";
-import Delete from "../../../assets/admin/delete.svg";
-import Edit from "../../../assets/admin/edit.svg";
+import Delete from "../../../assets/admin/common/delete.svg";
+import Edit from "../../../assets/admin/common/edit.svg";
 import { NavLink } from "react-router-dom";
 import EditSlideForm from "./slideActions/EditSlideForm";
 

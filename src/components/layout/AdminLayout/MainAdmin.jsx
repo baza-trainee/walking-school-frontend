@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./MainAdmin.module.css";
 import NavLinkAdmin from "../../AdminPanel/Sidebar/NavLink/NavLinkAdmin";
-import { ReactComponent as Hero } from "../../../assets/admin/hero.svg";
-import { ReactComponent as Projects } from "../../../assets/admin/projects.svg";
-import { ReactComponent as Partners } from "../../../assets/admin/partners.svg";
-import { ReactComponent as Facebook } from "../../../assets/admin/gallery.svg";
-import { ReactComponent as Contacts } from "../../../assets/admin/contact.svg";
-import { ReactComponent as Logo } from "../../../assets/admin/logo.svg";
+import { ReactComponent as Hero } from "../../../assets/admin/sidebar/hero.svg";
+import { ReactComponent as Projects } from "../../../assets/admin/sidebar/projects.svg";
+import { ReactComponent as Partners } from "../../../assets/admin/sidebar/partners.svg";
+import { ReactComponent as Facebook } from "../../../assets/admin/sidebar/gallery.svg";
+import { ReactComponent as Contacts } from "../../../assets/admin/sidebar/contact.svg";
+import { ReactComponent as Logo } from "../../../assets/admin/sidebar/logo.svg";
+import { ReactComponent as Logout } from "../../../assets/admin/common/logout.svg";
 import { Outlet } from "react-router-dom";
+import AdminButton from "../../AdminPanel/UI/Button/AdminButton";
 
 const MainAdmin = () => {
   return (
@@ -52,7 +54,9 @@ const MainAdmin = () => {
               Контакти
             </NavLinkAdmin>
           </div>
-          <button className={styles["sidebar__menu-button"]}>Вийти</button>
+          <AdminButton variant={"secondary"} icon={<Logout />}>
+            Вийти
+          </AdminButton>
         </div>
       </div>
       <div className={styles.outlet}>

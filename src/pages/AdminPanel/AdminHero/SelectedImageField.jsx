@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AdminHero.module.css";
-import close from "../../../assets/admin/close.svg";
+import close from "../../../assets/admin/common/close.svg";
 
 export const SelectedImageField = ({ url, deleteImg }) => {
   const backgroundImageStyle = {

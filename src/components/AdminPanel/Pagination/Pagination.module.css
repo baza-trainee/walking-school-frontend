@@ -30,21 +30,21 @@
 
 .pagination__number:hover {
   color: #131313;
-  background-color: #E3F9F7;
+  background-color: #e3f9f7;
 }
 
 .pagination__number:active {
-  color: #FCFCFC;
+  color: #fcfcfc;
   background-color: #151515;
 }
 
 .pagination__number_selected {
-  color: #FCFCFC;
+  color: #fcfcfc;
   background-color: #151515;
 }
 
 .pagination__controls {
   display: flex;
   flex-direction: row;
-  gap: 20px
+  gap: 20px;
 }

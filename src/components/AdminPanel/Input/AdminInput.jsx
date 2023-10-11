@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 
 /**
  * @description input for login page and add/edit items
- * @params variant has 2 options login and admin
+ * @params variant has 3 options login, admin, textarea
  * @params icon should be received as a prop and as a ReactComponent, for example import {ReactComponent as Eye} from '../../../assets/admin/eye.svg'
  * */
 

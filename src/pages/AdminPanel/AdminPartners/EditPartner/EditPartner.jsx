@@ -56,7 +56,11 @@ const EditPartner = () => {
           <AdminButton style={{ width: "196px" }} variant="secondary">
             Скасувати
           </AdminButton>
-          <AdminButton type="submit" style={{ width: "196px" }} variant="primary">
+          <AdminButton
+            type="submit"
+            style={{ width: "196px" }}
+            variant="primary"
+          >
             Зберегти
           </AdminButton>
         </div>

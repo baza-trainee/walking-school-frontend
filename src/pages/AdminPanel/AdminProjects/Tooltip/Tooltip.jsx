@@ -1,5 +1,5 @@
 import styles from "./Tooltip.module.css";
-import tooltip from "../../../../assets/images/tooltip.svg";
+import tooltip from "../../../../assets/admin/tooltip/tooltip.svg";
 
 export const Tooltip = () => {
   return (

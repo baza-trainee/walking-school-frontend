@@ -13,6 +13,7 @@
   font-size: var(--body-text-fs-web);
   font-weight: var(--body-text-fw);
   line-height: 100%;
+  box-shadow: 0 1px 0 #eaeaea;
 }
 
 .subHeader__heading {

@@ -3,9 +3,9 @@ import styles from "../Login.module.css";
 import { Form, Formik } from "formik";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import * as Yup from "yup";
-import { ReactComponent as Eye } from "../../../../assets/admin/eye.svg";
-import { ReactComponent as EyeOff } from "../../../../assets/admin/eye_off.svg";
-import { ReactComponent as Error } from "../../../../assets/admin/error.svg";
+import { ReactComponent as Eye } from "../../../../assets/admin/auth/eye.svg";
+import { ReactComponent as EyeOff } from "../../../../assets/admin/auth/eye_off.svg";
+import { ReactComponent as Error } from "../../../../assets/admin/auth/error.svg";
 import { NavLink } from "react-router-dom";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 import {

@@ -14,17 +14,25 @@ export const SmallScreen = () => {
         Стежте за новинами у<br /> Facebook
       </h2>
       <div>
-        {data.map((element) => (
-          <img
-            src={element.img}
-            key={element.img}
-            className={styles.imageSmall}
-            alt="facebookImg"
-          />
+        {data.map((element, index) => (
+          <div key={index} className={styles.imgWrapper}>
+            <img
+              src={element.img}
+              key={index}
+              className={styles.imageSmall}
+              alt="facebookImg"
+            />
+          </div>
         ))}
       </div>
       <div className={styles.buttonWrapper}>
-        <Button className={styles.follow}>Стежити</Button>
+        <a
+          href="https://www.facebook.com/oleksandr.shvetsov"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Button className={styles.follow}>Стежити</Button>
+        </a>
       </div>
     </section>
   );

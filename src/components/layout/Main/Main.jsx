@@ -1,15 +1,32 @@
-import { Scroller } from "../../Scroller/Scroller";
-import { Offerings } from "../../Offerings/Offerings";
-import Projects from "../../Projects/Projects";
-import { Contact } from "../../Contact/Contact";
-import Requirements from "../../Requirements/Requirements";
-import Participate from "../../Participate/Participate";
-import FollowUsFacebook from "../../FollowUsFacebook/index.jsx";
-import HeroSection from "../../HeroSection/index";
-import Adventures from "../../Adventures/Adventures";
-import { Partners } from "../../Partners/Partners";
-import ScrollUp from "../../ScrollUp/ScrollUp";
+import React, { lazy } from "react";
 import styles from "./Main.module.css";
+const HeroSection = lazy(() => import("../../HeroSection/index"));
+const Adventures = lazy(() => import("../../Adventures/Adventures"));
+const Offerings = lazy(() =>
+  import("../../Offerings/Offerings").then((module) => ({
+    default: module.Offerings,
+  })),
+);
+const Scroller = lazy(() =>
+  import("../../Scroller/Scroller").then((module) => ({
+    default: module.Scroller,
+  })),
+);
+const Projects = lazy(() => import("../../Projects/Projects"));
+const Participate = lazy(() => import("../../Participate/Participate"));
+const Requirements = lazy(() => import("../../Requirements/Requirements"));
+const Partners = lazy(() =>
+  import("../../Partners/Partners").then((module) => ({
+    default: module.Partners,
+  })),
+);
+const FollowUsFacebook = lazy(() => import("../../FollowUsFacebook/index.jsx"));
+const Contact = lazy(() =>
+  import("../../Contact/Contact").then((module) => ({
+    default: module.Contact,
+  })),
+);
+const ScrollUp = lazy(() => import("../../ScrollUp/ScrollUp"));
 
 const Main = () => (
   // eslint-disable-next-line react/prop-types
