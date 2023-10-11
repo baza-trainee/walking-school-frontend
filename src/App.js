@@ -6,6 +6,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
@@ -52,8 +53,14 @@ const router = createBrowserRouter(
   ),
 );
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
