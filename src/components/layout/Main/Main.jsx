@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import styles from "./Main.module.css";
-const HeroSection = lazy(() => import("../../HeroSection/index"));
+const Hero = lazy(() => import("../../HeroSection/index"));
 const Adventures = lazy(() => import("../../Adventures/Adventures"));
 const Offerings = lazy(() =>
   import("../../Offerings/Offerings").then((module) => ({
@@ -31,7 +31,7 @@ const ScrollUp = lazy(() => import("../../ScrollUp/ScrollUp"));
 const Main = () => (
   // eslint-disable-next-line react/prop-types
   <main className={styles.main}>
-    <HeroSection />
+    <Hero />
     <Adventures />
     <Offerings />
     <Scroller />
