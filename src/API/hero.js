@@ -1,14 +1,12 @@
-import axios from "axios";
-
-const baseUrl = process.env.REACT_APP_BASE_URL;
+import { $host } from "./index";
 
 export async function getHero(limit, offset) {
-  const response = await axios.get(`${baseUrl}/hero`, { limit, offset });
+  const response = await $host.get("hero", { limit, offset });
   return response.data;
 }
 
 export async function postHero(description, image, title) {
-  const response = await axios.post(`${baseUrl}/hero`, {
+  const response = await $host.post("hero", {
     description,
     image,
     title,
@@ -17,7 +15,7 @@ export async function postHero(description, image, title) {
 }
 
 export async function putHero(description, id, image, title) {
-  const response = await axios.put(`${baseUrl}/hero`, {
+  const response = await $host.put("hero", {
     description,
     id,
     image,
@@ -27,11 +25,11 @@ export async function putHero(description, id, image, title) {
 }
 
 export async function deleteHero(id) {
-  const response = await axios.delete(`${baseUrl}/hero/${id}`);
+  const response = await $host.delete(`hero/${id}`);
   return response.data;
 }
 
 export async function getHeroById(id) {
-  const response = await axios.get(`${baseUrl}/hero/${id}`);
+  const response = await $host.get(`hero/${id}`);
   return response.data;
 }
