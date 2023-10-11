@@ -4,6 +4,8 @@ import styles from "./AdminHero.module.css";
 import { AddImage } from "./AddImageInput";
 import HeroSlide from "./HeroSlide";
 import { useNavigate } from "react-router-dom";
+import { useMutation, QueryClient } from "@tanstack/react-query";
+import { deleteHero } from "../../../API/hero";
 
 const AdminHeros = ({ heros, setHeros }) => {
   const navigate = useNavigate();
@@ -11,10 +13,20 @@ const AdminHeros = ({ heros, setHeros }) => {
     navigate("/admin/hero/add");
   };
 
-  const deleteHeroSlide = (title) => {
-    setHeros(() => {
-      return heros.filter((hero) => hero.title !== title);
-    });
+  // const deleteHeroSlide = (title) => {
+  //   setHeros(() => {
+  //     return heros.filter((hero) => hero.title !== title);
+  //   });
+  // };
+
+  const mutation = useMutation(deleteHero, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries("hero");
+    },
+  });
+
+  const handleDelete = (slideId) => {
+    mutation.mutate(slideId);
   };
 
   return (
@@ -34,7 +46,7 @@ const AdminHeros = ({ heros, setHeros }) => {
         <div className={styles.container}>
           {heros.map((hero) => (
             <HeroSlide
-              deleteHeroSlide={deleteHeroSlide}
+              deleteHeroSlide={() => handleDelete(hero.id)}
               key={
                 hero.selectedFile ? URL.createObjectURL(hero.selectedFile) : ""
               }
