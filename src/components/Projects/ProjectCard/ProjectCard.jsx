@@ -5,7 +5,7 @@ import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/main/projects/age.svg";
 import Calendar from "../../../assets/main/projects/calendar.svg";
 
-const ProjectCard = ({ image, title, dates, age, description }) => {
+const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isDesktop } = useMedia();
   const [showMore, setShowMore] = useState(false);
@@ -18,7 +18,9 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
 
   return (
     <div data-testid={"project-card"} className={style.card}>
-      <div className={style.card__image}>
+      <div
+        className={`${style.card__image} ${isLoading ? style.skeleton : ""}`}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
           <clipPath id="clip-path">
             {isMobile ? (
@@ -39,24 +41,45 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
             )}
           </clipPath>
         </svg>
-        <img src={image} alt={title} />
+        {!isLoading && <img src={image} alt={title} />}
       </div>
-      <div className={style.date}>
-        <img src={Calendar} alt="calendar" />
-        {dates}
+      <div className={`${style.date} ${isLoading ? style.skeleton : ""}`}>
+        {!isLoading && (
+          <>
+            <img src={Calendar} alt="calendar" />
+            {dates}
+          </>
+        )}
       </div>
       <div
         className={showMore ? `${style.hover} ${style.info}` : `${style.info}`}
       >
         <div className={style.data}>
-          <h3>{title}</h3>
-          <div className={style.data__age}>
-            <img src={Age} alt="age" />
-            <p>{age} років</p>
+          <h3 className={isLoading ? style.skeleton : ""}>
+            {isLoading ? "" : title}
+          </h3>
+          <div
+            className={`${style.data__age} ${isLoading ? style.skeleton : ""}`}
+          >
+            {!isLoading ? (
+              <>
+                {" "}
+                <img src={Age} alt="age" />
+                <p>{age} років</p>
+              </>
+            ) : (
+              ""
+            )}
           </div>
           <div>
-            <p className={style.data__description}>
-              {showMore ? (
+            <p
+              className={`${style.data__description} ${
+                isLoading ? style.skeleton : ""
+              }`}
+            >
+              {isLoading ? (
+                ""
+              ) : showMore ? (
                 description
               ) : (
                 <>
@@ -74,10 +97,18 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
             </p>
           </div>
         </div>
-        <div className={style.join}>
-          <Link to={"/"} variant={"small"} className={style.join__link}>
-            Взяти участь
-          </Link>
+        <div
+          className={`${style.join__link} ${
+            isLoading ? `${style.skeleton} ${style.skeleton__btn}` : ""
+          } `}
+        >
+          {isLoading ? (
+            ""
+          ) : (
+            <Link to={"/"} variant={"small"} className={style.join__link}>
+              Взяти участь
+            </Link>
+          )}
         </div>
       </div>
     </div>
