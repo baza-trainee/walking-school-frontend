@@ -160,10 +160,57 @@
 
 /*Skeleton*/
 
+.empty,
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.empty {
+  width: 367px;
+  height: 656px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #fff;
+  gap: 39px;
+  color: #1d7d74;
+  text-align: center;
+}
+
+.message {
+  gap: 8px;
+}
+
+.loading {
+  font-family: var(--bt-text-large-ff);
+  font-size: var(--bt-text-large-fs);
+  font-style: normal;
+  font-weight: var(--bt-text-large-fw);
+  line-height: var(--bt-text-large-lh);
+}
+
+.wait {
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-web);
+  font-style: normal;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
 .skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(99deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 85%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .card__image.skeleton {
@@ -181,14 +228,6 @@
 .skeleton__btn {
   border-radius: 24px;
   height: 48px;
-}
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
 }
 
 @media screen and (min-width: 767px) {

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import { Navigation } from "swiper/modules";
+import CardLoading from "../ProjectCard/CardLoading";
 
 const SwiperSlider = ({ items, isLoading }) => {
   const [slidersArr, setSlidersArr] = useState([]);
@@ -42,14 +43,17 @@ const SwiperSlider = ({ items, isLoading }) => {
     >
       {slidersArr?.map((item, index) => (
         <SwiperSlide key={index}>
-          <ProjectCard
-            isLoading={isLoading}
-            image={item.image}
-            title={item.title}
-            dates={item.dates}
-            age={item.age}
-            description={item.description}
-          />
+          {isLoading ? (
+            <CardLoading />
+          ) : (
+            <ProjectCard
+              image={item.image}
+              title={item.title}
+              dates={item.dates}
+              age={item.age_category}
+              description={item.description}
+            />
+          )}
         </SwiperSlide>
       ))}
       <div
