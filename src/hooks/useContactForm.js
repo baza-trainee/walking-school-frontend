@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { useMutation } from "react-query";
 import { validationSchema } from "../validationSchemas/contactSchema";
-import { submitContactData } from "../components/Contact/contactRequest";
+import { submitContactData } from "../API/contactRequest";
 
 export const useContactForm = () => {
   const [isActive, setIsActive] = useState(false);
