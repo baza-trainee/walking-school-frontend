@@ -5,7 +5,7 @@ import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
 import HeroBlock from "../../../components/AdminPanel/Hero/HeroBlock/HeroBlock";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getHero, deleteHero } from "../../../API/hero";
 
 const MainHero = () => {
@@ -42,8 +42,10 @@ const MainHero = () => {
     queryFn: getHero,
   });
 
+  const queryClient = useQueryClient()
+
   const mutation = useMutation(deleteHero, {
-    onSuccess: () => QueryClient.invalidateQueries(["hero"]),
+    onSuccess: () => queryClient.invalidateQueries(["hero"]),
   });
 
   const deleteFunc = (id) => {
