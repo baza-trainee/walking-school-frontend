@@ -5,22 +5,13 @@ export async function getHero(limit, offset) {
   return response.data;
 }
 
-export async function postHero(description, image, title) {
-  const response = await $host.post("hero", {
-    description,
-    image,
-    title,
-  });
+export async function postHero(data) {
+  const response = await $host.post("hero", data);
   return response.data;
 }
 
-export async function putHero(description, id, image, title) {
-  const response = await $host.put("hero", {
-    description,
-    id,
-    image,
-    title,
-  });
+export async function putHero(data) {
+  const response = await $host.put("hero", data);
   return response.data;
 }
 
