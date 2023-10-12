@@ -4,6 +4,8 @@ import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate, useParams } from "react-router-dom";
 import FormHero from "../../../components/AdminPanel/Hero/Form/FormHero";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
+import { useQuery } from "@tanstack/react-query";
+import { getHeroById } from "../../../API/hero";
 
 const HeroActions = () => {
   const { id } = useParams();
@@ -29,6 +31,13 @@ const HeroActions = () => {
   //       });
   //   }
   // }, [id])
+
+  const { hero, loading, error } = useQuery({
+    queryKey: ["hero"],
+    queryFn: () => getHeroById(id),
+    enabled: !!id,
+  });
+
   return (
     <div>
       <AdminHeader
@@ -39,9 +48,9 @@ const HeroActions = () => {
       <div className={styles.actions}>
         <FormHero
           id={id}
-          title={data.title}
-          subtitle={data.subtitle}
-          image={data.image}
+          title={hero ? hero.title : data.title}
+          subtitle={hero ? hero.description : data.description}
+          image={hero ? hero.image : data.image}
         />
       </div>
 
