@@ -2,17 +2,11 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { useMutation } from "react-query";
 import { validationSchema } from "../validationSchemas/contactSchema";
-import axios from "axios";
-
-const BASE_URL = "http://localhost:7000/";
+import { submitContactData } from "../API/contactRequest";
 
 export const useContactForm = () => {
   const [isActive, setIsActive] = useState(false);
-
-  const submitContactData = async (data) => {
-    const response = await axios.post(BASE_URL + "/contact", data);
-    return response.data;
-  };
+  // TODO: add error state to track errors
 
   const mutation = useMutation(submitContactData, {
     onSuccess: () => {
@@ -20,6 +14,7 @@ export const useContactForm = () => {
     },
     onError: (error) => {
       console.error("Error sending contact form data:", error);
+      // TODO: set errors here
     },
   });
 
