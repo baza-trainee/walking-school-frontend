@@ -6,7 +6,7 @@ import { submitContactData } from "../API/contactRequest";
 
 export const useContactForm = () => {
   const [isActive, setIsActive] = useState(false);
-  // TODO: add error state to track errors
+  const [error, setError] = useState(null);
 
   const mutation = useMutation(submitContactData, {
     onSuccess: () => {
@@ -14,7 +14,7 @@ export const useContactForm = () => {
     },
     onError: (error) => {
       console.error("Error sending contact form data:", error);
-      // TODO: set errors here
+      setError(error);
     },
   });
 
@@ -40,5 +40,6 @@ export const useContactForm = () => {
     formik,
     isActive,
     setIsActive,
+    error,
   };
 };
