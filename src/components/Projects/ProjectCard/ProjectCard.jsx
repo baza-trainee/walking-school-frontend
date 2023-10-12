@@ -7,7 +7,7 @@ import Calendar from "../../../assets/main/projects/calendar.svg";
 
 const ProjectCard = ({ image, title, dates, age, description }) => {
   // eslint-disable-next-line no-unused-vars
-  const { isMobile, isTablet, isDesktop } = useMedia();
+  const { isMobile, isTablet } = useMedia();
   const [showMore, setShowMore] = useState(false);
 
   const showMoreHandler = () => {
