@@ -13,8 +13,10 @@ import { ReactComponent as Close } from "../../../../assets/admin/common/close.s
 import AdminButton from "../../UI/Button/AdminButton";
 import Alert from "../../Alert/Alert";
 import { useNavigate } from "react-router-dom";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { postHero, putHero } from "../../../../API/hero";
 
-const FormHero = ({ title, subtitle, image, id }) => {
+const FormHero = ({ title, subtitle, image, id, submitFunc }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const validationSchema = Yup.object({
@@ -34,7 +36,7 @@ const FormHero = ({ title, subtitle, image, id }) => {
         image: image || "",
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {}}
+      onSubmit={submitFunc}
       validateOnChange={true}
       validateOnBlur={true}
       enableReinitialize={true}
