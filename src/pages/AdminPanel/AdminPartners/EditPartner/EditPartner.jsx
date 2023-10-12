@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 
 import style from "./EditPartner.module.css";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { getPartnerById, putPartner } from "../../../../API/partners";
+import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
 
 const EditPartner = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const closeFunc = () => {
@@ -24,10 +28,34 @@ const EditPartner = () => {
     setImageValue(newPreview);
   };
 
-  const submitFunc = (event) => {
+  const { data, loading, error } = useQuery({
+    queryKey: ["partners"],
+    queryFn: () => getPartnerById(id),
+  });
+
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: putPartner,
+    onSettled: () => queryClient.invalidateQueries(["partners"]),
+  });
+
+  const submitFunc = async (event) => {
     event.preventDefault();
     console.log(imageValue);
     console.log(inputValue);
+    const transformedData = {
+      title: inputValue,
+      image: await blobUrlToBase64(imageValue),
+      created: "",
+      id: id
+    };
+    console.log(transformedData);
+    try {
+      mutation.mutateAsync(transformedData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -46,7 +74,6 @@ const EditPartner = () => {
             placeholder="Назва"
           />
           <ImageInput
-            src="https://picsum.photos/200/100"
             value={imageValue}
             onChange={imageChange}
             variant="project"
