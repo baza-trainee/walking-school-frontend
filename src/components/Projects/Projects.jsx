@@ -6,7 +6,7 @@ import Button from "../UI/Button/Button";
 import SwiperSlider from "./Carousel/SwiperSlider";
 import Container from "../layout/Container";
 import { useQuery } from "@tanstack/react-query";
-import { getAllCards } from "../../API/ProjectsAPI";
+import { getAllCards, getProjectDesc } from "../../API/ProjectsAPI";
 import DotsLoader from "../Loader/DotsLoader";
 import CardLoading from "./ProjectCard/CardLoading";
 
@@ -23,7 +23,7 @@ const Projects = () => {
     isLoading: isLoadingDesc,
     error: errorDescription,
     data: description,
-  } = useQuery(["projectsDesc"], () => getAllCards());
+  } = useQuery(["projectsDesc"], () => getProjectDesc());
 
   const skeletonArr = Array.from({ length: 3 });
   const cardsToRender =
@@ -68,6 +68,7 @@ const Projects = () => {
                         dates={item.dates}
                         age={item.age_category}
                         description={item.description}
+                        link={item.link}
                       />
                     )}
                   </Fragment>

@@ -5,7 +5,7 @@ import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/main/projects/age.svg";
 import Calendar from "../../../assets/main/projects/calendar.svg";
 
-const ProjectCard = ({ image, title, dates, age, description }) => {
+const ProjectCard = ({ image, title, dates, age, description, link }) => {
   // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet } = useMedia();
   const [showMore, setShowMore] = useState(false);
@@ -78,7 +78,7 @@ const ProjectCard = ({ image, title, dates, age, description }) => {
           </div>
         </div>
         <div className={style.join__link}>
-          <Link to={"/"} variant={"small"} className={style.join__link}>
+          <Link to={link} variant={"small"} className={style.join__link}>
             Взяти участь
           </Link>
         </div>
