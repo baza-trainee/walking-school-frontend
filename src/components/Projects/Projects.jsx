@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import style from "./Projects.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { useMedia } from "../../hooks/useMedia";
