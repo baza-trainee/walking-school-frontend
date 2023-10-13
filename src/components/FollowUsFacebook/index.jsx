@@ -36,7 +36,7 @@ const FollowUsFacebook = () => {
     <FollowUsSlider data={data} slidesQuantity={slidesQuantity} Navigation={Navigation} />
   );
 
-  return <Container>{error ? <div>error occured</div> : content}</Container>;
+  return <Container>{error ? <div>an error occurred</div> : content}</Container>;
 };
 
 export default FollowUsFacebook;
