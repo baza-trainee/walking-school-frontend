@@ -3,12 +3,15 @@ import { ProjectsList } from "./ProjectsList/ProjectsList";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
 import { useGetAdminProjects } from "../../../hooks/useGetAdminProjects";
+import { useDeleteAdminProjects } from "../../../hooks/useDeleteAdminProjects";
 
 export const AdminProjects = () => {
   const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
   const navigate = useNavigate();
+
+  const { mutate } = useDeleteAdminProjects();
 
   const filteredProjects = projectsData.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -34,12 +37,12 @@ export const AdminProjects = () => {
   };
 
   const deleteFunc = (projectId) => {
-    // TODO: implement logic for deleting a project using projectId and backend endpoint
+    mutate(projectId);
   };
 
-  if (isLoading) {
-    return <div>Loading....</div>;
-  }
+  const navigateToAddProject = () => {
+    navigate(`/admin/projects/add`);
+  };
 
   return (
     <>
@@ -49,13 +52,18 @@ export const AdminProjects = () => {
         withSearch
         searchWord={searchTerm}
         setSearchWord={setSearchTerm}
+        buttonFunc={navigateToAddProject}
       />
-      <ProjectsList
-        projects={filteredProjects}
-        navigateToEdit={navigateToEdit}
-        deleteFunc={deleteFunc}
-        handleSortByDate={handleSortByDate}
-      />
+      {isLoading ? (
+        <div style={{ padding: "35px 80px 35px 20px" }}>Loading...</div>
+      ) : (
+        <ProjectsList
+          projects={filteredProjects}
+          navigateToEdit={navigateToEdit}
+          deleteFunc={deleteFunc}
+          handleSortByDate={handleSortByDate}
+        />
+      )}
     </>
   );
 };

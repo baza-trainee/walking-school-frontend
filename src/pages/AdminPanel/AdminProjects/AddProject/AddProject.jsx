@@ -9,14 +9,24 @@ import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import { ageOptions, eventOptions } from "../optionsData";
 import { useParams } from "react-router";
 import { useProjectForm } from "../../../../hooks/useProjectForm";
+import { useNavigate } from "react-router-dom";
 
 export const AddProject = () => {
   const { id } = useParams();
   const { formik } = useProjectForm(id);
+  const navigate = useNavigate();
+
+  const navigateToProjects = () => {
+    navigate(`/admin/projects`);
+  };
 
   return (
     <>
-      <AdminHeader heading={"Додати проєкт"} withClose={true} />
+      <AdminHeader
+        heading={"Додати проєкт"}
+        withClose={true}
+        closeFunc={navigateToProjects}
+      />
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.content}>
           <div className={styles.leftBlock}>
