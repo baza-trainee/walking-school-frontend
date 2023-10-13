@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/walkings/repositories/walking-school-frontend
+    - export DEPLOYPATH=/home2/walkings/repositories/walking-school-frontend/
     - /bin/cp -R images $DEPLOYPATH
