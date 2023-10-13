@@ -21,7 +21,8 @@ jobs:
         run: npm install
 
       - name: 🔨 Build Project
-        run: npm run build
+        run: |
+          npm run build
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -29,5 +30,5 @@ jobs:
           server: ${{ secrets.GIT_CPANEL_REACT_SERVER }}
           username: ${{ secrets.GIT_CPANEL_REACT_USER }}
           password: ${{ secrets.GIT_CPANEL_REACT_PASSWORD }}
-          protocol: sftp
+          protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
           local-dir: ./build/
