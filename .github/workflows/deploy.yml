@@ -30,5 +30,4 @@ jobs:
           server: ftp.walking-school.site
           username: front@walking-school.site
           password: ${{ secrets.GIT_CPANEL_REACT_PASSWORD }}
-          protocol: ftp
           local-dir: ./build/
