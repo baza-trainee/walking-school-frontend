@@ -17,11 +17,9 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
-
       - name: 🔨 Build Project
         run: |
+          npm install
           npm run build
 
       - name: 📂 Sync files
