@@ -1,8 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home2/walkings/public_html/
-    - /bin/bash -c 'npm install'
-    - /bin/bash -c 'npm run build'
-    - /bin/cp -r ./build/* $DEPLOYPATH
-  version: 1
