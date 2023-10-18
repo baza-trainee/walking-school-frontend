@@ -1,6 +1,6 @@
 {
   "name": "walking-school-frontend",
-  "homepage": "http://walking-school.site",
+  "homepage": "./",
   "version": "0.1.1",
   "private": false,
   "dependencies": {
