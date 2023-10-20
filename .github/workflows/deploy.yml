@@ -28,5 +28,5 @@ jobs:
           server: ftp.walking-school.site
           username: front1@walking-school.site
           password: )HHv4bXOy~-s
-          protocol: ftps
+          protocol: ftp
           local-dir: ./build/
