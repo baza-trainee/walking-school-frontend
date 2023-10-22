@@ -12,7 +12,6 @@ import CardLoading from "./ProjectCard/CardLoading";
 
 const Projects = () => {
   const { isMobile } = useMedia();
-
   const {
     isLoading: isLoadingProjects,
     error: errorProjects,
