@@ -1,6 +1,5 @@
-import { dataMob, dataDesc, dataTab } from "./data";
+import { dataDesc } from "./data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useMedia } from "../../hooks/useMedia";
 import { Slide } from "./Slide";
 import "./pagination.css";
 import "swiper/css";
@@ -8,16 +7,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const HeroSection = () => {
-  const { isTablet, isDesktop } = useMedia();
-  let data = [];
-  if (isDesktop) {
-    data = dataDesc;
-  } else if (isTablet) {
-    data = dataTab;
-  } else {
-    data = dataMob;
-  }
-
+  let data = dataDesc;
   return (
     <section data-testid="hero-slider">
       <Swiper
