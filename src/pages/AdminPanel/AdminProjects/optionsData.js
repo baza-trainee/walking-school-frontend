@@ -5,4 +5,4 @@ export const eventOptions = [
   "Стежка у хмарах",
 ];
 
-export const ageOptions = ["0-18", "18-60"];
+export const ageOptions = ["0-17", "18-60"];
