@@ -48,7 +48,7 @@ const NavMenu = ({ setIsOpen, screenLarge }) => {
       <div className={style.btn}>
         <Link
           target="_blank"
-          to="https://secure.wayforpay.com/button/beafa8d2a7ee7"
+          to="https://secure.wayforpay.com/button/b0f4bab8c79e7"
           variant={isDesktop ? "large" : "small"}
         >
           Підтримати
