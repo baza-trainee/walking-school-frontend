@@ -3,6 +3,8 @@ on:
     branches:
       - dev
 name: 🚀 Deploy website on push
+env:
+  REACT_APP_BASE_URL: ${{ REACT_APP_BASE_URL }}
 
 jobs:
   web-deploy:
