@@ -13,7 +13,7 @@ export const useProjectForm = (projectId) => {
       description: "",
       publishDate: null,
       eventDate: null,
-      ageLimit: null,
+      age_category: null,
       category: null,
       image: null,
     },
@@ -23,33 +23,26 @@ export const useProjectForm = (projectId) => {
         .url("Невірний формат посилання")
         .required("Обов'язкове поле"),
       description: Yup.string().required("Обов'язкове поле"),
-      eventDate: Yup.string()
-        .matches(
-          /^(0[1-9]|1[0-2])\.\d{4} - (0[1-9]|1[0-2])\.\d{4}$/,
-          "Невірний формат",
-        )
-        .required("Обов'язкове поле"),
-      ageLimit: Yup.string().required("Обов'язкове поле"),
+      eventDate: Yup.string().required("Обов'язкове поле"),
+      age_category: Yup.string().required("Обов'язкове поле"),
       category: Yup.string().required("Обов'язкове поле"),
       image: Yup.string().required(),
     }),
     onSubmit: (values) => {
       if (!values.publishDate) {
         const currentDate = new Date();
-        values.publishDate = `${String(currentDate.getMonth() + 1).padStart(
-          2,
-          "0",
-        )}.${currentDate.getFullYear()}`;
+        values.publishDate = `${currentDate.getFullYear()}-${String(
+          currentDate.getMonth() + 1,
+        ).padStart(2, "0")}-${String(currentDate.getDate()).padStart(2, "0")}`;
       }
 
-      console.log(values);
       mutation.mutate(values);
     },
   });
 
   return {
     formik,
-    mutationStatus: mutation.status,
+    mutationStatus: mutation.isLoading,
     mutationError: mutation.error,
   };
 };

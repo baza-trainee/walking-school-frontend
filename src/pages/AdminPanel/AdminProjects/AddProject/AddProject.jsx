@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export const AddProject = () => {
   const { id } = useParams();
-  const { formik } = useProjectForm(id);
+  const { formik, mutationStatus } = useProjectForm(id);
   const navigate = useNavigate();
 
   const navigateToProjects = () => {
@@ -60,6 +60,7 @@ export const AddProject = () => {
                 onChange={(date) => formik.setFieldValue("publishDate", date)}
                 id={"publishDate"}
                 error={formik.touched.publishDate && formik.errors.publishDate}
+                isPublicDate
               />
               <Tooltip />
             </div>
@@ -68,11 +69,14 @@ export const AddProject = () => {
                 type="button"
                 variant="secondary"
                 children={"Скасувати"}
+                onClick={navigateToProjects}
+                disabled={mutationStatus}
               />
               <AdminButton
                 type="submit"
                 variant="primary"
                 children={"Зберегти"}
+                disabled={mutationStatus}
               />
             </div>
           </div>
@@ -90,10 +94,12 @@ export const AddProject = () => {
             />
             <CustomSelect
               options={ageOptions}
-              onChange={(option) => formik.setFieldValue("ageLimit", option)}
+              onChange={(option) =>
+                formik.setFieldValue("age_category", option)
+              }
               placeholder="Вікові обмеження"
               selectPrompt="Оберіть вік"
-              error={formik.touched.ageLimit && formik.errors.ageLimit}
+              error={formik.touched.age_category && formik.errors.age_category}
             />
             <ImageInput
               variant="project"
