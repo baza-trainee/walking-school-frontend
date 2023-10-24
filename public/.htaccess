@@ -6,8 +6,21 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
-  <!-- RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /index.html [L,QSA] -->
+
+  SetEnv LOG_LEVEL "DEBUG"
+  SetEnv ACCESS_TOKEN_TTL "10m"
+  SetEnv REFRESH_TOKEN_TTL "24h"
+  SetEnv SIGNING_KEY "--------------------------"
+
+  SetEnv APP_SALT "--------------------------"
+
+  SetEnv APP_READ_TIMEOUT "10s"
+  SetEnv APP_WRITE_TIMEOUT "10s"
+  SetEnv APP_IDLE_TIMEOUT "10s"
+  SetEnv APP_PORT "7000"
+
+  SetEnv DB_HOST "walkingschool"
+  SetEnv DB_NAME "WalkingSchool"
+  SetEnv DB_USER "WalkingUser"
+  SetEnv DB_PASSWORD "4tSV1fS7PpXOSL4J"
 </IfModule>
