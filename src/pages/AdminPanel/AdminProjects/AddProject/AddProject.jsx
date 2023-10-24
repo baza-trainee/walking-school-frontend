@@ -64,7 +64,11 @@ export const AddProject = () => {
               <Tooltip />
             </div>
             <div className={styles.buttonWrapper}>
-              <AdminButton variant="secondary" children={"Скасувати"} />
+              <AdminButton
+                type="button"
+                variant="secondary"
+                children={"Скасувати"}
+              />
               <AdminButton
                 type="submit"
                 variant="primary"

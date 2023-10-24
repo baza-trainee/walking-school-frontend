@@ -19,14 +19,19 @@ export const useProjectForm = (projectId) => {
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Обов'язкове поле"),
-      link: Yup.string().url("Невірний формат посилання"),
-      description: Yup.string().required("Обязательное поле"),
+      link: Yup.string()
+        .url("Невірний формат посилання")
+        .required("Обов'язкове поле"),
+      description: Yup.string().required("Обов'язкове поле"),
       eventDate: Yup.string()
         .matches(
           /^(0[1-9]|1[0-2])\.\d{4} - (0[1-9]|1[0-2])\.\d{4}$/,
           "Невірний формат",
         )
         .required("Обов'язкове поле"),
+      ageLimit: Yup.string().required("Обов'язкове поле"),
+      category: Yup.string().required("Обов'язкове поле"),
+      image: Yup.string().required(),
     }),
     onSubmit: (values) => {
       if (!values.publishDate) {
@@ -36,6 +41,8 @@ export const useProjectForm = (projectId) => {
           "0",
         )}.${currentDate.getFullYear()}`;
       }
+
+      console.log(values);
       mutation.mutate(values);
     },
   });
