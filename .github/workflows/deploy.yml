@@ -3,13 +3,13 @@ on:
     branches:
       - dev
 name: 🚀 Deploy website on push
-env:
-  REACT_APP_BASE_URL: ${{ REACT_APP_BASE_URL }}
 
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
