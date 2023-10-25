@@ -3,9 +3,22 @@ import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { createProject, updateProject } from "../API/ProjectsAPI";
 import { formatDate } from "../components/AdminPanel/Filters/DateSelect/DateSelect";
+import { useState } from "react";
 
 export const useProjectForm = (projectId) => {
-  const mutation = useMutation(projectId ? updateProject : createProject);
+  const [localError, setLocalError] = useState(null);
+
+  const mutation = useMutation(projectId ? updateProject : createProject, {
+    onSuccess: () => {
+      setLocalError(null);
+    },
+    onError: (error) => {
+      setLocalError(error);
+      setTimeout(() => {
+        setLocalError(null);
+      }, 2500);
+    },
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -43,6 +56,7 @@ export const useProjectForm = (projectId) => {
   return {
     formik,
     mutationStatus: mutation.isLoading,
-    mutationError: mutation.error,
+    localError,
+    isLoading: mutation.isLoading,
   };
 };
