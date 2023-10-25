@@ -7,16 +7,29 @@ import { useDeleteAdminProjects } from "../../../hooks/useDeleteAdminProjects";
 import DotsLoader from "../../../components/Loader/DotsLoader";
 import styles from "./AdminPorjects.module.css";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
+import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
+import { useEffect } from "react";
 
 export const AdminProjects = () => {
+  const { mutate, error, deleteLoadingState } = useDeleteAdminProjects();
   const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
-  const navigate = useNavigate();
   const [isActiveModal, setIsActiveModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
+  const [displayError, setDisplayError] = useState(false);
 
-  const { mutate } = useDeleteAdminProjects();
+  useEffect(() => {
+    if (error) {
+      setDisplayError(true);
+      const timerId = setTimeout(() => {
+        setDisplayError(false);
+      }, 3000);
+
+      return () => clearTimeout(timerId);
+    }
+  }, [error]);
 
   const filteredProjects = projectsData.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -41,10 +54,6 @@ export const AdminProjects = () => {
     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
-  const deleteFunc = () => {
-    setIsActiveModal(true);
-  };
-
   const deleteOnConfirm = () => {
     mutate(selectedProject);
     setSelectedProject(null);
@@ -65,7 +74,7 @@ export const AdminProjects = () => {
         setSearchWord={setSearchTerm}
         buttonFunc={navigateToAddProject}
       />
-      {isLoading ? (
+      {isLoading || deleteLoadingState ? (
         <div className={styles.loader}>
           <DotsLoader />
         </div>
@@ -73,7 +82,7 @@ export const AdminProjects = () => {
         <ProjectsList
           projects={filteredProjects}
           navigateToEdit={navigateToEdit}
-          deleteFunc={deleteFunc}
+          deleteFunc={() => setIsActiveModal(true)}
           handleSortByDate={handleSortByDate}
           setSelectedProject={setSelectedProject}
         />
@@ -84,6 +93,7 @@ export const AdminProjects = () => {
         setActive={setIsActiveModal}
         successFnc={deleteOnConfirm}
       />
+      {displayError && <ErrorModal message={error.message} />}
     </>
   );
 };
