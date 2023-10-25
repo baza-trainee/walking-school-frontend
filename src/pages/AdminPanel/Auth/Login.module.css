@@ -120,28 +120,6 @@
   cursor: pointer;
 }
 
-.error {
-  display: flex;
-  width: 463px;
-  padding: 20px 24px;
-  align-items: flex-start;
-  gap: 16px;
-  border-radius: 4px;
-  border: 1px solid #f00631;
-  background: #fff0f0;
-  color: #f00631;
-  position: absolute;
-  top: -130px;
-}
-
-.error p {
-  font-family: var(--menu-item-ff);
-  font-size: var(--body-text-fs-web);
-  font-style: normal;
-  font-weight: var(--body-text-fw);
-  line-height: var(--body-text-lh);
-}
-
 @media screen and (min-width: 1440px) {
   .container {
     align-items: center;

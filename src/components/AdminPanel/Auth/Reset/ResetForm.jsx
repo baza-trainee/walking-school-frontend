@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-import styles from "../Login.module.css";
+import styles from "../../../../pages/AdminPanel/Auth/Login.module.css";
 import { Form, Formik } from "formik";
-import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
-import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-import * as Yup from "yup";
-import { passwordValidationSchema } from "../../../../validationSchemas/validationSchema";
+import AdminInput from "../../Input/AdminInput";
+import AdminButton from "../../UI/Button/AdminButton";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 import { ReactComponent as Eye } from "../../../../assets/admin/auth/eye.svg";
 import { ReactComponent as EyeOff } from "../../../../assets/admin/auth/eye_off.svg";
+import { resetValidationSchema } from "../authValidationSchemas";
 
 const ResetForm = ({ className, ...props }) => {
   const navigate = useNavigate();
   const [passVisible, setPassVisible] = useState(false);
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const validationSchema = Yup.object().shape({
-    password: passwordValidationSchema,
-    confirmPass: Yup.string()
-      .min(8, "Пароль має містити мінімум 8 символів")
-      .oneOf([Yup.ref("password"), null], "Новий пароль не співпадає")
-      .required("Підтвердіть пароль"),
-  });
 
   return (
     <div className={styles.block}>
@@ -31,7 +22,7 @@ const ResetForm = ({ className, ...props }) => {
         <p className={styles.text}>Створіть новий пароль </p>
         <Formik
           initialValues={{ password: "", confirmPass: "" }}
-          validationSchema={validationSchema}
+          validationSchema={resetValidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             try {
               setIsSuccess(true);

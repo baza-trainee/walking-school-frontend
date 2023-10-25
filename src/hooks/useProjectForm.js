@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
-import { createProject, updateProject } from "../API/ProjectsAPI";
+import { createProject, updateProject } from "../API/projectsAPI";
 
 export const useProjectForm = (projectId) => {
   const mutation = useMutation(projectId ? updateProject : createProject);
