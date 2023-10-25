@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import style from "./header.module.css";
 import NavMenu from "./NavMenu";
 import { useMedia } from "../../../hooks/useMedia";
-import Logo from "../../../assets/img/header/logo-sm.svg";
-import CloseIcon from "../../../assets/img/header/close.svg";
-import OpenIcon from "../../../assets/img/header/open.svg";
+import Logo from "../../../assets/main/header/logo-sm.svg";
+import CloseIcon from "../../../assets/main/header/close.svg";
+import OpenIcon from "../../../assets/main/header/open.svg";
 import Container from "../Container";
 import { NavLink } from "react-router-dom";
 

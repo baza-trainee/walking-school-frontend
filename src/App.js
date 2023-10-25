@@ -6,6 +6,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
@@ -16,8 +17,6 @@ import Contacts from "./pages/AdminPanel/Contacts/Contacts";
 import { AdminProjects } from "./pages/AdminPanel/AdminProjects/AdminProjects";
 import { AddProject } from "./pages/AdminPanel/AdminProjects/AddProject/AddProject";
 import { EditProject } from "./pages/AdminPanel/AdminProjects/EditProject/EditProject";
-import AdminHero from "./pages/AdminPanel/AdminHero/Index";
-import EditSlideForm from "./pages/AdminPanel/AdminHero/slideActions/EditSlideForm";
 import AdminPartners from "./pages/AdminPanel/AdminPartners/AdminPartners";
 import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
 import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
@@ -54,8 +53,15 @@ const router = createBrowserRouter(
   ),
 );
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
+//comment

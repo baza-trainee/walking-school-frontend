@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { CustomSelect } from "../../../../components/AdminPanel/Filters/CustomSelect/CustomSelect";
 import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect/DateSelect";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
@@ -7,105 +6,69 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./AddProject.module.css";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
-// import { useParams } from "react-router-dom";
-
-const MockedOptions = [
-  "Тунельний політ",
-  "Банджі джампінг",
-  "Стрибки з парашутом",
-  "Стежка у хмарах",
-];
-
-const MockedOptions2 = ["0-18", "18-60"];
+import { ageOptions, eventOptions } from "../optionsData";
+import { useParams } from "react-router";
+import { useProjectForm } from "../../../../hooks/useProjectForm";
+import { useNavigate } from "react-router-dom";
 
 export const AddProject = () => {
-  // TODO: use custom hook and move the logic there
-  // TODO: use Formik (probably)
-  // const { id } = useParams();
-  const [formData, setFormData] = useState({
-    title: "",
-    link: "",
-    description: "",
-    publishDate: null,
-    eventDate: null,
-    ageLimit: null,
-    category: null,
-    image: null,
-  });
+  const { id } = useParams();
+  const { formik } = useProjectForm(id);
+  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const navigateToProjects = () => {
+    navigate(`/admin/projects`);
   };
-
-  const handleImageChange = (blob) => {
-    setFormData({ ...formData, image: blob });
-  };
-
-  const handleDateChange = (field, date) => {
-    if (!date) {
-      return;
-    }
-    setFormData({ ...formData, [field]: date });
-  };
-
-  const handleSelectChange = (fieldName) => (selectedOption) => {
-    setFormData({ ...formData, [fieldName]: selectedOption });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const date = new Date();
-    const currentDate = `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()}`;
-
-    const finalFormData = {
-      ...formData,
-      publishDate: formData.publishDate ? formData.publishDate : currentDate,
-    };
-
-    console.log("Sending data:", finalFormData);
-  };
-
-  useEffect(() => {
-    // TODO: use the id param to fetch needed project and set form fields accordingly
-  }, []);
 
   return (
     <>
-      <AdminHeader heading={"Додати проєкт"} withClose={true} />
-      <form onSubmit={handleSubmit}>
+      <AdminHeader
+        heading={"Додати проєкт"}
+        withClose={true}
+        closeFunc={navigateToProjects}
+      />
+      <form onSubmit={formik.handleSubmit}>
         <div className={styles.content}>
           <div className={styles.leftBlock}>
             <AdminInput
               name="title"
               variant="admin"
               placeholder="Заголовок"
-              onChange={handleInputChange}
+              onChange={formik.handleChange}
+              value={formik.values.title}
+              error={formik.touched.title && formik.errors.title}
             />
             <AdminInput
               name="link"
               variant="admin"
               placeholder="Додайте посилання"
-              onChange={handleInputChange}
+              onChange={formik.handleChange}
+              value={formik.values.link}
+              error={formik.touched.link && formik.errors.link}
             />
             <AdminInput
               name="description"
               variant="textarea"
               placeholder="Опис"
-              onChange={handleInputChange}
+              onChange={formik.handleChange}
+              value={formik.values.description}
+              error={formik.touched.description && formik.errors.description}
             />
             <div className={styles.tooltipContainer}>
               <DateSelect
                 placeholder={"Дата публікації"}
-                onChange={(date) => handleDateChange("publishDate", date)}
+                onChange={(date) => formik.setFieldValue("publishDate", date)}
                 id={"publishDate"}
+                error={formik.touched.publishDate && formik.errors.publishDate}
               />
               <Tooltip />
             </div>
             <div className={styles.buttonWrapper}>
-              <AdminButton variant="secondary" children={"Скасувати"} />
+              <AdminButton
+                type="button"
+                variant="secondary"
+                children={"Скасувати"}
+              />
               <AdminButton
                 type="submit"
                 variant="primary"
@@ -116,24 +79,27 @@ export const AddProject = () => {
           <div className={styles.rightBlock}>
             <DateSelect
               placeholder={"Період"}
-              onChange={(date) => handleDateChange("eventDate", date)}
+              onChange={(date) => formik.setFieldValue("eventDate", date)}
               id={"eventDate"}
+              error={formik.touched.eventDate && formik.errors.eventDate}
             />
             <CustomSelect
-              options={MockedOptions}
-              onChange={handleSelectChange("category")}
+              options={eventOptions}
+              onChange={(option) => formik.setFieldValue("category", option)}
+              error={formik.touched.category && formik.errors.category}
             />
             <CustomSelect
-              options={MockedOptions2}
-              onChange={handleSelectChange("ageLimit")}
+              options={ageOptions}
+              onChange={(option) => formik.setFieldValue("ageLimit", option)}
               placeholder="Вікові обмеження"
               selectPrompt="Оберіть вік"
+              error={formik.touched.ageLimit && formik.errors.ageLimit}
             />
             <ImageInput
               variant="project"
-              onChange={handleImageChange}
+              onChange={(blob) => formik.setFieldValue("image", blob)}
               src={null}
-              error={null}
+              error={formik.touched.image && formik.errors.image}
             />
           </div>
         </div>
