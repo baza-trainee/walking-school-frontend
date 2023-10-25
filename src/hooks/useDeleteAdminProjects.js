@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "react-query";
-import { deleteProject } from "../API/ProjectsAPI";
+import { deleteProject } from "../API/projectsAPI";
 
 export const useDeleteAdminProjects = () => {
   const queryClient = useQueryClient();

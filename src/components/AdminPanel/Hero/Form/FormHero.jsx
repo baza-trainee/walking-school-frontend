@@ -3,28 +3,49 @@ import { Form, Formik } from "formik";
 import AdminInput from "../../Input/AdminInput";
 import styles from "./FormHero.module.css";
 import ImageInput from "../../ImageInput/ImageInput";
-import * as Yup from "yup";
-import {
-  imageValidation,
-  subtitleValidation,
-  titleValidation,
-} from "../../../../validationSchemas/validationSchema";
 import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 import AdminButton from "../../UI/Button/AdminButton";
 import Alert from "../../Alert/Alert";
 import { useNavigate } from "react-router-dom";
+import { heroValidation } from "../../../../pages/AdminPanel/HeroAdmin/heroValidation";
+import { anyFieldTouched } from "../../../../heplers/anyFieldTouched";
+import { useMutation } from "react-query";
+import { editHero, postHero } from "../../../../API/heroAPI";
+import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
 
 const FormHero = ({ title, subtitle, image, id }) => {
   const navigate = useNavigate();
+  const [isPostSuccess, setIsPostSuccess] = useState(true);
+  const [isEditSuccess, setIsEditSuccess] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const validationSchema = Yup.object({
-    title: titleValidation,
-    subtitle: subtitleValidation,
-    image: imageValidation,
+
+  const mutationPost = useMutation(postHero, {
+    onSuccess: () => {
+      setIsPostSuccess(true);
+    },
   });
-  const anyFieldTouched = (touched) => {
-    return Object.values(touched).some((field) => field === true);
+
+  const mutationEdit = useMutation(editHero, {
+    onSuccess: () => {
+      setIsEditSuccess(true);
+    },
+  });
+
+  const onSubmit = (data, type) => {
+    if (type === "post") {
+      mutationPost.mutate(data);
+    } else {
+      mutationEdit.mutate(data);
+    }
   };
+
+  // if (isLoading) {
+  //   return (
+  //     <div className={styles.centered}>
+  //       <SpinnerLoader />
+  //     </div>
+  //   );
+  // }
 
   return (
     <Formik
@@ -33,8 +54,16 @@ const FormHero = ({ title, subtitle, image, id }) => {
         subtitle: subtitle || "",
         image: image || "",
       }}
-      validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {}}
+      validationSchema={heroValidation}
+      onSubmit={async (values, { setSubmitting }) => {
+        const { image, ...rest } = values;
+        const formattedImage = await blobUrlToBase64(image);
+
+        const data = { image: formattedImage, ...rest };
+
+        onSubmit(data, "post");
+        setSubmitting(mutationPost.isLoading);
+      }}
       validateOnChange={true}
       validateOnBlur={true}
       enableReinitialize={true}
@@ -42,20 +71,29 @@ const FormHero = ({ title, subtitle, image, id }) => {
       {({
         values,
         handleBlur,
-        handleSubmit,
         touched,
         handleChange,
         errors,
         isValid,
         setFieldValue,
       }) => (
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
+        <Form>
           <div className={styles.wrapper}>
+            {(isPostSuccess || isEditSuccess) && (
+              <Alert
+                active={isPostSuccess || isEditSuccess}
+                setActive={(value) => {
+                  if (isPostSuccess) {
+                    setIsPostSuccess(value);
+                  } else {
+                    setIsEditSuccess(value);
+                  }
+                }}
+                type="success"
+                title="Збережено!"
+                message="Ваші зміни успішно збережено"
+              />
+            )}
             <div className={styles.data}>
               <div style={{ height: "68px", width: "737px" }}>
                 <AdminInput

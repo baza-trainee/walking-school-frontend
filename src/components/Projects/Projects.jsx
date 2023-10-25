@@ -6,7 +6,8 @@ import Button from "../UI/Button/Button";
 import SwiperSlider from "./Carousel/SwiperSlider";
 import Container from "../layout/Container";
 import { useQuery } from "@tanstack/react-query";
-import { getAllCards } from "../../API/ProjectsAPI";
+import { getAllCards } from "../../API/projectsAPI";
+
 const items = [
   {
     image:
