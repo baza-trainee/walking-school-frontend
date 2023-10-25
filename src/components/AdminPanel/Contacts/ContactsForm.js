@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../../pages/AdminPanel/Contacts/Contacts.module.css";
 import { Form, Formik } from "formik";
 import { getContactData, updateContactData } from "../../../API/сontactAdmin";
@@ -6,12 +6,25 @@ import { formatPhoneNumber } from "../../../heplers/formatPhoneNumber";
 import AdminInput from "../Input/AdminInput";
 import AdminButton from "../UI/Button/AdminButton";
 import { validationSchema } from "./validationSchema";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import ErrorModal from "../ErrorModal/ErrorModal";
+import Alert from "../Alert/Alert";
 import SpinnerLoader from "../../Loader/SpinnerLoader";
 
 const ContactsForm = () => {
-  const { data, error, isLoading } = useQuery("contacts", getContactData);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { data, error, isLoading } = useQuery("contacts", getContactData, {
+    refetchOnWindowFocus: false,
+  });
+  const mutation = useMutation(updateContactData, {
+    onSuccess: () => {
+      setIsSuccess(true);
+    },
+  });
+
+  const onSubmit = (data) => {
+    mutation.mutate(data);
+  };
 
   if (isLoading) {
     return (
@@ -25,10 +38,11 @@ const ContactsForm = () => {
     return (
       <ErrorModal
         message={`Не вдалось завантажити данні: ${error.message}. Спробуйте будь ласка пізніше.`}
-        className={styles.error}
+        className={styles.centered}
       />
     );
   }
+
   const anyFieldTouched = (touched) => {
     return Object.values(touched).some((field) => field === true);
   };
@@ -37,6 +51,7 @@ const ContactsForm = () => {
     <div className={styles.container}>
       <Formik
         initialValues={{
+          id: data?.id || null,
           phone: data?.phone || "+380",
           contact_email: data?.contact_email || "",
           answer_email: data?.answer_email || "",
@@ -45,19 +60,12 @@ const ContactsForm = () => {
           telegram: data?.telegram || "",
         }}
         validationSchema={validationSchema}
-        onSubmit={async (values, { setSubmitting, resetForm }) => {
-          try {
-            const { phone, ...rest } = values;
-            const formattedPhone = phone.replace(/\s/g, "");
-
-            const data = { phone: formattedPhone, ...rest };
-            await updateContactData(data);
-            resetForm();
-          } catch (e) {
-            alert(`Помилка при оновленні контактних даних: ${e.message}`);
-          } finally {
-            setSubmitting(false);
-          }
+        onSubmit={(values, { setSubmitting }) => {
+          const { phone, ...rest } = values;
+          const formattedPhone = phone?.replace(/\s/g, "");
+          const data = { phone: formattedPhone, ...rest };
+          onSubmit(data);
+          setSubmitting(mutation.isLoading);
         }}
         validateOnChange={false}
         validateOnBlur={true}
@@ -173,6 +181,13 @@ const ContactsForm = () => {
                   />
                 </div>
               </div>
+              {mutation.isError && (
+                <div>
+                  <ErrorModal
+                    message={`Не вдалось оновити данні: ${mutation.error.message}. Спробуйте пізніше`}
+                  />
+                </div>
+              )}
               <div className={styles["form__fields-actions"]}>
                 <AdminButton
                   variant={"secondary"}
@@ -192,6 +207,15 @@ const ContactsForm = () => {
           );
         }}
       </Formik>
+      {isSuccess && (
+        <Alert
+          active={isSuccess}
+          setActive={setIsSuccess}
+          type="success"
+          title="Збережено!"
+          message="Ваші зміни успішно збережено"
+        />
+      )}
     </div>
   );
 };

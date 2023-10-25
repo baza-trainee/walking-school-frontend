@@ -5,17 +5,15 @@ export const getContactData = async () => {
     const response = await $host.get("contact");
     return response.data;
   } catch (e) {
-    console.log(e);
     throw e;
   }
 };
 
 export const updateContactData = async (data) => {
   try {
-    const response = await $host.post("contact", data);
+    const response = await $host.put("contact", data);
     return response.data;
   } catch (e) {
-    console.log(e);
     throw e;
   }
 };
