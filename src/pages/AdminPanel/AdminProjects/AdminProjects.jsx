@@ -4,6 +4,8 @@ import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
 import { useGetAdminProjects } from "../../../hooks/useGetAdminProjects";
 import { useDeleteAdminProjects } from "../../../hooks/useDeleteAdminProjects";
+import DotsLoader from "../../../components/Loader/DotsLoader";
+import styles from "./AdminPorjects.module.css";
 
 export const AdminProjects = () => {
   const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
@@ -55,7 +57,9 @@ export const AdminProjects = () => {
         buttonFunc={navigateToAddProject}
       />
       {isLoading ? (
-        <div style={{ padding: "35px 80px 35px 20px" }}>Loading...</div>
+        <div className={styles.loader}>
+          <DotsLoader />
+        </div>
       ) : (
         <ProjectsList
           projects={filteredProjects}
