@@ -8,28 +8,15 @@ import DotsLoader from "../../../components/Loader/DotsLoader";
 import styles from "./AdminPorjects.module.css";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
 import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
-import { useEffect } from "react";
 
 export const AdminProjects = () => {
-  const { mutate, error, deleteLoadingState } = useDeleteAdminProjects();
+  const { mutate, deleteError, deleteLoadingState } = useDeleteAdminProjects();
   const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
   const [isActiveModal, setIsActiveModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
-  const [displayError, setDisplayError] = useState(false);
-
-  useEffect(() => {
-    if (error) {
-      setDisplayError(true);
-      const timerId = setTimeout(() => {
-        setDisplayError(false);
-      }, 3000);
-
-      return () => clearTimeout(timerId);
-    }
-  }, [error]);
 
   const filteredProjects = projectsData.filter((project) =>
     project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -93,7 +80,7 @@ export const AdminProjects = () => {
         setActive={setIsActiveModal}
         successFnc={deleteOnConfirm}
       />
-      {displayError && <ErrorModal message={error.message} />}
+      {deleteError && <ErrorModal message={deleteError.message} />}
     </>
   );
 };
