@@ -11,6 +11,7 @@ import {
   urlsValidationSchema,
 } from "../../../validationSchemas/validationSchema";
 import { formatPhoneNumber } from "../../../heplers/formatPhoneNumber";
+import { updateContactData } from "../../../API/ContactAdmin";
 
 const Contacts = () => {
   const anyFieldTouched = (touched) => {
@@ -19,8 +20,8 @@ const Contacts = () => {
 
   const validationSchema = Yup.object({
     phone: phoneValidationSchema,
-    contactEmail: emailValidationSchema,
-    feedbackEmail: emailValidationSchema,
+    contact_email: emailValidationSchema,
+    answer_email: emailValidationSchema,
     facebook: urlsValidationSchema,
     linkedin: urlsValidationSchema,
     telegram: telegramValidationSchema,
@@ -35,15 +36,27 @@ const Contacts = () => {
         <Formik
           initialValues={{
             phone: "+380",
-            contactEmail: "",
-            feedbackEmail: "",
+            contact_email: "",
+            answer_email: "",
             facebook: "",
             linkedin: "",
             telegram: "",
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
-            resetForm();
+            try {
+              const { phone, ...rest } = values;
+              const formattedPhone = phone.replace(/\s/g, "");
+
+              const data = { phone: formattedPhone, ...rest };
+              console.log(data);
+              await updateContactData(data);
+              resetForm();
+            } catch (e) {
+              console.log("Помилка при оновленні контактних даних:", e.message);
+            } finally {
+              setSubmitting(false);
+            }
           }}
           validateOnChange={false}
           validateOnBlur={true}
@@ -73,15 +86,15 @@ const Contacts = () => {
                   </div>
                   <div className={styles["form__fields-input"]}>
                     <AdminInput
-                      id="contactEmail"
-                      name={"contactEmail"}
+                      id="contact_email"
+                      name={"contact_email"}
                       type="text"
                       variant={"admin"}
-                      value={values.contactEmail}
+                      value={values.contact_email}
                       onChange={handleChange}
                       error={
-                        errors.contactEmail && touched.contactEmail
-                          ? errors.contactEmail
+                        errors.contact_email && touched.contact_email
+                          ? errors.contact_email
                           : undefined
                       }
                       onBlur={handleBlur}
@@ -90,15 +103,15 @@ const Contacts = () => {
                   </div>
                   <div className={styles["form__fields-input"]}>
                     <AdminInput
-                      id="feedbackEmail"
-                      name={"feedbackEmail"}
+                      id="answer_email"
+                      name={"answer_email"}
                       type="text"
                       variant={"admin"}
-                      value={values.feedbackEmail}
+                      value={values.answer_email}
                       onChange={handleChange}
                       error={
-                        errors.feedbackEmail && touched.feedbackEmail
-                          ? errors.feedbackEmail
+                        errors.answer_email && touched.answer_email
+                          ? errors.answer_email
                           : undefined
                       }
                       onBlur={handleBlur}
