@@ -6,12 +6,15 @@ import { useGetAdminProjects } from "../../../hooks/useGetAdminProjects";
 import { useDeleteAdminProjects } from "../../../hooks/useDeleteAdminProjects";
 import DotsLoader from "../../../components/Loader/DotsLoader";
 import styles from "./AdminPorjects.module.css";
+import Alert from "../../../components/AdminPanel/Alert/Alert";
 
 export const AdminProjects = () => {
   const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
   const navigate = useNavigate();
+  const [isActiveModal, setIsActiveModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const { mutate } = useDeleteAdminProjects();
 
@@ -38,8 +41,14 @@ export const AdminProjects = () => {
     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
-  const deleteFunc = (projectId) => {
-    mutate(projectId);
+  const deleteFunc = () => {
+    setIsActiveModal(true);
+  };
+
+  const deleteOnConfirm = () => {
+    mutate(selectedProject);
+    setSelectedProject(null);
+    setIsActiveModal(false);
   };
 
   const navigateToAddProject = () => {
@@ -66,8 +75,15 @@ export const AdminProjects = () => {
           navigateToEdit={navigateToEdit}
           deleteFunc={deleteFunc}
           handleSortByDate={handleSortByDate}
+          setSelectedProject={setSelectedProject}
         />
       )}
+      <Alert
+        title={"Ви дійсно хочете видалити проєкт?"}
+        active={isActiveModal}
+        setActive={setIsActiveModal}
+        successFnc={deleteOnConfirm}
+      />
     </>
   );
 };
