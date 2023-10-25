@@ -5,6 +5,14 @@ import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
+export const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  });
+};
+
 export const DateSelect = ({
   error = false,
   placeholder,
@@ -29,14 +37,14 @@ export const DateSelect = ({
 
   const applyChanges = () => {
     if (isPublicDate && startDate) {
-      setLabelContent(startDate);
+      setLabelContent(formatDate(startDate));
       if (onChange) {
-        onChange(startDate);
+        onChange(formatDate(startDate));
       }
     } else if (startDate && endDate) {
-      setLabelContent(`${startDate} - ${endDate}`);
+      setLabelContent(`${formatDate(startDate)} - ${formatDate(endDate)}`);
       if (onChange) {
-        onChange(`${startDate} - ${endDate}`);
+        onChange(`${formatDate(startDate)} - ${formatDate(endDate)}`);
       }
     }
     setIsExpanded(false);

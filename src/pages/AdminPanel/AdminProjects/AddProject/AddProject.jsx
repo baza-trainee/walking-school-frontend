@@ -83,9 +83,9 @@ export const AddProject = () => {
           <div className={styles.rightBlock}>
             <DateSelect
               placeholder={"Період"}
-              onChange={(date) => formik.setFieldValue("eventDate", date)}
-              id={"eventDate"}
-              error={formik.touched.eventDate && formik.errors.eventDate}
+              onChange={(date) => formik.setFieldValue("period", date)}
+              id={"period"}
+              error={formik.touched.period && formik.errors.period}
             />
             <CustomSelect
               options={eventOptions}

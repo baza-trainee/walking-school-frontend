@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { createProject, updateProject } from "../API/ProjectsAPI";
+import { formatDate } from "../components/AdminPanel/Filters/DateSelect/DateSelect";
 
 export const useProjectForm = (projectId) => {
   const mutation = useMutation(projectId ? updateProject : createProject);
@@ -12,7 +13,7 @@ export const useProjectForm = (projectId) => {
       link: "",
       description: "",
       publishDate: null,
-      eventDate: null,
+      period: null,
       age_category: null,
       category: null,
       image: null,
@@ -23,7 +24,7 @@ export const useProjectForm = (projectId) => {
         .url("Невірний формат посилання")
         .required("Обов'язкове поле"),
       description: Yup.string().required("Обов'язкове поле"),
-      eventDate: Yup.string().required("Обов'язкове поле"),
+      period: Yup.string().required("Обов'язкове поле"),
       age_category: Yup.string().required("Обов'язкове поле"),
       category: Yup.string().required("Обов'язкове поле"),
       image: Yup.string().required(),
@@ -31,11 +32,10 @@ export const useProjectForm = (projectId) => {
     onSubmit: (values) => {
       if (!values.publishDate) {
         const currentDate = new Date();
-        values.publishDate = `${currentDate.getFullYear()}-${String(
-          currentDate.getMonth() + 1,
-        ).padStart(2, "0")}-${String(currentDate.getDate()).padStart(2, "0")}`;
+        values.publishDate = formatDate(currentDate);
       }
 
+      console.log(values);
       mutation.mutate(values);
     },
   });
