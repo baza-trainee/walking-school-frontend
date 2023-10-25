@@ -7,16 +7,27 @@ import AdminInput from "../Input/AdminInput";
 import AdminButton from "../UI/Button/AdminButton";
 import { validationSchema } from "./validationSchema";
 import { useQuery } from "react-query";
+import ErrorModal from "../ErrorModal/ErrorModal";
+import SpinnerLoader from "../../Loader/SpinnerLoader";
 
 const ContactsForm = () => {
   const { data, error, isLoading } = useQuery("contacts", getContactData);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <div className={styles.centered}>
+        <SpinnerLoader />
+      </div>
+    );
   }
 
   if (error) {
-    return <span>Error: {error.message}</span>;
+    return (
+      <ErrorModal
+        message={`Не вдалось завантажити данні: ${error.message}. Спробуйте будь ласка пізніше.`}
+        className={styles.error}
+      />
+    );
   }
   const anyFieldTouched = (touched) => {
     return Object.values(touched).some((field) => field === true);

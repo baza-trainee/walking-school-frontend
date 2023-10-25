@@ -120,6 +120,11 @@
   cursor: pointer;
 }
 
+.error {
+  position: absolute;
+  top: -130px;
+  left: 0;
+}
 @media screen and (min-width: 1440px) {
   .container {
     align-items: center;
