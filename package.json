@@ -1,6 +1,7 @@
 {
   "name": "walking-school-frontend",
-  "version": "0.1.0",
+  "homepage": "http://walking-school.site",
+  "version": "0.1.1",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.1",

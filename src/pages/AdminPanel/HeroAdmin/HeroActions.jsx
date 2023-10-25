@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.css";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ import Alert from "../../../components/AdminPanel/Alert/Alert";
 const HeroActions = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 

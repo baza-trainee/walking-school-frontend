@@ -61,6 +61,7 @@ const Projects = () => {
   const [cards, setCards] = useState(items);
   const cardsToRender = cards;
 
+  // eslint-disable-next-line no-unused-vars
   const { isLoading, error, data } = useQuery(["projects"], () =>
     getAllCards(),
   );
