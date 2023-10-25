@@ -1,0 +1,22 @@
+.button {
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  width: min-content;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e3f9f7;
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.button:disabled svg path {
+  stroke: #7e8492;
+}

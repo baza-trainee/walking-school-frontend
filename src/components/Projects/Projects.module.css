@@ -3,13 +3,16 @@
   padding: 0;
 }
 
+.projectsWrapper {
+  background: var(--projects-external-bg);
+}
+
 .projects {
-  padding: 0 16px 60px 16px;
+  padding: 60px 16px 30px 16px;
   display: flex;
   flex-direction: column;
   gap: 28px;
   align-items: center;
-  background: var(--projects-external-bg);
 }
 
 .projects__title {
@@ -105,7 +108,7 @@
   .projects__title h2 {
     font-size: var(--h2-fs-web);
     width: 563px;
-    color: #1d1e25;
+    color: var(--header-text-color);
   }
 
   .projects__title p {

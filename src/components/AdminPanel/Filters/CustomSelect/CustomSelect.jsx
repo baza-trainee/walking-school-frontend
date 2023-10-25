@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./CustomSelect.module.css";
-import arrowUp from "../../../../assets/images/arrowUp.svg";
-import arrowDown from "../../../../assets/images/arrowDown.svg";
+import arrowUp from "../../../../assets/admin/customSelect/arrowUp.svg";
+import arrowDown from "../../../../assets/admin/customSelect/arrowDown.svg";
 import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 
 export const CustomSelect = ({
@@ -9,6 +9,7 @@ export const CustomSelect = ({
   selectPrompt = "Оберіть категорію",
   options,
   error,
+  onChange,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -18,28 +19,34 @@ export const CustomSelect = ({
   const handleSelect = (option) => {
     setSelectedOption(option);
     setIsExpanded(false);
+    if (onChange) {
+      onChange(option);
+    }
   };
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));
+  const borderColor = error ? "red" : "black";
+  const borderRadius = isExpanded ? "4px 4px 0 0" : "4px";
+  const optionColor = error
+    ? "red"
+    : isExpanded || selectedOption
+    ? "black"
+    : "#747474";
 
   return (
     <div
       className={styles.dropdown}
       ref={dropDownRef}
       style={{
-        borderRadius: isExpanded ? "4px 4px 0 0" : "4px",
-        borderColor: error ? "red" : "black",
+        borderRadius,
+        borderColor,
       }}
     >
       <div className={styles.content} onClick={handleToggle}>
         <div
           className={styles.optionLabel}
           style={{
-            color: error
-              ? "red"
-              : isExpanded || selectedOption
-              ? "black"
-              : "#747474",
+            color: optionColor,
           }}
         >
           <div>{isExpanded ? selectPrompt : selectedOption || placeholder}</div>
@@ -57,6 +64,7 @@ export const CustomSelect = ({
           }`}
           style={{
             border: error ? "1px solid red" : "1px solid black",
+            borderRadius: "0 0 4px 4px",
           }}
         >
           {options.map((item, index) => (

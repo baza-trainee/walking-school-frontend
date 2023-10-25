@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Alert.module.css";
-import close from "../../../assets/admin/close.svg";
+import close from "../../../assets/admin/common/close.svg";
 
 const Success = ({ title, message, closeModal }) => {
   return (
@@ -10,7 +10,7 @@ const Success = ({ title, message, closeModal }) => {
         onClick={() => closeModal()}
         data-testid="Close"
       >
-        <img src={close} />
+        <img src={close} alt="close" />
       </div>
       <div className={styles.content}>
         <h5 className={styles.successTitle}>{title}</h5>

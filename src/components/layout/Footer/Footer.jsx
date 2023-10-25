@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "../Container/Container";
-import linkedin from "../../../assets/images/linkedin.svg";
-import facebook from "../../../assets/images/facebook.svg";
+import linkedin from "../../../assets/main/footer/linkedin.svg";
+import facebook from "../../../assets/main/footer/facebook.svg";
 import styles from "./Footer.module.css";
 import { useMedia } from "../../../hooks/useMedia";
 import { FooterLinksList } from "./FooterLinksList/FooterLinksList";
 import { SocialIconsList } from "./SocialIconsList/SocialIconsList";
 import { FooterLogo } from "./FooterLogo";
 import { FooterContacts } from "./FooterContacts/FooterContacts";
+// import { useFooterContacts } from "../../../hooks/useFooterContacts";
 
 export const Footer = () => {
   const { isDesktop, isMobile, isTablet } = useMedia();
@@ -21,8 +22,10 @@ export const Footer = () => {
     { href: "#linkedin", src: linkedin, alt: "linkedin logo" },
   ];
 
-  const email = "email-address@gmail.com";
-  const phoneNumber = "+380 67 568 1788";
+  // const { contacts, error, isLoading, isError } = useFooterContacts();
+
+  const email = "email-address@gmail.com"; /* contacts.contact_email */
+  const phoneNumber = "+380 67 568 1788"; /* contacts.phone */
 
   return (
     <footer>

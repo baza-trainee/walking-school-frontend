@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../../components/layout/Container/Container";
 import Button from "../../components/UI/Button/Button";
-import Image from "../../assets/images/404.svg";
+import Image from "../../assets/page404/404.svg";
 import style from "./NotFoundPage.module.css";
 import useRedirect from "../../hooks/useRedirect";
 
@@ -10,7 +10,7 @@ import useRedirect from "../../hooks/useRedirect";
  * @returns {React.JSX.Element}
  */
 const NotFoundPage = () => {
-  const redirect = useRedirect("walking-school-frontend");
+  const redirect = useRedirect("/");
   return (
     <Container>
       <section data-testid="page" className={style.notFound}>

@@ -79,10 +79,10 @@ describe("Requirements component", () => {
   it("contains all the requirements", () => {
     mockedUseMedia.mockReturnValue({ isDesktop: true });
     render(<Requirements />);
-    const requirementsList = screen.getByTestId("requirements")
-    const list = screen.getAllByTestId("requirement")
+    const requirementsList = screen.getByTestId("requirements");
+    const list = screen.getAllByTestId("requirement");
     for (let i = 0; i < list.length; i += 1) {
-      expect(requirementsList).toContainElement(list[i])
+      expect(requirementsList).toContainElement(list[i]);
     }
-  })
+  });
 });

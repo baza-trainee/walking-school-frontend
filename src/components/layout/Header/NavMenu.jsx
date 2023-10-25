@@ -3,7 +3,7 @@ import style from "./header.module.css";
 import Link from "../../UI/Links/Link";
 import { useMedia } from "../../../hooks/useMedia";
 
-const NavMenu = ({ setIsOpen }) => {
+const NavMenu = ({ setIsOpen, screenLarge }) => {
   const { isDesktop } = useMedia();
 
   const onCLickHandler = (targetId) => {
@@ -15,7 +15,9 @@ const NavMenu = ({ setIsOpen }) => {
         behavior: "smooth",
       });
     }
-    setIsOpen(false);
+    if (setIsOpen) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -23,25 +25,32 @@ const NavMenu = ({ setIsOpen }) => {
       <div className={style.list}>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("projects")}
         >
           Проєкти
         </div>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("gallery")}
         >
           Галерея
         </div>
         <div
           className={style.list__link}
+          style={{ borderRadius: screenLarge ? "24px" : "" }}
           onClick={() => onCLickHandler("contacts")}
         >
           Контакти
         </div>
       </div>
       <div className={style.btn}>
-        <Link to={"/"} variant={isDesktop ? "large" : "small"}>
+        <Link
+          target="_blank"
+          to="https://secure.wayforpay.com/button/b0f4bab8c79e7"
+          variant={isDesktop ? "large" : "small"}
+        >
           Підтримати
         </Link>
       </div>

@@ -58,7 +58,7 @@
   background: var(--projects-date-bg);
   color: #131313;
   font-family: var(--body-text-ff);
-  font-size: var(--body-text-fs-tab);
+  font-size: var(--body-text-fs-mob);
   font-style: normal;
   font-weight: var(--body-text-fw);
   line-height: var(--body-text-lh);
@@ -139,6 +139,7 @@
 
 .data__age {
   display: flex;
+  height: 24px;
   gap: 8px;
   align-items: center;
   color: var(--age-text-color);
@@ -157,6 +158,39 @@
   line-height: var(--body-text-lh);
 }
 
+/*Skeleton*/
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+.card__image.skeleton {
+  display: inline-block;
+  width: 288px;
+  height: 196px;
+  object-fit: cover;
+  clip-path: url(#clip-path);
+}
+
+.date.skeleton {
+  height: 40px;
+}
+
+.skeleton__btn {
+  border-radius: 24px;
+  height: 48px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 @media screen and (min-width: 767px) {
   .card {
     width: 352px;
@@ -167,6 +201,11 @@
     height: 255px;
   }
 
+  .card__image.skeleton {
+    height: 255px;
+    width: 352px;
+  }
+
   .card__image img {
     width: 352px;
     height: 255px;
@@ -174,6 +213,7 @@
 
   .date {
     left: 131px;
+    font-size: var(--body-text-fs-tab);
   }
 
   .info {
@@ -216,6 +256,7 @@
 
   .join__link {
     width: 162px;
+    height: 48px;
   }
 }
 
@@ -224,6 +265,10 @@
     width: 367px;
   }
 
+  .card__image.skeleton {
+    width: 367px;
+    height: 288px;
+  }
   .card__image {
     height: 288px;
   }
