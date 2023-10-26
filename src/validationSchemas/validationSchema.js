@@ -61,6 +61,6 @@ export const subtitleValidation = Yup.string()
   )
   .required("Поле обов'язкове до заповнення");
 
-export const imageValidation = Yup.mixed().required(
+export const imageValidation = Yup.string().required(
   "Поле обов'язкове до заповнення",
 );

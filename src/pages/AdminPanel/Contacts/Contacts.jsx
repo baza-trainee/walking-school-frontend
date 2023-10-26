@@ -11,12 +11,9 @@ import {
   urlsValidationSchema,
 } from "../../../validationSchemas/validationSchema";
 import { formatPhoneNumber } from "../../../heplers/formatPhoneNumber";
+import { anyFieldTouched } from "../../../heplers/anyFieldTouched";
 
 const Contacts = () => {
-  const anyFieldTouched = (touched) => {
-    return Object.values(touched).some((field) => field === true);
-  };
-
   const validationSchema = Yup.object({
     phone: phoneValidationSchema,
     contactEmail: emailValidationSchema,
@@ -47,6 +44,7 @@ const Contacts = () => {
           }}
           validateOnChange={false}
           validateOnBlur={true}
+          enableReinitialize={true}
         >
           {({ values, handleBlur, handleChange, errors, touched, isValid }) => {
             const handleChangePhone = (e) => {

@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getAllCards } from "../API/ProjectsAPI";
+import { getAllCards } from "../API/projectsAPI";
 import { useState } from "react";
 
 // dummy data for testing purposes
