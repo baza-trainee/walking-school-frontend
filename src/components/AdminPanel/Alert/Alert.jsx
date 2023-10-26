@@ -16,9 +16,11 @@ const Alert = ({
   };
 
   useEffect(() => {
-    active
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflowY = "auto");
+    if (active) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
   }, [active]);
 
   let content;

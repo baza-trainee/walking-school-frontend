@@ -19,6 +19,7 @@ const FileDrop = ({
   setIsCropImg,
   variant,
   error,
+  handleClear,
   ...props
 }) => {
   const [fileError, setFileError] = useState("");
@@ -81,7 +82,7 @@ const FileDrop = ({
                 : styles["absolute-4"]
             }`}
           >
-            <Close />
+            <Close onClick={() => handleClear(`${props.name}`)} />
           </div>
         </>
       ) : (
