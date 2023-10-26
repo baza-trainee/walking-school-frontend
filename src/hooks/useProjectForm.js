@@ -1,10 +1,24 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
-import { createProject, updateProject } from "../API/projectsAPI";
+import { createProject, updateProject } from "../API/ProjectsAPI";
+import { formatDate } from "../components/AdminPanel/Filters/DateSelect/DateSelect";
+import { useState } from "react";
 
 export const useProjectForm = (projectId) => {
-  const mutation = useMutation(projectId ? updateProject : createProject);
+  const [localError, setLocalError] = useState(null);
+
+  const mutation = useMutation(projectId ? updateProject : createProject, {
+    onSuccess: () => {
+      setLocalError(null);
+    },
+    onError: (error) => {
+      setLocalError(error);
+      setTimeout(() => {
+        setLocalError(null);
+      }, 2500);
+    },
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -12,8 +26,8 @@ export const useProjectForm = (projectId) => {
       link: "",
       description: "",
       publishDate: null,
-      eventDate: null,
-      ageLimit: null,
+      period: null,
+      age_category: null,
       category: null,
       image: null,
     },
@@ -23,23 +37,15 @@ export const useProjectForm = (projectId) => {
         .url("Невірний формат посилання")
         .required("Обов'язкове поле"),
       description: Yup.string().required("Обов'язкове поле"),
-      eventDate: Yup.string()
-        .matches(
-          /^(0[1-9]|1[0-2])\.\d{4} - (0[1-9]|1[0-2])\.\d{4}$/,
-          "Невірний формат",
-        )
-        .required("Обов'язкове поле"),
-      ageLimit: Yup.string().required("Обов'язкове поле"),
+      period: Yup.string().required("Обов'язкове поле"),
+      age_category: Yup.string().required("Обов'язкове поле"),
       category: Yup.string().required("Обов'язкове поле"),
       image: Yup.string().required(),
     }),
     onSubmit: (values) => {
       if (!values.publishDate) {
         const currentDate = new Date();
-        values.publishDate = `${String(currentDate.getMonth() + 1).padStart(
-          2,
-          "0",
-        )}.${currentDate.getFullYear()}`;
+        values.publishDate = formatDate(currentDate);
       }
 
       console.log(values);
@@ -49,7 +55,8 @@ export const useProjectForm = (projectId) => {
 
   return {
     formik,
-    mutationStatus: mutation.status,
-    mutationError: mutation.error,
+    mutationStatus: mutation.isLoading,
+    localError,
+    isLoading: mutation.isLoading,
   };
 };
