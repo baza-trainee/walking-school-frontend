@@ -8,8 +8,6 @@ import Alert from "../../../components/AdminPanel/Alert/Alert";
 const HeroActions = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  // eslint-disable-next-line no-unused-vars
-  const [data, setData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const closeHandler = () => {
@@ -19,17 +17,7 @@ const HeroActions = () => {
       navigate(-1);
     }
   };
-  // useEffect(() => {
-  //   if (id) {
-  //     getHeroData(Number(id))
-  //       .then((data) => {
-  //         setData(data);
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
-  // }, [id])
+
   return (
     <div>
       <AdminHeader
@@ -38,12 +26,7 @@ const HeroActions = () => {
         closeFunc={closeHandler}
       />
       <div className={styles.actions}>
-        <FormHero
-          id={id}
-          title={data.title}
-          subtitle={data.subtitle}
-          image={data.image}
-        />
+        <FormHero id={id} />
       </div>
 
       {isOpen && (
@@ -54,7 +37,7 @@ const HeroActions = () => {
           }
           setActive={setIsOpen}
           active={isOpen}
-          successFnc={() => navigate(-1)}
+          successFnc={() => navigate("/admin")}
         />
       )}
     </div>

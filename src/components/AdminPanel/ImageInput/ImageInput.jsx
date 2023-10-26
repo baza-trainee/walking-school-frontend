@@ -9,13 +9,22 @@ import FileDrop from "./FileDrop";
  * @params error = error from form validation
  * */
 
-const ImageInput = ({ variant = "project", onChange, src, error }) => {
+const ImageInput = ({
+  variant = "project",
+  onChange,
+  src,
+  error,
+  handleClear,
+  ...props
+}) => {
   const [isCropImg, setIsCropImg] = useState(false);
   const [preview, setPreview] = useState("");
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    onChange(preview);
+    if (preview) {
+      onChange(preview);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preview]);
 
@@ -51,6 +60,8 @@ const ImageInput = ({ variant = "project", onChange, src, error }) => {
         setIsCropImg={setIsCropImg}
         variant={variant}
         error={error}
+        handleClear={handleClear}
+        {...props}
       />
     </>
   );
