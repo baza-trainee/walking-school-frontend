@@ -10,8 +10,9 @@ export const getAllHeros = async () => {
 };
 
 export const getHeroById = async (key, id) => {
+  let heroId = parseInt(key.queryKey[1]);
   try {
-    const { data } = await $host.get(`hero/${id}`);
+    const { data } = await $host.get(`hero/${heroId}`);
     return data;
   } catch (e) {
     throw e;

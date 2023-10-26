@@ -7,6 +7,6 @@ import {
 
 export const heroValidation = Yup.object({
   title: titleValidation,
-  subtitle: subtitleValidation,
+  description: subtitleValidation,
   image: imageValidation,
 });

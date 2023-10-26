@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getAllHeros } from "../../../../API/heroAPI";
 import SpinnerLoader from "../../../Loader/SpinnerLoader";
+import ErrorModal from "../../ErrorModal/ErrorModal";
 
 const HeroList = () => {
   const navigate = useNavigate();
@@ -48,14 +49,14 @@ const HeroList = () => {
     );
   }
 
-  // if (error) {
-  //   return (
-  //     <ErrorModal
-  //       message={`Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`}
-  //       className={styles.centered}
-  //     />
-  //   );
-  // }
+  if (error) {
+    return (
+      <ErrorModal
+        message={`Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`}
+        className={styles.centered}
+      />
+    );
+  }
 
   const openModalHandler = (id) => {
     setSelectedHero(id);
@@ -69,8 +70,8 @@ const HeroList = () => {
 
   return (
     <div className={styles.container}>
-      {items ? (
-        items.map((item) => (
+      {data ? (
+        data.map((item) => (
           <React.Fragment key={item.id}>
             <HeroBlock
               id={item.id}
