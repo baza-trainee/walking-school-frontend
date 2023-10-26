@@ -9,60 +9,69 @@ import Alert from "../../Alert/Alert";
 import { useNavigate } from "react-router-dom";
 import { heroValidation } from "../../../../pages/AdminPanel/HeroAdmin/heroValidation";
 import { anyFieldTouched } from "../../../../heplers/anyFieldTouched";
-import { useMutation } from "react-query";
-import { editHero, postHero } from "../../../../API/heroAPI";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
+import ErrorModal from "../../ErrorModal/ErrorModal";
+import { useGetHeroById } from "../../../../hooks/useGetHeroById";
+import SpinnerLoader from "../../../Loader/SpinnerLoader";
+import { useEditHeroAdmin } from "../../../../hooks/useEditHeroAdmin";
+import { usePostHeroAdmin } from "../../../../hooks/usePostHeroAdmin";
 
-const FormHero = ({ title, subtitle, image, id }) => {
+const FormHero = ({ id }) => {
   const navigate = useNavigate();
-  const [isPostSuccess, setIsPostSuccess] = useState(true);
-  const [isEditSuccess, setIsEditSuccess] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  const mutationPost = useMutation(postHero, {
-    onSuccess: () => {
-      setIsPostSuccess(true);
-    },
-  });
-
-  const mutationEdit = useMutation(editHero, {
-    onSuccess: () => {
-      setIsEditSuccess(true);
-    },
-  });
+  // eslint-disable-next-line no-unused-vars
+  const { hero, error, isLoading } = useGetHeroById(id);
+  const { edit, isEditSuccess, setIsEditSuccess } = useEditHeroAdmin();
+  const { post, isPostSuccess, setIsPostSuccess } = usePostHeroAdmin();
 
   const onSubmit = (data, type) => {
     if (type === "post") {
-      mutationPost.mutate(data);
+      post.mutate(data);
     } else {
-      mutationEdit.mutate(data);
+      edit.mutate(data);
     }
   };
 
-  // if (isLoading) {
+  if (isLoading) {
+    return (
+      <div className={styles.centered}>
+        <SpinnerLoader />
+      </div>
+    );
+  }
+
+  // if (error) {
   //   return (
-  //     <div className={styles.centered}>
-  //       <SpinnerLoader />
-  //     </div>
+  //     <ErrorModal
+  //       message={`Не вдалось завантажити данні: ${error.message}. Спробуйте будь ласка пізніше.`}
+  //       className={styles.centered}
+  //     />
   //   );
   // }
 
   return (
     <Formik
       initialValues={{
-        title: title || "",
-        subtitle: subtitle || "",
-        image: image || "",
+        id: hero?.id || null,
+        title: hero?.title || "",
+        description: hero?.description || "",
+        image: hero?.image || "",
       }}
       validationSchema={heroValidation}
       onSubmit={async (values, { setSubmitting }) => {
-        const { image, ...rest } = values;
-        const formattedImage = await blobUrlToBase64(image);
-
-        const data = { image: formattedImage, ...rest };
-
-        onSubmit(data, "post");
-        setSubmitting(mutationPost.isLoading);
+        if (id) {
+          const { image, ...rest } = values;
+          const formattedImage = await blobUrlToBase64(image);
+          const data = { image: formattedImage, ...rest };
+          onSubmit(data, "edit");
+          setSubmitting(edit.isLoading);
+        } else {
+          const { id, image, ...rest } = values;
+          const formattedImage = await blobUrlToBase64(image);
+          const data = { image: formattedImage, ...rest };
+          onSubmit(data, "post");
+          setSubmitting(post.isLoading);
+        }
       }}
       validateOnChange={true}
       validateOnBlur={true}
@@ -111,11 +120,11 @@ const FormHero = ({ title, subtitle, image, id }) => {
               </div>
               <div style={{ height: "236px", width: "737px" }}>
                 <AdminInput
-                  id={"subtitle"}
-                  value={values.subtitle}
+                  id={"description"}
+                  value={values.description}
                   variant={"textarea"}
-                  error={touched.subtitle ? errors.subtitle : ""}
-                  name={"subtitle"}
+                  error={touched.description ? errors.description : ""}
+                  name={"description"}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder={"Підзаголовок"}
@@ -130,9 +139,16 @@ const FormHero = ({ title, subtitle, image, id }) => {
                 name={"image"}
                 onChange={(img) => setFieldValue("image", img)}
                 error={touched.image ? errors.image : ""}
-                src={image}
+                src={hero?.image || ""}
               />
             </div>
+            {(post.isError || edit.isError) && (
+              <div>
+                <ErrorModal
+                  message={`Не вдалось оновити данні. Спробуйте пізніше`}
+                />
+              </div>
+            )}
             <div className={styles.buttons}>
               <AdminButton
                 variant={"secondary"}

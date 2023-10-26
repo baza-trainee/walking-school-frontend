@@ -9,7 +9,7 @@ export const getAllHeros = async () => {
   }
 };
 
-export const getHeroById = async (id) => {
+export const getHeroById = async (key, id) => {
   try {
     const { data } = await $host.get(`hero/${id}`);
     return data;

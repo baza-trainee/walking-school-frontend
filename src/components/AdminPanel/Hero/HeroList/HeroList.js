@@ -4,6 +4,9 @@ import HeroBlock from "../HeroBlock/HeroBlock";
 import NoHero from "../NoHeroAdmin/NoHero";
 import Alert from "../../Alert/Alert";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllHeros } from "../../../../API/heroAPI";
+import SpinnerLoader from "../../../Loader/SpinnerLoader";
 
 const HeroList = () => {
   const navigate = useNavigate();
@@ -32,6 +35,27 @@ const HeroList = () => {
         "Наша Школа ходи для ветеранів - це не просто набір екстремальних пригод. Це потужний інструмент для відновлення та підвищення якості життя.",
     },
   ]);
+  // eslint-disable-next-line no-unused-vars
+  const { data, error, isLoading } = useQuery("heroList", getAllHeros, {
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading) {
+    return (
+      <div className={styles.centered}>
+        <SpinnerLoader />
+      </div>
+    );
+  }
+
+  // if (error) {
+  //   return (
+  //     <ErrorModal
+  //       message={`Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`}
+  //       className={styles.centered}
+  //     />
+  //   );
+  // }
 
   const openModalHandler = (id) => {
     setSelectedHero(id);
