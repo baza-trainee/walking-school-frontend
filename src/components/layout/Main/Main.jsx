@@ -32,17 +32,17 @@ const Main = () => (
   // eslint-disable-next-line react/prop-types
   <main className={styles.main}>
     <Suspense>
-    <HeroSection />
-    <Adventures />
-    <Offerings />
-    <Scroller />
-    <Projects />
-    <Participate />
-    <Requirements />
-    <Partners />
-    <FollowUsFacebook />
-    <Contact />
-    <ScrollUp />
+      <HeroSection />
+      <Adventures />
+      <Offerings />
+      <Scroller />
+      <Projects />
+      <Participate />
+      <Requirements />
+      <Partners />
+      <FollowUsFacebook />
+      <Contact />
+      <ScrollUp />
     </Suspense>
   </main>
 );
