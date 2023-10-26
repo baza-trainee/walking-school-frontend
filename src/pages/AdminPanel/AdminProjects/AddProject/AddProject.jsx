@@ -10,14 +10,23 @@ import { ageOptions, eventOptions } from "../optionsData";
 import { useParams } from "react-router";
 import { useProjectForm } from "../../../../hooks/useProjectForm";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Alert from "../../../../components/AdminPanel/Alert/Alert";
+import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
+import DotsLoader from "../../../../components/Loader/DotsLoader";
 
 export const AddProject = () => {
+  const [isActiveModal, setIsActiveModal] = useState(false);
   const { id } = useParams();
-  const { formik } = useProjectForm(id);
+  const { formik, mutationStatus, localError, isLoading } = useProjectForm(id);
   const navigate = useNavigate();
 
   const navigateToProjects = () => {
     navigate(`/admin/projects`);
+  };
+
+  const onCancelFunc = () => {
+    setIsActiveModal(true);
   };
 
   return (
@@ -27,83 +36,105 @@ export const AddProject = () => {
         withClose={true}
         closeFunc={navigateToProjects}
       />
-      <form onSubmit={formik.handleSubmit}>
-        <div className={styles.content}>
-          <div className={styles.leftBlock}>
-            <AdminInput
-              name="title"
-              variant="admin"
-              placeholder="Заголовок"
-              onChange={formik.handleChange}
-              value={formik.values.title}
-              error={formik.touched.title && formik.errors.title}
-            />
-            <AdminInput
-              name="link"
-              variant="admin"
-              placeholder="Додайте посилання"
-              onChange={formik.handleChange}
-              value={formik.values.link}
-              error={formik.touched.link && formik.errors.link}
-            />
-            <AdminInput
-              name="description"
-              variant="textarea"
-              placeholder="Опис"
-              onChange={formik.handleChange}
-              value={formik.values.description}
-              error={formik.touched.description && formik.errors.description}
-            />
-            <div className={styles.tooltipContainer}>
+      {isLoading ? (
+        <DotsLoader />
+      ) : (
+        <form onSubmit={formik.handleSubmit}>
+          <div className={styles.content}>
+            <div className={styles.leftBlock}>
+              <AdminInput
+                name="title"
+                variant="admin"
+                placeholder="Заголовок"
+                onChange={formik.handleChange}
+                value={formik.values.title}
+                error={formik.touched.title && formik.errors.title}
+              />
+              <AdminInput
+                name="link"
+                variant="admin"
+                placeholder="Додайте посилання"
+                onChange={formik.handleChange}
+                value={formik.values.link}
+                error={formik.touched.link && formik.errors.link}
+              />
+              <AdminInput
+                name="description"
+                variant="textarea"
+                placeholder="Опис"
+                onChange={formik.handleChange}
+                value={formik.values.description}
+                error={formik.touched.description && formik.errors.description}
+              />
+              <div className={styles.tooltipContainer}>
+                <DateSelect
+                  placeholder={"Дата публікації"}
+                  onChange={(date) => formik.setFieldValue("publishDate", date)}
+                  id={"publishDate"}
+                  error={
+                    formik.touched.publishDate && formik.errors.publishDate
+                  }
+                  isPublicDate
+                />
+                <Tooltip />
+              </div>
+              <div className={styles.buttonWrapper}>
+                <AdminButton
+                  type="button"
+                  variant="secondary"
+                  children={"Скасувати"}
+                  onClick={onCancelFunc}
+                  disabled={mutationStatus}
+                />
+                <AdminButton
+                  type="submit"
+                  variant="primary"
+                  children={"Зберегти"}
+                  disabled={mutationStatus}
+                />
+              </div>
+            </div>
+            <div className={styles.rightBlock}>
               <DateSelect
-                placeholder={"Дата публікації"}
-                onChange={(date) => formik.setFieldValue("publishDate", date)}
-                id={"publishDate"}
-                error={formik.touched.publishDate && formik.errors.publishDate}
+                placeholder={"Період"}
+                onChange={(date) => formik.setFieldValue("period", date)}
+                id={"period"}
+                error={formik.touched.period && formik.errors.period}
               />
-              <Tooltip />
-            </div>
-            <div className={styles.buttonWrapper}>
-              <AdminButton
-                type="button"
-                variant="secondary"
-                children={"Скасувати"}
+              <CustomSelect
+                options={eventOptions}
+                onChange={(option) => formik.setFieldValue("category", option)}
+                error={formik.touched.category && formik.errors.category}
               />
-              <AdminButton
-                type="submit"
-                variant="primary"
-                children={"Зберегти"}
+              <CustomSelect
+                options={ageOptions}
+                onChange={(option) =>
+                  formik.setFieldValue("age_category", option)
+                }
+                placeholder="Вікові обмеження"
+                selectPrompt="Оберіть вік"
+                error={
+                  formik.touched.age_category && formik.errors.age_category
+                }
+              />
+              <ImageInput
+                variant="project"
+                onChange={(blob) => formik.setFieldValue("image", blob)}
+                src={null}
+                error={formik.touched.image && formik.errors.image}
               />
             </div>
           </div>
-          <div className={styles.rightBlock}>
-            <DateSelect
-              placeholder={"Період"}
-              onChange={(date) => formik.setFieldValue("eventDate", date)}
-              id={"eventDate"}
-              error={formik.touched.eventDate && formik.errors.eventDate}
-            />
-            <CustomSelect
-              options={eventOptions}
-              onChange={(option) => formik.setFieldValue("category", option)}
-              error={formik.touched.category && formik.errors.category}
-            />
-            <CustomSelect
-              options={ageOptions}
-              onChange={(option) => formik.setFieldValue("ageLimit", option)}
-              placeholder="Вікові обмеження"
-              selectPrompt="Оберіть вік"
-              error={formik.touched.ageLimit && formik.errors.ageLimit}
-            />
-            <ImageInput
-              variant="project"
-              onChange={(blob) => formik.setFieldValue("image", blob)}
-              src={null}
-              error={formik.touched.image && formik.errors.image}
-            />
-          </div>
-        </div>
-      </form>
+        </form>
+      )}
+
+      <Alert
+        title={"Ви дійсно хочете призупинити процес?"}
+        active={isActiveModal}
+        setActive={setIsActiveModal}
+        successFnc={navigateToProjects}
+      />
+      {localError && <ErrorModal message={localError.message} />}
     </>
   );
 };
