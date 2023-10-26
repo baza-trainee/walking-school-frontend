@@ -52,7 +52,7 @@ const AdminPartners = () => {
 
   const { data, loading, error } = useQuery({
     queryKey: ["partners"],
-    queryFn: () => getPartners,
+    queryFn: () => getPartners(),
   });
 
   const queryClient = useQueryClient();
@@ -60,24 +60,25 @@ const AdminPartners = () => {
   const mutation = useMutation({
     mutationFn: () => deletePartner,
     mutationKey: ["partners"],
-    onSettled: () => queryClient.invalidateQueries(["partners"]),
+    onSuccess: () => queryClient.invalidateQueries(["partners"]),
   });
 
-  const preSorted = data?.sort((a, b) => {
-    a = a.creation_date.split(".").reverse().join("");
-    b = b.creation_date.split(".").reverse().join("");
-    return a > b ? 1 : a < b ? -1 : 0;
-  });
+  // const preSorted = data?.sort((a, b) => {
+  //   a = a.creation_date.split(".").reverse().join("");
+  //   b = b.creation_date.split(".").reverse().join("");
+  //   return a > b ? 1 : a < b ? -1 : 0;
+  // });
 
-  const sorted = reversed ? preSorted.reverse() : preSorted;
+  // const sorted = reversed ? preSorted.reverse() : preSorted;
 
-  const filteredProjects = sorted.filter((element) =>
-    element.partner_name.toLowerCase().includes(searchWord.toLowerCase()),
-  );
+  // const filteredProjects = sorted.filter((element) =>
+  //   element.partner_name.toLowerCase().includes(searchWord.toLowerCase()),
+  // );
 
-  const reverseList = () => {
-    setReversed(!reversed);
-  };
+  // const reverseList = () => {
+  //   setReversed(!reversed);
+  // };
+  console.log(data);
 
   const navigateToAdd = () => {
     navigate(`/admin/partners/add`);
@@ -91,6 +92,26 @@ const AdminPartners = () => {
     mutation.mutateAsync(partnerId);
   };
 
+  const DisplayedComponent = () => {
+    if (data === undefined || Object.keys(data).length === 0) {
+      return <div>data is empty or undefined</div>;
+    } else if (!error) {
+      return (
+        <AdminPartnersList
+          // sortingFunc={reverseList}
+          // data={filteredProjects}
+          deleteFunc={deleteFunc}
+          navigateToEdit={navigateToEdit}
+        />
+      );
+    }
+  };
+
+  if(error) {
+    console.error(error);
+    console.log(`error message: ${error.message}`);
+  }
+
   return (
     <div className={style.partners}>
       <AdminHeader
@@ -102,12 +123,7 @@ const AdminPartners = () => {
         heading="Партнери"
       />
       <div className={style.partners__content}>
-        <AdminPartnersList
-          sortingFunc={reverseList}
-          data={filteredProjects}
-          deleteFunc={deleteFunc}
-          navigateToEdit={navigateToEdit}
-        />
+        {loading ? <div>loading...</div> : <DisplayedComponent />}
       </div>
     </div>
   );
