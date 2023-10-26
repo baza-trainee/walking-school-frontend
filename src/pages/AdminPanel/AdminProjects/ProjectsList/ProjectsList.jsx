@@ -10,6 +10,7 @@ export const ProjectsList = ({
   navigateToEdit,
   deleteFunc,
   handleSortByDate,
+  setSelectedProject,
 }) => {
   const [filter, setFilter] = useState({ value: "all", label: "Всі" });
 
@@ -17,6 +18,11 @@ export const ProjectsList = ({
     if (filter.value === "all") return true;
     return project.status === filter.value;
   });
+
+  const onDelete = (projectId) => {
+    deleteFunc();
+    setSelectedProject(projectId);
+  };
 
   return (
     <div className={styles.projects}>
@@ -41,7 +47,7 @@ export const ProjectsList = ({
                 key={uuidv4()}
                 withStateColumn={true}
                 navigateToEdit={() => navigateToEdit(project.id)}
-                deleteFunc={() => deleteFunc(project.id)}
+                deleteFunc={() => onDelete(project.id)}
               />
             );
           })}
