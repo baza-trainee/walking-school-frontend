@@ -6,6 +6,9 @@ import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput"
 
 import style from "./AddPartner.module.css";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
+import { postPartner } from "../../../../API/partners";
 
 const AddPartner = () => {
   const navigate = useNavigate();
@@ -24,10 +27,31 @@ const AddPartner = () => {
     setImageValue(newPreview);
   };
 
-  const submitFunc = (event) => {
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: postPartner,
+    onSettled: () => queryClient.invalidateQueries(["partners"]),
+    onError: (error) => {
+      console.error("Error adding partner:", error);
+    },
+  
+  });
+
+  const submitFunc = async (event) => {
     event.preventDefault();
     console.log(imageValue);
     console.log(inputValue);
+    const transformedData = {
+      title: inputValue,
+      image: await blobUrlToBase64(imageValue),
+    };
+    console.log(transformedData);
+    try {
+      mutation.mutateAsync(transformedData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
