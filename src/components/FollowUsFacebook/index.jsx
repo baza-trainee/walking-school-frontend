@@ -5,11 +5,18 @@ import { useMedia } from "../../hooks/useMedia";
 import { SmallScreen } from "./SmallScreen";
 import { FollowUsSlider } from "./FollowUsSlider";
 import Container from "../layout/Container";
+import { useQuery } from "@tanstack/react-query";
+import { getFacebook } from "../../API/followUsFacebook";
 
 const FollowUsFacebook = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
 
   let slidesQuantity;
+
+  const { data, loading, error } = useQuery({
+    queryKey: ["facebook"],
+    queryFn: getFacebook,
+  });
 
   if (isTablet) {
     slidesQuantity = 3;
@@ -18,12 +25,18 @@ const FollowUsFacebook = () => {
   }
 
   const content = isMobile ? (
-    <SmallScreen />
+    loading ? (
+      <div>loading</div>
+    ) : (
+      <SmallScreen data={data}/>
+    )
+  ) : loading ? (
+    <div>loading</div>
   ) : (
-    <FollowUsSlider slidesQuantity={slidesQuantity} Navigation={Navigation} />
+    <FollowUsSlider data={data} slidesQuantity={slidesQuantity} Navigation={Navigation} />
   );
 
-  return <Container>{content}</Container>;
+  return <Container>{error ? <div>an error occurred</div> : content}</Container>;
 };
 
 export default FollowUsFacebook;
