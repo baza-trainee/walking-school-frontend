@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import "./App.module.css";
 import Layout from "./components/layout/Layout/Layout";
 import MainAdmin from "./components/layout/AdminLayout/MainAdmin";
 import Login from "./pages/AdminPanel/Auth/Login/Login";
@@ -64,4 +65,3 @@ function App() {
 }
 
 export default App;
-//comment
