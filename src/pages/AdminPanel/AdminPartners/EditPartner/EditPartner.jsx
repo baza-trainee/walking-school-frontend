@@ -10,6 +10,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getPartnerById, putPartner } from "../../../../API/partners";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
 
+// test comment
 const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
