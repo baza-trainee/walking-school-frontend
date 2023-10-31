@@ -29,6 +29,7 @@ const EditPartner = () => {
     setImageValue(newPreview);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const { data, loading, error } = useQuery({
     queryKey: ["partners"],
     queryFn: () => getPartnerById(id),
