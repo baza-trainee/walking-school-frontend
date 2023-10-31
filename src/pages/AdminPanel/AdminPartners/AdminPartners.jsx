@@ -47,7 +47,7 @@ import { deletePartner, getPartners } from "../../../API/partners";
 
 const AdminPartners = () => {
   const [searchWord, setSearchWord] = useState("");
-  const [reversed, setReversed] = useState(false);
+  // const [reversed, setReversed] = useState(false);
   const navigate = useNavigate();
 
   const { data, loading, error } = useQuery({

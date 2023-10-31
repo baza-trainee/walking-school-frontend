@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./followUs.module.css";
 // import { data } from "./data";
-import { useQuery } from "@tanstack/react-query";
-import { getFacebook } from "../../API/followUsFacebook";
+// import { useQuery } from "@tanstack/react-query";
+// import { getFacebook } from "../../API/followUsFacebook";
 import Button from "../UI/Button/Button";
 
 export const SmallScreen = ({data}) => {

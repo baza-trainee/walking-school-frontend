@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../UI/Button/Button";
 import styles from "./followUs.module.css";
 import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getFacebook } from "../../API/followUsFacebook";
+// import { useQuery } from "@tanstack/react-query";
+// import { getFacebook } from "../../API/followUsFacebook";
 
 export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
 
@@ -14,7 +14,7 @@ export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
     if (data?.length < 8) {
       setSlides([...data, ...data]);
     }
-  }, []);
+  }, [data]);
 
   return (
     <>

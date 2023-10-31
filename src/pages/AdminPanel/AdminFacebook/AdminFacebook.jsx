@@ -30,6 +30,7 @@ const AdminFacebook = () => {
     });
   };
 
+  // eslint-disable-next-line no-unused-vars
   const { data, loading, error } = useQuery({
     queryKey: ["facebook"],
     queryFn: getFacebook,
