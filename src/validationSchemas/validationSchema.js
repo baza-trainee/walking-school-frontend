@@ -22,7 +22,7 @@ export const passwordValidationSchema = Yup.string()
 export const phoneValidationSchema = Yup.string()
   .max(16, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
   .matches(
-    /^+380\s[3-9]{1}\d{1}\s\d{3}\s\d{4}$/gm,
+    /^+380\s[3-9]{1}\d{1}\s\d{3}\s\d{4}$/,
     "Невірний формат номеру. Приклад: +380 97 924 5565",
   )
   .required("Поле обов'язкове");
