@@ -49,7 +49,7 @@ export const ContactForm = () => {
           required
         />
         <CustomInput
-          type="tel"
+          type="text"
           placeholder="+XXX -"
           text="Телефон"
           name="phoneNumber"
