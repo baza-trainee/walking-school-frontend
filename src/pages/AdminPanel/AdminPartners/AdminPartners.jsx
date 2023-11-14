@@ -107,7 +107,7 @@ const AdminPartners = () => {
     }
   };
 
-  if(error) {
+  if (error) {
     console.error(error);
     console.log(`error message: ${error.message}`);
   }

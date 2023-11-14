@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 // import { getFacebook } from "../../API/followUsFacebook";
 
 export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
-
   const [slides, setSlides] = useState(data);
 
   useEffect(() => {

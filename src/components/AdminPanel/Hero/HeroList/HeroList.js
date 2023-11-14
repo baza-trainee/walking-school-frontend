@@ -75,7 +75,7 @@ const HeroList = () => {
           <React.Fragment key={item.id}>
             <HeroBlock
               id={item.id}
-              image={item.img}
+              image={item.image}
               title={item.title}
               subtitle={item.subtitle}
               removeHandler={() => openModalHandler(item.id)}

@@ -3,7 +3,7 @@ import { $host } from "./index";
 export const getContactData = async () => {
   try {
     const response = await $host.get("contact");
-    return response.data;
+    return response.data[0];
   } catch (e) {
     throw e;
   }

@@ -58,19 +58,18 @@ const AdminFacebook = () => {
             image: null,
           };
         }
-      })
+      }),
     );
     return transformed;
   }
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    const transformedValues = await transformValues(values)
-    try{
-      await mutation.mutateAsync(transformedValues)
-    }
-    catch(error) {
-      console.log(error)
+    const transformedValues = await transformValues(values);
+    try {
+      await mutation.mutateAsync(transformedValues);
+    } catch (error) {
+      console.log(error);
     }
   };
 

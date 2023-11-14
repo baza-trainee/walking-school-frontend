@@ -28,15 +28,21 @@ const FollowUsFacebook = () => {
     loading ? (
       <div>loading</div>
     ) : (
-      <SmallScreen data={data}/>
+      <SmallScreen data={data} />
     )
   ) : loading ? (
     <div>loading</div>
   ) : (
-    <FollowUsSlider data={data} slidesQuantity={slidesQuantity} Navigation={Navigation} />
+    <FollowUsSlider
+      data={data}
+      slidesQuantity={slidesQuantity}
+      Navigation={Navigation}
+    />
   );
 
-  return <Container>{error ? <div>an error occurred</div> : content}</Container>;
+  return (
+    <Container>{error ? <div>an error occurred</div> : content}</Container>
+  );
 };
 
 export default FollowUsFacebook;
