@@ -8,9 +8,9 @@ import { useGetHeroById } from "../../../../hooks/useGetHeroById";
 import { heroValidation } from "../../../../pages/AdminPanel/HeroAdmin/heroValidation";
 import SpinnerLoader from "../../../Loader/SpinnerLoader";
 import FormFields from "./FormFields";
+import ErrorModal from "../../ErrorModal/ErrorModal";
 
 const FormHero = ({ id }) => {
-  // eslint-disable-next-line no-unused-vars
   const { hero, error, isLoading } = useGetHeroById(id);
   const { edit, isEditSuccess, setIsEditSuccess } = useEditHeroAdmin();
   const { post, isPostSuccess, setIsPostSuccess } = usePostHeroAdmin();
@@ -31,14 +31,14 @@ const FormHero = ({ id }) => {
     );
   }
 
-  // if (error) {
-  //   return (
-  //     <ErrorModal
-  //       message={`Не вдалось завантажити данні: ${error.message}. Спробуйте будь ласка пізніше.`}
-  //       className={styles.centered}
-  //     />
-  //   );
-  // }
+  if (error) {
+    return (
+      <ErrorModal
+        message={`Не вдалось завантажити данні: ${error.message}. Спробуйте будь ласка пізніше.`}
+        className={styles.centered}
+      />
+    );
+  }
 
   return (
     <Formik
@@ -54,7 +54,6 @@ const FormHero = ({ id }) => {
           const { image, ...rest } = values;
           const formattedImage = await blobUrlToBase64(image);
           const data = { image: formattedImage, ...rest };
-          console.log("data", data);
           onSubmit(data, "edit");
         } else {
           const { id, image, ...rest } = values;

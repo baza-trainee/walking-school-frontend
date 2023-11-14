@@ -35,9 +35,9 @@ const ImageInput = ({
   }, [src, preview]);
 
   const aspect = {
-    project: 305 / 216,
+    project: 367 / 288,
     facebook: 322 / 360,
-    slide: 1062 / 378,
+    slide: 1440 / 676,
     partner: 214 / 69,
   };
 

@@ -106,6 +106,7 @@ const FormFields = ({
         )}
         <div className={styles.buttons}>
           <AdminButton
+            type={"button"}
             variant={"secondary"}
             onClick={() => {
               if (id) setIsOpen(true);
