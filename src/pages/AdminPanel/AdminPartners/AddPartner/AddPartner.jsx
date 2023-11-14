@@ -35,7 +35,6 @@ const AddPartner = () => {
     onError: (error) => {
       console.error("Error adding partner:", error);
     },
-  
   });
 
   const submitFunc = async (event) => {

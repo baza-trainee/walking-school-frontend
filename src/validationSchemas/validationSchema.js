@@ -22,25 +22,22 @@ export const passwordValidationSchema = Yup.string()
 export const phoneValidationSchema = Yup.string()
   .max(16, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
   .matches(
-    /^\+380[3-9]{1}\d{1}\d{3}\d{4}$/,
-    "Невірний формат номеру. Приклад: +380 97 924 5565",
+    /^\+380 \d{2} \d{3} \d{4}$/,
+    "Невірний формат номеру. Приклад: +380 ## ### ####",
   )
   .required("Поле обов'язкове");
 
 export const urlsValidationSchema = Yup.string()
   .min(2, "Поля повинні мати більше 2 символів")
   .matches(
-    /^https:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z-/]{2,}$/,
-    "Поле повинно містити URL в форматі https://domain.com",
+    /^https:\/\/(www\.)/,
+    "Поле повинно містити URL в форматі https://www.domain.com",
   )
   .required("Поле обов'язкове до заповнення. Введіть посилання");
 
 export const telegramValidationSchema = Yup.string()
   .min(2, "Поля повинні мати більше 2 символів")
-  .matches(
-    /^https?:\/\/(www\.)?t\.me\/[a-zA-Z0-9_-]{5,32}$/,
-    "Невірний URL Telegram",
-  )
+  .matches(/^https?:\/\/(www\.)?t\.me/, "Невірний URL Telegram")
   .required("Поле обов'язкове до заповнення. Введіть посилання");
 
 export const titleValidation = Yup.string()

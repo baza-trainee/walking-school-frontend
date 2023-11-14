@@ -5,8 +5,7 @@ import styles from "./followUs.module.css";
 // import { getFacebook } from "../../API/followUsFacebook";
 import Button from "../UI/Button/Button";
 
-export const SmallScreen = ({data}) => {
-
+export const SmallScreen = ({ data }) => {
   return (
     <section
       className={styles.sectionWrapperSmallScreen}
