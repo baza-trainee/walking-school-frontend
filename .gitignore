@@ -1,10 +1,4 @@
 node_modules
 .idea/
 .env
-node_modules
-.idea/
-<<<<<<< HEAD
-.env
-=======
->>>>>>> 21f5dc869ddb454e9e3256a76c185d1c40e27e7f
 .htaccess
