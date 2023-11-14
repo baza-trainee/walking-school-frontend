@@ -17,8 +17,14 @@ const defaultValues = [
 ];
 
 const AdminFacebook = () => {
-  const [values, setValues] = useState(defaultValues);
+  const { data, loading, error } = useQuery({
+    queryKey: ["facebook"],
+    queryFn: getFacebook,
+  });
 
+  const [values, setValues] = useState(defaultValues);
+  
+  console.log(data)
   const handleImageChange = (index, newPreview) => {
     setValues((prevValues) => {
       const updatedValues = [...prevValues];
@@ -29,12 +35,6 @@ const AdminFacebook = () => {
       return updatedValues;
     });
   };
-
-  // eslint-disable-next-line no-unused-vars
-  const { data, loading, error } = useQuery({
-    queryKey: ["facebook"],
-    queryFn: getFacebook,
-  });
 
   const queryClient = useQueryClient();
 
