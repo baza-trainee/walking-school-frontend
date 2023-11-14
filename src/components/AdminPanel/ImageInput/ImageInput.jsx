@@ -7,6 +7,7 @@ import FileDrop from "./FileDrop";
  * @params variant = project, partner, facebook, slide
  * @params src = image from backend (use when edit project, partner, facebook, slide)
  * @params error = error from form validation
+ * @paramms resetPreviewImg = boolean - use if you need cancel changes while adding a new project, partner, etc
  * */
 
 const ImageInput = ({
@@ -15,6 +16,7 @@ const ImageInput = ({
   src,
   error,
   handleClear,
+  resetPreviewImg,
   ...props
 }) => {
   const [isCropImg, setIsCropImg] = useState(false);
@@ -29,10 +31,13 @@ const ImageInput = ({
   }, [preview]);
 
   useEffect(() => {
-    if (!preview) {
+    if (resetPreviewImg) {
+      setPreview("");
+    }
+    if (src) {
       setPreview(src);
     }
-  }, [src, preview]);
+  }, [src, preview, resetPreviewImg]);
 
   const aspect = {
     project: 367 / 288,

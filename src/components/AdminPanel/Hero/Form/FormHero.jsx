@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import styles from "./FormHero.module.css";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
@@ -14,6 +14,7 @@ const FormHero = ({ id }) => {
   const { hero, error, isLoading } = useGetHeroById(id);
   const { edit, isEditSuccess, setIsEditSuccess } = useEditHeroAdmin();
   const { post, isPostSuccess, setIsPostSuccess } = usePostHeroAdmin();
+  const [resetPreviewImg, setResetPreviewImg] = useState(false);
 
   const onSubmit = (data, type) => {
     if (type === "post") {
@@ -75,7 +76,20 @@ const FormHero = ({ id }) => {
         isValid,
         setFieldValue,
         setFieldTouched,
+        resetForm,
       }) => {
+        const handleCancel = () => {
+          resetForm({
+            values: {
+              id: hero?.id || null,
+              title: hero?.title || "",
+              description: hero?.description || "",
+              image: hero?.image || "",
+            },
+          });
+          setResetPreviewImg(true);
+        };
+
         return (
           <Form>
             <FormFields
@@ -94,6 +108,9 @@ const FormHero = ({ id }) => {
               setIsEditSuccess={setIsEditSuccess}
               post={post}
               edit={edit}
+              handleCancel={handleCancel}
+              resetForm={resetForm}
+              resetPreviewImg={resetPreviewImg}
             />
           </Form>
         );

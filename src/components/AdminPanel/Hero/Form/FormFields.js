@@ -6,7 +6,6 @@ import ImageInput from "../../ImageInput/ImageInput";
 import ErrorModal from "../../ErrorModal/ErrorModal";
 import AdminButton from "../../UI/Button/AdminButton";
 import { anyFieldTouched } from "../../../../heplers/anyFieldTouched";
-import { useNavigate } from "react-router-dom";
 import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 
 const FormFields = ({
@@ -25,8 +24,9 @@ const FormFields = ({
   setIsEditSuccess,
   post,
   edit,
+  handleCancel,
+  resetPreviewImg,
 }) => {
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClear = (fieldName) => {
@@ -82,7 +82,6 @@ const FormFields = ({
               }
             />
           </div>
-
           <ImageInput
             variant={"slide"}
             id={"image"}
@@ -95,6 +94,7 @@ const FormFields = ({
             }}
             error={touched.image ? errors.image : ""}
             handleClear={handleClear}
+            resetPreviewImg={resetPreviewImg}
           />
         </div>
         {(post.isError || edit.isError) && (
@@ -108,16 +108,14 @@ const FormFields = ({
           <AdminButton
             type={"button"}
             variant={"secondary"}
-            onClick={() => {
-              if (id) setIsOpen(true);
-            }}
+            onClick={() => setIsOpen(true)}
             disabled={!isValid || !anyFieldTouched(touched)}
           >
             Скасувати
           </AdminButton>
           <AdminButton
-            variant={"primary"}
             type={"submit"}
+            variant={"primary"}
             disabled={!isValid || !anyFieldTouched(touched)}
           >
             Додати
@@ -131,7 +129,7 @@ const FormFields = ({
           message={"Ви дійсно хочете скасувати зміни? Вони не будуть збережені"}
           setActive={setIsOpen}
           active={isOpen}
-          successFnc={() => navigate(-1)}
+          successFnc={handleCancel}
         />
       )}
     </>
