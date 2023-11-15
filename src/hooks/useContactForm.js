@@ -29,9 +29,7 @@ export const useContactForm = () => {
     validationSchema,
     validateOnBlur: true,
     onSubmit: (values, { resetForm }) => {
-      const formattedPhone = values.phone?.replace(/\s/g, "");
-      const data = { ...values, phone: formattedPhone };
-      mutation.mutate(data);
+      mutation.mutate(values);
 
       if (!mutation.isError) {
         resetForm();
