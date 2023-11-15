@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export const validationSchema = Yup.object({
-  username: Yup.string()
+  name: Yup.string()
     .matches(/^\p{L}*(-\p{L}+)*$/u, "Тількі літери")
     .min(2, "Ім’я повинно бути не менше 2 знаків")
     .max(30, "Ім’я повинно бути не більше 30 знаків")
@@ -20,13 +20,13 @@ export const validationSchema = Yup.object({
       return !value?.endsWith(".ru") && !value?.endsWith(".by");
     })
     .required("Введіть електронну пошту"),
-  phoneNumber: Yup.string()
+  phone: Yup.string()
     .max(16, "Невірний формат телефону. Правильний формат: +380 ## ### ####")
     .matches(
       /^\+380 \d{2} \d{3} \d{4}$/,
       "Невалідний формат. Приклад: +380 97 924 5565",
     ),
-  message: Yup.string()
+  text: Yup.string()
     .matches(/.*\S+.*/, "Введіть ваше повідомлення")
     .min(10, "Повідомлення повинно бути не менше 10 знаків")
     .max(300, "Повідомлення повинно бути не більше 300 знаків")

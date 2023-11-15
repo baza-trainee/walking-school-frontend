@@ -20,11 +20,11 @@ export const useContactForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       surname: "",
       email: "",
-      phoneNumber: "",
-      message: "",
+      phone: "",
+      text: "",
     },
     validationSchema,
     validateOnBlur: true,
