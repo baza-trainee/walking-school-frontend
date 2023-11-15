@@ -1,44 +1,32 @@
 import React, { useState } from "react";
-import styles from "../Login.module.css";
+import styles from "../../../../pages/AdminPanel/Auth/Login.module.css";
 import { Form, Formik } from "formik";
-import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
-import * as Yup from "yup";
+import AdminInput from "../../Input/AdminInput";
 import { ReactComponent as Eye } from "../../../../assets/admin/auth/eye.svg";
 import { ReactComponent as EyeOff } from "../../../../assets/admin/auth/eye_off.svg";
-import { ReactComponent as Error } from "../../../../assets/admin/auth/error.svg";
 import { NavLink } from "react-router-dom";
-import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-import {
-  emailValidationSchema,
-  passwordValidationSchema,
-} from "../../../../validationSchemas/validationSchema";
+import AdminButton from "../../UI/Button/AdminButton";
+import { loginValidationSchema } from "../authValidationSchemas";
+import ErrorModal from "../../ErrorModal/ErrorModal";
 
 const LoginForm = ({ className = "", ...props }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const validationSchema = Yup.object({
-    email: emailValidationSchema,
-    password: passwordValidationSchema,
-  });
-
   return (
     <div className={styles.wrapper + className} {...props}>
       {isError && (
-        <div className={styles.error}>
-          <div>
-            <Error />
-          </div>
-          <p>
-            Надані облікові дані невірні. Будь ласка, перевірте свій логін і
-            пароль та спробуйте ще раз.
-          </p>
-        </div>
+        <ErrorModal
+          message={
+            "Надані облікові дані невірні. Будь ласка, перевірте свій логін і пароль та спробуйте ще раз."
+          }
+          className={styles.error}
+        />
       )}
       <h1>Вхід</h1>
       <Formik
         initialValues={{ email: "", password: "" }}
-        validationSchema={validationSchema}
+        validationSchema={loginValidationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
           } catch {

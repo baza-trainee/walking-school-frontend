@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.css";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,7 +8,6 @@ import Alert from "../../../components/AdminPanel/Alert/Alert";
 const HeroActions = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const closeHandler = () => {
@@ -18,17 +17,7 @@ const HeroActions = () => {
       navigate(-1);
     }
   };
-  // useEffect(() => {
-  //   if (id) {
-  //     getHeroData(Number(id))
-  //       .then((data) => {
-  //         setData(data);
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
-  // }, [id])
+
   return (
     <div>
       <AdminHeader
@@ -37,12 +26,7 @@ const HeroActions = () => {
         closeFunc={closeHandler}
       />
       <div className={styles.actions}>
-        <FormHero
-          id={id}
-          title={data.title}
-          subtitle={data.subtitle}
-          image={data.image}
-        />
+        <FormHero id={id} />
       </div>
 
       {isOpen && (
@@ -53,7 +37,7 @@ const HeroActions = () => {
           }
           setActive={setIsOpen}
           active={isOpen}
-          successFnc={() => navigate(-1)}
+          successFnc={() => navigate("/admin")}
         />
       )}
     </div>

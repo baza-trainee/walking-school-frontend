@@ -5,12 +5,21 @@ import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
+export const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  });
+};
+
 export const DateSelect = ({
   error = false,
   placeholder,
   className = "",
   onChange,
   id,
+  isPublicDate = false,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");
@@ -25,11 +34,17 @@ export const DateSelect = ({
     setStartDate("");
     setEndDate("");
   };
+
   const applyChanges = () => {
-    if (startDate && endDate) {
-      setLabelContent(`${startDate} - ${endDate}`);
+    if (isPublicDate && startDate) {
+      setLabelContent(formatDate(startDate));
       if (onChange) {
-        onChange(`${startDate} - ${endDate}`);
+        onChange(formatDate(startDate));
+      }
+    } else if (startDate && endDate) {
+      setLabelContent(`${formatDate(startDate)} - ${formatDate(endDate)}`);
+      if (onChange) {
+        onChange(`${formatDate(startDate)} - ${formatDate(endDate)}`);
       }
     }
     setIsExpanded(false);
@@ -58,15 +73,17 @@ export const DateSelect = ({
             <InputArea
               value={startDate}
               onChange={setStartDate}
-              label="Початок"
+              label={`${isPublicDate ? "Дата публікації" : "Початок"}`}
               id={"startdate-" + id}
             />
-            <InputArea
-              value={endDate}
-              onChange={setEndDate}
-              label="Кінець"
-              id={"endDate-" + id}
-            />
+            {!isPublicDate && (
+              <InputArea
+                value={endDate}
+                onChange={setEndDate}
+                label="Кінець"
+                id={"endDate-" + id}
+              />
+            )}
           </div>
           <ButtonContainer onCancel={cancelChanges} onOk={applyChanges} />
         </div>

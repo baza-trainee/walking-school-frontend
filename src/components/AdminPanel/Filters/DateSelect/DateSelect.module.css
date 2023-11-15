@@ -66,13 +66,13 @@
 }
 
 .entryArea {
-  line-height: 40px;
-  height: 40px;
+  line-height: 42px;
+  height: 42px;
   position: relative;
 }
 
 .input {
-  padding: 9px 8px;
+  padding: 8px;
   border: 1px solid var(--common-border-color);
   border-radius: var(--common-radius);
   outline: none;
@@ -81,7 +81,10 @@
   line-height: 40px;
   background: transparent;
   transition: var(--common-transition);
-  z-index: 1111;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 
 .labelLine {
@@ -148,7 +151,6 @@
 .labelActive {
   color: var(--admin-success-color);
   transform: translate(-5px, -7px) scale(0.88);
-  z-index: 1111;
   height: 10px;
   line-height: 10px;
 }
