@@ -6,7 +6,7 @@ import { submitContactData } from "../API/СontactRequest";
 
 export const useContactForm = () => {
   const [isActive, setIsActive] = useState(false);
-  // TODO: add error state to track errors
+  const [error, setError] = useState(null);
 
   const mutation = useMutation(submitContactData, {
     onSuccess: () => {
@@ -14,22 +14,25 @@ export const useContactForm = () => {
     },
     onError: (error) => {
       console.error("Error sending contact form data:", error);
-      // TODO: set errors here
+      setError(error);
     },
   });
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       surname: "",
       email: "",
-      phoneNumber: "",
-      message: "",
+      phone: "",
+      text: "",
     },
     validationSchema,
     validateOnBlur: true,
     onSubmit: (values, { resetForm }) => {
-      mutation.mutate(values);
+      const formattedPhone = values.phone?.replace(/\s/g, "");
+      const data = { ...values, phone: formattedPhone };
+      mutation.mutate(data);
+
       if (!mutation.isError) {
         resetForm();
       }
@@ -40,5 +43,6 @@ export const useContactForm = () => {
     formik,
     isActive,
     setIsActive,
+    error,
   };
 };
