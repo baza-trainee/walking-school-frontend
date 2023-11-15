@@ -41,7 +41,7 @@ export const telegramValidationSchema = Yup.string()
   .required("Поле обов'язкове до заповнення. Введіть посилання");
 
 export const titleValidation = Yup.string()
-  .min(10, "Заголовок має містити мінімум 10 символів")
+  .min(5, "Заголовок має містити мінімум 10 символів")
   .max(30, "Заголовок має містити максимум тридцять символів")
   .matches(
     /^[0-9a-zA-Zа-яА-Я-()& \-\p{L}!,";:?./]+$/u,
