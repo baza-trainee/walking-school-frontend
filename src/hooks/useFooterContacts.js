@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getFooterContacts } from "../API/FooterContactsAPI";
+import { getFooterContacts } from "../API/footerContactsAPI";
 
 export const useFooterContacts = () => {
   const {
