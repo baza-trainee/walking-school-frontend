@@ -50,8 +50,7 @@ export const refreshToken = async () => {
 
 export const logout = async () => {
   try {
-    const response = await $host.post("logout");
-    return response;
+    return await $host.post("logout");
   } catch (e) {
     throw new Error(e);
   }

@@ -24,7 +24,6 @@ import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartne
 import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
 import MainHero from "./pages/AdminPanel/HeroAdmin/MainHero";
 import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
-import ProtectedRoute from "./pages/AdminPanel/ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,21 +32,19 @@ const router = createBrowserRouter(
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route element={<ProtectedRoute />}>
-        <Route path="/admin" element={<MainAdmin />}>
-          <Route path="hero" element={<MainHero />} />
-          <Route path="hero/add" element={<HeroActions />} />
-          <Route path="hero/edit/:id" element={<HeroActions />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="projects" element={<AdminProjects />} />
-          <Route path="projects/add" element={<AddProject />} />
-          <Route path="projects/edit" element={<EditProject />} />
-          <Route path="projects/edit/:id" element={<AddProject />} />
-          <Route path="partners" element={<AdminPartners />} />
-          <Route path="partners/add" element={<AddPartner />} />
-          <Route path="partners/edit/:id" element={<EditPartner />} />
-          <Route path="facebook" element={<AdminFacebook />} />
-        </Route>
+      <Route path="/admin" element={<MainAdmin />}>
+        <Route path="hero" element={<MainHero />} />
+        <Route path="hero/add" element={<HeroActions />} />
+        <Route path="hero/edit/:id" element={<HeroActions />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="projects" element={<AdminProjects />} />
+        <Route path="projects/add" element={<AddProject />} />
+        <Route path="projects/edit" element={<EditProject />} />
+        <Route path="projects/edit/:id" element={<AddProject />} />
+        <Route path="partners" element={<AdminPartners />} />
+        <Route path="partners/add" element={<AddPartner />} />
+        <Route path="partners/edit/:id" element={<EditPartner />} />
+        <Route path="facebook" element={<AdminFacebook />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
