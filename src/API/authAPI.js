@@ -48,6 +48,15 @@ export const refreshToken = async () => {
   }
 };
 
+export const checkAuthToken = async () => {
+  try {
+    const response = await $host.get("admin");
+    return response.status === 200;
+  } catch (e) {
+    return false;
+  }
+};
+
 export const logout = async () => {
   try {
     return await $host.post("logout");
