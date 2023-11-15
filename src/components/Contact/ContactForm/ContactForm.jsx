@@ -3,9 +3,15 @@ import { CustomInput } from "../CustomInput/CustomInput";
 import styles from "./ContactForm.module.css";
 import { Modal } from "../../Modal/Modal";
 import { useContactForm } from "../../../hooks/useContactForm";
+import { formatPhoneNumber } from "../../../heplers/formatPhoneNumber";
 
 export const ContactForm = () => {
   const { formik, isActive, setIsActive } = useContactForm();
+
+  const handlePhoneChange = (event) => {
+    const formattedPhoneNumber = formatPhoneNumber(event.target.value);
+    formik.setFieldValue("phone", formattedPhoneNumber);
+  };
 
   return (
     <form
@@ -53,7 +59,7 @@ export const ContactForm = () => {
           placeholder="+XXX -"
           text="Телефон"
           name="phone"
-          onChangeHandler={formik.handleChange}
+          onChangeHandler={handlePhoneChange}
           onBlur={formik.handleBlur}
           value={formik.values.phone}
           error={formik.touched.phone && formik.errors.phone}
