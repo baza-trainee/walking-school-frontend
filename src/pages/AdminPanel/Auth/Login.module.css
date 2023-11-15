@@ -98,9 +98,11 @@
   background: #fff;
   color: #151515;
   text-align: center;
+}
+
+.message p {
   font-family: var(--body-text-ff);
   font-size: var(--body-text-fs-web);
-  font-style: normal;
   font-weight: var(--body-text-fw);
   line-height: var(--body-text-lh);
 }

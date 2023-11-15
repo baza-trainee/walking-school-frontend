@@ -8,10 +8,21 @@ import { ReactComponent as Facebook } from "../../../assets/admin/sidebar/galler
 import { ReactComponent as Contacts } from "../../../assets/admin/sidebar/contact.svg";
 import { ReactComponent as Logo } from "../../../assets/admin/sidebar/logo.svg";
 import { ReactComponent as Logout } from "../../../assets/admin/common/logout.svg";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import AdminButton from "../../AdminPanel/UI/Button/AdminButton";
+import { logout } from "../../../API/authAPI";
 
 const MainAdmin = () => {
+  const navigate = useNavigate();
+
+  const logoutHandler = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      console.error("Помилка при виході з системи", error);
+    }
+  };
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
@@ -54,7 +65,11 @@ const MainAdmin = () => {
               Контакти
             </NavLinkAdmin>
           </div>
-          <AdminButton variant={"secondary"} icon={<Logout />}>
+          <AdminButton
+            variant={"secondary"}
+            icon={<Logout />}
+            onClick={logoutHandler}
+          >
             Вийти
           </AdminButton>
         </div>
