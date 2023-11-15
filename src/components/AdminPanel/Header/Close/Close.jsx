@@ -12,6 +12,7 @@ const Close = ({ isSecondary = false, isDisabled = false, ...props }) => {
   if (isSecondary) classes.push(style.close_secondary);
   if (isDisabled) classes.push(style.close_disabled);
   const className = classes.join(" ");
+
   return (
     <button disabled={isDisabled} className={className} {...props}>
       <Icon data-testid="icon" />

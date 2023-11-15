@@ -1,20 +1,15 @@
 import React, { useState } from "react";
-import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
-import styles from "../Login.module.css";
+import AdminButton from "../../UI/Button/AdminButton";
+import AdminInput from "../../Input/AdminInput";
+import styles from "../../../../pages/AdminPanel/Auth/Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
-import { emailValidationSchema } from "../../../../validationSchemas/validationSchema";
+import { forgotValidationSchema } from "../authValidationSchemas";
 
 const ForgotForm = ({ className, ...props }) => {
   const navigate = useNavigate();
   const [isSent, setIsSent] = useState(false);
-
-  const validationSchema = Yup.object({
-    email: emailValidationSchema,
-  });
 
   return (
     <div className={styles.block}>
@@ -23,7 +18,7 @@ const ForgotForm = ({ className, ...props }) => {
         <p className={styles.text}>Вкажіть ваш email, щоб підтвердити особу </p>
         <Formik
           initialValues={{ email: "" }}
-          validationSchema={validationSchema}
+          validationSchema={forgotValidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             try {
               setIsSent(true);

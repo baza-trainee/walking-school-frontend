@@ -2,57 +2,20 @@ import { useState } from "react";
 import { ProjectsList } from "./ProjectsList/ProjectsList";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import { useNavigate } from "react-router-dom";
-
-// dummy data for testing purposes
-const data = [
-  {
-    id: 1,
-    creation_date: "10.11.2022",
-    status: "Активний",
-    project_name: "Банджі джампінг",
-  },
-  {
-    id: 2,
-    creation_date: "01.09.2023",
-    status: "Неактивний",
-    project_name: "Кафе на даху",
-  },
-  {
-    id: 3,
-    creation_date: "15.06.2022",
-    status: "Активний",
-    project_name: "Доставка їжі на дронах",
-  },
-  {
-    id: 4,
-    creation_date: "22.03.2022",
-    status: "Активний",
-    project_name: "Віртуальні екскурсії",
-  },
-  {
-    id: 5,
-    creation_date: "30.08.2022",
-    status: "Неактивний",
-    project_name: "Магазин еко-продуктів",
-  },
-  {
-    id: 6,
-    creation_date: "18.07.2023",
-    status: "Активний",
-    project_name: "Сервіс каршерингу",
-  },
-  {
-    id: 7,
-    creation_date: "05.04.2021",
-    status: "Неактивний",
-    project_name: "Онлайн кінотеатр",
-  },
-];
+import { useGetAdminProjects } from "../../../hooks/useGetAdminProjects";
+import { useDeleteAdminProjects } from "../../../hooks/useDeleteAdminProjects";
+import DotsLoader from "../../../components/Loader/DotsLoader";
+import styles from "./AdminPorjects.module.css";
+import Alert from "../../../components/AdminPanel/Alert/Alert";
+import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
 
 export const AdminProjects = () => {
+  const { mutate, deleteError, deleteLoadingState } = useDeleteAdminProjects();
+  const { setProjectsData, projectsData, isLoading } = useGetAdminProjects();
   const [searchTerm, setSearchTerm] = useState("");
-  const [projectsData, setProjectsData] = useState(data);
   const [sortDirection, setSortDirection] = useState("asc");
+  const [isActiveModal, setIsActiveModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
 
   const filteredProjects = projectsData.filter((project) =>
@@ -78,13 +41,16 @@ export const AdminProjects = () => {
     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
-  const deleteFunc = (projectId) => {
-    // TODO: implement logic for deleting a project using projectId and backend endpoint
+  const deleteOnConfirm = () => {
+    mutate(selectedProject);
+    setSelectedProject(null);
+    setIsActiveModal(false);
   };
 
-  // TODO: use useEffect or useQuery with endpoints to get the projects from the server
-  // TODO: use state to put the data into it.
-  // TODO: replace dummy data with the state
+  const navigateToAddProject = () => {
+    navigate(`/admin/projects/add`);
+  };
+
   return (
     <>
       <AdminHeader
@@ -93,13 +59,28 @@ export const AdminProjects = () => {
         withSearch
         searchWord={searchTerm}
         setSearchWord={setSearchTerm}
+        buttonFunc={navigateToAddProject}
       />
-      <ProjectsList
-        projects={filteredProjects}
-        navigateToEdit={navigateToEdit}
-        deleteFunc={deleteFunc}
-        handleSortByDate={handleSortByDate}
+      {isLoading || deleteLoadingState ? (
+        <div className={styles.loader}>
+          <DotsLoader />
+        </div>
+      ) : (
+        <ProjectsList
+          projects={filteredProjects}
+          navigateToEdit={navigateToEdit}
+          deleteFunc={() => setIsActiveModal(true)}
+          handleSortByDate={handleSortByDate}
+          setSelectedProject={setSelectedProject}
+        />
+      )}
+      <Alert
+        title={"Ви дійсно хочете видалити проєкт?"}
+        active={isActiveModal}
+        setActive={setIsActiveModal}
+        successFnc={deleteOnConfirm}
       />
+      {deleteError && <ErrorModal message={deleteError.message} />}
     </>
   );
 };
