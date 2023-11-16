@@ -23,7 +23,6 @@ const FileDrop = ({
   ...props
 }) => {
   const [fileError, setFileError] = useState("");
-  console.log("FileDrop", preview);
   const variantClass = {
     project: styles.project,
     facebook: styles.facebook,

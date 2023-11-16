@@ -22,7 +22,6 @@ import AdminPartners from "./pages/AdminPanel/AdminPartners/AdminPartners";
 import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
 import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
 import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
-import "./App.module.css";
 import MainHero from "./pages/AdminPanel/HeroAdmin/MainHero";
 import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
 
