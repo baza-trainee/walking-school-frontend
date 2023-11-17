@@ -113,7 +113,7 @@ const AdminFacebook = () => {
     } catch (error) {
       console.log(error);
     }
-    if(successfulRequests == 6) {
+    if (successfulRequests == 6) {
       setSuccess(true);
     }
   };
@@ -124,7 +124,7 @@ const AdminFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: element.image,
+          image: [element.image],
           wasImage: true,
           index: index,
         };
@@ -134,7 +134,7 @@ const AdminFacebook = () => {
     }
   }, [isLoading, data]);
 
-  if (isLoading) {
+  if (isLoading || putMutation.isLoading || postMutation.isLoading ) {
     return (
       <div className={style.centered}>
         <SpinnerLoader />
@@ -155,7 +155,7 @@ const AdminFacebook = () => {
     <div className={style.facebook}>
       <AdminHeader heading="Facebook" />
       <div className={style.content}>
-      {(success) && (
+        {success && (
           <Alert
             active={success}
             setActive={(value) => {
@@ -172,7 +172,7 @@ const AdminFacebook = () => {
               <ImageInput
                 key={element.id}
                 value=""
-                src={"" || element.image[0]}
+                src={element.image ? element.image[0] : ""}
                 onChange={(newPreview) =>
                   handleImageChange(element.index, newPreview)
                 }
@@ -183,7 +183,7 @@ const AdminFacebook = () => {
             ))}
           </div>
           <div className={style.form__buttons}>
-            <AdminButton style={{ width: "196px" }} variant="secondary">
+            <AdminButton type="button" style={{ width: "196px" }} variant="secondary">
               Скасувати
             </AdminButton>
             <AdminButton
