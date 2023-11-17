@@ -4,6 +4,7 @@ import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../components/AdminPanel/UI/Button/AdminButton";
 import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
+import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
 import { blobUrlToBase64 } from "../../../heplers/BlobToBase64";
 import style from "./AdminFacebook.module.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -138,6 +139,15 @@ const AdminFacebook = () => {
       <div className={style.centered}>
         <SpinnerLoader />
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorModal
+        message={`Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`}
+        className={style.centered}
+      />
     );
   }
 
