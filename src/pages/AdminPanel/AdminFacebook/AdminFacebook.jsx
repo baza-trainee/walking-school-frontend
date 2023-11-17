@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../components/AdminPanel/UI/Button/AdminButton";
 import { blobUrlToBase64 } from "../../../heplers/BlobToBase64";
 import style from "./AdminFacebook.module.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getFacebook, putFacebook } from "../../../API/followUsFacebook";
+import {
+  getFacebook,
+  postFacebook,
+  putFacebook,
+} from "../../../API/followUsFacebook";
 
 const defaultValues = [
   { id: 1, image: "" },
@@ -22,9 +26,13 @@ const AdminFacebook = () => {
     queryFn: getFacebook,
   });
 
-  const [values, setValues] = useState(defaultValues);
-  
-  console.log(data)
+  const [values, setValues] = useState([])
+
+  if (!loading && data !== undefined) {
+    console.log(data);
+    console.log(data[0].image[0]);
+  }
+
   const handleImageChange = (index, newPreview) => {
     setValues((prevValues) => {
       const updatedValues = [...prevValues];
@@ -35,11 +43,10 @@ const AdminFacebook = () => {
       return updatedValues;
     });
   };
-
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: putFacebook,
+    mutationFn: postFacebook,
     onSettled: () => queryClient.invalidateQueries(["facebook"]),
   });
 
@@ -58,21 +65,30 @@ const AdminFacebook = () => {
             image: null,
           };
         }
-      })
+      }),
     );
     return transformed;
   }
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    const transformedValues = await transformValues(values)
-    try{
-      await mutation.mutateAsync(transformedValues)
-    }
-    catch(error) {
-      console.log(error)
+    const transformedValues = await transformValues(values);
+    try {
+      await mutation.mutateAsync(transformedValues);
+    } catch (error) {
+      console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (!loading && data) { 
+      data.forEach((element, index) => {
+        defaultValues[index] = data[index];
+      })
+  
+      setValues(defaultValues);
+    }
+  }, [loading, data]);
 
   return (
     <div className={style.facebook}>
@@ -80,17 +96,22 @@ const AdminFacebook = () => {
       <div className={style.content}>
         <form onSubmit={submitFunc} className={style.form}>
           <div className={style.form__inputs}>
-            {values.map((element) => (
-              <ImageInput
-                key={element.id}
-                value={values[element]}
-                onChange={(newPreview) =>
-                  handleImageChange(element.id, newPreview)
-                }
-                variant="facebook"
-                name={element.id}
-              />
-            ))}
+            {loading ? (
+              <div>loading...</div>
+            ) : (
+              values.map((element) => (
+                <ImageInput
+                  key={element.id}
+                  value=""
+                  src={element.image[0]}
+                  onChange={(newPreview) =>
+                    handleImageChange(element.id, newPreview)
+                  }
+                  variant="facebook"
+                  name={element.id}
+                />
+              ))
+            )}
           </div>
           <div className={style.form__buttons}>
             <AdminButton style={{ width: "196px" }} variant="secondary">
