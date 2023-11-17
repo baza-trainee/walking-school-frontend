@@ -39,6 +39,16 @@ const AdminFacebook = () => {
     console.log(values);
   };
 
+  const handleDelete = (index) => {
+    const updatedValues = [...values];
+    updatedValues[index] = {
+      ...updatedValues[index],
+      image: "",
+    };
+    setValues(updatedValues);
+    console.log(values);
+  };
+
   const queryClient = useQueryClient();
 
   const postMutation = useMutation({
@@ -133,10 +143,11 @@ const AdminFacebook = () => {
               <ImageInput
                 key={element.id}
                 value=""
-                src={element.image[0]}
+                src={"" || element.image[0]}
                 onChange={(newPreview) =>
                   handleImageChange(element.index, newPreview)
                 }
+                handleClear={() => handleDelete(element.index)}
                 variant="facebook"
                 name={element.id}
               />
