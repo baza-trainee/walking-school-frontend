@@ -46,7 +46,7 @@ const AdminFacebook = () => {
     const updatedValues = [...values];
     updatedValues[index] = {
       ...updatedValues[index],
-      image: "",
+      image: null,
     };
     setValues(updatedValues);
     console.log(values);
@@ -68,7 +68,7 @@ const AdminFacebook = () => {
     const transformed = await Promise.all(
       values.map(async (value) => {
         if (value.image && value.image !== "") {
-          if (value.image.includes("data:text/html;base64")) {
+          if (value.image.includes("data:image/jpeg;base64")) {
             return {
               id: value.id,
               image: value.image,
@@ -124,7 +124,7 @@ const AdminFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: [element.image],
+          image: element.image,
           wasImage: true,
           index: index,
         };
@@ -172,7 +172,7 @@ const AdminFacebook = () => {
               <ImageInput
                 key={element.id}
                 value=""
-                src={element.image ? element.image[0] : ""}
+                src={element.image ? element.image : ""}
                 onChange={(newPreview) =>
                   handleImageChange(element.index, newPreview)
                 }
