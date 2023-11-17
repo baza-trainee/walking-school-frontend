@@ -3,6 +3,7 @@ import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../components/AdminPanel/UI/Button/AdminButton";
 import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
+import Alert from "../../../components/AdminPanel/Alert/Alert";
 import { blobUrlToBase64 } from "../../../heplers/BlobToBase64";
 import style from "./AdminFacebook.module.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -28,6 +29,7 @@ const AdminFacebook = () => {
   });
 
   const [values, setValues] = useState([]);
+  const [success, setSuccess] = useState(false);
 
   const handleImageChange = (index, newPreview) => {
     const updatedValues = [...values];
@@ -95,17 +97,23 @@ const AdminFacebook = () => {
     console.log(values);
     const transformedValues = await transformValues(values);
     console.log(transformedValues);
+    let successfulRequests = 0;
 
     try {
       for (const value of transformedValues) {
         if (!value.wasImage) {
           await postMutation.mutateAsync({ image: [value.image] });
+          successfulRequests += 1;
         } else {
           await putMutation.mutateAsync({ id: value.id, image: [value.image] });
+          successfulRequests += 1;
         }
       }
     } catch (error) {
       console.log(error);
+    }
+    if(successfulRequests == 6) {
+      setSuccess(true);
     }
   };
 
@@ -137,6 +145,17 @@ const AdminFacebook = () => {
     <div className={style.facebook}>
       <AdminHeader heading="Facebook" />
       <div className={style.content}>
+      {(success) && (
+          <Alert
+            active={success}
+            setActive={(value) => {
+              setSuccess(value);
+            }}
+            type="success"
+            title="Збережено!"
+            message="Ваші зміни успішно збережено"
+          />
+        )}
         <form onSubmit={submitFunc} className={style.form}>
           <div className={style.form__inputs}>
             {values.map((element) => (
