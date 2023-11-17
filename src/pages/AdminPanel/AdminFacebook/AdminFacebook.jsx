@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../components/AdminPanel/UI/Button/AdminButton";
+import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
 import { blobUrlToBase64 } from "../../../heplers/BlobToBase64";
 import style from "./AdminFacebook.module.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -12,57 +13,66 @@ import {
 } from "../../../API/followUsFacebook";
 
 const defaultValues = [
-  { id: 1, image: "" },
-  { id: 2, image: "" },
-  { id: 3, image: "" },
-  { id: 4, image: "" },
-  { id: 5, image: "" },
-  { id: 6, image: "" },
+  { id: 0, image: "", wasImage: false, index: 0 },
+  { id: 1, image: "", wasImage: false, index: 1 },
+  { id: 2, image: "", wasImage: false, index: 2 },
+  { id: 3, image: "", wasImage: false, index: 3 },
+  { id: 4, image: "", wasImage: false, index: 4 },
+  { id: 5, image: "", wasImage: false, index: 5 },
 ];
 
 const AdminFacebook = () => {
-  const { data, loading, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["facebook"],
     queryFn: getFacebook,
   });
 
-  const [values, setValues] = useState([])
-
-  if (!loading && data !== undefined) {
-    console.log(data);
-    console.log(data[0].image[0]);
-  }
+  const [values, setValues] = useState([]);
 
   const handleImageChange = (index, newPreview) => {
-    setValues((prevValues) => {
-      const updatedValues = [...prevValues];
-      updatedValues[index - 1] = {
-        ...updatedValues[index - 1],
-        image: newPreview || "",
-      };
-      return updatedValues;
-    });
+    const updatedValues = [...values];
+    updatedValues[index] = {
+      ...updatedValues[index],
+      image: newPreview,
+    };
+    setValues(updatedValues);
+    console.log(values);
   };
+
   const queryClient = useQueryClient();
 
-  const mutation = useMutation({
+  const postMutation = useMutation({
     mutationFn: postFacebook,
+    onSettled: () => queryClient.invalidateQueries(["facebook"]),
+  });
+
+  const putMutation = useMutation({
+    mutationFn: putFacebook,
     onSettled: () => queryClient.invalidateQueries(["facebook"]),
   });
 
   async function transformValues(values) {
     const transformed = await Promise.all(
       values.map(async (value) => {
-        if (value.image) {
+        if (value.image && value.image !== "") {
+          if (value.image.includes("data:text/html;base64")) {
+            return {
+              id: value.id,
+              image: value.image,
+              wasImage: value.wasImage,
+            };
+          }
           const image = await blobUrlToBase64(value.image);
           return {
             id: value.id,
             image: image,
+            wasImage: value.wasImage,
           };
         } else {
           return {
             id: value.id,
             image: null,
+            wasImage: value.wasImage,
           };
         }
       }),
@@ -72,23 +82,46 @@ const AdminFacebook = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
+    console.log(values);
     const transformedValues = await transformValues(values);
+    console.log(transformedValues);
+
     try {
-      await mutation.mutateAsync(transformedValues);
+      for (const value of transformedValues) {
+        if (!value.wasImage) {
+          await postMutation.mutateAsync({ image: [value.image] });
+        } else {
+          await putMutation.mutateAsync({ id: value.id, image: [value.image] });
+        }
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if (!loading && data) { 
+    if (!isLoading && data) {
+      const updatedValues = [...defaultValues];
       data.forEach((element, index) => {
-        defaultValues[index] = data[index];
-      })
-  
-      setValues(defaultValues);
+        updatedValues[index] = {
+          id: element.id,
+          image: element.image,
+          wasImage: true,
+          index: index,
+        };
+      });
+
+      setValues(updatedValues);
     }
-  }, [loading, data]);
+  }, [isLoading, data]);
+
+  if (isLoading) {
+    return (
+      <div className={style.centered}>
+        <SpinnerLoader />
+      </div>
+    );
+  }
 
   return (
     <div className={style.facebook}>
@@ -96,22 +129,18 @@ const AdminFacebook = () => {
       <div className={style.content}>
         <form onSubmit={submitFunc} className={style.form}>
           <div className={style.form__inputs}>
-            {loading ? (
-              <div>loading...</div>
-            ) : (
-              values.map((element) => (
-                <ImageInput
-                  key={element.id}
-                  value=""
-                  src={element.image[0]}
-                  onChange={(newPreview) =>
-                    handleImageChange(element.id, newPreview)
-                  }
-                  variant="facebook"
-                  name={element.id}
-                />
-              ))
-            )}
+            {values.map((element) => (
+              <ImageInput
+                key={element.id}
+                value=""
+                src={element.image[0]}
+                onChange={(newPreview) =>
+                  handleImageChange(element.index, newPreview)
+                }
+                variant="facebook"
+                name={element.id}
+              />
+            ))}
           </div>
           <div className={style.form__buttons}>
             <AdminButton style={{ width: "196px" }} variant="secondary">
