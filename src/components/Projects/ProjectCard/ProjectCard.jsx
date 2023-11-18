@@ -5,9 +5,17 @@ import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/main/projects/age.svg";
 import Calendar from "../../../assets/main/projects/calendar.svg";
 
-const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
-  // eslint-disable-next-line no-unused-vars
-  const { isMobile, isTablet, isDesktop } = useMedia();
+const ProjectCard = ({
+  image,
+  title,
+  dates,
+  age,
+  url,
+  description,
+  isLoading,
+  isActive,
+}) => {
+  const { isMobile, isTablet } = useMedia();
   const [showMore, setShowMore] = useState(false);
 
   const showMoreHandler = () => {
@@ -105,8 +113,13 @@ const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
           {isLoading ? (
             ""
           ) : (
-            <Link to={"/"} variant={"small"} className={style.join__link}>
-              Взяти участь
+            <Link
+              to={"/"}
+              variant={"small"}
+              className={style.join__link}
+              disabled={isActive}
+            >
+              {url}
             </Link>
           )}
         </div>

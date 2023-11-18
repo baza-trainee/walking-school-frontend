@@ -13,9 +13,14 @@ const Projects = () => {
   const { isLoading, data: cardsToRender } = useQuery(["projects"], () =>
     getAllCards(),
   );
+
   const { data: sectionDescription } = useQuery(["section-description"], () =>
     getProjectDescription(),
   );
+
+  const description = sectionDescription
+    ? sectionDescription
+    : "Спробую навчити Вас ходити у незвичних умовах, та всьому що сам знаю. Ми вчитемося ходити у Польських Татрах";
 
   return (
     <section id="projects" className={style.projectsWrapper}>
@@ -25,7 +30,7 @@ const Projects = () => {
             <div>
               <h2>Проєкти</h2>
             </div>
-            <p>{sectionDescription.description}</p>
+            <p>{description}</p>
           </div>
 
           <div className={style.carousel}>
@@ -45,20 +50,25 @@ const Projects = () => {
                       image={item.image}
                       title={item.title}
                       dates={item.dates}
-                      age={item.age}
+                      age={item.age_category}
                       description={item.description}
                       isLoading={isLoading}
+                      isActive={item.is_active}
+                      url={item.url}
                     />
                   </Fragment>
                 ))}
-                {cardsToRender.length > 3 && (
+                {cardsToRender && cardsToRender.length > 3 && (
                   <Button variant={"tertiary"} style={{ width: "100%" }}>
                     Дивитись більше
                   </Button>
                 )}
               </div>
             ) : (
-              <SwiperSlider items={cardsToRender} isLoading={isLoading} />
+              <SwiperSlider
+                items={cardsToRender && cardsToRender}
+                isLoading={isLoading}
+              />
             )}
           </div>
         </div>
