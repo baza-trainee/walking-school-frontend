@@ -1,10 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { data } from "./data";
 import Button from "../UI/Button/Button";
 import styles from "./followUs.module.css";
 import { useEffect, useState } from "react";
-// import { useQuery } from "@tanstack/react-query";
-// import { getFacebook } from "../../API/followUsFacebook";
 
 export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
 
@@ -37,7 +34,7 @@ export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
           {slides?.map((slide, index) => (
             <SwiperSlide className={styles.imgWrapper} key={index}>
               <img
-                src={slide.img}
+                src={slide.image}
                 className={styles.imageSmall}
                 alt="facebookImg"
               />
