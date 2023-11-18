@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../UI/Button/Button";
 import styles from "./followUs.module.css";
-import { useEffect, useState } from "react";
 
 export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
   const slides = [...data, ...data];
