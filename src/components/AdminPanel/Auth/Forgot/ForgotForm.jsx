@@ -6,10 +6,23 @@ import styles from "../../../../pages/AdminPanel/Auth/Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Close } from "../../../../assets/admin/common/close.svg";
 import { forgotValidationSchema } from "../authValidationSchemas";
+import { forgotPass } from "../../../../API/authAPI";
 
 const ForgotForm = ({ className, ...props }) => {
   const navigate = useNavigate();
-  const [isSent, setIsSent] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [isErrorOpen, setIsErrorOpen] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const sentHanddler = () => {
+    if (isSuccessOpen) {
+      setIsSuccessOpen(!isSuccessOpen);
+    }
+
+    if (isErrorOpen) {
+      setIsErrorOpen(!isErrorOpen);
+    }
+  };
 
   return (
     <div className={styles.block}>
@@ -21,9 +34,13 @@ const ForgotForm = ({ className, ...props }) => {
           validationSchema={forgotValidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             try {
-              setIsSent(true);
+              const response = await forgotPass({ login: values.email });
+              if (response) {
+                setIsSuccessOpen(true);
+              }
             } catch (e) {
-              console.log(e);
+              setEmailError(e.message);
+              setIsErrorOpen(true);
             } finally {
               setSubmitting(false);
             }
@@ -68,12 +85,20 @@ const ForgotForm = ({ className, ...props }) => {
           )}
         </Formik>
       </div>
-      {isSent && (
+      {isSuccessOpen && (
         <div className={styles.message}>
           <div className={styles.close}>
-            <Close onClick={() => setIsSent(false)} />
+            <Close onClick={sentHanddler} />
           </div>
-          Перейдіть за посиланням, відправленим у листі на Вашу пошту
+          <p>Перейдіть за посиланням, відправленим у листі на Вашу пошту</p>
+        </div>
+      )}
+      {isErrorOpen && (
+        <div className={styles.message}>
+          <div className={styles.close}>
+            <Close onClick={sentHanddler} />
+          </div>
+          <p style={{ color: "#F00631" }}>{emailError}</p>
         </div>
       )}
     </div>

@@ -45,7 +45,7 @@
 .slide img {
   width: 1062px;
   height: 378px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .project,

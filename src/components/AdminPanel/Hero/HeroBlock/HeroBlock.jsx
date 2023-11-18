@@ -10,7 +10,6 @@ const HeroBlock = ({ image, title, subtitle, removeHandler, editHandler }) => {
       style={{
         background: `linear-gradient(106deg, #101712 0.76%, rgba(46, 196, 182, 0.00) 83.12%), url(${image}), lightgray -254.782px -109.218px / 162.772% 211.16% no-repeat`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
       }}
     >
       <div className={styles.description}>

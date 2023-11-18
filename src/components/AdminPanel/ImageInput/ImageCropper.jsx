@@ -43,7 +43,14 @@ export const ImageCropper = ({ src, onClose, aspect }) => {
     >
       <Cropper
         style={{
-          containerStyle: { backgroundColor: "transparent", zIndex: 10000 },
+          containerStyle: {
+            backgroundColor: "transparent",
+            zIndex: 10000,
+          },
+          cropAreaStyle: {
+            width: "1440px",
+            height: "700px",
+          },
         }}
         image={src}
         crop={crop}
