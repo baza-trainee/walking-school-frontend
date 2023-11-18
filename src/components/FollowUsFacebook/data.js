@@ -10,22 +10,22 @@ export const defaultValues = [
   },
   {
     id: 1,
-    img: facebook2,
+    image: facebook2,
   },
   {
     id: 2,
-    img: facebook3,
+    image: facebook3,
   },
   {
     id: 3,
-    img: facebook4,
+    image: facebook4,
   },
   {
     id: 4,
-    img: facebook2,
+    image: facebook1,
   },
   {
     id: 5,
-    img: facebook3,
+    image: facebook2,
   },
 ];
