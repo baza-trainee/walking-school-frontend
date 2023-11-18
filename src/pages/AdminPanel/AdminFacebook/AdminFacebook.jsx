@@ -15,12 +15,12 @@ import {
 } from "../../../API/followUsFacebook";
 
 const defaultValues = [
-  { id: 0, image: "", wasImage: false, index: 0 },
-  { id: 1, image: "", wasImage: false, index: 1 },
-  { id: 2, image: "", wasImage: false, index: 2 },
-  { id: 3, image: "", wasImage: false, index: 3 },
-  { id: 4, image: "", wasImage: false, index: 4 },
-  { id: 5, image: "", wasImage: false, index: 5 },
+  { id: 0, image: null, wasImage: false, index: 0 },
+  { id: 1, image: null, wasImage: false, index: 1 },
+  { id: 2, image: null, wasImage: false, index: 2 },
+  { id: 3, image: null, wasImage: false, index: 3 },
+  { id: 4, image: null, wasImage: false, index: 4 },
+  { id: 5, image: null, wasImage: false, index: 5 },
 ];
 
 const AdminFacebook = () => {
@@ -39,7 +39,6 @@ const AdminFacebook = () => {
       image: newPreview,
     };
     setValues(updatedValues);
-    console.log(values);
   };
 
   const handleDelete = (index) => {
@@ -49,7 +48,6 @@ const AdminFacebook = () => {
       image: null,
     };
     setValues(updatedValues);
-    console.log(values);
   };
 
   const queryClient = useQueryClient();
@@ -68,13 +66,14 @@ const AdminFacebook = () => {
     const transformed = await Promise.all(
       values.map(async (value) => {
         if (value.image && value.image !== "") {
-          if (value.image.includes("data:image/jpeg;base64")) {
-            return {
-              id: value.id,
-              image: value.image,
-              wasImage: value.wasImage,
-            };
-          }
+          // if (value.image.includes("data:image/jpeg;base64")) {
+          //   console.log(value.image)
+          //   return {
+          //     id: value.id,
+          //     image: value.image,
+          //     wasImage: value.wasImage,
+          //   };
+          // }
           const image = await blobUrlToBase64(value.image);
           return {
             id: value.id,
@@ -95,10 +94,9 @@ const AdminFacebook = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    console.log(values);
     const transformedValues = await transformValues(values);
-    console.log(transformedValues);
     let successfulRequests = 0;
+    console.log(transformedValues);
 
     try {
       for (const value of transformedValues) {
@@ -113,18 +111,19 @@ const AdminFacebook = () => {
     } catch (error) {
       console.log(error);
     }
-    if (successfulRequests == 6) {
+    if (successfulRequests === 6) {
       setSuccess(true);
     }
   };
 
   useEffect(() => {
     if (!isLoading && data) {
+      console.log(data);
       const updatedValues = [...defaultValues];
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: element.image,
+          image: element.image ? element.image : null,
           wasImage: true,
           index: index,
         };
@@ -134,7 +133,7 @@ const AdminFacebook = () => {
     }
   }, [isLoading, data]);
 
-  if (isLoading || putMutation.isLoading || postMutation.isLoading ) {
+  if (isLoading || putMutation.isLoading || postMutation.isLoading) {
     return (
       <div className={style.centered}>
         <SpinnerLoader />
@@ -142,14 +141,20 @@ const AdminFacebook = () => {
     );
   }
 
-  if (error) {
+  if (error || putMutation.isError || postMutation.isError) {
     return (
       <ErrorModal
-        message={`Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`}
+        message={
+          error
+            ? `Не вдалось завантажити зображення: ${error.message}. Спробуйте будь ласка пізніше.`
+            : "Не вдалось оновити зображення, спробуйте будь ласка пізніше"
+        }
         className={style.centered}
       />
     );
   }
+
+  console.log(data);
 
   return (
     <div className={style.facebook}>
@@ -172,7 +177,7 @@ const AdminFacebook = () => {
               <ImageInput
                 key={element.id}
                 value=""
-                src={element.image ? element.image : ""}
+                src={!element.image[0] ? "" : element.image}
                 onChange={(newPreview) =>
                   handleImageChange(element.index, newPreview)
                 }
@@ -183,7 +188,11 @@ const AdminFacebook = () => {
             ))}
           </div>
           <div className={style.form__buttons}>
-            <AdminButton type="button" style={{ width: "196px" }} variant="secondary">
+            <AdminButton
+              type="button"
+              style={{ width: "196px" }}
+              variant="secondary"
+            >
               Скасувати
             </AdminButton>
             <AdminButton
