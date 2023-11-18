@@ -29,7 +29,7 @@ const FollowUsFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: element.image ? element.image : null,
+          image: !element.image[0] ? defaultValues[index].image : element.image,
           wasImage: true,
           index: index,
         };
@@ -49,7 +49,7 @@ const FollowUsFacebook = () => {
     isLoading ? (
       <div><SpinnerLoader /></div>
     ) : (
-      <SmallScreen defaultValues={values} />
+      <SmallScreen data={values} />
     )
   ) : isLoading ? (
     <div><SpinnerLoader /></div>
