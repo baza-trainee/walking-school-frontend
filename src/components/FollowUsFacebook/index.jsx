@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "swiper/css/navigation";
+import SpinnerLoader from "../Loader/SpinnerLoader";
+import { defaultValues } from "./data";
 import { Navigation } from "swiper/modules";
 import { useMedia } from "../../hooks/useMedia";
 import { SmallScreen } from "./SmallScreen";
@@ -13,10 +15,29 @@ const FollowUsFacebook = () => {
 
   let slidesQuantity;
 
-  const { data, loading, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["facebook"],
     queryFn: getFacebook,
   });
+
+  const [values, setValues] = useState([]);
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      console.log(data);
+      const updatedValues = [...defaultValues];
+      data.forEach((element, index) => {
+        updatedValues[index] = {
+          id: element.id,
+          image: element.image ? element.image : null,
+          wasImage: true,
+          index: index,
+        };
+      });
+
+      setValues(updatedValues);
+    }
+  }, [isLoading, data]);
 
   if (isTablet) {
     slidesQuantity = 3;
@@ -25,18 +46,24 @@ const FollowUsFacebook = () => {
   }
 
   const content = isMobile ? (
-    loading ? (
-      <div>loading</div>
+    isLoading ? (
+      <div><SpinnerLoader /></div>
     ) : (
-      <SmallScreen data={data}/>
+      <SmallScreen defaultValues={values} />
     )
-  ) : loading ? (
-    <div>loading</div>
+  ) : isLoading ? (
+    <div><SpinnerLoader /></div>
   ) : (
-    <FollowUsSlider data={data} slidesQuantity={slidesQuantity} Navigation={Navigation} />
+    <FollowUsSlider
+      data={values}
+      slidesQuantity={slidesQuantity}
+      Navigation={Navigation}
+    />
   );
 
-  return <Container>{error ? <div>an error occurred</div> : content}</Container>;
+  return (
+    <Container>{error ? <div>an error occurred</div> : content}</Container>
+  );
 };
 
 export default FollowUsFacebook;
