@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./followUs.module.css";
 import Button from "../UI/Button/Button";
 
