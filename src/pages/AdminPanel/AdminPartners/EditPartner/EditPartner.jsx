@@ -50,7 +50,7 @@ const EditPartner = () => {
       title: inputValue,
       image: await blobUrlToBase64(imageValue),
       created: "",
-      id: id
+      id: id,
     };
     console.log(transformedData);
     try {

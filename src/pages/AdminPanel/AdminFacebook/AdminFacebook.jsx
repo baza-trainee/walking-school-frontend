@@ -88,6 +88,7 @@ const AdminFacebook = () => {
           };
         }
       }),
+      }),
     );
     return transformed;
   }

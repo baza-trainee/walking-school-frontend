@@ -23,7 +23,6 @@ const FileDrop = ({
   ...props
 }) => {
   const [fileError, setFileError] = useState("");
-
   const variantClass = {
     project: styles.project,
     facebook: styles.facebook,
@@ -73,6 +72,7 @@ const FileDrop = ({
               e.preventDefault();
               e.stopPropagation();
               setPreview("");
+              handleClear(props.name);
             }}
             className={` ${styles["close-img"]}   ${
               variant === "slide"
@@ -82,7 +82,7 @@ const FileDrop = ({
                 : styles["absolute-4"]
             }`}
           >
-            <Close onClick={() => handleClear(`${props.name}`)} />
+            <Close />
           </div>
         </>
       ) : (

@@ -4,7 +4,6 @@ import styles from "./followUs.module.css";
 import { useEffect, useState } from "react";
 
 export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
-
   const [slides, setSlides] = useState(data);
 
   useEffect(() => {
