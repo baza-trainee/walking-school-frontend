@@ -1,8 +1,5 @@
 import React from "react";
 import styles from "./followUs.module.css";
-// import { data } from "./data";
-// import { useQuery } from "@tanstack/react-query";
-// import { getFacebook } from "../../API/followUsFacebook";
 import Button from "../UI/Button/Button";
 
 export const SmallScreen = ({ data }) => {
@@ -16,10 +13,10 @@ export const SmallScreen = ({ data }) => {
         Стежте за новинами у<br /> Facebook
       </h2>
       <div>
-        {data.map((element, index) => (
+        {data?.map((element, index) => (
           <div key={index} className={styles.imgWrapper}>
             <img
-              src={element.img}
+              src={element.image}
               key={index}
               className={styles.imageSmall}
               alt="facebookImg"
