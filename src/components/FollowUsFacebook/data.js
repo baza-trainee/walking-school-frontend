@@ -5,15 +5,27 @@ import facebook4 from "../../assets/main/followUs/facebook4.png";
 
 export const data = [
   {
-    img: facebook1,
+    id: 0,
+    image: facebook1,
   },
   {
+    id: 1,
     img: facebook2,
   },
   {
+    id: 2,
     img: facebook3,
   },
   {
+    id: 3,
     img: facebook4,
+  },
+  {
+    id: 4,
+    img: facebook2,
+  },
+  {
+    id: 5,
+    img: facebook3,
   },
 ];
