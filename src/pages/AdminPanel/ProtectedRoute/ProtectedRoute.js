@@ -10,6 +10,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       let isAuth = await checkAuthToken();
+      console.log(isAuth);
       if (!isAuth) {
         isAuth = await refreshToken();
       }
