@@ -41,7 +41,7 @@ const Main = () => (
       <Participate />
       <Requirements />
       <Partners />
-      {/*<FollowUsFacebook />*/}
+      <FollowUsFacebook />
       <Contact />
       <ScrollUp />
     </Suspense>
