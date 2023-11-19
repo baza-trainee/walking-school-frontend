@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import styles from "./Main.module.css";
+
 const HeroSection = lazy(() => import("../../HeroSection/index"));
 const Adventures = lazy(() => import("../../Adventures/Adventures"));
 const Offerings = lazy(() =>
