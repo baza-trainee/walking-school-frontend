@@ -47,12 +47,12 @@ const FollowUsFacebook = () => {
   }
 
   const content = isMobile ? (
-    isLoading  || true ? (
+    isLoading ? (
       <div className={styles.loader}><SpinnerLoader /></div>
     ) : (
       <SmallScreen data={values} />
     )
-  ) : isLoading || true ? (
+  ) : isLoading ? (
     <div className={styles.loader}><SpinnerLoader /></div>
   ) : (
     <FollowUsSlider
