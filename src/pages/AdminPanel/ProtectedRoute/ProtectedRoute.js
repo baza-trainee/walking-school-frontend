@@ -10,7 +10,6 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       let isAuth = await checkAuthToken();
-      console.log(isAuth);
       if (!isAuth) {
         isAuth = await refreshToken();
       }
@@ -35,7 +34,7 @@ const ProtectedRoute = () => {
     );
   }
   if (!authStatus) {
-    return <Navigate to="/login" />;
+    return <Navigate to={"/login"} />;
   }
 
   return <Outlet />;
