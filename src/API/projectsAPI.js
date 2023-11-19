@@ -7,7 +7,7 @@ export const getAllCards = async () => {
 
 export const getProjectDescription = async () => {
   const response = await $host.get("project-section-description");
-  return response.data;
+  return response.data[0];
 };
 
 export const createProject = async (data) => {

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ProjectCard from "../ProjectCard/ProjectCard";
 import style from "../Projects.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import { Navigation } from "swiper/modules";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
 const SwiperSlider = ({ items, isLoading }) => {
-  const [slidersArr, setSlidersArr] = useState([]);
+  const [slidersArr, setSlidersArr] = useState(items);
 
   useEffect(() => {
     if (items && items.length < 6) {
