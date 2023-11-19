@@ -34,7 +34,7 @@ const ProtectedRoute = () => {
     );
   }
   if (!authStatus) {
-    return <Navigate to="/login" />;
+    return <Navigate to={"/login"} />;
   }
 
   return <Outlet />;
