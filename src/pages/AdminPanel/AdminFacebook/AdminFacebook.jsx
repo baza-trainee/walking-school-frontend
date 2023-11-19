@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../components/AdminPanel/UI/Button/AdminButton";
@@ -6,13 +7,12 @@ import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
 import Alert from "../../../components/AdminPanel/Alert/Alert";
 import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
 import { blobUrlToBase64 } from "../../../heplers/BlobToBase64";
-import style from "./AdminFacebook.module.css";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   getFacebook,
   postFacebook,
   putFacebook,
 } from "../../../API/followUsFacebook";
+import style from "./AdminFacebook.module.css";
 
 const defaultValues = [
   { id: 0, image: null, wasImage: false, index: 0 },
@@ -66,14 +66,6 @@ const AdminFacebook = () => {
     const transformed = await Promise.all(
       values.map(async (value) => {
         if (value.image && value.image !== "") {
-          // if (value.image.includes("data:image/jpeg;base64")) {
-          //   console.log(value.image)
-          //   return {
-          //     id: value.id,
-          //     image: value.image,
-          //     wasImage: value.wasImage,
-          //   };
-          // }
           const image = await blobUrlToBase64(value.image);
           return {
             id: value.id,

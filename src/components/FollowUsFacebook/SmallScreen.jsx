@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import styles from "./followUs.module.css";
+import React from "react";
 import Button from "../UI/Button/Button";
+import styles from "./followUs.module.css";
 
 export const SmallScreen = ({ data }) => {
   return (

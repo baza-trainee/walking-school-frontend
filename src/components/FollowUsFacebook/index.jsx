@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "swiper/css/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { getFacebook } from "../../API/followUsFacebook";
 import SpinnerLoader from "../Loader/SpinnerLoader";
 import { defaultValues } from "./data";
 import { Navigation } from "swiper/modules";
@@ -7,8 +9,6 @@ import { useMedia } from "../../hooks/useMedia";
 import { SmallScreen } from "./SmallScreen";
 import { FollowUsSlider } from "./FollowUsSlider";
 import Container from "../layout/Container";
-import { useQuery } from "@tanstack/react-query";
-import { getFacebook } from "../../API/followUsFacebook";
 import styles from "./followUs.module.css";
 
 const FollowUsFacebook = () => {
@@ -48,12 +48,16 @@ const FollowUsFacebook = () => {
 
   const content = isMobile ? (
     isLoading ? (
-      <div className={styles.loader}><SpinnerLoader /></div>
+      <div className={styles.loader}>
+        <SpinnerLoader />
+      </div>
     ) : (
       <SmallScreen data={values} />
     )
   ) : isLoading ? (
-    <div className={styles.loader}><SpinnerLoader /></div>
+    <div className={styles.loader}>
+      <SpinnerLoader />
+    </div>
   ) : (
     <FollowUsSlider
       data={values}
