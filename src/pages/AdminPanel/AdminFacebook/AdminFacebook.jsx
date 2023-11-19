@@ -32,6 +32,23 @@ const AdminFacebook = () => {
   const [values, setValues] = useState([]);
   const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    if (!isLoading && data) {
+      console.log(data);
+      const updatedValues = [...defaultValues];
+      data.forEach((element, index) => {
+        updatedValues[index] = {
+          id: element.id,
+          image: element.image ? element.image : null,
+          wasImage: true,
+          index: index,
+        };
+      });
+
+      setValues(updatedValues);
+    }
+  }, [isLoading, data]);
+
   const handleImageChange = (index, newPreview) => {
     const updatedValues = [...values];
     updatedValues[index] = {
@@ -49,18 +66,6 @@ const AdminFacebook = () => {
     };
     setValues(updatedValues);
   };
-
-  const queryClient = useQueryClient();
-
-  const postMutation = useMutation({
-    mutationFn: postFacebook,
-    onSettled: () => queryClient.invalidateQueries(["facebook"]),
-  });
-
-  const putMutation = useMutation({
-    mutationFn: putFacebook,
-    onSettled: () => queryClient.invalidateQueries(["facebook"]),
-  });
 
   async function transformValues(values) {
     const transformed = await Promise.all(
@@ -83,6 +88,18 @@ const AdminFacebook = () => {
     );
     return transformed;
   }
+
+  const queryClient = useQueryClient();
+
+  const postMutation = useMutation({
+    mutationFn: postFacebook,
+    onSettled: () => queryClient.invalidateQueries(["facebook"]),
+  });
+
+  const putMutation = useMutation({
+    mutationFn: putFacebook,
+    onSettled: () => queryClient.invalidateQueries(["facebook"]),
+  });
 
   const submitFunc = async (event) => {
     event.preventDefault();
@@ -108,23 +125,6 @@ const AdminFacebook = () => {
     }
   };
 
-  useEffect(() => {
-    if (!isLoading && data) {
-      console.log(data);
-      const updatedValues = [...defaultValues];
-      data.forEach((element, index) => {
-        updatedValues[index] = {
-          id: element.id,
-          image: element.image ? element.image : null,
-          wasImage: true,
-          index: index,
-        };
-      });
-
-      setValues(updatedValues);
-    }
-  }, [isLoading, data]);
-
   if (isLoading || putMutation.isLoading || postMutation.isLoading) {
     return (
       <div className={style.centered}>
@@ -145,8 +145,6 @@ const AdminFacebook = () => {
       />
     );
   }
-
-  console.log(data);
 
   return (
     <div className={style.facebook}>
