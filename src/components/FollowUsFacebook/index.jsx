@@ -9,6 +9,7 @@ import { FollowUsSlider } from "./FollowUsSlider";
 import Container from "../layout/Container";
 import { useQuery } from "@tanstack/react-query";
 import { getFacebook } from "../../API/followUsFacebook";
+import styles from "./followUs.module.css";
 
 const FollowUsFacebook = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
@@ -46,13 +47,13 @@ const FollowUsFacebook = () => {
   }
 
   const content = isMobile ? (
-    isLoading ? (
-      <div><SpinnerLoader /></div>
+    isLoading  || true ? (
+      <div className={styles.loader}><SpinnerLoader /></div>
     ) : (
       <SmallScreen data={values} />
     )
-  ) : isLoading ? (
-    <div><SpinnerLoader /></div>
+  ) : isLoading || true ? (
+    <div className={styles.loader}><SpinnerLoader /></div>
   ) : (
     <FollowUsSlider
       data={values}
