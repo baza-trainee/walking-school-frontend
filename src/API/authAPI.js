@@ -42,9 +42,10 @@ export const resetPass = async (data) => {
 export const refreshToken = async () => {
   try {
     const response = await $host.post("authorization-refresh");
-    return response.data;
+    console.log(response.status);
+    return response.status === 200;
   } catch (e) {
-    throw new Error(e);
+    return false;
   }
 };
 
