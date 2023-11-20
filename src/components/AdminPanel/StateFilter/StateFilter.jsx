@@ -5,8 +5,8 @@ import style from "./StateFilter.module.css";
 
 const options = [
   { value: "all", label: "Всі" },
-  { value: "Активний", label: "Активний" },
-  { value: "Неактивний", label: "Неактивний" },
+  { value: true, label: "Активний" },
+  { value: false, label: "Неактивний" },
 ];
 
 const customStyles = {
