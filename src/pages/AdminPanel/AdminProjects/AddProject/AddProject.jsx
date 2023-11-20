@@ -6,7 +6,7 @@ import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton
 import styles from "./AddProject.module.css";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import { ageOptions, eventOptions } from "../optionsData";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { useProjectForm } from "../../../../hooks/useProjectForm";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -15,10 +15,15 @@ import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal"
 import DotsLoader from "../../../../components/Loader/DotsLoader";
 
 export const AddProject = () => {
-  const [isActiveModal, setIsActiveModal] = useState(false);
-  const { id } = useParams();
-  const { formik, mutationStatus, localError, isLoading } = useProjectForm(id);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { id } = useParams();
+  const project = location.state?.projectToEdit || null;
+  const [isActiveModal, setIsActiveModal] = useState(false);
+  const { formik, mutationStatus, localError, isLoading } = useProjectForm(
+    id,
+    project,
+  );
 
   const navigateToProjects = () => {
     navigate(`/admin/projects`);
@@ -83,7 +88,7 @@ export const AddProject = () => {
             </div>
             <div className={styles.rightBlock}>
               <DateSelect
-                placeholder={"Період"}
+                placeholder={project?.period?.join(" - ") || "Період"}
                 onChange={(date) => formik.setFieldValue("period", date)}
                 id={"period"}
                 error={formik.touched.period && formik.errors.period}
@@ -92,6 +97,7 @@ export const AddProject = () => {
                 options={eventOptions}
                 onChange={(option) => formik.setFieldValue("category", option)}
                 error={formik.touched.category && formik.errors.category}
+                value={formik.values.category}
               />
               <CustomSelect
                 options={ageOptions}
@@ -103,11 +109,12 @@ export const AddProject = () => {
                 error={
                   formik.touched.age_category && formik.errors.age_category
                 }
+                value={formik.values.age_category}
               />
               <ImageInput
                 variant="project"
                 onChange={(blob) => formik.setFieldValue("image", blob)}
-                src={null}
+                src={project?.image || null}
                 error={formik.touched.image && formik.errors.image}
               />
             </div>

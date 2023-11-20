@@ -20,11 +20,13 @@ export const DateSelect = ({
   onChange,
   id,
   isPublicDate = false,
+  value,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [labelContent, setLabelContent] = useState(placeholder);
+
   const dropDownRef = useRef(null);
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));

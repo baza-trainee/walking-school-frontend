@@ -23,7 +23,8 @@ export const AdminProjects = () => {
   );
 
   const navigateToEdit = (projectId) => {
-    navigate(`/admin/projects/edit/${projectId}`);
+    const projectToEdit = projectsData.find((p) => p.id === projectId);
+    navigate(`/admin/projects/edit/${projectId}`, { state: { projectToEdit } });
   };
 
   const handleSortByDate = () => {

@@ -20,7 +20,7 @@ const ImageInput = ({
   ...props
 }) => {
   const [isCropImg, setIsCropImg] = useState(false);
-  const [preview, setPreview] = useState("");
+  const [preview, setPreview] = useState(src || "");
   const [file, setFile] = useState(null);
 
   useEffect(() => {
@@ -34,10 +34,7 @@ const ImageInput = ({
     if (resetPreviewImg) {
       setPreview("");
     }
-    if (src) {
-      setPreview(src);
-    }
-  }, [src, preview, resetPreviewImg]);
+  }, [preview, resetPreviewImg]);
 
   const aspect = {
     project: 367 / 288,
