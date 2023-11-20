@@ -37,7 +37,7 @@ const LoginForm = ({ className = "", ...props }) => {
             });
 
             if (res.code === "200") {
-              setTimeout(() => navigate("/admin"), 1000);
+              navigate("/admin");
             }
           } catch {
             setIsError(true);
