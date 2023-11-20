@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Check from "../../../assets/icons/checkCircle.svg";
-import style from "./requirementsElement.module.css";
+import Check from "../../../assets/main/requirements/checkCircle.svg";
+import style from "./RequirementsElement.module.css";
 
 const Requirement = (props) => {
   const { text } = props;
   return (
-    <div className={style.requirement}>
+    <div data-testid="requirement" className={style.requirement}>
       <img className={style.requirement__icon} src={Check} alt="" />
-      <div className={style.requirement__text}>
-        <span>{text}</span>
-      </div>
+      <span className={style.requirement__text}>{text}</span>
     </div>
   );
 };

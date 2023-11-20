@@ -1,0 +1,156 @@
+@import "../../../../typography/_colors.css";
+@import "../../../../typography/_fonts.css";
+
+:root {
+  --common-height: 48px;
+  --common-border-color: #7e8492;
+  --common-radius: 4px;
+  --common-transition: all 0.3s ease 0s;
+  --width-305: 305px;
+}
+
+.dropdown {
+  width: var(--width-305);
+  position: relative;
+  height: fit-content;
+  border-radius: var(--common-radius);
+  height: var(--common-height);
+  outline: none;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--common-height);
+  padding: 12px 8px;
+  cursor: pointer;
+}
+
+.dateIcon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.label:hover {
+  cursor: pointer;
+}
+
+.dropDownContent {
+  height: 100%;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--common-border-color);
+  border-radius: var(--common-radius);
+  min-height: 248px;
+  outline: none;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-family: var(--body-text-ff);
+  font-style: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.entryArea {
+  line-height: 42px;
+  height: 42px;
+  position: relative;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid var(--common-border-color);
+  border-radius: var(--common-radius);
+  outline: none;
+  position: absolute;
+  width: 100%;
+  line-height: 40px;
+  background: transparent;
+  transition: var(--common-transition);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.labelLine {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  transition: var(--common-transition);
+  padding: 0 8px;
+  margin: 0 8px;
+  background-color: #fff;
+}
+
+.input,
+.input::placeholder {
+  font-family: var(--body-text-ff);
+  font-style: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+.input:focus {
+  border-color: var(--admin-success-color);
+}
+
+.input:focus + .labelLine {
+  color: var(--admin-success-color);
+  transform: translate(-5px, -7px) scale(0.88);
+  z-index: 1111;
+  height: 10px;
+  line-height: 10px;
+}
+
+.dateContainer {
+  position: absolute;
+  top: 60px;
+  width: var(--width-305);
+  left: -1px;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--common-transition);
+  z-index: 1111;
+  background-color: #fff;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 16px;
+  align-self: flex-end;
+}
+
+.button {
+  color: var(--admin-success-color);
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.labelActive {
+  color: var(--admin-success-color);
+  transform: translate(-5px, -7px) scale(0.88);
+  height: 10px;
+  line-height: 10px;
+}

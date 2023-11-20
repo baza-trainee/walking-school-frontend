@@ -1,0 +1,65 @@
+@import "../../../../typography/_fonts.css";
+.projectItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px;
+  font-family: var(--menu-item-ff);
+  font-weight: var(--menu-item-ff--fw);
+  line-height: var(--menu-item-lh);
+  font-size: var(--menu-item-fs-mob);
+  color: #313131;
+}
+
+.projectItemBg {
+  background-color: #e3f9f7;
+}
+
+.input {
+  width: 24px;
+  height: 24px;
+  margin-right: 30px;
+}
+
+.status {
+  width: 450px;
+}
+
+.project_name {
+  text-align: left;
+}
+
+.creation_date {
+  position: relative;
+  width: 200px;
+}
+
+.iconsContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+  width: 450px;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.creation_date_icon::after {
+  content: url("../../../../assets/images/dateArrows.svg");
+  top: 50%;
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  transform: translateY(-50%);
+}
+
+.image {
+  cursor: pointer;
+}

@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  min-height: 1024px;
+}
+
+.outlet {
+  flex-grow: 1;
+  background: #fbfafa;
+}
+
+.sidebar {
+  width: 277px;
+  background: #1d7d74;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__logo {
+  background: #fcfcfc;
+  padding: 27px 121px 27px 29px;
+  height: 118px;
+}
+
+.sidebar__menu {
+  padding: 44px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.sidebar__menu button {
+  width: 213px;
+  height: 52px;
+}
+
+.sidebar__menu-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -1,0 +1,53 @@
+.container {
+  width: 1063px;
+  height: 378px;
+  position: relative;
+}
+
+.description {
+  display: flex;
+  width: 452px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 100px;
+  margin-left: 150px;
+}
+
+.description h2 {
+  color: #fff;
+  font-family: var(--h1-ff);
+  font-size: var(--h1-fs-web);
+  font-style: normal;
+  font-weight: var(--h1-fw);
+  line-height: var(--h1-lh);
+}
+
+.description p {
+  color: #fcfcfc;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-web);
+  font-style: normal;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.action {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}

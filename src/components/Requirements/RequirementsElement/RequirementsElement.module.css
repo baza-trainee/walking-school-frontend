@@ -1,0 +1,46 @@
+@import "../../../typography/_colors.css";
+@import "../../../typography/_fonts.css";
+
+.requirement {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  height: fit-content;
+}
+
+.requirement__icon {
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.requirement__text {
+  font-family: var(--body-text-ff);
+  display: block;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  top: 3px;
+  line-height: var(--body-text-lh);
+  font-weight: var(--body-text-fw);
+  font-size: var(--body-text-fs-mob);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .requirement__text {
+    top: 1.4px;
+    font-size: var(--body-text-fs-tab);
+    line-height: 133.33%;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1280px) {
+  .requirement__text {
+    line-height: 135%;
+    font-size: var(--body-text-fs-web);
+    font-weight: 400;
+    top: 0;
+  }
+}

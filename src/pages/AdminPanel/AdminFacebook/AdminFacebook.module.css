@@ -1,0 +1,30 @@
+.content {
+  padding: 48px 80px 0 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.form__inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+
+.form__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

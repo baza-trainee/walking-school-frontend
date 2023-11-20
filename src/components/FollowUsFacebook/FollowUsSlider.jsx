@@ -1,24 +1,21 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { data } from "./data";
 import Button from "../UI/Button/Button";
-
 import styles from "./followUs.module.css";
 
-export function FollowUsSlider({ slidesQuantity, Navigation }) {
+export function FollowUsSlider({ data, slidesQuantity, Navigation }) {
+  const slides = [...data, ...data];
+
   return (
     <>
-      <section className={styles.sectionWrapper}>
+      <section id="gallery" className={styles.sectionWrapper}>
         <div className={styles.sliderTop}>
           <h2 className={styles.title}>
             Стежте за останніми <br /> новинами у Facebook
           </h2>
-          <div className={styles.arrowButtons}>
-            <div className={`${styles.myArrow} swiper-button-prev`}></div>
-            <div className={`${styles.myArrow} swiper-button-next`}></div>
-          </div>
         </div>
         <Swiper
-          slidesPerView={slidesQuantity}
+          slidesPerView={slidesQuantity - 0.5}
+          spaceBetween={0}
           loop
           modules={[Navigation]}
           navigation={{
@@ -26,17 +23,34 @@ export function FollowUsSlider({ slidesQuantity, Navigation }) {
             prevEl: ".swiper-button-prev",
           }}
         >
-          {data.map((slide) => (
-            <SwiperSlide className={styles.slide} key={slide.img}>
-              <img src={slide.img} className={styles.image} />
+          {slides?.map((slide, index) => (
+            <SwiperSlide className={styles.imgWrapper} key={index}>
+              <img
+                src={slide.image}
+                className={styles.imageSmall}
+                alt="facebookImg"
+              />
             </SwiperSlide>
           ))}
+          <div className={styles.arrowButtons}>
+            <div
+              className={`${styles.myArrow} ${styles.left} swiper-button-prev`}
+            ></div>
+            <div
+              className={`${styles.myArrow} ${styles.right} swiper-button-next`}
+            ></div>
+          </div>
         </Swiper>
         <div className={styles.buttonWrapper}>
-          <Button className={styles.follow}>Стежити</Button>
+          <a
+            href="https://www.facebook.com/oleksandr.shvetsov"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Button className={styles.follow}>Стежити</Button>
+          </a>
         </div>
       </section>
-      ;
     </>
   );
 }

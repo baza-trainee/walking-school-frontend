@@ -1,0 +1,35 @@
+@import "../../../typography/_fonts.css";
+
+.subHeader {
+  width: 100%;
+  background-color: #e3f9f7;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 105px 8px 16px;
+  color: #313131;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-web);
+  font-weight: var(--body-text-fw);
+  line-height: 100%;
+  box-shadow: 0 1px 0 #eaeaea;
+}
+
+.subHeader__heading {
+  width: 439px;
+}
+
+.subHeader__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.subHeader__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}

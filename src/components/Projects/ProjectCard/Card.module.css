@@ -1,11 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&display=swap");
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   padding-bottom: 16px;
   position: relative;
   width: 288px;
+  height: 488px;
   background-color: inherit;
 }
 
@@ -33,18 +55,13 @@
   left: 65px;
   padding: 8px 16px;
   border-radius: 24px;
-  background: #ffbf69;
+  background: var(--projects-date-bg);
   color: #131313;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  font-family:
-    DM Sans,
-    sans-serif;
-  font-size: 16px;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-mob);
   font-style: normal;
-  font-weight: 500;
-  line-height: 100%;
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
 }
 
 .date img {
@@ -54,19 +71,46 @@
 
 .info {
   display: flex;
+  height: 304px;
   flex-direction: column;
   gap: 16px;
   margin-top: -16px;
   padding: 32px 8px 16px 8px;
   border-radius: 0 0 24px 24px;
-  background: #fff;
+  background: var(--projects-internal-bg);
+}
+
+.hover.info {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  z-index: 3;
+  height: 488px;
+  border-radius: 24px;
+  justify-content: space-between;
+  animation: slideUp 0.6s ease-in-out forwards;
+  transform-origin: bottom;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.hover.info .data__description {
+  font-size: 20px;
+  overflow-y: auto;
+  height: 300px;
 }
 
 .data {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  color: #7e8492;
 }
 
 .data img {
@@ -77,48 +121,89 @@
 .data,
 .data__age,
 .data__description {
-  font-family:
-    DM Sans,
-    sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 21px;
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
   font-style: normal;
 }
 
 .data h3 {
-  font-family: DM Sans;
   color: #1d1e25;
   height: 48px;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 24px;
+  font-family: var(--h5-ff);
+  font-size: var(--h5-fs);
+  font-weight: var(--h5-fw);
+  line-height: var(--h5-lh);
 }
 
 .data__age {
   display: flex;
+  height: 24px;
   gap: 8px;
   align-items: center;
-  font-feature-settings:
-    "clig" off,
-    "liga" off;
-  color: #747474;
+  color: var(--age-text-color);
 }
 
 .data__description {
-  color: #4d4d4d;
+  color: var(--body-text-color);
+  height: 88px;
+}
+
+.data__description span {
+  color: var(--body-text-color);
+  font-family: var(--body-text-ff);
+  font-size: var(--body-text-fs-mob);
+  font-weight: var(--body-text-fw);
+  line-height: var(--body-text-lh);
+}
+
+/*Skeleton*/
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+.card__image.skeleton {
+  display: inline-block;
+  width: 288px;
+  height: 196px;
+  object-fit: cover;
+  clip-path: url(#clip-path);
+}
+
+.date.skeleton {
+  height: 40px;
+}
+
+.skeleton__btn {
+  border-radius: 24px;
+  height: 48px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @media screen and (min-width: 767px) {
   .card {
     width: 352px;
+    height: 591px;
   }
 
   .card__image {
     height: 255px;
+  }
+
+  .card__image.skeleton {
+    height: 255px;
+    width: 352px;
   }
 
   .card__image img {
@@ -128,27 +213,50 @@
 
   .date {
     left: 131px;
+    font-size: var(--body-text-fs-tab);
   }
 
   .info {
     padding: 32px 16px 24px 16px;
+    height: 344px;
+  }
+
+  .hover.info {
+    height: 600px;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(0.986);
+    }
+  }
+
+  .hover.info .data__description {
+    height: 320px;
   }
 
   .data h3 {
     height: 76px;
-    font-size: 24px;
-    line-height: 38px;
-    font-weight: 700;
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    font-weight: var(--h4-fw);
   }
 
   .data__description {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
+    font-size: var(--body-text-fs-web);
+    height: 96px;
+  }
+
+  .data__description span {
+    font-size: var(--body-text-fs-web);
   }
 
   .join__link {
     width: 162px;
+    height: 48px;
   }
 }
 
@@ -157,6 +265,10 @@
     width: 367px;
   }
 
+  .card__image.skeleton {
+    width: 367px;
+    height: 288px;
+  }
   .card__image {
     height: 288px;
   }
@@ -173,18 +285,29 @@
 
   .data h3 {
     height: 76px;
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 38px;
   }
 
   .info {
     margin-top: -24px;
     padding: 48px 16px 24px 16px;
+    height: 488px;
+  }
+
+  .hover.info {
+    height: 655px;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(0.986);
+    }
+  }
+
+  .hover.info .data__description {
+    height: 380px;
   }
 
   .join__link {

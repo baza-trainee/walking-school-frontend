@@ -1,25 +1,29 @@
 import React from "react";
 import Container from "../layout/Container/Container";
 import Adventure from "./Adventure/Adventure";
-import Bungee from "../../assets/icons/BungeeJumping.svg";
-import FlySpot from "../../assets/icons/FlySpot.svg";
-import Parachuting from "../../assets/icons/Parachuting.svg";
-import SkyWalk from "../../assets/icons/SkyWalk.svg";
-import style from "./adventures.module.css";
+import Bungee from "../../assets/main/adventures/BungeeJumping.svg";
+import Parachuting from "../../assets/main/adventures/FlySpot.svg";
+import FlySpot from "../../assets/main/adventures/Parachuting.svg";
+import SkyWalk from "../../assets/main/adventures/SkyWalk.svg";
+import style from "./Adventures.module.css";
 
 const cards = [
-  { image: FlySpot, alt: "parachute icon", text: "FlySpot" },
+  { image: Parachuting, alt: "іконка парашуту", text: "Стрибки з парашутом" },
   {
     image: Bungee,
-    alt: "a man jumping with a bungee rope",
+    alt: "іконка чоловічка, що стрибає з банджі",
     text: "Банджі джампінг",
   },
   {
-    image: Parachuting,
-    alt: "a man performing parachute jumping",
-    text: "Стрибки з парашутом",
+    image: FlySpot,
+    alt: "іконка чоловічка, що летить",
+    text: "Тунельний політ",
   },
-  { image: SkyWalk, alt: "a man climbing upward", text: "SkyWalk" },
+  {
+    image: SkyWalk,
+    alt: "іконка чоловічка, що підіймається угору з мотузкою",
+    text: "Стежка у хмарах",
+  },
 ];
 
 const cardCollection = cards.map((card) => (
@@ -39,7 +43,9 @@ const cardCollection = cards.map((card) => (
 const Adventures = () => {
   return (
     <Container>
-      <div className={style.container}>{cardCollection}</div>
+      <div data-testid="adventures" className={style.container}>
+        {cardCollection}
+      </div>
     </Container>
   );
 };
