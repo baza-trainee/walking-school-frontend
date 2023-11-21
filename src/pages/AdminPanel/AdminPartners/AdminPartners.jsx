@@ -62,7 +62,7 @@ const AdminPartners = () => {
       console.log(data);
       setValues(data);
     }
-  })
+  }, [isLoading, data])
 
   const queryClient = useQueryClient();
 
