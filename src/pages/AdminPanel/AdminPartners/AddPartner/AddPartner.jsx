@@ -33,7 +33,7 @@ const AddPartner = () => {
     mutationFn: postPartner,
     onSettled: () => queryClient.invalidateQueries(["partners"]),
     onError: (error) => {
-      console.error("Error adding partner:", error);
+      console.log("Error adding partner:", error);
     },
   });
 
@@ -49,7 +49,7 @@ const AddPartner = () => {
     try {
       mutation.mutateAsync(transformedData);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
@@ -65,7 +65,7 @@ const AddPartner = () => {
             placeholder="Назва"
           />
           <ImageInput
-            value={imageValue}
+            src=""
             onChange={imageChange}
             variant="project"
           />
