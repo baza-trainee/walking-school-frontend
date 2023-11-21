@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const { isDesktop } = useMedia();
   const [isOpen, setIsOpen] = useState(false);
-
+  console.log(isDesktop);
   const goTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
