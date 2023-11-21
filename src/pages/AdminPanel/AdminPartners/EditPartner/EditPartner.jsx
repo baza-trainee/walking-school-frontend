@@ -4,13 +4,13 @@ import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-
-import style from "./EditPartner.module.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getPartnerById, putPartner } from "../../../../API/partners";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
 
-// test comment
+import style from "./EditPartner.module.css";
+
+
 const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
