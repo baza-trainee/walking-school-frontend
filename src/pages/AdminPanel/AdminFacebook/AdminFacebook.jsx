@@ -167,7 +167,7 @@ const AdminFacebook = () => {
               <ImageInput
                 key={element.id}
                 value=""
-                src={!element.image[0] ? "" : element.image}
+                src={!element.image || !element.image[0] ? "" : element.image}
                 onChange={(newPreview) =>
                   handleImageChange(element.index, newPreview)
                 }
