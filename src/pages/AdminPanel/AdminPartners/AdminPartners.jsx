@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import AdminPartnersList from "./AdminPartnersList/AdminPartnersList";
 import { useNavigate } from "react-router-dom";
@@ -47,13 +47,22 @@ import { deletePartner, getPartners } from "../../../API/partners";
 
 const AdminPartners = () => {
   const [searchWord, setSearchWord] = useState("");
-  // const [reversed, setReversed] = useState(false);
+  const [reversed, setReversed] = useState(false);
   const navigate = useNavigate();
 
-  const { data, loading, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["partners"],
     queryFn: () => getPartners(),
   });
+
+  const [values, setValues] = useState([]);
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      console.log(data);
+      setValues(data);
+    }
+  })
 
   const queryClient = useQueryClient();
 
@@ -63,21 +72,21 @@ const AdminPartners = () => {
     onSuccess: () => queryClient.invalidateQueries(["partners"]),
   });
 
-  // const preSorted = data?.sort((a, b) => {
-  //   a = a.creation_date.split(".").reverse().join("");
-  //   b = b.creation_date.split(".").reverse().join("");
-  //   return a > b ? 1 : a < b ? -1 : 0;
-  // });
+  const preSorted = values?.sort((a, b) => {
+    a = a.created.split(".").reverse().join("");
+    b = b.created.split(".").reverse().join("");
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
 
-  // const sorted = reversed ? preSorted.reverse() : preSorted;
+  const sorted = reversed ? preSorted.reverse() : preSorted;
 
-  // const filteredProjects = sorted.filter((element) =>
-  //   element.partner_name.toLowerCase().includes(searchWord.toLowerCase()),
-  // );
+  const filteredProjects = sorted.filter((element) =>
+    element.title.toLowerCase().includes(searchWord.toLowerCase()),
+  );
 
-  // const reverseList = () => {
-  //   setReversed(!reversed);
-  // };
+  const reverseList = () => {
+    setReversed(!reversed);
+  };
   console.log(data);
 
   const navigateToAdd = () => {
@@ -93,13 +102,13 @@ const AdminPartners = () => {
   };
 
   const DisplayedComponent = () => {
-    if (data === undefined || Object.keys(data).length === 0) {
+    if (values === undefined || Object.keys(values).length === 0) {
       return <div>data is empty or undefined</div>;
     } else if (!error) {
       return (
         <AdminPartnersList
-          // sortingFunc={reverseList}
-          // data={filteredProjects}
+          sortingFunc={reverseList}
+          data={filteredProjects}
           deleteFunc={deleteFunc}
           navigateToEdit={navigateToEdit}
         />
@@ -123,7 +132,7 @@ const AdminPartners = () => {
         heading="Партнери"
       />
       <div className={style.partners__content}>
-        {loading ? <div>loading...</div> : <DisplayedComponent />}
+        {isLoading ? <div>loading...</div> : <DisplayedComponent />}
       </div>
     </div>
   );
