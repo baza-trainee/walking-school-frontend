@@ -17,11 +17,11 @@ const AdminPartnersList = ({
       </div>
       <div className={style.partners__list}>
         {data.map((partner) => {
-          const { id, partner_name, creation_date } = partner;
+          const { id, title, created } = partner;
           return (
             <ListItem
-              heading={partner_name}
-              date={creation_date}
+              heading={title}
+              date={created}
               key={id}
               navigateToEdit={() => navigateToEdit(id)}
               deleteFunc={() => deleteFunc(id)}
