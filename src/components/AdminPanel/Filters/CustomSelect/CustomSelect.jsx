@@ -10,9 +10,10 @@ export const CustomSelect = ({
   options,
   error,
   onChange,
+  value,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(value || null);
   const dropDownRef = useRef(null);
 
   const handleToggle = () => setIsExpanded((prev) => !prev);
