@@ -3,7 +3,6 @@ import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./AddProject.module.css";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import { ageOptions, eventOptions } from "../optionsData";
@@ -66,18 +65,6 @@ export const AddProject = () => {
                 value={formik.values.description}
                 error={formik.touched.description && formik.errors.description}
               />
-              <div className={styles.tooltipContainer}>
-                <DateSelect
-                  placeholder={"Дата публікації"}
-                  onChange={(date) => formik.setFieldValue("publishDate", date)}
-                  id={"publishDate"}
-                  error={
-                    formik.touched.publishDate && formik.errors.publishDate
-                  }
-                  isPublicDate
-                />
-                <Tooltip />
-              </div>
               <div className={styles.buttonWrapper}>
                 <AdminButton
                   type="button"

@@ -36,7 +36,7 @@ const LoginForm = ({ className = "", ...props }) => {
               password: values.password,
             });
 
-            if (res) {
+            if (res.code === "200") {
               navigate("/admin");
             }
           } catch {

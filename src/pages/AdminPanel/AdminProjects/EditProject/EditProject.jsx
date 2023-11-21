@@ -24,6 +24,8 @@ export const EditProject = () => {
     navigate(`/admin/projects`);
   };
 
+  console.log(data);
+
   return (
     <div>
       <AdminHeader heading={"Редагувати опис"} withClose={true} />
@@ -34,7 +36,7 @@ export const EditProject = () => {
           <AdminInput
             disabled
             variant="admin"
-            placeholder={`${data ? data.message : "Проєкти"}`}
+            placeholder={`${data ? data.data[0].description : "Проєкти"}`}
             className={styles.input}
           />
           <AdminInput
