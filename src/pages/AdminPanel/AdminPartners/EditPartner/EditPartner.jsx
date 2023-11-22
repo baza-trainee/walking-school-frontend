@@ -24,6 +24,7 @@ const EditPartner = () => {
   });
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false)
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["partners"],
@@ -107,13 +108,7 @@ const EditPartner = () => {
 
   return (
     <div className={style.page}>
-      <AdminHeader
-        withClose
-        closeFunc={closeFunc}
-        heading="Редагувати партнера"
-      />
-      <form onSubmit={submitFunc} className={style.page__content}>
-        {success && (
+      {success && (
           <Alert
             active={success}
             setActive={(value) => {
@@ -125,6 +120,23 @@ const EditPartner = () => {
             message="Ваші зміни успішно збережено"
           />
         )}
+        {isLeaving && (
+          <Alert
+          title={"Залишити сторінку"}
+          message={
+            "Ви дійсно хочете залишити сторінку? Процес редагування буде втрачено"
+          }
+          setActive={setIsLeaving}
+          active={isLeaving}
+          successFnc={() => navigate("/admin/partners")}
+        />
+        )}
+      <AdminHeader
+        withClose
+        closeFunc={() => setIsLeaving(true)}
+        heading="Редагувати партнера"
+      />
+      <form onSubmit={submitFunc} className={style.page__content}>
         <div className={style.inputs}>
           <AdminInput
             value={partner.title}
@@ -145,6 +157,7 @@ const EditPartner = () => {
             type="button"
             style={{ width: "196px" }}
             variant="secondary"
+            onClick={() => (setIsLeaving(true))}
           >
             Скасувати
           </AdminButton>
