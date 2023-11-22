@@ -74,11 +74,11 @@ const AdminPartners = () => {
     onSuccess: () => queryClient.invalidateQueries(["partners"]),
   });
 
-  const preSorted = values?.sort((a, b) => {
+  const preSorted = values?.length > 1 ? values?.sort((a, b) => {
     a = a.created.split(".").reverse().join("");
     b = b.created.split(".").reverse().join("");
     return a > b ? 1 : a < b ? -1 : 0;
-  });
+  }) : values;
 
   const sorted = reversed ? preSorted.reverse() : preSorted;
 
