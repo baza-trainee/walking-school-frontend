@@ -42,10 +42,6 @@ const EditPartner = () => {
     setPartner({ ...partner, image: "" });
   };
 
-  const closeFunc = () => {
-    navigate("/admin/partners");
-  };
-
   const inputChange = (event) => {
     setPartner({ ...partner, title: event.target.value });
   };
