@@ -24,7 +24,7 @@ const EditPartner = () => {
   });
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
-  const [isLeaving, setIsLeaving] = useState(false)
+  const [isLeaving, setIsLeaving] = useState(false);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["partners"],
@@ -105,19 +105,19 @@ const EditPartner = () => {
   return (
     <div className={style.page}>
       {success && (
-          <Alert
-            active={success}
-            setActive={(value) => {
-              setSuccess(value);
-              navigate("/admin/partners");
-            }}
-            type="success"
-            title="Збережено!"
-            message="Ваші зміни успішно збережено"
-          />
-        )}
-        {isLeaving && (
-          <Alert
+        <Alert
+          active={success}
+          setActive={(value) => {
+            setSuccess(value);
+            navigate("/admin/partners");
+          }}
+          type="success"
+          title="Збережено!"
+          message="Ваші зміни успішно збережено"
+        />
+      )}
+      {isLeaving && (
+        <Alert
           title={"Залишити сторінку"}
           message={
             "Ви дійсно хочете залишити сторінку? Процес редагування буде втрачено"
@@ -126,7 +126,7 @@ const EditPartner = () => {
           active={isLeaving}
           successFnc={() => navigate("/admin/partners")}
         />
-        )}
+      )}
       <AdminHeader
         withClose
         closeFunc={() => setIsLeaving(true)}
@@ -153,7 +153,7 @@ const EditPartner = () => {
             type="button"
             style={{ width: "196px" }}
             variant="secondary"
-            onClick={() => (setIsLeaving(true))}
+            onClick={() => setIsLeaving(true)}
           >
             Скасувати
           </AdminButton>
