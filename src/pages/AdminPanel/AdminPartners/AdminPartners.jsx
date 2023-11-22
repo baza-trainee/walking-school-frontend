@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import AdminPartnersList from "./AdminPartnersList/AdminPartnersList";
 import { useNavigate } from "react-router-dom";
+import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
+import { deletePartner, getPartners } from "../../../API/partners";
+import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
 
 import style from "./AdminPartners.module.css";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { deletePartner, getPartners } from "../../../API/partners";
 
 // const data = [
 //   {
@@ -62,12 +64,12 @@ const AdminPartners = () => {
       console.log(data);
       setValues(data);
     }
-  }, [isLoading, data])
+  }, [isLoading, data]);
 
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: () => deletePartner,
+    mutationFn: (id) => deletePartner(id),
     mutationKey: ["partners"],
     onSuccess: () => queryClient.invalidateQueries(["partners"]),
   });
@@ -101,6 +103,17 @@ const AdminPartners = () => {
     mutation.mutateAsync(partnerId);
   };
 
+  if (error || mutation.isError) {
+    let message = "";
+    if (error) {
+      message = `Не вдалось завантажити партнерів: ${error.message}. Спробуйте будь ласка пізніше.`;
+    }
+    if (mutation.isError) {
+      message = `Не вдалось видалити партнера: ${mutation.error.message}. Спробуйте будь ласка пізніше.`;
+    }
+    return <ErrorModal message={message} className={style.centered} />;
+  }
+
   const DisplayedComponent = () => {
     if (values === undefined || Object.keys(values).length === 0) {
       return <div>data is empty or undefined</div>;
@@ -119,6 +132,14 @@ const AdminPartners = () => {
   if (error) {
     console.error(error);
     console.log(`error message: ${error.message}`);
+  }
+
+  if (isLoading || mutation.isLoading) {
+    return (
+      <div className={style.centered}>
+        <SpinnerLoader />
+      </div>
+    );
   }
 
   return (
