@@ -103,18 +103,27 @@ const AdminPartners = () => {
     mutation.mutateAsync(partnerId);
   };
 
-  if (error || mutation.isError) {
-    let message = "";
-    if (error) {
-      message = `Не вдалось завантажити партнерів: ${error.message}. Спробуйте будь ласка пізніше.`;
-    }
-    if (mutation.isError) {
-      message = `Не вдалось видалити партнера: ${mutation.error.message}. Спробуйте будь ласка пізніше.`;
-    }
-    return <ErrorModal message={message} className={style.centered} />;
-  }
 
   const DisplayedComponent = () => {
+    if (isLoading || mutation.isLoading) {
+      return (
+        <div className={style.centered}>
+          <SpinnerLoader />
+        </div>
+      );
+    }
+
+    if (error || mutation.isError) {
+      let message = "";
+      if (error) {
+        message = `Не вдалось завантажити партнерів: ${error.message}. Спробуйте будь ласка пізніше.`;
+      }
+      if (mutation.isError) {
+        message = `Не вдалось видалити партнера: ${mutation.error.message}. Спробуйте будь ласка пізніше.`;
+      }
+      return <ErrorModal message={message} className={style.centered} />;
+    }
+    
     if (values === undefined || Object.keys(values).length === 0) {
       return <div>data is empty or undefined</div>;
     } else if (!error) {
@@ -134,13 +143,7 @@ const AdminPartners = () => {
     console.log(`error message: ${error.message}`);
   }
 
-  if (isLoading || mutation.isLoading) {
-    return (
-      <div className={style.centered}>
-        <SpinnerLoader />
-      </div>
-    );
-  }
+  
 
   return (
     <div className={style.partners}>
@@ -153,7 +156,7 @@ const AdminPartners = () => {
         heading="Партнери"
       />
       <div className={style.partners__content}>
-        {isLoading ? <div>loading...</div> : <DisplayedComponent />}
+        <DisplayedComponent />
       </div>
     </div>
   );
