@@ -123,7 +123,7 @@ const AdminPartners = () => {
       }
       return <ErrorModal message={message} className={style.centered} />;
     }
-    
+
     if (values === undefined || Object.keys(values).length === 0) {
       return <div>data is empty or undefined</div>;
     } else if (!error) {
@@ -137,13 +137,6 @@ const AdminPartners = () => {
       );
     }
   };
-
-  if (error) {
-    console.error(error);
-    console.log(`error message: ${error.message}`);
-  }
-
-  
 
   return (
     <div className={style.partners}>
