@@ -145,7 +145,7 @@ const EditPartner = () => {
             value=""
             onChange={(newPreview) => imageChange(newPreview)}
             handleClear={() => handleDelete}
-            variant="project"
+            variant="partner"
           />
         </div>
         <div className={style.buttons}>

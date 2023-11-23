@@ -110,7 +110,7 @@ const AddPartner = () => {
             variant="admin"
             placeholder="Назва"
           />
-          <ImageInput src="" onChange={imageChange} variant="project" />
+          <ImageInput src="" onChange={imageChange} variant="partner" />
         </div>
         <div className={style.buttons}>
           <AdminButton
