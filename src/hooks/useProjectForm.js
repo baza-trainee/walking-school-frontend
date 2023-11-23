@@ -45,7 +45,10 @@ export const useProjectForm = (projectId, project) => {
     onSubmit: (values) => {
       const [startDate, endDate] = values.period.split(" - ");
       const valuesToSend = { ...values, period: [startDate, endDate] };
-      console.log(valuesToSend);
+
+      if (project) {
+        valuesToSend.id = projectId;
+      }
 
       mutation.mutate(valuesToSend);
     },
