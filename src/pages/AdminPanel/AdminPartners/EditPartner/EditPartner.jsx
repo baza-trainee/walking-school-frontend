@@ -143,7 +143,7 @@ const EditPartner = () => {
           <ImageInput
             src={partner.image ? partner.image : ""}
             value=""
-            onChange={(newPreview) => imageChange(newPreview)}
+            onChange={imageChange}
             handleClear={() => handleDelete}
             variant="partner"
           />
