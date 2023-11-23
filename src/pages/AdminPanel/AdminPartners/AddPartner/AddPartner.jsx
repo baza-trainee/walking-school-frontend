@@ -51,6 +51,7 @@ const AddPartner = () => {
     console.log(transformedData);
     try {
       mutation.mutateAsync(transformedData);
+      setSuccess(true)
     } catch (error) {
       console.log(error);
     }
