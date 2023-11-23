@@ -60,7 +60,7 @@ const AdminPartners = () => {
   const [values, setValues] = useState([]);
 
   useEffect(() => {
-    if (!isLoading && data) {
+    if (!isLoading && Array.isArray(data) && data.length > 0) {
       console.log(data);
       setValues(data);
     }
@@ -82,7 +82,7 @@ const AdminPartners = () => {
 
   const sorted = reversed ? preSorted.reverse() : preSorted;
 
-  const filteredProjects = sorted.filter((element) =>
+  const filteredProjects = sorted?.filter((element) =>
     element.title.toLowerCase().includes(searchWord.toLowerCase()),
   );
 
