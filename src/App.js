@@ -33,7 +33,7 @@ const router = createBrowserRouter(
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route element={<ProtectedRoute />}>
+      {/* <Route element={<ProtectedRoute />}> */}
         <Route path="/admin" element={<MainAdmin />}>
           <Route path="hero" element={<MainHero />} />
           <Route path="hero/add" element={<HeroActions />} />
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
           <Route path="partners/edit/:id" element={<EditPartner />} />
           <Route path="facebook" element={<AdminFacebook />} />
         </Route>
-      </Route>
+      {/* </Route> */}
       <Route path="/login" element={<Login />} />
       <Route path="/forgot" element={<ForgotPass />} />
       <Route path="/reset" element={<ResetPass />} />
