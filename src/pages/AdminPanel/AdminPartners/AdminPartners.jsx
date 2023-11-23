@@ -159,9 +159,9 @@ const AdminPartners = () => {
       <div className={style.partners__content}>
       {isModalOpened && (
         <Alert
-          title={"Залишити сторінку"}
+          title={"Видалити партнера"}
           message={
-            "Ви дійсно хочете залишити сторінку? Процес редагування буде втрачено"
+            "Ви дійсно хочете видалити партнера? Це невідворотна дія"
           }
           setActive={setIsModalOpened}
           active={isModalOpened}
