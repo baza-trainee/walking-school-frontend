@@ -8,7 +8,7 @@ export const Slide = ({ img, title, description }) => {
     backgroundImage: `linear-gradient(180deg, #000000, #2EC4B600, #080909), url(${img})`,
     backgroundColor: "lightgray",
     backgroundSize: "cover",
-    backgroundPosition: isMobile ? "right center" : "center center",
+    backgroundPosition: isMobile ? "center center" : "center center",
     backgroundRepeat: "no-repeat",
   };
   return (
