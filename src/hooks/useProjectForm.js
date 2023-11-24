@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { createProject, updateProject } from "../API/projectsAPI";
 import { useState } from "react";
+import { blobUrlToBase64 } from "../heplers/BlobToBase64";
 
 export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
@@ -50,15 +51,31 @@ export const useProjectForm = (projectId, project) => {
       category: Yup.string().required("Обов'язкове поле"),
       image: Yup.string().required(),
     }),
-    onSubmit: (values) => {
-      const [startDate, endDate] = values.period.split(" - ");
-      const valuesToSend = { ...values, period: [startDate, endDate] };
+    onSubmit: async (values) => {
+      try {
+        if (
+          values.image &&
+          typeof values.image === "string" &&
+          values.image.startsWith("blob:")
+        ) {
+          values.image = await blobUrlToBase64(values.image);
+        }
 
-      if (project) {
-        valuesToSend.id = projectId;
+        const [startDate, endDate] = values.period
+          ? values.period.split(" - ")
+          : [null, null];
+        const valuesToSend = { ...values, period: [startDate, endDate] };
+
+        if (project) {
+          valuesToSend.id = projectId;
+        }
+
+        console.log(valuesToSend);
+
+        mutation.mutate(valuesToSend);
+      } catch (error) {
+        setLocalError(error);
       }
-
-      mutation.mutate(valuesToSend);
     },
   });
 
