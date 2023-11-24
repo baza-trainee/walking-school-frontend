@@ -51,6 +51,7 @@ const AddPartner = () => {
     console.log(transformedData);
     try {
       mutation.mutateAsync(transformedData);
+      setSuccess(true)
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +111,7 @@ const AddPartner = () => {
             variant="admin"
             placeholder="Назва"
           />
-          <ImageInput src="" onChange={imageChange} variant="project" />
+          <ImageInput src="" onChange={imageChange} variant="partner" />
         </div>
         <div className={style.buttons}>
           <AdminButton
