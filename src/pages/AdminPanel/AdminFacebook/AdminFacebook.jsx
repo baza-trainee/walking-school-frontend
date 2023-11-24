@@ -39,7 +39,7 @@ const AdminFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: element.image ? element.image : null,
+          image: element.image[0] ? element.image : "",
           wasImage: true,
           index: index,
         };
@@ -62,7 +62,7 @@ const AdminFacebook = () => {
     const updatedValues = [...values];
     updatedValues[index] = {
       ...updatedValues[index],
-      image: null,
+      image: [""],
     };
     setValues(updatedValues);
   };
@@ -70,7 +70,7 @@ const AdminFacebook = () => {
   async function transformValues(values) {
     const transformed = await Promise.all(
       values.map(async (value) => {
-        if (value.image && value.image !== "") {
+        if (value.image && (value.image !== "" || value.image[0] !== "")) {
           const image = await blobUrlToBase64(value.image);
           return {
             id: value.id,
@@ -80,7 +80,7 @@ const AdminFacebook = () => {
         } else {
           return {
             id: value.id,
-            image: null,
+            image: "",
             wasImage: value.wasImage,
           };
         }
