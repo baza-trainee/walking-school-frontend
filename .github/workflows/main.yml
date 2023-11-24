@@ -36,5 +36,5 @@ jobs:
         remote: ${{ secrets.PATH }}
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        privateKey: ${{secrets.KEY}}
+        password: ${{ secrets.PASSWORD }}
         rmRemote: true
