@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout repository
@@ -18,11 +18,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm i
+        yarn install
 
     - name: Build frontend
       run: |
-        npm run build
+        yarn build
 
     - name: copy dir via ssh
       uses: garygrossgarten/github-action-scp@release
