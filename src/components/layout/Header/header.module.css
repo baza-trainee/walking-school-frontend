@@ -112,7 +112,7 @@ header {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .main {
     padding: 28px 150px;
   }
