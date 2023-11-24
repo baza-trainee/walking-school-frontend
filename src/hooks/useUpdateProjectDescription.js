@@ -19,7 +19,7 @@ export const useUpdateProjectDescription = (data) => {
 
   const formik = useFormik({
     initialValues: {
-      description: "",
+      description: data?.data?.[0].description || "",
     },
     validationSchema: Yup.object({
       description: Yup.string().required("Обов'язкове поле"),

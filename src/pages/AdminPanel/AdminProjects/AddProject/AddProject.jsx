@@ -13,6 +13,7 @@ import { useState } from "react";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
 import DotsLoader from "../../../../components/Loader/DotsLoader";
+import Success from "../../../../components/AdminPanel/Alert/Success";
 
 export const AddProject = () => {
   const navigate = useNavigate();
@@ -20,10 +21,14 @@ export const AddProject = () => {
   const { id } = useParams();
   const project = location.state?.projectToEdit || null;
   const [isActiveModal, setIsActiveModal] = useState(false);
-  const { formik, mutationStatus, localError, isLoading } = useProjectForm(
-    id,
-    project,
-  );
+  const {
+    formik,
+    mutationStatus,
+    localError,
+    isLoading,
+    showSuccess,
+    setShowSuccess,
+  } = useProjectForm(id, project);
 
   const navigateToProjects = () => {
     navigate(`/admin/projects`);
@@ -31,6 +36,10 @@ export const AddProject = () => {
 
   const onCancelFunc = () => {
     setIsActiveModal(true);
+  };
+
+  const closeSuccessMessage = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -120,6 +129,14 @@ export const AddProject = () => {
             </div>
           </div>
         </form>
+      )}
+
+      {showSuccess && (
+        <Success
+          title="Success"
+          message="Операція успішна"
+          closeModal={closeSuccessMessage}
+        />
       )}
 
       <Alert
