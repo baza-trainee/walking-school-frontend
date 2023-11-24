@@ -49,6 +49,10 @@ const AdminFacebook = () => {
     }
   }, [isLoading, data]);
 
+  useEffect(() => {
+    
+  }, [values]);
+
   const handleImageChange = (index, newPreview) => {
     const updatedValues = [...values];
     updatedValues[index] = {
