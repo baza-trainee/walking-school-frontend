@@ -62,7 +62,7 @@
   transition: transform 0.4s ease-in-out;
 }
 
-:global(.swiper-slide-active) {
+.swiper-slide-active {
   transform: scale(1.59);
 }
 
