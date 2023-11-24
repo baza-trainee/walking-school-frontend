@@ -18,12 +18,14 @@ export const AdminProjects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.title?.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredProjects = Array.isArray(projectsData)
+    ? projectsData.filter((project) =>
+        project.title?.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+    : [];
 
   const navigateToEdit = (projectId) => {
-    const projectToEdit = projectsData.find((p) => p.id === projectId);
+    const projectToEdit = projectsData?.find((p) => p.id === projectId);
     navigate(`/admin/projects/edit/${projectId}`, { state: { projectToEdit } });
   };
 

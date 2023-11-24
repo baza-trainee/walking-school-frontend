@@ -6,11 +6,12 @@ import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
 export const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-  });
+  return new Date(date)
+    .toLocaleDateString("en-GB", {
+      month: "2-digit",
+      year: "numeric",
+    })
+    .replace(/\//g, ".");
 };
 
 export const DateSelect = ({
@@ -20,7 +21,6 @@ export const DateSelect = ({
   onChange,
   id,
   isPublicDate = false,
-  value,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startDate, setStartDate] = useState("");

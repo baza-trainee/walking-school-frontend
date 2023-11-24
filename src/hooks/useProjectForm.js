@@ -6,12 +6,20 @@ import { useState } from "react";
 
 export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(false);
   const { title, link, category, description, image, period, age_category } =
     project ? project : {};
 
   const mutation = useMutation(projectId ? updateProject : createProject, {
     onSuccess: () => {
+      setShowSuccess(true);
       setLocalError(null);
+
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
     },
     onError: (error) => {
       setLocalError(error);
@@ -59,5 +67,7 @@ export const useProjectForm = (projectId, project) => {
     mutationStatus: mutation.isLoading,
     localError,
     isLoading: mutation.isLoading,
+    showSuccess,
+    setShowSuccess,
   };
 };
