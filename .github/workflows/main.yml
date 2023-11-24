@@ -18,7 +18,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm сi
+        npm ci
 
     - name: Build frontend
       run: |
