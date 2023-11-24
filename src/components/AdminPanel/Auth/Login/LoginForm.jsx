@@ -4,12 +4,14 @@ import { Form, Formik } from "formik";
 import AdminInput from "../../Input/AdminInput";
 import { ReactComponent as Eye } from "../../../../assets/admin/auth/eye.svg";
 import { ReactComponent as EyeOff } from "../../../../assets/admin/auth/eye_off.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AdminButton from "../../UI/Button/AdminButton";
 import { loginValidationSchema } from "../authValidationSchemas";
 import ErrorModal from "../../ErrorModal/ErrorModal";
+import { login } from "../../../../API/authAPI";
 
 const LoginForm = ({ className = "", ...props }) => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -29,6 +31,14 @@ const LoginForm = ({ className = "", ...props }) => {
         validationSchema={loginValidationSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
+            const res = await login({
+              login: values.email,
+              password: values.password,
+            });
+
+            if (res.code === 200) {
+              navigate("/admin");
+            }
           } catch {
             setIsError(true);
             setTimeout(() => {

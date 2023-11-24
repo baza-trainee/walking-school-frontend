@@ -5,9 +5,17 @@ import { useMedia } from "../../../hooks/useMedia";
 import Age from "../../../assets/main/projects/age.svg";
 import Calendar from "../../../assets/main/projects/calendar.svg";
 
-const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
-  // eslint-disable-next-line no-unused-vars
-  const { isMobile, isTablet, isDesktop } = useMedia();
+const ProjectCard = ({
+  image,
+  title,
+  dates,
+  age,
+  url,
+  description,
+  isLoading,
+  isActive,
+}) => {
+  const { isMobile, isTablet } = useMedia();
   const [showMore, setShowMore] = useState(false);
 
   const showMoreHandler = () => {
@@ -15,6 +23,7 @@ const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
   };
 
   const truncated = description.slice(0, 136);
+  const period = dates.map((item) => item.replace("-", "."));
 
   return (
     <div data-testid={"project-card"} className={style.card}>
@@ -47,7 +56,7 @@ const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
         {!isLoading && (
           <>
             <img src={Calendar} alt="calendar" />
-            {dates}
+            {period[0]} - {period[1]}
           </>
         )}
       </div>
@@ -105,7 +114,12 @@ const ProjectCard = ({ image, title, dates, age, description, isLoading }) => {
           {isLoading ? (
             ""
           ) : (
-            <Link to={"/"} variant={"small"} className={style.join__link}>
+            <Link
+              to={url}
+              variant={"small"}
+              className={style.join__link}
+              disabled={!isActive}
+            >
               Взяти участь
             </Link>
           )}

@@ -6,11 +6,13 @@
   flex-direction: column;
   gap: 48px;
   align-items: center;
+  user-select: none;
 }
 
 .carousel {
   width: 100%;
   padding: 0 16px;
+  display: flex;
 }
 
 .content {
@@ -30,14 +32,14 @@
 
 .link-wrapper {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
 .image {
-  max-width: 135px;
-  max-height: 30px;
-  object-fit: cover;
+  width: 214px;
+  height: 69px;
+  object-fit: fill;
+  aspect-ratio: 214 / 69;
 }
 
 .swiperContainer {
@@ -55,10 +57,12 @@
   background-color: rgba(234, 234, 234, 0.5);
   border-radius: 12px;
 }
+
 :global(.swiper-slide) {
   transition: transform 0.4s ease-in-out;
 }
-:global(.swiper-slide-active) {
+
+.swiper-slide-active {
   transform: scale(1.59);
 }
 

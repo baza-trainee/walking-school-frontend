@@ -1,0 +1,36 @@
+name: test
+on:
+    push:
+      branches: [ "dev" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+          sparse-checkout: .
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install dependencies
+      run: |
+        npm i
+
+    - name: Build frontend
+      run: |
+        npm run build
+
+    - name: copy dir via ssh
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: ./build
+        remote: ${{secrets.PATH}}
+        username: ${{secrets.USER}}
+        host: ${{ secrets.HOST }}
+        privateKey: ${{secrets.KEY}}
+        rmRemote: true

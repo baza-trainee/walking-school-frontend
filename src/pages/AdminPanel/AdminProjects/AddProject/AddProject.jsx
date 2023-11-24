@@ -3,23 +3,32 @@ import { DateSelect } from "../../../../components/AdminPanel/Filters/DateSelect
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-import { Tooltip } from "../Tooltip/Tooltip";
 import styles from "./AddProject.module.css";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import { ageOptions, eventOptions } from "../optionsData";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { useProjectForm } from "../../../../hooks/useProjectForm";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
 import DotsLoader from "../../../../components/Loader/DotsLoader";
+import Success from "../../../../components/AdminPanel/Alert/Success";
 
 export const AddProject = () => {
-  const [isActiveModal, setIsActiveModal] = useState(false);
-  const { id } = useParams();
-  const { formik, mutationStatus, localError, isLoading } = useProjectForm(id);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { id } = useParams();
+  const project = location.state?.projectToEdit || null;
+  const [isActiveModal, setIsActiveModal] = useState(false);
+  const {
+    formik,
+    mutationStatus,
+    localError,
+    isLoading,
+    showSuccess,
+    setShowSuccess,
+  } = useProjectForm(id, project);
 
   const navigateToProjects = () => {
     navigate(`/admin/projects`);
@@ -27,6 +36,10 @@ export const AddProject = () => {
 
   const onCancelFunc = () => {
     setIsActiveModal(true);
+  };
+
+  const closeSuccessMessage = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -66,18 +79,6 @@ export const AddProject = () => {
                 value={formik.values.description}
                 error={formik.touched.description && formik.errors.description}
               />
-              <div className={styles.tooltipContainer}>
-                <DateSelect
-                  placeholder={"Дата публікації"}
-                  onChange={(date) => formik.setFieldValue("publishDate", date)}
-                  id={"publishDate"}
-                  error={
-                    formik.touched.publishDate && formik.errors.publishDate
-                  }
-                  isPublicDate
-                />
-                <Tooltip />
-              </div>
               <div className={styles.buttonWrapper}>
                 <AdminButton
                   type="button"
@@ -96,7 +97,7 @@ export const AddProject = () => {
             </div>
             <div className={styles.rightBlock}>
               <DateSelect
-                placeholder={"Період"}
+                placeholder={project?.period?.join(" - ") || "Період"}
                 onChange={(date) => formik.setFieldValue("period", date)}
                 id={"period"}
                 error={formik.touched.period && formik.errors.period}
@@ -105,6 +106,7 @@ export const AddProject = () => {
                 options={eventOptions}
                 onChange={(option) => formik.setFieldValue("category", option)}
                 error={formik.touched.category && formik.errors.category}
+                value={formik.values.category}
               />
               <CustomSelect
                 options={ageOptions}
@@ -116,16 +118,25 @@ export const AddProject = () => {
                 error={
                   formik.touched.age_category && formik.errors.age_category
                 }
+                value={formik.values.age_category}
               />
               <ImageInput
                 variant="project"
                 onChange={(blob) => formik.setFieldValue("image", blob)}
-                src={null}
+                src={project?.image || null}
                 error={formik.touched.image && formik.errors.image}
               />
             </div>
           </div>
         </form>
+      )}
+
+      {showSuccess && (
+        <Success
+          title="Success"
+          message="Операція успішна"
+          closeModal={closeSuccessMessage}
+        />
       )}
 
       <Alert
