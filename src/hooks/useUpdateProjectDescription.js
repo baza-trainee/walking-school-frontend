@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-export const useUpdateProjectDescription = () => {
+export const useUpdateProjectDescription = (data) => {
   const [updateError, setUpdateError] = useState();
 
   const { mutate, isLoading } = useMutation({
@@ -19,15 +19,16 @@ export const useUpdateProjectDescription = () => {
 
   const formik = useFormik({
     initialValues: {
-      description: "",
+      description: data?.data?.[0].description || "",
     },
     validationSchema: Yup.object({
       description: Yup.string().required("Обов'язкове поле"),
     }),
     onSubmit: (values) => {
+      const { id } = data.data[0];
       const valuesToSend = {
         ...values,
-        id: 1,
+        id,
       };
 
       mutate(valuesToSend);

@@ -6,11 +6,12 @@ import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
 
 export const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-  });
+  return new Date(date)
+    .toLocaleDateString("en-GB", {
+      month: "2-digit",
+      year: "numeric",
+    })
+    .replace(/\//g, ".");
 };
 
 export const DateSelect = ({
@@ -25,6 +26,7 @@ export const DateSelect = ({
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [labelContent, setLabelContent] = useState(placeholder);
+
   const dropDownRef = useRef(null);
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));

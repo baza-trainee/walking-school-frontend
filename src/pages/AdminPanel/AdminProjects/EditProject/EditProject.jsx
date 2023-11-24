@@ -12,7 +12,7 @@ import Alert from "../../../../components/AdminPanel/Alert/Alert";
 
 export const EditProject = () => {
   const { data, localError } = useGetProjectsDescription();
-  const { updateError, formik, isLoading } = useUpdateProjectDescription();
+  const { updateError, formik, isLoading } = useUpdateProjectDescription(data);
   const [isActiveModal, setIsActiveModal] = useState(false);
   const navigate = useNavigate();
 
@@ -24,8 +24,6 @@ export const EditProject = () => {
     navigate(`/admin/projects`);
   };
 
-  console.log(data);
-
   return (
     <div>
       <AdminHeader heading={"Редагувати опис"} withClose={true} />
@@ -36,7 +34,7 @@ export const EditProject = () => {
           <AdminInput
             disabled
             variant="admin"
-            placeholder={`${data ? data.data[0].description : "Проєкти"}`}
+            placeholder="Проєкти"
             className={styles.input}
           />
           <AdminInput

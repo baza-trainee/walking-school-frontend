@@ -1,39 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
-
-import style from "./EditPartner.module.css";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
 import { getPartnerById, putPartner } from "../../../../API/partners";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
+import Alert from "../../../../components/AdminPanel/Alert/Alert";
+import SpinnerLoader from "../../../../components/Loader/SpinnerLoader";
 
-// test comment
+import style from "./EditPartner.module.css";
+
 const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const closeFunc = () => {
-    navigate("/admin/partners");
-  };
+  const [partner, setPartner] = useState({
+    title: "",
+    image: null,
+    created: "",
+  });
+  const [success, setSuccess] = useState(false);
+  const [userError, setUserError] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
 
-  const [inputValue, setInputValue] = useState("");
-  const inputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  const [imageValue, setImageValue] = useState("");
-  const imageChange = (newPreview) => {
-    setImageValue(newPreview);
-  };
-
-  // eslint-disable-next-line no-unused-vars
-  const { data, loading, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["partners"],
     queryFn: () => getPartnerById(id),
   });
+
+  useEffect(() => {
+    console.log(data);
+    if (!isLoading && data) {
+      setPartner(data);
+    }
+  }, [isLoading, data]);
+
+  const handleDelete = () => {
+    setPartner({ ...partner, image: "" });
+  };
+
+  const inputChange = (event) => {
+    setPartner({ ...partner, title: event.target.value });
+  };
+
+  const imageChange = (newPreview) => {
+    setPartner({ ...partner, image: newPreview });
+  };
 
   const queryClient = useQueryClient();
 
@@ -44,45 +59,102 @@ const EditPartner = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    console.log(imageValue);
-    console.log(inputValue);
+    const title = partner.title;
+    const image = partner.image;
+    console.log(partner.image);
+    if (!title || !image) {
+      setUserError(true);
+      console.log("fields cannot be empty");
+    }
+    console.log(title);
     const transformedData = {
-      title: inputValue,
-      image: await blobUrlToBase64(imageValue),
-      created: "",
+      title: title,
+      image: await blobUrlToBase64(image),
       id: id,
+      created: partner.created,
     };
     console.log(transformedData);
     try {
       mutation.mutateAsync(transformedData);
+      setSuccess(true);
     } catch (error) {
       console.error(error);
     }
   };
 
+  if (isLoading || mutation.isLoading) {
+    return (
+      <div className={style.centered}>
+        <SpinnerLoader />
+      </div>
+    );
+  }
+
+  if (error || mutation.isError || userError) {
+    let message =
+      "Не вдалось оновити дані партнера, спробуйте будь ласка пізніше";
+    if (userError) {
+      message = "Неправильно заповнена форма, повторіть спробу";
+    }
+    if (error) {
+      message = `Не вдалось завантажити дані про партнера: ${error.message}. Спробуйте будь ласка пізніше.`;
+    }
+    return <ErrorModal message={message} className={style.centered} />;
+  }
+
   return (
     <div className={style.page}>
+      {success && (
+        <Alert
+          active={success}
+          setActive={(value) => {
+            setSuccess(value);
+            navigate("/admin/partners");
+          }}
+          type="success"
+          title="Збережено!"
+          message="Ваші зміни успішно збережено"
+        />
+      )}
+      {isLeaving && (
+        <Alert
+          title={"Залишити сторінку"}
+          message={
+            "Ви дійсно хочете залишити сторінку? Процес редагування буде втрачено"
+          }
+          setActive={setIsLeaving}
+          active={isLeaving}
+          successFnc={() => navigate("/admin/partners")}
+        />
+      )}
       <AdminHeader
         withClose
-        closeFunc={closeFunc}
+        closeFunc={() => setIsLeaving(true)}
         heading="Редагувати партнера"
       />
       <form onSubmit={submitFunc} className={style.page__content}>
         <div className={style.inputs}>
           <AdminInput
-            value={inputValue}
+            value={partner.title}
             onChange={inputChange}
             variant="admin"
             placeholder="Назва"
           />
           <ImageInput
-            value={imageValue}
+            src={partner.image ? partner.image : ""}
+            value=""
             onChange={imageChange}
-            variant="project"
+            handleClear={() => handleDelete}
+            variant="partner"
           />
         </div>
         <div className={style.buttons}>
-          <AdminButton style={{ width: "196px" }} variant="secondary">
+          <AdminButton
+            type="button"
+            style={{ width: "196px" }}
+            variant="secondary"
+            onClick={() => setIsLeaving(true)}
+          >
             Скасувати
           </AdminButton>
           <AdminButton

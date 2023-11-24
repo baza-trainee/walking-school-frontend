@@ -2,15 +2,24 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { createProject, updateProject } from "../API/projectsAPI";
-import { formatDate } from "../components/AdminPanel/Filters/DateSelect/DateSelect";
 import { useState } from "react";
 
-export const useProjectForm = (projectId) => {
+export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const { title, link, category, description, image, period, age_category } =
+    project ? project : {};
 
   const mutation = useMutation(projectId ? updateProject : createProject, {
     onSuccess: () => {
+      setShowSuccess(true);
       setLocalError(null);
+
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
     },
     onError: (error) => {
       setLocalError(error);
@@ -22,14 +31,13 @@ export const useProjectForm = (projectId) => {
 
   const formik = useFormik({
     initialValues: {
-      title: "",
-      link: "",
-      description: "",
-      publishDate: null,
-      period: null,
-      age_category: null,
-      category: null,
-      image: null,
+      title: title || "",
+      link: link || "",
+      description: description || "",
+      period: period?.join(" ") || null,
+      age_category: age_category || null,
+      category: category || null,
+      image: image || null,
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Обов'язкове поле"),
@@ -43,13 +51,14 @@ export const useProjectForm = (projectId) => {
       image: Yup.string().required(),
     }),
     onSubmit: (values) => {
-      if (!values.publishDate) {
-        const currentDate = new Date();
-        values.publishDate = formatDate(currentDate);
+      const [startDate, endDate] = values.period.split(" - ");
+      const valuesToSend = { ...values, period: [startDate, endDate] };
+
+      if (project) {
+        valuesToSend.id = projectId;
       }
 
-      console.log(values);
-      mutation.mutate(values);
+      mutation.mutate(valuesToSend);
     },
   });
 
@@ -58,5 +67,7 @@ export const useProjectForm = (projectId) => {
     mutationStatus: mutation.isLoading,
     localError,
     isLoading: mutation.isLoading,
+    showSuccess,
+    setShowSuccess,
   };
 };

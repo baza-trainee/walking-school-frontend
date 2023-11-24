@@ -10,10 +10,17 @@ const PartnersSlider = ({ partners }) => {
   const [slidersArr, setSlidersArr] = useState([]);
 
   useEffect(() => {
-    if (partners.length < 10) {
-      setSlidersArr([...partners, ...partners]);
-    } else {
-      setSlidersArr(partners);
+    if (partners[0]) {
+      const array = [...partners];
+      if (partners.length < 12) {
+        const newArray = Array.from(
+          { length: 12 },
+          (_, index) => array[index % array.length],
+        );
+        setSlidersArr(newArray);
+      } else {
+        setSlidersArr(partners);
+      }
     }
   }, [partners]);
 
@@ -47,9 +54,12 @@ const PartnersSlider = ({ partners }) => {
       }}
     >
       {slidersArr.map((partner, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide
+          key={index}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <div className={style["link-wrapper"]}>
-            <img src={partner.img} alt="logotype" className={style.image} />
+            <img src={partner.image} alt="logotype" className={style.image} />
           </div>
         </SwiperSlide>
       ))}
