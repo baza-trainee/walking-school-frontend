@@ -1,4 +1,4 @@
-name: test
+name: VPS deploy
 on:
     push:
       branches: [ "dev" ]
@@ -6,10 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -17,12 +20,10 @@ jobs:
         node-version: 18
 
     - name: Install dependencies
-      run: |
-        npm ci
+      run: npm install
 
     - name: Build frontend
-      run: |
-        npm run build
+      run: npm run build
 
     - name: copy dir via ssh
       uses: garygrossgarten/github-action-scp@release

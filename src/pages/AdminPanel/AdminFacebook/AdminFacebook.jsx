@@ -39,7 +39,7 @@ const AdminFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: element.image ? element.image : null,
+          image: (!element.image[0] || element.image[0].includes("text/html")) ? "" : element.image,
           wasImage: true,
           index: index,
         };
@@ -48,6 +48,10 @@ const AdminFacebook = () => {
       setValues(updatedValues);
     }
   }, [isLoading, data]);
+
+  useEffect(() => {
+    
+  }, [values]);
 
   const handleImageChange = (index, newPreview) => {
     const updatedValues = [...values];
@@ -62,7 +66,7 @@ const AdminFacebook = () => {
     const updatedValues = [...values];
     updatedValues[index] = {
       ...updatedValues[index],
-      image: null,
+      image: [""],
     };
     setValues(updatedValues);
   };
@@ -70,8 +74,15 @@ const AdminFacebook = () => {
   async function transformValues(values) {
     const transformed = await Promise.all(
       values.map(async (value) => {
-        if (value.image && value.image !== "") {
+        if (value.image && (value.image !== "" || value.image[0] !== "")) {
           const image = await blobUrlToBase64(value.image);
+          if(image.includes("text/html")){
+            return {
+              id: value.id,
+              image: "",
+              wasImage: value.wasImage,
+            };
+          }
           return {
             id: value.id,
             image: image,
@@ -80,7 +91,7 @@ const AdminFacebook = () => {
         } else {
           return {
             id: value.id,
-            image: null,
+            image: "",
             wasImage: value.wasImage,
           };
         }
