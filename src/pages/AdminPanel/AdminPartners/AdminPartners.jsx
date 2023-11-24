@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SpinnerLoader from "../../../components/Loader/SpinnerLoader";
 import { deletePartner, getPartners } from "../../../API/partners";
 import ErrorModal from "../../../components/AdminPanel/ErrorModal/ErrorModal";
+import Alert from "../../../components/AdminPanel/Alert/Alert";
 
 import style from "./AdminPartners.module.css";
 
@@ -50,6 +51,8 @@ import style from "./AdminPartners.module.css";
 const AdminPartners = () => {
   const [searchWord, setSearchWord] = useState("");
   const [reversed, setReversed] = useState(false);
+  const [isModalOpened, setIsModalOpened] = useState(false);
+  const [selectedPartner, setSelectedPartner] = useState(null)
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
@@ -60,7 +63,7 @@ const AdminPartners = () => {
   const [values, setValues] = useState([]);
 
   useEffect(() => {
-    if (!isLoading && data) {
+    if (!isLoading && Array.isArray(data) && data.length > 0) {
       console.log(data);
       setValues(data);
     }
@@ -82,7 +85,7 @@ const AdminPartners = () => {
 
   const sorted = reversed ? preSorted.reverse() : preSorted;
 
-  const filteredProjects = sorted.filter((element) =>
+  const filteredProjects = sorted?.filter((element) =>
     element.title.toLowerCase().includes(searchWord.toLowerCase()),
   );
 
@@ -102,6 +105,11 @@ const AdminPartners = () => {
   const deleteFunc = (partnerId) => {
     mutation.mutateAsync(partnerId);
   };
+
+  const openModalToDelete = (partnerId) => {
+    setIsModalOpened(true)
+    setSelectedPartner(partnerId)
+  }
 
 
   const DisplayedComponent = () => {
@@ -131,7 +139,7 @@ const AdminPartners = () => {
         <AdminPartnersList
           sortingFunc={reverseList}
           data={filteredProjects}
-          deleteFunc={deleteFunc}
+          deleteFunc={openModalToDelete}
           navigateToEdit={navigateToEdit}
         />
       );
@@ -149,6 +157,17 @@ const AdminPartners = () => {
         heading="Партнери"
       />
       <div className={style.partners__content}>
+      {isModalOpened && (
+        <Alert
+          title={"Видалити партнера"}
+          message={
+            "Ви дійсно хочете видалити партнера? Це невідворотна дія"
+          }
+          setActive={setIsModalOpened}
+          active={isModalOpened}
+          successFnc={() => deleteFunc(selectedPartner)}
+        />
+      )}
         <DisplayedComponent />
       </div>
     </div>
