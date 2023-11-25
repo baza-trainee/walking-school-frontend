@@ -29,7 +29,7 @@ import ProtectedRoute from "./pages/AdminPanel/ProtectedRoute/ProtectedRoute";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Rote path="/" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
