@@ -19,7 +19,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm i
+        npm i --verbose
 
     - name: Build frontend
       run: |

@@ -10,9 +10,9 @@ export const ContactForm = () => {
   return (
     <form
       data-testid="form"
-      action=""
       className={styles.form}
       onSubmit={formik.handleSubmit}
+      acceptCharset="UTF-8"
     >
       <div className={styles.wrapper}>
         <CustomInput
