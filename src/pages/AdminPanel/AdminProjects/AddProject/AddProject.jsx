@@ -45,7 +45,7 @@ export const AddProject = () => {
   return (
     <>
       <AdminHeader
-        heading={"Додати проєкт"}
+        heading={project ? "Редагувати проєкт" : "Додати проєкт"}
         withClose={true}
         closeFunc={navigateToProjects}
       />
