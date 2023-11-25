@@ -5,32 +5,14 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.0
       with:
-          sparse-checkout: .
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-
-    - name: Install dependencies
-      run: |
-        npm i --verbose
-
-    - name: Build frontend
-      run: |
-        npm run build
-
-    - name: copy dir via ssh
-      uses: garygrossgarten/github-action-scp@release
-      with:
-        local: ./build
-        remote: ${{secrets.PATH}}
-        username: ${{secrets.USER}}
         host: ${{ secrets.HOST }}
-        privateKey: ${{secrets.KEY}}
-        rmRemote: true
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        script_stop: true
+        script: ${{secrets.SCRIPT_PATH}}
