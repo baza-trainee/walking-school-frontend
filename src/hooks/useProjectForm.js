@@ -35,7 +35,7 @@ export const useProjectForm = (projectId, project) => {
       title: title || "",
       link: link || "",
       description: description || "",
-      period: period?.join(" ") || null,
+      period: period?.join(" - ") || null,
       age_category: age_category || null,
       category: category || null,
       image: image || null,
@@ -68,6 +68,17 @@ export const useProjectForm = (projectId, project) => {
 
         if (project) {
           valuesToSend.id = projectId;
+          valuesToSend.created = project.created;
+          valuesToSend.is_active = project.is_active;
+
+          const currentDate = new Date();
+          const currentMonth = String(currentDate.getMonth() + 1).padStart(
+            2,
+            "0",
+          );
+          const currentYear = currentDate.getFullYear();
+
+          valuesToSend.last_modified = `${currentMonth}-${currentYear}`;
         }
 
         console.log(valuesToSend);
