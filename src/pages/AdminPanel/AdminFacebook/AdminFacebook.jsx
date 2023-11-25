@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../components/AdminPanel/Header/AdminHeader";
 import ImageInput from "../../../components/AdminPanel/ImageInput/ImageInput";
@@ -29,8 +30,11 @@ const AdminFacebook = () => {
     queryFn: getFacebook,
   });
 
+  const navigate = useNavigate();
+
   const [values, setValues] = useState([]);
   const [success, setSuccess] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {
     if (!isLoading && data) {
@@ -159,6 +163,17 @@ const AdminFacebook = () => {
 
   return (
     <div className={style.facebook}>
+      {isLeaving && (
+        <Alert
+          title={"Залишити сторінку"}
+          message={
+            "Ви дійсно хочете залишити сторінку? Процес створення буде втрачено"
+          }
+          setActive={setIsLeaving}
+          active={isLeaving}
+          successFnc={() => navigate("/admin")}
+        />
+      )}
       <AdminHeader heading="Facebook" />
       <div className={style.content}>
         {success && (
@@ -193,6 +208,7 @@ const AdminFacebook = () => {
               type="button"
               style={{ width: "196px" }}
               variant="secondary"
+              onClick={() => setIsLeaving(true)}
             >
               Скасувати
             </AdminButton>
