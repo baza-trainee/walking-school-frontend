@@ -42,6 +42,10 @@ const EditPartner = () => {
 
   }, [partner])
 
+  useEffect(() => {
+
+  }, [partner])
+
   const handleDelete = () => {
     setPartner({ ...partner, image: "" });
   };

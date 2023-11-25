@@ -39,6 +39,7 @@ export const ProjectsList = ({
         <div className={styles.projectListContainer}>
           {filteredProjects.map((project) => {
             const { title, is_active, created } = project;
+            console.log(project);
             return (
               <ListItem
                 heading={title}
