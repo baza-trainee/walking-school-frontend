@@ -5,7 +5,7 @@ import Button from "../../UI/Button/Button";
 const ProjectsMobile = ({ items, isLoading }) => {
   const [visible, setVisible] = useState(3);
   const [mobCards, setMobCards] = useState([]);
-  console.log("items", items);
+
   useEffect(() => {
     if (items?.length > 3) {
       setMobCards(items?.slice(0, visible));
