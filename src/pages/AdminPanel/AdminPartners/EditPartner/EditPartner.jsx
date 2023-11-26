@@ -38,9 +38,9 @@ const EditPartner = () => {
     }
   }, [isLoading, data]);
 
-  useEffect(() => {
+  useEffect(() => {}, [partner]);
 
-  }, [partner])
+  useEffect(() => {}, [partner]);
 
   const handleDelete = () => {
     setPartner({ ...partner, image: "" });
@@ -146,8 +146,8 @@ const EditPartner = () => {
           />
           <ImageInput
             src={partner.image ? partner.image : ""}
-            value=""
-            onChange={imageChange}
+            value={partner.image ? partner.image : ""}
+            onChange={(newPreview) => imageChange(newPreview)}
             handleClear={() => handleDelete}
             variant="partner"
           />
