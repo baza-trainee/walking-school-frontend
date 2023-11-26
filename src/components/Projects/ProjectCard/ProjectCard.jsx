@@ -22,7 +22,9 @@ const ProjectCard = ({
     setShowMore(!showMore);
   };
 
-  const truncated = description.slice(0, 136);
+  const truncated = isMobile
+    ? description.slice(0, 106)
+    : description.slice(0, 136);
   const period = dates.map((item) => item.replace("-", "."));
 
   return (
