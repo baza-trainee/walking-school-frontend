@@ -31,14 +31,14 @@ const EditPartner = () => {
     queryFn: () => getPartnerById(id),
   });
 
+  console.log(partner)
+
   useEffect(() => {
     console.log(data);
     if (!isLoading && data) {
       setPartner(data);
     }
   }, [isLoading, data]);
-
-  useEffect(() => {}, [partner]);
 
   useEffect(() => {}, [partner]);
 
