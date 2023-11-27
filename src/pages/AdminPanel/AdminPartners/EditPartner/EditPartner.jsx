@@ -17,11 +17,7 @@ const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [partner, setPartner] = useState({
-    title: "",
-    image: null,
-    created: "",
-  });
+  const [partner, setPartner] = useState({});
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
@@ -42,7 +38,10 @@ const EditPartner = () => {
   }, [isLoading, data]);
 
   useEffect(() => {
-    console.log(`partner updated: ${partner}`)
+    console.group()
+    console.log("partner updated:")
+    console.log(partner)
+    console.groupEnd()
   }, [partner]);
 
   const handleDelete = () => {
@@ -142,7 +141,7 @@ const EditPartner = () => {
       <form onSubmit={submitFunc} className={style.page__content}>
         <div className={style.inputs}>
           <AdminInput
-            value={partner.title}
+            value={partner?.title}
             onChange={inputChange}
             variant="admin"
             placeholder="Назва"
