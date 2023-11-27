@@ -36,11 +36,14 @@ const EditPartner = () => {
   useEffect(() => {
     console.log(data);
     if (!isLoading && data) {
+      console.log(data);
       setPartner(data);
     }
   }, [isLoading, data]);
 
-  useEffect(() => {}, [partner]);
+  useEffect(() => {
+    console.log(`partner updated: ${partner}`)
+  }, [partner]);
 
   const handleDelete = () => {
     setPartner({ ...partner, image: "" });
