@@ -43,7 +43,10 @@ const AdminFacebook = () => {
       data.forEach((element, index) => {
         updatedValues[index] = {
           id: element.id,
-          image: (!element.image[0] || element.image[0].includes("text/html")) ? "" : element.image,
+          image:
+            !element.image[0] || element.image[0].includes("text/html")
+              ? ""
+              : element.image,
           wasImage: true,
           index: index,
         };
@@ -53,9 +56,7 @@ const AdminFacebook = () => {
     }
   }, [isLoading, data]);
 
-  useEffect(() => {
-    
-  }, [values]);
+  useEffect(() => {}, [values]);
 
   const handleImageChange = (index, newPreview) => {
     const updatedValues = [...values];
@@ -80,7 +81,7 @@ const AdminFacebook = () => {
       values.map(async (value) => {
         if (value.image && (value.image !== "" || value.image[0] !== "")) {
           const image = await blobUrlToBase64(value.image);
-          if(image.includes("text/html")){
+          if (image.includes("text/html")) {
             return {
               id: value.id,
               image: "",

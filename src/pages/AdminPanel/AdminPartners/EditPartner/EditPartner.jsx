@@ -38,13 +38,9 @@ const EditPartner = () => {
     }
   }, [isLoading, data]);
 
-  useEffect(() => {
+  useEffect(() => {}, [partner]);
 
-  }, [partner])
-
-  useEffect(() => {
-
-  }, [partner])
+  useEffect(() => {}, [partner]);
 
   const handleDelete = () => {
     setPartner({ ...partner, image: "" });

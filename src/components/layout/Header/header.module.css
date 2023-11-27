@@ -112,16 +112,7 @@ header {
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .main {
-    padding: 28px 150px;
-  }
-
-  .main__logo img {
-    width: 127px;
-    height: 64px;
-  }
-
+@media screen and (min-width: 1280px) {
   .main__menu {
     width: 537px;
     align-items: center;
@@ -147,5 +138,16 @@ header {
   .btn {
     width: 173px;
     flex-shrink: 0;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .main {
+    padding: 28px 150px;
+  }
+
+  .main__logo img {
+    width: 127px;
+    height: 64px;
   }
 }
