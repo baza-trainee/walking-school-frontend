@@ -27,9 +27,11 @@ const EditPartner = () => {
   const [isLeaving, setIsLeaving] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["partners"],
+    queryKey: ["partner"],
     queryFn: () => getPartnerById(id),
   });
+
+  console.log(partner)
 
   useEffect(() => {
     console.log(data);
@@ -37,8 +39,6 @@ const EditPartner = () => {
       setPartner(data);
     }
   }, [isLoading, data]);
-
-  useEffect(() => {}, [partner]);
 
   useEffect(() => {}, [partner]);
 
@@ -145,7 +145,7 @@ const EditPartner = () => {
             placeholder="Назва"
           />
           <ImageInput
-            src={partner.image ? partner.image : ""}
+            src={partner?.image}
             value={""}
             onChange={(newPreview) => imageChange(newPreview)}
             handleClear={() => handleDelete}
