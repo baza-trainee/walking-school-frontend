@@ -52,7 +52,7 @@ const SwiperSlider = ({ items, isLoading }) => {
                 age={item.age_category}
                 description={item.description}
                 isActive={item.is_active}
-                url={item.url}
+                url={item.link}
               />
             </SwiperSlide>
           ))}
