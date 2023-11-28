@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
@@ -21,8 +21,10 @@ import style from "./EditPartner.module.css";
 const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const partner = { ...location.state.partnerToEdit };
 
-  const [partner, setPartner] = useState({});
+  // const [partner, setPartner] = useState({});
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
@@ -32,34 +34,36 @@ const EditPartner = () => {
     queryFn: () => getPartnerById(id),
   });
 
-  
-  console.log(partner)
+  console.log(partner);
 
-  useEffect(() => {
-    console.log(data);
-    if (!isLoading && data) {
-      console.log(data);
-      setPartner({...data});
-    }
-  }, [isLoading, data]);
+  // useEffect(() => {
+  //   console.log(data);
+  //   if (!isLoading && data) {
+  //     console.log(data);
+  //     setPartner({...data});
+  //   }
+  // }, [isLoading, data]);
 
-  useEffect(() => {
-    console.group()
-    console.log("partner updated:")
-    console.log(partner)
-    console.groupEnd()
-  }, [partner]);
+  // useEffect(() => {
+  //   console.group()
+  //   console.log("partner updated:")
+  //   console.log(partner)
+  //   console.groupEnd()
+  // }, [partner]);
 
   const handleDelete = () => {
-    setPartner({ ...partner, image: "" });
+    // setPartner({ ...partner, image: "" });
+    partner.image = "";
   };
 
   const inputChange = (event) => {
-    setPartner({ ...partner, title: event.target.value });
+    // setPartner({ ...partner, title: event.target.value });
+    partner.title = event.target.value;
   };
 
   const imageChange = (newPreview) => {
-    setPartner({ ...partner, image: newPreview });
+    // setPartner({ ...partner, image: newPreview });
+    partner.image = newPreview;
   };
 
   const queryClient = useQueryClient();
