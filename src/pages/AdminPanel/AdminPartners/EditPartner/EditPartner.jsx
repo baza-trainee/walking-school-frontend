@@ -39,7 +39,7 @@ const EditPartner = () => {
     console.log(data);
     if (!isLoading && data) {
       console.log(data);
-      setPartner(...data);
+      setPartner({...data});
     }
   }, [isLoading, data]);
 
