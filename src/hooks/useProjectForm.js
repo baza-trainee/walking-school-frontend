@@ -71,8 +71,6 @@ export const useProjectForm = (projectId, project) => {
           valuesToSend.last_modified = `${currentMonth}-${currentYear}`;
         }
 
-        console.log(valuesToSend);
-
         mutation.mutate(valuesToSend);
       } catch (error) {
         setLocalError(error);
