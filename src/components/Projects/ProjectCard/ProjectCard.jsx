@@ -23,8 +23,8 @@ const ProjectCard = ({
   };
 
   const truncated = isMobile
-    ? description.slice(0, 106)
-    : description.slice(0, 136);
+    ? description.slice(0, 116)
+    : description.slice(0, 129);
   const period = dates.map((item) => item.replace("-", "."));
 
   return (
