@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
 import AdminInput from "../../../../components/AdminPanel/Input/AdminInput";
 import ImageInput from "../../../../components/AdminPanel/ImageInput/ImageInput";
 import AdminButton from "../../../../components/AdminPanel/UI/Button/AdminButton";
 import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
-import { getPartnerById, putPartner } from "../../../../API/partners";
+import { putPartner } from "../../../../API/partners";
 import { blobUrlToBase64 } from "../../../../heplers/BlobToBase64";
 import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import SpinnerLoader from "../../../../components/Loader/SpinnerLoader";
