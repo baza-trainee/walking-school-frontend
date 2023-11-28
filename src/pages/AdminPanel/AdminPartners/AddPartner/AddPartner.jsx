@@ -39,8 +39,6 @@ const AddPartner = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    console.log(imageValue);
-    console.log(inputValue);
     if (!imageValue || !inputValue) {
       setUserError(true);
     }
@@ -48,7 +46,6 @@ const AddPartner = () => {
       title: inputValue,
       image: await blobUrlToBase64(imageValue),
     };
-    console.log(transformedData);
     try {
       mutation.mutateAsync(transformedData);
       setSuccess(true)

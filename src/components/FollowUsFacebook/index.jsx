@@ -25,7 +25,6 @@ const FollowUsFacebook = () => {
 
   useEffect(() => {
     if (!isLoading && data) {
-      console.log(data);
       const updatedValues = [...defaultValues];
       data.forEach((element, index) => {
         updatedValues[index] = {
