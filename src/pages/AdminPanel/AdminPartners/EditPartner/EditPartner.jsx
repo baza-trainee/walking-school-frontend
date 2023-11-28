@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
@@ -29,10 +29,10 @@ const EditPartner = () => {
   const [userError, setUserError] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["partner"],
-    queryFn: () => getPartnerById(id),
-  });
+  // const { data, isLoading, error } = useQuery({
+  //   queryKey: ["partner"],
+  //   queryFn: () => getPartnerById(id),
+  // });
 
   console.log(partner);
 
@@ -98,7 +98,7 @@ const EditPartner = () => {
     }
   };
 
-  if (isLoading || mutation.isLoading) {
+  if (mutation.isLoading) {
     return (
       <div className={style.centered}>
         <SpinnerLoader />
@@ -106,15 +106,15 @@ const EditPartner = () => {
     );
   }
 
-  if (error || mutation.isError || userError) {
+  if (mutation.isError || userError) {
     let message =
       "Не вдалось оновити дані партнера, спробуйте будь ласка пізніше";
     if (userError) {
       message = "Неправильно заповнена форма, повторіть спробу";
     }
-    if (error) {
-      message = `Не вдалось завантажити дані про партнера: ${error.message}. Спробуйте будь ласка пізніше.`;
-    }
+    // if (error) {
+    //   message = `Не вдалось завантажити дані про партнера: ${error.message}. Спробуйте будь ласка пізніше.`;
+    // }
     return <ErrorModal message={message} className={style.centered} />;
   }
 
