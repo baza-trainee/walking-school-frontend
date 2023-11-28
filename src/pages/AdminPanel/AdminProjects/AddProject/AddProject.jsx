@@ -125,6 +125,7 @@ export const AddProject = () => {
                 onChange={(blob) => formik.setFieldValue("image", blob)}
                 src={project?.image || null}
                 error={formik.touched.image && formik.errors.image}
+                handleClear={() => formik.setFieldValue("image", "")}
               />
             </div>
           </div>

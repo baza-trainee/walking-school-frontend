@@ -20,7 +20,7 @@ const ImageInput = ({
   ...props
 }) => {
   const [isCropImg, setIsCropImg] = useState(false);
-  const [preview, setPreview] = useState(src || "");
+  const [preview, setPreview] = useState(src);
   const [file, setFile] = useState(null);
 
   useEffect(() => {

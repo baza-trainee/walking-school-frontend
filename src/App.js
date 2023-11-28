@@ -20,11 +20,10 @@ import { AddProject } from "./pages/AdminPanel/AdminProjects/AddProject/AddProje
 import { EditProject } from "./pages/AdminPanel/AdminProjects/EditProject/EditProject";
 import AdminPartners from "./pages/AdminPanel/AdminPartners/AdminPartners";
 import AddPartner from "./pages/AdminPanel/AdminPartners/AddPartner/AddPartner";
-import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartner";
 import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
 import MainHero from "./pages/AdminPanel/HeroAdmin/MainHero";
 import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
-import ProtectedRoute from "./pages/AdminPanel/ProtectedRoute/ProtectedRoute";
+import PartnerEdit from "./pages/AdminPanel/AdminPartners/EditPartner/PartnerEdit";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,7 +44,7 @@ const router = createBrowserRouter(
         <Route path="projects/edit/:id" element={<AddProject />} />
         <Route path="partners" element={<AdminPartners />} />
         <Route path="partners/add" element={<AddPartner />} />
-        <Route path="partners/edit/:id" element={<EditPartner />} />
+        <Route path="partners/edit/:id" element={<PartnerEdit />} />
         <Route path="facebook" element={<AdminFacebook />} />
       </Route>
       {/*</Route>*/}
