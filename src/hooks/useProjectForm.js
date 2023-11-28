@@ -1,9 +1,9 @@
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { createProject, updateProject } from "../API/projectsAPI";
 import { useState } from "react";
 import { blobUrlToBase64 } from "../heplers/BlobToBase64";
+import { projectsAdminSchema } from "../validationSchemas/projectsAdminSchema";
 
 export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
@@ -40,17 +40,7 @@ export const useProjectForm = (projectId, project) => {
       category: category || null,
       image: image || null,
     },
-    validationSchema: Yup.object({
-      title: Yup.string().required("Обов'язкове поле"),
-      link: Yup.string()
-        .url("Невірний формат посилання")
-        .required("Обов'язкове поле"),
-      description: Yup.string().required("Обов'язкове поле"),
-      period: Yup.string().required("Обов'язкове поле"),
-      age_category: Yup.string().required("Обов'язкове поле"),
-      category: Yup.string().required("Обов'язкове поле"),
-      image: Yup.string().required(),
-    }),
+    validationSchema: projectsAdminSchema,
     onSubmit: async (values) => {
       try {
         if (

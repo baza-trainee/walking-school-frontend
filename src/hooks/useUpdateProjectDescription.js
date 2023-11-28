@@ -22,7 +22,7 @@ export const useUpdateProjectDescription = (data) => {
       description: data?.data?.[0].description || "",
     },
     validationSchema: Yup.object({
-      description: Yup.string().required("Обов'язкове поле"),
+      description: Yup.string().required("Обов'язкове поле").min(7).max(150),
     }),
     onSubmit: (values) => {
       const { id } = data.data[0];
