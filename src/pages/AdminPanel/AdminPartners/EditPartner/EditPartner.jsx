@@ -22,7 +22,7 @@ const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  
+  const [partner, setPartner] = useState({});
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
@@ -32,15 +32,14 @@ const EditPartner = () => {
     queryFn: () => getPartnerById(id),
   });
 
-  const [partner, setPartner] = useState(data ? data : {});
-
+  
   console.log(partner)
 
   useEffect(() => {
     console.log(data);
     if (!isLoading && data) {
       console.log(data);
-      setPartner(data);
+      setPartner(...data);
     }
   }, [isLoading, data]);
 
