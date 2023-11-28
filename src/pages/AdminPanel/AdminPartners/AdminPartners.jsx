@@ -10,49 +10,11 @@ import Alert from "../../../components/AdminPanel/Alert/Alert";
 
 import style from "./AdminPartners.module.css";
 
-// const data = [
-//   {
-//     id: 1,
-//     creation_date: "10.11.2022",
-//     partner_name: "Google",
-//   },
-//   {
-//     id: 2,
-//     creation_date: "01.09.2023",
-//     partner_name: "Facebook",
-//   },
-//   {
-//     id: 3,
-//     creation_date: "15.06.2022",
-//     partner_name: "Microsoft",
-//   },
-//   {
-//     id: 4,
-//     creation_date: "22.03.2022",
-//     partner_name: "Nike",
-//   },
-//   {
-//     id: 5,
-//     creation_date: "30.08.2022",
-//     partner_name: "Фонд Сергія Притули",
-//   },
-//   {
-//     id: 6,
-//     creation_date: "18.07.2023",
-//     partner_name: "Cільпо",
-//   },
-//   {
-//     id: 7,
-//     creation_date: "05.04.2021",
-//     partner_name: "Multiplex",
-//   },
-// ];
-
 const AdminPartners = () => {
   const [searchWord, setSearchWord] = useState("");
   const [reversed, setReversed] = useState(false);
   const [isModalOpened, setIsModalOpened] = useState(false);
-  const [selectedPartner, setSelectedPartner] = useState(null)
+  const [selectedPartner, setSelectedPartner] = useState(null);
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
@@ -64,7 +26,6 @@ const AdminPartners = () => {
 
   useEffect(() => {
     if (!isLoading && Array.isArray(data) && data.length > 0) {
-      console.log(data);
       setValues(data);
     }
   }, [isLoading, data]);
@@ -77,29 +38,32 @@ const AdminPartners = () => {
     onSuccess: () => queryClient.invalidateQueries(["partners"]),
   });
 
-  const preSorted = values?.length > 1 ? values?.sort((a, b) => {
-    a = a.created.split(".").reverse().join("");
-    b = b.created.split(".").reverse().join("");
-    return a > b ? 1 : a < b ? -1 : 0;
-  }) : values;
+  const preSorted =
+    values?.length > 1
+      ? values?.sort((a, b) => {
+          a = a.created.split(".").reverse().join("");
+          b = b.created.split(".").reverse().join("");
+          return a > b ? 1 : a < b ? -1 : 0;
+        })
+      : values;
 
   const sorted = reversed ? preSorted.reverse() : preSorted;
 
-  const filteredProjects = sorted?.filter((element) =>
+  const filteredData = sorted?.filter((element) =>
     element.title.toLowerCase().includes(searchWord.toLowerCase()),
   );
 
   const reverseList = () => {
     setReversed(!reversed);
   };
-  console.log(data);
 
   const navigateToAdd = () => {
     navigate(`/admin/partners/add`);
   };
 
   const navigateToEdit = (partnerId) => {
-    navigate(`/admin/partners/edit/${partnerId}`);
+    const partnerToEdit = filteredData?.find((p) => p.id === partnerId);
+    navigate(`/admin/partners/edit/${partnerId}`, { state: { partnerToEdit } });
   };
 
   const deleteFunc = (partnerId) => {
@@ -107,10 +71,9 @@ const AdminPartners = () => {
   };
 
   const openModalToDelete = (partnerId) => {
-    setIsModalOpened(true)
-    setSelectedPartner(partnerId)
-  }
-
+    setIsModalOpened(true);
+    setSelectedPartner(partnerId);
+  };
 
   const DisplayedComponent = () => {
     if (isLoading || mutation.isLoading) {
@@ -138,7 +101,7 @@ const AdminPartners = () => {
       return (
         <AdminPartnersList
           sortingFunc={reverseList}
-          data={filteredProjects}
+          data={filteredData}
           deleteFunc={openModalToDelete}
           navigateToEdit={navigateToEdit}
         />
@@ -157,17 +120,15 @@ const AdminPartners = () => {
         heading="Партнери"
       />
       <div className={style.partners__content}>
-      {isModalOpened && (
-        <Alert
-          title={"Видалити партнера"}
-          message={
-            "Ви дійсно хочете видалити партнера? Це невідворотна дія"
-          }
-          setActive={setIsModalOpened}
-          active={isModalOpened}
-          successFnc={() => deleteFunc(selectedPartner)}
-        />
-      )}
+        {isModalOpened && (
+          <Alert
+            title={"Видалити партнера"}
+            message={"Ви дійсно хочете видалити партнера? Це невідворотна дія"}
+            setActive={setIsModalOpened}
+            active={isModalOpened}
+            successFnc={() => deleteFunc(selectedPartner)}
+          />
+        )}
         <DisplayedComponent />
       </div>
     </div>

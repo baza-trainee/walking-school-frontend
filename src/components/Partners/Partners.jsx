@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { defaultData } from "./data";
 import PartnersSlider from "./PartnersSlider/PartnersSlider";
 import style from "./Partner.module.css";
 import { useQuery } from "@tanstack/react-query";
@@ -18,7 +17,6 @@ export const Partners = () => {
 
   useEffect(() => {
     if (!isLoading && data) {
-      console.log(data)
       setPartners(data);
     }
   }, [isLoading, data]);

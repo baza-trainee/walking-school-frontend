@@ -38,7 +38,6 @@ const AdminFacebook = () => {
 
   useEffect(() => {
     if (!isLoading && data) {
-      console.log(data);
       const updatedValues = [...defaultValues];
       data.forEach((element, index) => {
         updatedValues[index] = {
@@ -121,7 +120,6 @@ const AdminFacebook = () => {
     event.preventDefault();
     const transformedValues = await transformValues(values);
     let successfulRequests = 0;
-    console.log(transformedValues);
 
     try {
       for (const value of transformedValues) {
@@ -134,7 +132,7 @@ const AdminFacebook = () => {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     if (successfulRequests === 6) {
       setSuccess(true);

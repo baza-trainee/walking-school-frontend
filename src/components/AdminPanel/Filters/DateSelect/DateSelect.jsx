@@ -4,15 +4,7 @@ import datePicker from "../../../../assets/admin/dateSelect/datePicker.svg";
 import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
-
-export const formatDate = (date) => {
-  return new Date(date)
-    .toLocaleDateString("en-GB", {
-      month: "2-digit",
-      year: "numeric",
-    })
-    .replace(/\//g, ".");
-};
+import { formatDate } from "../../../../heplers/formateDate";
 
 export const DateSelect = ({
   error = false,
