@@ -30,6 +30,7 @@ const EditPartner = () => {
 
   useEffect(() => {
     setInputValue(partner.title)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const inputChange = (event) => {
