@@ -8,12 +8,10 @@ import SpinnerLoader from "../Loader/SpinnerLoader";
 export const Partners = () => {
   const [partners, setPartners] = useState([]);
 
-  const { data, isLoading } = useQuery(
-    {
-      queryKey: ["partners"],
-      queryFn: () => getPartners(),
-    },
-  );
+  const { data, isLoading } = useQuery({
+    queryKey: ["partners"],
+    queryFn: () => getPartners(),
+  });
 
   useEffect(() => {
     if (!isLoading && data) {
