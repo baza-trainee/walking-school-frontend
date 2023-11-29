@@ -14,7 +14,6 @@ import Alert from "../../../../components/AdminPanel/Alert/Alert";
 import ErrorModal from "../../../../components/AdminPanel/ErrorModal/ErrorModal";
 import DotsLoader from "../../../../components/Loader/DotsLoader";
 import Success from "../../../../components/AdminPanel/Alert/Success";
-import { dateChecker } from "../../../../heplers/dateChecker";
 
 export const AddProject = () => {
   const navigate = useNavigate();
@@ -92,9 +91,7 @@ export const AddProject = () => {
                   type="submit"
                   variant="primary"
                   children={"Зберегти"}
-                  disabled={
-                    mutationStatus || !dateChecker(formik.values.period)
-                  }
+                  disabled={mutationStatus}
                 />
               </div>
             </div>

@@ -4,6 +4,7 @@ import { createProject, updateProject } from "../API/projectsAPI";
 import { useState } from "react";
 import { blobUrlToBase64 } from "../heplers/BlobToBase64";
 import { projectsAdminSchema } from "../validationSchemas/projectsAdminSchema";
+import { dateChecker } from "../heplers/dateChecker";
 
 export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
@@ -59,7 +60,7 @@ export const useProjectForm = (projectId, project) => {
         if (project) {
           valuesToSend.id = projectId;
           valuesToSend.created = project.created;
-          valuesToSend.is_active = project.is_active;
+          valuesToSend.is_active = dateChecker(formik.values.period);
 
           const currentDate = new Date();
           const currentMonth = String(currentDate.getMonth() + 1).padStart(
