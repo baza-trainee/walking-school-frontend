@@ -39,7 +39,7 @@ const ProjectsMobile = ({ items, isLoading }) => {
               description={item.description}
               isLoading={isLoading}
               isActive={item["is_active"]}
-              url={item.url}
+              url={item.link}
             />
           </Fragment>
         ))}

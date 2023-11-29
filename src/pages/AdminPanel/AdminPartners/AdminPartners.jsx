@@ -10,44 +10,6 @@ import Alert from "../../../components/AdminPanel/Alert/Alert";
 
 import style from "./AdminPartners.module.css";
 
-// const data = [
-//   {
-//     id: 1,
-//     creation_date: "10.11.2022",
-//     partner_name: "Google",
-//   },
-//   {
-//     id: 2,
-//     creation_date: "01.09.2023",
-//     partner_name: "Facebook",
-//   },
-//   {
-//     id: 3,
-//     creation_date: "15.06.2022",
-//     partner_name: "Microsoft",
-//   },
-//   {
-//     id: 4,
-//     creation_date: "22.03.2022",
-//     partner_name: "Nike",
-//   },
-//   {
-//     id: 5,
-//     creation_date: "30.08.2022",
-//     partner_name: "Фонд Сергія Притули",
-//   },
-//   {
-//     id: 6,
-//     creation_date: "18.07.2023",
-//     partner_name: "Cільпо",
-//   },
-//   {
-//     id: 7,
-//     creation_date: "05.04.2021",
-//     partner_name: "Multiplex",
-//   },
-// ];
-
 const AdminPartners = () => {
   const [searchWord, setSearchWord] = useState("");
   const [reversed, setReversed] = useState(false);
@@ -64,7 +26,6 @@ const AdminPartners = () => {
 
   useEffect(() => {
     if (!isLoading && Array.isArray(data) && data.length > 0) {
-      console.log(data);
       setValues(data);
     }
   }, [isLoading, data]);
@@ -95,7 +56,6 @@ const AdminPartners = () => {
   const reverseList = () => {
     setReversed(!reversed);
   };
-  console.log(data);
 
   const navigateToAdd = () => {
     navigate(`/admin/partners/add`);

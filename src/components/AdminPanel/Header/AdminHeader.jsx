@@ -46,7 +46,6 @@ const AdminHeader = ({
             tabIndex="0"
             onClick={buttonFunc}
             onKeyDown={buttonFunc}
-            // className={style.header__button}
           >
             Додати
           </AdminButton>

@@ -17,6 +17,7 @@ const ProjectCard = ({
 }) => {
   const { isMobile, isTablet } = useMedia();
   const [showMore, setShowMore] = useState(false);
+  console.log(url);
 
   const showMoreHandler = () => {
     setShowMore(!showMore);
