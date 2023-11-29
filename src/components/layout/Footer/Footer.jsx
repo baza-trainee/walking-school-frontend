@@ -9,6 +9,8 @@ import { SocialIconsList } from "./SocialIconsList/SocialIconsList";
 import { FooterLogo } from "./FooterLogo";
 import { FooterContacts } from "./FooterContacts/FooterContacts";
 import { useFooterContacts } from "../../../hooks/useFooterContacts";
+import privacyPolicy from "../../../files/privacy-policy.pdf";
+import termsOfService from "../../../files/terms-of-service.pdf";
 
 const footerLinks = [
   { href: "#projects", label: "Проєкти" },
@@ -49,10 +51,20 @@ export const Footer = () => {
               <FooterContacts email={email} phoneNumber={phoneNumber} />
             )}
             <div className={styles.policy}>
-              <a href="#privacy-policy" className={styles.policyItem}>
+              <a
+                href={privacyPolicy}
+                className={styles.policyItem}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Політика конфіденційності
               </a>
-              <a href="#terms-of-service" className={styles.policyItem}>
+              <a
+                href={termsOfService}
+                className={styles.policyItem}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Правила користування сайтом
               </a>
             </div>
