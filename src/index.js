@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
           if (isRefreshed) {
             queryClient.invalidateQueries();
           } else {
-            console.log("Не вдалось оновити токен");
+            window.location.href = "/login";
           }
         }
       },
