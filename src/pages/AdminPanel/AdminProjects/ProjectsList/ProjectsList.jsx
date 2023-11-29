@@ -16,7 +16,7 @@ export const ProjectsList = ({
 
   const filteredProjects = projects.filter((project) => {
     if (filter.value === "all") return true;
-    return project.status === filter.value;
+    return project.is_active === filter.value;
   });
 
   const onDelete = (projectId) => {
@@ -38,12 +38,13 @@ export const ProjectsList = ({
         <SubHeader withStateColumn={true} sortFunc={handleSortByDate} />
         <div className={styles.projectListContainer}>
           {filteredProjects.map((project) => {
-            const { project_name, status, creation_date } = project;
+            const { title, is_active, created } = project;
+            console.log(project);
             return (
               <ListItem
-                heading={project_name}
-                date={creation_date}
-                state={status}
+                heading={title}
+                date={created}
+                state={is_active ? "Активний" : "Неактивний"}
                 key={uuidv4()}
                 withStateColumn={true}
                 navigateToEdit={() => navigateToEdit(project.id)}

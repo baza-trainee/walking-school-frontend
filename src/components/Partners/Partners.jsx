@@ -1,15 +1,23 @@
-import React from "react";
-import { data } from "./data";
+import React, { useEffect, useState } from "react";
 import PartnersSlider from "./PartnersSlider/PartnersSlider";
 import style from "./Partner.module.css";
-// import { useQuery } from "@tanstack/react-query";
-// import { getPartners } from "../../API/partners";
+import { useQuery } from "@tanstack/react-query";
+import { getPartners } from "../../API/partners";
+import SpinnerLoader from "../Loader/SpinnerLoader";
 
 export const Partners = () => {
-  // const { data, loading, error } = useQuery({
-  //   queryKey: ["partners"],
-  //   queryFn: () => getPartners,
-  // });
+  const [partners, setPartners] = useState([]);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["partners"],
+    queryFn: () => getPartners(),
+  });
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      setPartners(data);
+    }
+  }, [isLoading, data]);
 
   return (
     <section className={style.partners} id="projects">
@@ -19,7 +27,7 @@ export const Partners = () => {
         </div>
       </div>
       <div className={style.carousel}>
-        <PartnersSlider partners={data} />
+        {isLoading ? <SpinnerLoader /> : <PartnersSlider partners={partners} />}
       </div>
     </section>
   );

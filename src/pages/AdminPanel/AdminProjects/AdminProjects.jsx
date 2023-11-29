@@ -18,27 +18,34 @@ export const AdminProjects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.project_name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredProjects = Array.isArray(projectsData)
+    ? projectsData.filter((project) =>
+        project.title?.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+    : [];
 
   const navigateToEdit = (projectId) => {
-    navigate(`/admin/projects/edit/${projectId}`);
+    const projectToEdit = projectsData?.find((p) => p.id === projectId);
+    navigate(`/admin/projects/edit/${projectId}`, { state: { projectToEdit } });
   };
 
   const handleSortByDate = () => {
-    const getComparableDate = (date) => date.split(".").reverse().join("");
+    const newSortDirection = sortDirection === "asc" ? "desc" : "asc";
+
+    setSortDirection(newSortDirection);
+
+    const getComparableDate = (date) => {
+      const [month, year] = date.split("-");
+      return parseInt(year + month, 10);
+    };
 
     setProjectsData((prev) =>
       [...prev].sort((a, b) => {
         const difference =
-          getComparableDate(a.creation_date) -
-          getComparableDate(b.creation_date);
-        return sortDirection === "asc" ? difference : -difference;
+          getComparableDate(a.created) - getComparableDate(b.created);
+        return newSortDirection === "asc" ? difference : -difference;
       }),
     );
-
-    setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
   const deleteOnConfirm = () => {

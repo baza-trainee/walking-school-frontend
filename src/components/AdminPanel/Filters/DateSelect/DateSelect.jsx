@@ -4,14 +4,7 @@ import datePicker from "../../../../assets/admin/dateSelect/datePicker.svg";
 import { useOutsideClick } from "../../../../hooks/useOutsideClick";
 import { InputArea } from "./InputArea";
 import { ButtonContainer } from "./ButtonContainer";
-
-export const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-  });
-};
+import { formatDate } from "../../../../heplers/formateDate";
 
 export const DateSelect = ({
   error = false,
@@ -25,6 +18,7 @@ export const DateSelect = ({
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [labelContent, setLabelContent] = useState(placeholder);
+
   const dropDownRef = useRef(null);
 
   useOutsideClick(dropDownRef, () => setIsExpanded(false));

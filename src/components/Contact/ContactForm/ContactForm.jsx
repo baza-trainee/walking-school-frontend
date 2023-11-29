@@ -10,20 +10,20 @@ export const ContactForm = () => {
   return (
     <form
       data-testid="form"
-      action=""
       className={styles.form}
       onSubmit={formik.handleSubmit}
+      acceptCharset="UTF-8"
     >
       <div className={styles.wrapper}>
         <CustomInput
           type="text"
           placeholder="Введіть своє ім’я"
           text="Ім’я"
-          name="username"
+          name="name"
           onChangeHandler={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.username}
-          error={formik.touched.username && formik.errors.username}
+          value={formik.values.name}
+          error={formik.touched.name && formik.errors.name}
           required
         />
         <CustomInput
@@ -49,14 +49,14 @@ export const ContactForm = () => {
           required
         />
         <CustomInput
-          type="text"
+          type="tel"
           placeholder="+XXX -"
           text="Телефон"
-          name="phoneNumber"
+          name="phone"
           onChangeHandler={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.phoneNumber}
-          error={formik.touched.phoneNumber && formik.errors.phoneNumber}
+          value={formik.values.phone}
+          error={formik.touched.phone && formik.errors.phone}
         />
       </div>
 
@@ -64,11 +64,11 @@ export const ContactForm = () => {
         type="textarea"
         placeholder="Введіть ваше повідомлення"
         text="Повідомлення"
-        name="message"
+        name="text"
         onChangeHandler={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.message}
-        error={formik.touched.message && formik.errors.message}
+        value={formik.values.text}
+        error={formik.touched.text && formik.errors.text}
       />
 
       <Button className={styles.button} variant="large" type="submit">
