@@ -49,6 +49,9 @@ const EditPartner = () => {
     if (!title || !image) {
       setUserError(true);
     }
+    if (title.length < 2 || title.length > 20) {
+      setUserError(true);
+    }
     const transformedData = {
       title: title,
       image: await blobUrlToBase64(image),
@@ -73,9 +76,10 @@ const EditPartner = () => {
 
   if (mutation.isError || userError) {
     let message =
-      "Не вдалось оновити дані партнера, спробуйте будь ласка пізніше";
+      `Не вдалось оновити дані партнера,(${mutation.error}) спробуйте будь ласка пізніше`;
     if (userError) {
-      message = "Неправильно заповнена форма, повторіть спробу";
+      message =
+        "Неправильно заповнена форма, повторіть спробу. (Довжина назви повинна бути від 2 до 20 символів, а зображення не може бути відсутнім)";
     }
     return <ErrorModal message={message} className={style.centered} />;
   }
