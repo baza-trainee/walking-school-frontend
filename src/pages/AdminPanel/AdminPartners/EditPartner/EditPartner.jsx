@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
@@ -17,18 +17,23 @@ const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const partner = { ...location.state.partnerToEdit };
+  let partner =  {...location.state.partnerToEdit}
 
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const [isLeaving, setIsLeaving] = useState(false);
 
   const handleDelete = () => {
     partner.image = "";
   };
 
+  useEffect(() => {
+    setInputValue(partner.title)
+  }, [])
+
   const inputChange = (event) => {
-    partner.title = event.target.value;
+    setInputValue(event.target.value)
   };
 
   const imageChange = (newPreview) => {
@@ -44,7 +49,7 @@ const EditPartner = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    const title = partner.title;
+    const title = inputValue;
     const image = partner.image;
     if (!title || !image) {
       setUserError(true);
@@ -117,7 +122,7 @@ const EditPartner = () => {
       <form onSubmit={submitFunc} className={style.page__content}>
         <div className={style.inputs}>
           <AdminInput
-            value={partner?.title}
+            value={inputValue}
             onChange={inputChange}
             variant="admin"
             placeholder="Назва"
