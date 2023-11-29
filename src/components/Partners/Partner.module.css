@@ -36,10 +36,10 @@
 }
 
 .image {
-  width: 214px;
+  width: 135px;
   height: 69px;
-  object-fit: fill;
-  aspect-ratio: 214 / 69;
+  object-fit: scale-down;
+  aspect-ratio: 135 / 69;
 }
 
 .swiperContainer {
