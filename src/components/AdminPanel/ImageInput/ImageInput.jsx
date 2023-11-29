@@ -40,7 +40,7 @@ const ImageInput = ({
     project: 367 / 288,
     facebook: 322 / 360,
     slide: 1440 / 676,
-    partner: 214 / 69,
+    partner: 135 / 30,
   };
 
   return (
