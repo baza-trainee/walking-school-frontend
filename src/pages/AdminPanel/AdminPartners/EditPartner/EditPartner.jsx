@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import AdminHeader from "../../../../components/AdminPanel/Header/AdminHeader";
@@ -17,18 +17,24 @@ const EditPartner = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const partner = { ...location.state.partnerToEdit };
+  let partner =  {...location.state.partnerToEdit}
 
   const [success, setSuccess] = useState(false);
   const [userError, setUserError] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const [isLeaving, setIsLeaving] = useState(false);
 
   const handleDelete = () => {
     partner.image = "";
   };
 
+  useEffect(() => {
+    setInputValue(partner.title)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const inputChange = (event) => {
-    partner.title = event.target.value;
+    setInputValue(event.target.value)
   };
 
   const imageChange = (newPreview) => {
@@ -44,9 +50,12 @@ const EditPartner = () => {
 
   const submitFunc = async (event) => {
     event.preventDefault();
-    const title = partner.title;
+    const title = inputValue;
     const image = partner.image;
     if (!title || !image) {
+      setUserError(true);
+    }
+    if (title.length < 2 || title.length > 20) {
       setUserError(true);
     }
     const transformedData = {
@@ -73,9 +82,10 @@ const EditPartner = () => {
 
   if (mutation.isError || userError) {
     let message =
-      "Не вдалось оновити дані партнера, спробуйте будь ласка пізніше";
+      `Не вдалось оновити дані партнера,(${mutation.error}) спробуйте будь ласка пізніше`;
     if (userError) {
-      message = "Неправильно заповнена форма, повторіть спробу";
+      message =
+        "Неправильно заповнена форма, повторіть спробу. (Довжина назви повинна бути від 2 до 20 символів, а зображення не може бути відсутнім)";
     }
     return <ErrorModal message={message} className={style.centered} />;
   }
@@ -113,7 +123,7 @@ const EditPartner = () => {
       <form onSubmit={submitFunc} className={style.page__content}>
         <div className={style.inputs}>
           <AdminInput
-            value={partner?.title}
+            value={inputValue}
             onChange={inputChange}
             variant="admin"
             placeholder="Назва"
