@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ImageCropper from "./ImageCropper";
 import FileDrop from "./FileDrop";
+import ImageCropper from "./ImageCropper";
 
 /**
  * @description component goal is uploading the image, it returns an image in blob format
@@ -40,7 +40,7 @@ const ImageInput = ({
     project: 367 / 288,
     facebook: 322 / 360,
     slide: 1440 / 676,
-    partner: 135 / 30,
+    partner: 493 / 350,
   };
 
   return (
