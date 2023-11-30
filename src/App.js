@@ -24,7 +24,6 @@ import EditPartner from "./pages/AdminPanel/AdminPartners/EditPartner/EditPartne
 import AdminFacebook from "./pages/AdminPanel/AdminFacebook/AdminFacebook";
 import MainHero from "./pages/AdminPanel/HeroAdmin/MainHero";
 import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
-import HeroActions from "./pages/AdminPanel/HeroAdmin/HeroActions";
 import ProtectedRoute from "./pages/AdminPanel/ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter(
