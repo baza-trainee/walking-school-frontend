@@ -4,22 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { refreshToken } from "./API/authAPI";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      onError: async (error) => {
-        if (error.response?.status === 401) {
-          const isRefreshed = await refreshToken();
-          if (isRefreshed) {
-            queryClient.invalidateQueries();
-          } else {
-            window.location.href = "/login";
-          }
-        }
-      },
     },
   },
 });
