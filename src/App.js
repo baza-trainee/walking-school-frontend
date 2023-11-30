@@ -32,7 +32,7 @@ const router = createBrowserRouter(
         <Route index element={<Main />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route element={<ProtectedRoute />}>
+      <Route element={<ProtectedRoute />} />
       <Route path="/admin" element={<MainAdmin />}>
         <Route path="hero" element={<MainHero />} />
         <Route path="hero/add" element={<HeroActions />} />
