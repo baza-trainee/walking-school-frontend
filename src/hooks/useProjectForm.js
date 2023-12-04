@@ -9,72 +9,66 @@ import { dateChecker } from "../heplers/dateChecker";
 export const useProjectForm = (projectId, project) => {
   const [localError, setLocalError] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
-  const { title, link, category, description, image, period, age_category } =
-    project ? project : {};
+
+  const handleSuccess = () => {
+    setShowSuccess(true);
+    setLocalError(null);
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
+
+  const handleError = (error) => {
+    setLocalError(error);
+    setTimeout(() => setLocalError(null), 2500);
+  };
 
   const mutation = useMutation(projectId ? updateProject : createProject, {
-    onSuccess: () => {
-      setShowSuccess(true);
-      setLocalError(null);
-
-      const timer = setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    },
-    onError: (error) => {
-      setLocalError(error);
-      setTimeout(() => {
-        setLocalError(null);
-      }, 2500);
-    },
+    onSuccess: handleSuccess,
+    onError: (error) => handleError(error),
   });
+
+  const processImage = async (image) => {
+    if (image && typeof image === "string" && image.startsWith("blob:")) {
+      return await blobUrlToBase64(image);
+    }
+    return image;
+  };
+
+  const prepareSubmissionValues = async (values) => {
+    const image = await processImage(values.image);
+    const [startDate, endDate] = values.period
+      ? values.period.split(" - ")
+      : [null, null];
+    const valuesToSend = { ...values, period: [startDate, endDate], image };
+
+    if (project) {
+      Object.assign(valuesToSend, {
+        id: projectId,
+        created: project.created,
+        is_active: dateChecker(values.period),
+        last_modified: new Date().toISOString().slice(0, 10),
+      });
+    }
+
+    return valuesToSend;
+  };
 
   const formik = useFormik({
     initialValues: {
-      title: title || "",
-      link: link || "",
-      description: description || "",
-      period: period?.join(" - ") || null,
-      age_category: age_category || null,
-      category: category || null,
-      image: image || null,
+      title: project?.title || "",
+      link: project?.link || "",
+      description: project?.description || "",
+      period: project?.period?.join(" - ") || null,
+      age_category: project?.age_category || null,
+      category: project?.category || null,
+      image: project?.image || null,
     },
     validationSchema: projectsAdminSchema,
     onSubmit: async (values) => {
       try {
-        if (
-          values.image &&
-          typeof values.image === "string" &&
-          values.image.startsWith("blob:")
-        ) {
-          values.image = await blobUrlToBase64(values.image);
-        }
-
-        const [startDate, endDate] = values.period
-          ? values.period.split(" - ")
-          : [null, null];
-        const valuesToSend = { ...values, period: [startDate, endDate] };
-
-        if (project) {
-          valuesToSend.id = projectId;
-          valuesToSend.created = project.created;
-          valuesToSend.is_active = dateChecker(formik.values.period);
-
-          const currentDate = new Date();
-          const currentMonth = String(currentDate.getMonth() + 1).padStart(
-            2,
-            "0",
-          );
-          const currentYear = currentDate.getFullYear();
-
-          valuesToSend.last_modified = `${currentMonth}-${currentYear}`;
-        }
-
+        const valuesToSend = await prepareSubmissionValues(values);
         mutation.mutate(valuesToSend);
       } catch (error) {
-        setLocalError(error);
+        handleError(error);
       }
     },
   });
