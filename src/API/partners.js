@@ -1,10 +1,7 @@
 import { $host } from "./index";
 
-export const getPartners = async (offset, limit) => {
-  const response = await $host.get("partner", {
-    offset,
-    limit,
-  });
+export const getPartners = async () => {
+  const response = await $host.get("partner?limit=100");
   return response.data;
 };
 

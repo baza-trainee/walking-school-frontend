@@ -42,13 +42,16 @@ const AddPartner = () => {
     if (!imageValue || !inputValue) {
       setUserError(true);
     }
+    if (inputValue.length < 2 || inputValue.length > 20) {
+      setUserError(true);
+    }
     const transformedData = {
       title: inputValue,
       image: await blobUrlToBase64(imageValue),
     };
     try {
       mutation.mutateAsync(transformedData);
-      setSuccess(true)
+      setSuccess(true);
     } catch (error) {
       console.log(error);
     }
@@ -63,9 +66,11 @@ const AddPartner = () => {
   }
 
   if (mutation.isError || userError) {
-    let message = "Не вдалось додати партнера, спробуйте будь ласка пізніше";
+    let message =
+      `Не вдалось оновити дані партнера,(${mutation.error}) спробуйте будь ласка пізніше`;
     if (userError) {
-      message = "Неправильно заповнена форма, повторіть спробу";
+      message =
+        "Неправильно заповнена форма, повторіть спробу. (Довжина назви повинна бути від 2 до 20 символів, а зображення не може бути відсутнім)";
     }
     return <ErrorModal message={message} className={style.centered} />;
   }
